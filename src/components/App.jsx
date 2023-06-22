@@ -1,5 +1,5 @@
 import { Routes, Route, Link } from 'react-router-dom';
-import { LoginOrRegister } from './auth';
+import { Auth } from './pages/auth';
 
 export const App = () => {
   return (
@@ -14,7 +14,7 @@ export const App = () => {
             </div>
           }
         />
-        <Route path="/auth/:id" element={<LoginOrRegister></LoginOrRegister>} />
+        <Route path="/auth/:id" element={<Auth></Auth>} />
 
         <Route path="/home" element={<div>home</div>} />
         <Route path="/home/:boardName" element={<div>home:id</div>} />
