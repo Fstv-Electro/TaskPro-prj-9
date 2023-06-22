@@ -1,18 +1,18 @@
-import { Container, Text, Span, Button, Help } from './NeedHelp.styled';
 
-const NeedHelp = () => {
-  return (
-    <Container>
-      <Text>
-        If you need help with <Span>TaskPro</Span>, check out our support
-        resources or reach out to our customer support team.
-      </Text>
-      <Button>
-        <Help />
-        Need help?
-      </Button>
-    </Container>
-  );
-};
+import { Container, Text, Span, Button, Image } from "./needHelp.styled";
+import background from "../../../images/help.png";
 
-export default NeedHelp;
+export const NeedHelp = () => {
+    return (
+        <Container>
+          <Image src={background} alt="Logo" />
+            <Text>
+            If you need help with <Span>TaskPro</Span>, 
+            check out our support resources or reach out to our customer support team.
+            </Text>
+            <Button>
+                Need help?
+            </Button>
+        </Container>
+    )
+}

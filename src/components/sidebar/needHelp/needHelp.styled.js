@@ -2,19 +2,24 @@ import styled from '@emotion/styled';
 import { FiHelpCircle } from 'react-icons/fi';
 
 export const Container = styled.div`
-  width: 212px;
-  height: 272px;
-  padding: 20px;
-  margin-bottom: 20px;
-  border-radius: 8px;
-  background: #1f1f1f;
+    max-width: 197px;
+    padding: 20px;
+    margin-bottom: 20px;
+    border-radius: 8px;
+    background: #1F1F1F;
+    @media (min-width: 768px) {
+        max-width: 212px;
+      }
 `;
 
 export const Text = styled.p`
-  color: #fff;
-  font-size: 14px;
-  font-family: 'Poppins';
-  line-height: 20px;
+    color: #FFF;
+    font-size: 12px;
+    font-family: "Poppins";
+    line-height: 20px;
+    @media (min-width: 768px) {
+        font-size: 14px;
+      }
 `;
 
 export const Span = styled.span`
@@ -22,20 +27,17 @@ export const Span = styled.span`
 `;
 
 export const Button = styled.button`
-  display: flex;
-  align-items: center;
-  font-size: 12px;
-  font-weight: 500;
-  border: none;
-  color: #fff;
-  background: #1f1f1f;
+    font-size: 12px;
+    font-weight: 500;
+    border: none;
+    color: #FFF;
+    background: #1F1F1F;
+    @media (min-width: 768px) {
+        font-size: 14px;
+      }
 `;
-
-export const Help = styled(FiHelpCircle)`
-  width: 16px;
-  height: 16px;
-  /* position: absolute; */
-  right: 7px;
-  top: 9px;
-  margin-right: 8px;
-`;
+export const Image = styled.img`
+    width: 54px;
+    height: 78px;
+    margin-bottom: 14px;
+`
