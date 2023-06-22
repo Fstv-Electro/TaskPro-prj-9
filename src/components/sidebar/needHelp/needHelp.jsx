@@ -1,5 +1,5 @@
 import { Container, Text, Span, Button, Image } from "./needHelp.styled";
-import background from "../../../images/2.png";
+import background from "../../../images/help.png";
 
 export const NeedHelp = () => {
     return (
