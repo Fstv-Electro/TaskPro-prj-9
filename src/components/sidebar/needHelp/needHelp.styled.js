@@ -1,5 +1,4 @@
 import styled from '@emotion/styled';
-import { FiHelpCircle } from 'react-icons/fi';
 
 export const Container = styled.div`
     max-width: 197px;
@@ -27,8 +26,11 @@ export const Span = styled.span`
 `;
 
 export const Button = styled.button`
+    display: flex;
+    align-items: center;
     font-size: 12px;
     font-weight: 500;
+    padding: 0;
     border: none;
     color: #FFF;
     background: #1F1F1F;
@@ -40,4 +42,7 @@ export const Image = styled.img`
     width: 54px;
     height: 78px;
     margin-bottom: 14px;
-`
+`;
+export const TextButton = styled.span`
+  margin-left: 8px;
+`;
