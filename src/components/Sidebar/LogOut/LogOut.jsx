@@ -1,19 +1,18 @@
-import {
-  Container,
-  WrapperLogOut,
-  LogOutButton,
-  LogOutIcon,
-} from './LogOut.styled';
+import { LogOutButton, LogOutText } from './LogOut.styled';
+import sprite from '../../../images/symbol-defs.svg';
 
-const LogOut = () => {
+export const LogOut = () => {
   return (
-    <Container>
-      <WrapperLogOut>
-        <LogOutIcon />
-        <LogOutButton>Log out </LogOutButton>
-      </WrapperLogOut>
-    </Container>
+    <LogOutButton onClick={() => {}}>
+      <svg
+        aria-label="question with round"
+        width="20px"
+        height="20px"
+        fill="inherit"
+      >
+        <use href={sprite + '#icon-login'}></use>
+      </svg>
+      <LogOutText>Log out </LogOutText>
+    </LogOutButton>
   );
 };
-
-export default LogOut;
