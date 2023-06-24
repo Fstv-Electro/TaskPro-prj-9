@@ -352,9 +352,7 @@
 </symbol>
 <symbol id="icon-x-close" viewBox="0 0 32 32">
 <path
-        fill="none"
-        stroke="#fff"
-        style="stroke: var(--color1, #fff)"
+        fill="current"
         stroke-linejoin="round"
         stroke-linecap="round"
         stroke-miterlimit="4"
@@ -362,9 +360,7 @@
         d="M24 8l-16 16"
       />
 <path
-        fill="none"
-        stroke="#fff"
-        style="stroke: var(--color1, #fff)"
+        fill="current"
         stroke-linejoin="round"
         stroke-linecap="round"
         stroke-miterlimit="4"

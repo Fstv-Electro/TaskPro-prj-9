@@ -9,7 +9,6 @@ import {
 export const FormField = styled.label`
   display: flex;
   flex-direction: column;
-  gap: 5px;
   text-align: start;
   font-size: 20px;
 `;
@@ -19,8 +18,6 @@ export const Form = styled(FormicForm)`
   flex-direction: column;
   gap: 24px;
   width: 302px;
-  padding: 24px;
-  background-color: #1f1f1f;
 `;
 
 export const Title = styled.label`
@@ -37,7 +34,8 @@ export const Field = styled(FormicField)`
   height: 47px;
   padding-left: 18px;
   padding-right: 18px;
-  background-color: transparent;
+  background-color: #1f1f1f;
+  box-shadow: 0px 4px 16px 0px rgba(22, 22, 22, 0.08);
 
   border: 1px solid rgba(190, 219, 176, 0.5);
   border-color: rgba(190, 219, 176, 0.5);
@@ -49,6 +47,7 @@ export const Field = styled(FormicField)`
   letter-spacing: -0.28px;
   &:focus {
     outline-color: #bedbb0;
+    box-shadow: 0px 4px 16px 0px rgba(22, 22, 22, 0.08);
   }
 `;
 
@@ -66,8 +65,15 @@ export const SubmitBtn = styled.button`
   font-weight: 500;
   letter-spacing: -0.28px;
   cursor: pointer;
+  transform: scale(1);
+  transition: transform 550ms cubic-bezier(0.4, 0, 0.2, 1);
 
   &:hover {
+    transform: scale(0.97);
+  }
+
+  &:focus {
+    transform: scale(1.03);
   }
 `;
 

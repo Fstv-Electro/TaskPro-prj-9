@@ -1,7 +1,8 @@
 import React from 'react';
 import { Formik } from 'formik';
 import sprite from '../../../images/symbol-defs.svg';
-// import { Modal } from './Modal';
+import { Modal } from '../../modal/modal';
+import { ButtonClose } from 'components/modalBtnClose/ButtonClose';
 import {
   Form,
   FormField,
@@ -57,7 +58,8 @@ export const AddColumnForm = ({ onClose }) => {
   };
 
   return (
-    <>
+    <Modal onClose={onClose}>
+      <ButtonClose onClose={onClose}/>
       <Formik
         initialValues={initialValues}
         onSubmit={handleSubmit}
@@ -77,6 +79,6 @@ export const AddColumnForm = ({ onClose }) => {
           </SubmitBtn>
         </Form>
       </Formik>
-    </>
+    </Modal>
   );
 };

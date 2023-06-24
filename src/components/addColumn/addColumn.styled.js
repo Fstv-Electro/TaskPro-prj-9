@@ -14,6 +14,16 @@ export const Button = styled.button`
   font-weight: 500;
   letter-spacing: -0.28px;
   cursor: pointer;
+  transform: scale(1);
+  transition: transform 550ms cubic-bezier(0.4, 0, 0.2, 1);
+
+  &:hover {
+    transform: scale(0.97);
+  }
+
+  &:focus {
+    transform: scale(1.03);
+  }
 `;
 
 export const IconPlus = styled.svg`
