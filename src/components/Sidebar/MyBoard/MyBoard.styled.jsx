@@ -1,32 +1,35 @@
 import styled from '@emotion/styled';
-import { AiOutlineAppstore } from 'react-icons/ai';
-import { FiEdit2, FiHelpCircle } from 'react-icons/fi';
-import { RiDeleteBin7Line } from 'react-icons/ri';
-
-export const Container = styled.div`
-  /* display: inline-flex; */
-  width: 260px;
-  align-items: center;
-  /* position: relative;
-  padding: 24px 24px 24px 24px; */
-  color: #fff;
-  background: #121212;
-`;
 
 export const WrapperProject = styled.div`
   display: flex;
   align-items: center;
   justify-content: space-between;
-  border-right: 1px solid #bedbb0;
+  height: 61px;
+  width: 256px;
+  /* border-right: 4px solid #bedbb0; */
   background-color: #1f1f1f;
-  /* border-radius: 4px 0px 0px 4px;
-  background: #BEDBB0; */
   margin-bottom: 24px;
+  color: #fff;
+  margin-left: -24px;
+  &:after {
+    content: '';
+    display: flex;
+    position: absolute;
+    right: 0;
+    border-radius: 4px 0px 0px 4px;
+    background: #bedbb0;
+    width: 4px;
+    height: 61px;
+  }
 `;
 
-export const WrapperProjectOffice = styled.div`
+export const WrapperProjectOffice = styled.button`
   display: flex;
   align-items: center;
+  color: #fff;
+  border: none;
+  background: none;
+  cursor: pointer;
 `;
 
 export const Project = styled.p`
@@ -34,33 +37,7 @@ export const Project = styled.p`
   font-family: Poppins;
   font-weight: 500;
   letter-spacing: -0.28px;
-`;
-
-export const Appstore = styled(AiOutlineAppstore)`
-  width: 16px;
-  height: 16px;
-  /* position: absolute; */
-  right: 7px;
-  top: 9px;
-  margin-right: 8px;
-`;
-
-export const Edit = styled(FiEdit2)`
-  width: 16px;
-  height: 16px;
-  /* position: absolute; */
-  right: 7px;
-  top: 9px;
-  margin-right: 8px;
-`;
-
-export const Delete = styled(RiDeleteBin7Line)`
-  width: 16px;
-  height: 16px;
-  /* position: absolute; */
-  right: 7px;
-  top: 9px;
-  margin-right: 8px;
+  margin-left: 8px;
 `;
 
 export const WrapperProjectIcons = styled.div`

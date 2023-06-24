@@ -1,5 +1,6 @@
 import { Routes, Route, Link } from 'react-router-dom';
 import { Auth } from './pages/auth';
+// import { Sidebar } from './Sidebar/Sidebar';
 
 export const App = () => {
   return (

@@ -1,0 +1,129 @@
+.os-scrollbar{
+    box-sizing: border-box;
+    --os-track-border-radius: 12px;
+    --os-handle-border-radius: 12px;
+    padding: 0;
+}
+.os-scrollbar-vertical {
+    width: 8px;
+}
+.os-scrollbar-vertical > .os-scrollbar-track > .os-scrollbar-handle {
+    min-height: 142px;
+    max-height: 142px;
+}
+
+.os-scrollbar-horizontal {
+    height: 12px;
+}
+.os-scrollbar-horizontal > .os-scrollbar-track > .os-scrollbar-handle {
+    min-width: 179px;
+    max-width: 637px;
+}
+
+
+
+/* dark */
+.Dark .os-scrollbar-vertical .os-scrollbar-track,
+.Dark .os-scrollbar-vertical .os-scrollbar-track:hover,
+.Dark .os-scrollbar-vertical .os-scrollbar-track:active {
+    background: rgba(255, 255, 255, 0.1);
+}
+
+.Dark .os-scrollbar-vertical > .os-scrollbar-track > .os-scrollbar-handle {
+    background: rgba(18, 18, 18, 1);
+}
+.Dark .os-scrollbar-vertical > .os-scrollbar-track > .os-scrollbar-handle:hover {
+    background: rgba(18, 18, 18, 0.8);
+}
+.Dark .os-scrollbar-vertical > .os-scrollbar-track > .os-scrollbar-handle:active {
+    background: rgba(18, 18, 18, 0.6);
+}
+
+.Dark .os-scrollbar-horizontal .os-scrollbar-track,
+.Dark .os-scrollbar-horizontal .os-scrollbar-track:hover,
+.Dark .os-scrollbar-horizontal .os-scrollbar-track:active {
+    background: rgba(22, 22, 22, 1);
+}
+
+
+.Dark .os-scrollbar-horizontal > .os-scrollbar-track > .os-scrollbar-handle {
+    background: rgba(255, 255, 255, 0.2);
+}
+.Dark .os-scrollbar-horizontal > .os-scrollbar-track > .os-scrollbar-handle:hover {
+    background: rgba(255, 255, 255, 0.4);
+}
+.Dark .os-scrollbar-horizontal > .os-scrollbar-track > .os-scrollbar-handle:active {
+    background: rgba(255, 255, 255, 0.6);
+}
+
+/* Light */
+
+.Light .os-scrollbar-vertical .os-scrollbar-track,
+.Light .os-scrollbar-vertical .os-scrollbar-track:hover,
+.Light .os-scrollbar-vertical .os-scrollbar-track:active {
+    background: rgba(232, 232, 232, 1);
+}
+
+.Light .os-scrollbar-vertical > .os-scrollbar-track > .os-scrollbar-handle {
+    background: rgba(22, 22, 22, 0.1);
+}
+.Light .os-scrollbar-vertical > .os-scrollbar-track > .os-scrollbar-handle:hover {
+    background: rgba(22, 22, 22, 0.3);
+}
+.Light .os-scrollbar-vertical > .os-scrollbar-track > .os-scrollbar-handle:active {
+    background: rgba(22, 22, 22, 0.5);
+}
+
+.Light .os-scrollbar-horizontal .os-scrollbar-track,
+.Light .os-scrollbar-horizontal .os-scrollbar-track:hover,
+.Light .os-scrollbar-horizontal .os-scrollbar-track:active {
+    background: rgba(255, 255, 255, 1);
+}
+
+
+.Light .os-scrollbar-horizontal > .os-scrollbar-track > .os-scrollbar-handle {
+    background: rgba(232, 232, 232, 1);
+}
+.Light .os-scrollbar-horizontal > .os-scrollbar-track > .os-scrollbar-handle:hover {
+    background: rgba(232, 232, 232, 0.8);
+}
+.Light .os-scrollbar-horizontal > .os-scrollbar-track > .os-scrollbar-handle:active {
+    background: rgba(22, 22, 22, 0.3);
+}
+
+
+/* Violet */
+
+.Violet .os-scrollbar-vertical .os-scrollbar-track,
+.Violet .os-scrollbar-vertical .os-scrollbar-track:hover,
+.Violet .os-scrollbar-vertical .os-scrollbar-track:active {
+    background: rgba(255, 255, 255, 1);
+}
+
+.Violet .os-scrollbar-vertical > .os-scrollbar-track > .os-scrollbar-handle {
+    background: rgba(184, 188, 253, 1)
+}
+.Violet .os-scrollbar-vertical > .os-scrollbar-track > .os-scrollbar-handle:hover {
+    background: rgba(184, 188, 253, 0.8)
+}
+.Violet .os-scrollbar-vertical > .os-scrollbar-track > .os-scrollbar-handle:active {
+    background: rgba(184, 188, 253, 0.6)
+}
+
+.Violet .os-scrollbar-horizontal .os-scrollbar-track,
+.Violet .os-scrollbar-horizontal .os-scrollbar-track:hover,
+.Violet .os-scrollbar-horizontal .os-scrollbar-track:active {
+    background: rgba(255, 255, 255, 1);
+}
+
+
+.Violet .os-scrollbar-horizontal > .os-scrollbar-track > .os-scrollbar-handle {
+    background: rgba(184, 188, 253, 1)
+}
+.Violet .os-scrollbar-horizontal > .os-scrollbar-track > .os-scrollbar-handle:hover {
+    background: rgba(184, 188, 253, 0.8)
+}
+.Violet .os-scrollbar-horizontal > .os-scrollbar-track > .os-scrollbar-handle:active {
+    background: rgba(184, 188, 253, 0.6)
+}
+
