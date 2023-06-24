@@ -1,10 +1,13 @@
 import styled from '@emotion/styled';
+import { NavLink } from 'react-router-dom';
 
 export const Container = styled.section`
   max-width: 375px;
   min-height: 100%;
   padding-left: 20px;
   padding-right: 20px;
+
+  height: 1000px;
 
   /* border: solid 1px red; */
 
@@ -73,13 +76,14 @@ export const Text = styled.p`
   }
 `;
 
-export const Button = styled.button`
+export const ButtonRegistered = styled(NavLink)`
   text-align: center;
   font-size: 14px;
   font-family: 'Poppins';
   font-weight: 500;
   letter-spacing: 1.28;
   color: white;
+  text-decoration: none;
   margin-bottom: 14px;
 
   width: 335px;
@@ -89,12 +93,14 @@ export const Button = styled.button`
   background: #161616;
 `;
 
-export const ButtonLogIn = styled.button`
+export const ButtonLogIn = styled(NavLink)`
   text-align: center;
   font-size: 14px;
   font-family: 'Poppins';
   font-weight: 500;
   letter-spacing: 1.28;
+  text-decoration: none;
+  color: black;
 
   background: transparent;
   border: none;

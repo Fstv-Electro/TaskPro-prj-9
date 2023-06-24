@@ -1,11 +1,14 @@
-import { Routes, Route, Link } from 'react-router-dom';
+import { Routes, Route } from 'react-router-dom';
 import { Auth } from './pages/auth';
+import { WelcomePage } from '../views/welcomePage/welcomePage';
+import RegistrationView from 'views/RegistrationView/RegistrationView';
+import LoginView from 'views/LoginView/LiginView';
 
 export const App = () => {
   return (
     <>
       <Routes>
-        <Route
+        {/* <Route
           path="/welcome"
           element={
             <div>
@@ -13,7 +16,12 @@ export const App = () => {
               <Link to="/auth/register"> register</Link>
             </div>
           }
-        />
+        /> */}
+
+        <Route path="/" element={<WelcomePage />} />
+        <Route path="/register" element={<RegistrationView />} />
+        <Route path="/login" element={<LoginView />} />
+
         <Route path="/auth/:id" element={<Auth></Auth>} />
 
         <Route path="/home" element={<div>home</div>} />
@@ -22,8 +30,8 @@ export const App = () => {
           path="*"
           element={
             <div>
-              welcome page <Link to="/auth/login"> login</Link>
-              <Link to="/auth/register"> register</Link>
+              {/* welcome page <Link to="/auth/login"> login</Link>
+              <Link to="/auth/register"> register</Link> */}
             </div>
           }
         />
@@ -31,14 +39,9 @@ export const App = () => {
       <div
         style={{
           height: '100vh',
-          display: 'flex',
-          justifyContent: 'center',
-          alignItems: 'center',
-          fontSize: 40,
-          color: '#010101',
         }}
       >
-        React task PRO
+        {/* React task PRO */}
       </div>
     </>
   );
