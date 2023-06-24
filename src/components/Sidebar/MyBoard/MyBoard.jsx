@@ -1,34 +1,33 @@
 import {
-  Container,
   WrapperProject,
   WrapperProjectOffice,
   Project,
-  Appstore,
-  Edit,
-  Delete,
   WrapperProjectIcons,
   IconButton,
 } from './MyBoard.styled';
+import sprite from '../../../images/symbol-defs.svg';
 
-const MyBoard = () => {
+export const MyBoard = () => {
   return (
-    <Container>
-      <WrapperProject>
-        <WrapperProjectOffice>
-          <Appstore />
-          <Project>Project office</Project>
-        </WrapperProjectOffice>
-        <WrapperProjectIcons>
-          <IconButton>
-            <Edit />
-          </IconButton>
-          <IconButton>
-            <Delete />
-          </IconButton>
-        </WrapperProjectIcons>
-      </WrapperProject>
-    </Container>
+    <WrapperProject>
+      <WrapperProjectOffice onClick={() => {}}>
+        <svg aria-label="question with round" width="18px" height="16px">
+          <use href={sprite + '#icon-Project'}></use>
+        </svg>
+        <Project>Project office</Project>
+      </WrapperProjectOffice>
+      <WrapperProjectIcons>
+        <IconButton onClick={() => {}}>
+          <svg aria-label="question with round" width="16px" height="16px">
+            <use href={sprite + '#icon-pencil-01'}></use>
+          </svg>
+        </IconButton>
+        <IconButton onClick={() => {}}>
+          <svg aria-label="question with round" width="16px" height="16px">
+            <use href={sprite + '#icon-trash-04'}></use>
+          </svg>
+        </IconButton>
+      </WrapperProjectIcons>
+    </WrapperProject>
   );
 };
-
-export default MyBoard;
