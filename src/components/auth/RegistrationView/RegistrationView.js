@@ -9,10 +9,14 @@ import {
   Field,
   FormFields,
   Button,
+  FormIcon,
+  Icon,
+  Eye,
 } from './RegistrationView.styled';
 import { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { register } from 'redux/auth/operations';
+import Sprite from '../../../images/symbol-defs.svg';
 // import * as Yup from 'yup';
 
 // const NewUserSchema = Yup.object().shape({
@@ -96,15 +100,22 @@ export default function RegistrationView() {
                 onChange={handleChange}
                 placeholder="Enter your email"
               />
-              <Field
-                type="text"
-                name="password"
-                value={password}
-                onChange={handleChange}
-                placeholder="Create a password"
-              />
+              <FormIcon>
+                <Field
+                  type="text"
+                  name="password"
+                  value={password}
+                  onChange={handleChange}
+                  placeholder="Create a password"
+                />
+                <Eye>
+                  <Icon aria-label="Logo">
+                    <use href={Sprite + '#icon-eye'}></use>
+                  </Icon>
+                </Eye>
+              </FormIcon>
             </FormFields>
-            <Button type="submit">Register Now</Button>
+            <Button type="submit">Register Now </Button>
           </Form>
         </Formik>
       </UserForm>

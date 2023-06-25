@@ -1,8 +1,8 @@
 import { Routes, Route } from 'react-router-dom';
 import { Auth } from './pages/auth';
-import { WelcomePage } from '../views/welcomePage/welcomePage';
-import RegistrationView from 'views/RegistrationView/RegistrationView';
-import LoginView from 'views/LoginView/LiginView';
+import { WelcomePage } from './auth/welcomePage/welcomePage';
+import RegistrationView from 'components/auth/RegistrationView/RegistrationView';
+import LoginView from 'components/auth/LoginView/LoginView';
 
 export const App = () => {
   return (

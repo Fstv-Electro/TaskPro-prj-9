@@ -127,3 +127,24 @@ export const Button = styled.button`
     height: 49px;
   }
 `;
+
+export const FormIcon = styled.span`
+  position: relative;
+  display: block;
+`;
+
+export const Eye = styled.button`
+  position: absolute;
+  top: 50%;
+  right: 12px;
+  transform: translateY(-50%);
+
+  background-color: transparent;
+  border: none;
+  opacity: 0.4000000059604645;
+`;
+
+export const Icon = styled.svg`
+  width: 18px;
+  height: 18px;
+`;

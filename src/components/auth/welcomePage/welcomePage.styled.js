@@ -48,6 +48,7 @@ export const TitleContainer = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
+  gap: 14px;
   margin: 0;
   margin-bottom: 24px;
 `;
@@ -55,10 +56,20 @@ export const TitleContainer = styled.div`
 export const Title = styled.h1`
   color: #161616;
   font-size: 28px;
-  font-family: Poppins;
+  font-family: 'Poppins';
   font-weight: 600;
   letter-spacing: -1.12px;
   margin: 0;
+`;
+
+export const Icon = styled.svg`
+  width: 40px;
+  height: 40px;
+
+  @media screen and (min-width: 768px) {
+    width: 48px;
+    height: 48px;
+  }
 `;
 
 export const Text = styled.p`

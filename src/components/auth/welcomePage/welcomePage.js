@@ -6,15 +6,19 @@ import {
   Text,
   ButtonRegistered,
   ButtonLogIn,
+  Icon,
 } from './welcomePage.styled';
-import logo from '../../images/user-desktop1x.png';
+import logo from '../../../images/user-desktop1x.png';
+import Sprite from '../../../images/symbol-defs.svg';
 
 export const WelcomePage = () => {
   return (
     <Container>
       <Images src={logo} alt="Boy with Macbook" />
       <TitleContainer>
-        <img src="" alt="Logo" />
+        <Icon aria-label="Logo">
+          <use href={Sprite + '#icon-icon'}></use>
+        </Icon>
         <Title>Task Pro</Title>
       </TitleContainer>
       <Text>

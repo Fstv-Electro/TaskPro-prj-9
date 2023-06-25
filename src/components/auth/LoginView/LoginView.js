@@ -9,10 +9,14 @@ import {
   Field,
   FormFields,
   Button,
-} from './LiginView.styled';
+  FormIcon,
+  Icon,
+  Eye,
+} from './LoginView.styled';
 import { useDispatch } from 'react-redux';
 import { useState } from 'react';
 import { logIn } from 'redux/auth/operations';
+import Sprite from '../../../images/symbol-defs.svg';
 
 export default function LoginView() {
   const dispatch = useDispatch();
@@ -57,13 +61,20 @@ export default function LoginView() {
                 onChange={handleChange}
                 placeholder="Enter your email"
               />
-              <Field
-                type="text"
-                name="password"
-                value={password}
-                onChange={handleChange}
-                placeholder="Confirm a password"
-              />
+              <FormIcon>
+                <Field
+                  type="text"
+                  name="password"
+                  value={password}
+                  onChange={handleChange}
+                  placeholder="Confirm a password"
+                />
+                <Eye>
+                  <Icon aria-label="Logo">
+                    <use href={Sprite + '#icon-eye'}></use>
+                  </Icon>
+                </Eye>
+              </FormIcon>
             </FormFields>
             <Button type="submit">Log In Now</Button>
           </Form>
