@@ -13,8 +13,10 @@ export const Backdrop = styled.div`
   z-index: 1200;
 `;
 export const ModalWindow = styled.div`
-    min-width: 335px;
-    padding: 24px 24px 0 24px;
+    /* min-width: 335px; */ //модалка має огортати контент 
+    /* padding: 24px 24px 0 24px; */ //пропущен відступ знизу
+    position: relative;
+    padding: 24px 24px 24px 24px;
     border-radius: 8px;
     border: 1px solid rgba(190, 219, 176, 0.50);
     background: #151515;
