@@ -17,6 +17,7 @@ import { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { register } from 'redux/auth/operations';
 import Sprite from '../../../images/symbol-defs.svg';
+
 // import * as Yup from 'yup';
 
 // const NewUserSchema = Yup.object().shape({
