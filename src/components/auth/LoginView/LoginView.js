@@ -1,4 +1,4 @@
-import { Formik } from 'formik';
+import { Formik, ErrorMessage } from 'formik';
 import {
   Container,
   UserForm,
@@ -17,28 +17,46 @@ import { useDispatch } from 'react-redux';
 import { useState } from 'react';
 import { logIn } from 'redux/auth/operations';
 import Sprite from '../../../images/symbol-defs.svg';
+import * as Yup from 'yup';
+
+const UserSchema = Yup.object().shape({
+  email: Yup.string()
+    .matches(
+      /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/,
+      {
+        message: 'Email error',
+        excludeEmptyString: true,
+      }
+    )
+    .required('Required'),
+  password: Yup.string()
+    .matches(/^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{5,}$/, {
+      message: 'Password error',
+      excludeEmptyString: true,
+    })
+    .required('Required'),
+});
 
 export default function LoginView() {
   const dispatch = useDispatch();
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
+  const [type, setType] = useState('password');
 
-  function handleChange(e) {
-    const { name, value } = e.target;
-    switch (name) {
-      case 'email':
-        return setEmail(value);
-      case 'password':
-        return setPassword(value);
-      default:
-        return;
-    }
+  function handleSubmit(value) {
+    const { email, password } = value;
+    dispatch(logIn({ email, password }));
   }
 
-  function handleSubmit() {
-    dispatch(logIn({ email, password }));
-    setEmail('');
-    setPassword('');
+  function handleClick() {
+    setType('text');
+    switch (type) {
+      case 'text':
+        return setType('password');
+      case 'password':
+        return setType('text');
+
+      default:
+        break;
+    }
   }
 
   return (
@@ -50,26 +68,36 @@ export default function LoginView() {
         </Nav>
         <Formik
           initialValues={{ email: '', password: '' }}
-          onSubmit={handleSubmit}
+          validationSchema={UserSchema}
+          onSubmit={(value, { resetForm }) => {
+            handleSubmit(value);
+            resetForm();
+          }}
         >
           <Form>
             <FormFields>
-              <Field
-                type="email"
+              <Field type="email" name="email" placeholder="Enter your email" />
+              <ErrorMessage
                 name="email"
-                value={email}
-                onChange={handleChange}
-                placeholder="Enter your email"
+                component="div"
+                style={{
+                  color: 'white',
+                }}
               />
               <FormIcon>
                 <Field
-                  type="text"
+                  type={type}
                   name="password"
-                  value={password}
-                  onChange={handleChange}
                   placeholder="Confirm a password"
                 />
-                <Eye>
+                <ErrorMessage
+                  name="password"
+                  component="div"
+                  style={{
+                    color: 'white',
+                  }}
+                />
+                <Eye type="button" s onClick={handleClick}>
                   <Icon aria-label="Logo">
                     <use href={Sprite + '#icon-eye'}></use>
                   </Icon>

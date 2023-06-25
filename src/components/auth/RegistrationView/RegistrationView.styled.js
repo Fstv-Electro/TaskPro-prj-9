@@ -140,6 +140,7 @@ export const Eye = styled.button`
   top: 50%;
   right: 12px;
   transform: translateY(-50%);
+  padding-top: 5px;
 
   background-color: transparent;
   border: none;
