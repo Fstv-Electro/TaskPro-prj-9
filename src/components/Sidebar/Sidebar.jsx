@@ -9,6 +9,7 @@ import {
   WrapperNeonProject,
   NeonProject,
   WrapperLogo,
+  Logo,
 } from './Sidebar.styled';
 import sprite from '../../../src/images/symbol-defs.svg';
 
@@ -17,9 +18,9 @@ export const Sidebar = () => {
     <Container>
       <WrapperTitle>
         <WrapperLogo>
-          <svg aria-label="question with round" width="32px" height="32px">
+          <Logo aria-label="question with round" width="32px" height="32px">
             <use href={sprite + '#icon-icon'}></use>
-          </svg>
+          </Logo>
         </WrapperLogo>
 
         <Title>Task Pro</Title>

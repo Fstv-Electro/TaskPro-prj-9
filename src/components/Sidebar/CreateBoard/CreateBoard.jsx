@@ -4,6 +4,7 @@ import {
   WrapperCreate,
   CreateTitle,
   CreateButton,
+  IconPlus,
 } from './CreateBoard.styled';
 import sprite from '../../../images/symbol-defs.svg';
 
@@ -15,10 +16,10 @@ export const CreateBoard = () => {
       </WrapperBoards>
       <WrapperCreate>
         <CreateTitle>Create a new board</CreateTitle>
-        <CreateButton onClick={() => {}}>
-          <svg aria-label="question with round" width="20px" height="20px">
-            <use href={sprite + '#icon-plus'}></use>
-          </svg>
+        <CreateButton type="button" onClick={() => {}}>
+          <IconPlus aria-label="question with round" width="20px" height="20px">
+            <use href={sprite + '#icon-plus-add'}></use>
+          </IconPlus>
         </CreateButton>
       </WrapperCreate>
     </>

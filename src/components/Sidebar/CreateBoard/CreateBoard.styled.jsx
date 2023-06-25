@@ -31,14 +31,23 @@ export const CreateTitle = styled.p`
 `;
 
 export const CreateButton = styled.button`
-  border-radius: 6px;
+  border-radius: 8px;
   background: #bedbb0;
-  width: 40px;
-  height: 36px;
   cursor: pointer;
-  transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1),
-    background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  transform: scale(1);
+  transition: transform 550ms cubic-bezier(0.4, 0, 0.2, 1);
   &:hover {
-    background: #92a787;
+    transform: scale(1.1);
   }
+  &:focus {
+    transform: scale(1.1);
+  }
+`;
+
+export const IconPlus = styled.svg`
+  width: 25px;
+  height: 27px;
+  flex-shrink: 0;
+  fill: #bedbb0;
+  color: #121212;
 `;
