@@ -1,28 +1,35 @@
-import CreateBoard from './CreateBoard/CreateBoard';
-import MyBoard from './MyBoard/MyBoard';
-import LogOut from './LogOut/LogOut';
-import NeedHelp from './needHelp/NeedHelp';
+import { CreateBoard } from './createBoard/CreateBoard';
+// import { MyBoard } from './myBoard/MyBoard';
+import { LogOut } from './logOut/LogOut';
+import { NeedHelp } from './needHelp/needHelp';
 import {
   Container,
   WrapperTitle,
-  Lightning,
   Title,
   WrapperNeonProject,
   NeonProject,
-  Puzzle,
+  WrapperLogo,
 } from './Sidebar.styled';
+import sprite from '../../../src/images/symbol-defs.svg';
 
-const Sidebar = () => {
+export const Sidebar = () => {
   return (
     <Container>
       <WrapperTitle>
-        <Lightning />
+        <WrapperLogo>
+          <svg aria-label="question with round" width="32px" height="32px">
+            <use href={sprite + '#icon-icon'}></use>
+          </svg>
+        </WrapperLogo>
+
         <Title>Task Pro</Title>
       </WrapperTitle>
       <CreateBoard />
-      <MyBoard />
+      {/* <MyBoard /> */}
       <WrapperNeonProject>
-        <Puzzle />
+        <svg aria-label="question with round" width="18px" height="18px">
+          <use href={sprite + '#icon-puzzle-piece-02'}></use>
+        </svg>
         <NeonProject>Neon Light Project</NeonProject>
       </WrapperNeonProject>
       <NeedHelp />
@@ -30,5 +37,3 @@ const Sidebar = () => {
     </Container>
   );
 };
-
-export default Sidebar;

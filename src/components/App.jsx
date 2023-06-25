@@ -4,6 +4,10 @@ import { WelcomePage } from '../views/welcomePage/welcomePage';
 import RegistrationView from 'views/RegistrationView/RegistrationView';
 import LoginView from 'views/LoginView/LiginView';
 
+// import { Sidebar } from './Sidebar/Sidebar';
+import { AddColumn } from './addColumn/addColumn';
+
+
 export const App = () => {
   return (
     <>
@@ -32,6 +36,8 @@ export const App = () => {
         }}
       >
         {/* React task PRO */}
+        <AddColumn/>
+
       </div>
     </>
   );

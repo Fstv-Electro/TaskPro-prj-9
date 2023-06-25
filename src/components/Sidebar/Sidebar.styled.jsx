@@ -1,13 +1,8 @@
 import styled from '@emotion/styled';
-import { FiHelpCircle } from 'react-icons/fi';
-
-import { LuPuzzle } from 'react-icons/lu';
-
-import { BsLightningCharge } from 'react-icons/bs';
 
 export const Container = styled.div`
-  /* display: inline-flex; */
-  width: 260px;
+  height: 100%;
+  max-width: 212px;
   align-items: center;
   position: relative;
   padding: 24px 24px 24px 24px;
@@ -26,15 +21,6 @@ export const Title = styled.h2`
   font-family: Poppins;
   font-weight: 600;
   letter-spacing: -0.64px;
-  /* margin-left: 9px; */
-`;
-
-export const Lightning = styled(BsLightningCharge)`
-  width: 16px;
-  height: 16px;
-  /* position: absolute; */
-  right: 7px;
-  top: 9px;
 `;
 
 export const WrapperNeonProject = styled.div`
@@ -48,13 +34,14 @@ export const NeonProject = styled.p`
   font-family: Poppins;
   font-weight: 500;
   letter-spacing: -0.28px;
+  margin-left: 8px;
 `;
 
-export const Puzzle = styled(LuPuzzle)`
-  width: 16px;
-  height: 16px;
-  /* position: absolute; */
-  right: 7px;
-  top: 9px;
+export const WrapperLogo = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: center;
   margin-right: 8px;
+  background-color: #1f1f1f;
+  border-radius: 5px;
 `;

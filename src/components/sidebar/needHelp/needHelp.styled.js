@@ -45,4 +45,14 @@ export const Image = styled.img`
 `;
 export const TextButton = styled.span`
   margin-left: 8px;
+  :hover{
+    color: #bedbb0
+  }
 `;
+
+export const Svg = styled.svg`
+  stroke: #FFF;
+  :hover {
+    stroke: #bedbb0;
+  }
+`

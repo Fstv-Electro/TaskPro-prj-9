@@ -1,15 +1,4 @@
 import styled from '@emotion/styled';
-import { AiOutlinePlus } from 'react-icons/ai';
-
-export const Container = styled.div`
-  /* display: inline-flex; */
-  width: 260px;
-  align-items: center;
-  /* position: relative; */
-  /* padding: 24px 24px 24px 24px; */
-  color: #fff;
-  background: #121212;
-`;
 
 export const WrapperBoards = styled.div`
   border-bottom: 1px solid #ffffff1a;
@@ -22,7 +11,6 @@ export const Boards = styled.p`
   font-weight: 600;
   color: rgba(255, 255, 255, 0.5);
   font-size: 12px;
-  font-family: Poppins;
   letter-spacing: -0.24px;
 `;
 
@@ -48,12 +36,9 @@ export const CreateButton = styled.button`
   width: 40px;
   height: 36px;
   cursor: pointer;
-`;
-
-export const Plus = styled(AiOutlinePlus)`
-  width: 16px;
-  height: 16px;
-
-  right: 7px;
-  top: 9px;
+  transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1),
+    background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  &:hover {
+    background: #92a787;
+  }
 `;
