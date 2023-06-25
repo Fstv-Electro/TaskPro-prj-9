@@ -1,6 +1,6 @@
 import { Routes, Route, Link } from 'react-router-dom';
 import { Auth } from './pages/auth';
-// import { Sidebar } from './Sidebar/Sidebar';
+import { Sidebar } from './Sidebar/Sidebar';
 import { AddColumn } from './addColumn/addColumn';
 
 export const App = () => {
@@ -41,8 +41,8 @@ export const App = () => {
         }}
       >
         React task PRO
-
-        <AddColumn/>
+        <Sidebar />
+        <AddColumn />
       </div>
     </>
   );

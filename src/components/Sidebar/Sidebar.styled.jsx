@@ -1,8 +1,7 @@
 import styled from '@emotion/styled';
 
 export const Container = styled.div`
-  height: 100%;
-  max-width: 212px;
+  min-width: 225px;
   align-items: center;
   position: relative;
   padding: 24px 24px 24px 24px;
@@ -44,4 +43,12 @@ export const WrapperLogo = styled.div`
   margin-right: 8px;
   background-color: #1f1f1f;
   border-radius: 5px;
+`;
+
+export const Logo = styled.svg`
+  width: 32px;
+  height: 32px;
+  flex-shrink: 0;
+  fill: #1f1f1f;
+  color: #121212;
 `;
