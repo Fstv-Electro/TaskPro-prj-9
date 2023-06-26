@@ -1,5 +1,5 @@
 import { Routes, Route } from 'react-router-dom';
-import { Auth } from './pages/auth';
+import { Auth } from '../pages/auth';
 import { WelcomePage } from './auth/welcomePage/welcomePage';
 import { RestrictedRoute } from './routs/restrictedRoute';
 import { PrivateRout } from './routs/privateRout';
