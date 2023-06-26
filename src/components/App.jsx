@@ -1,10 +1,12 @@
 import { Routes, Route } from 'react-router-dom';
 import { Auth } from './pages/auth';
+
 import { WelcomePage } from './auth/welcomePage/welcomePage';
 import RegistrationView from 'components/auth/RegistrationView/RegistrationView';
 import LoginView from 'components/auth/LoginView/LoginView';
 
-// import { Sidebar } from './Sidebar/Sidebar';
+import { Sidebar } from './Sidebar/Sidebar';
+
 import { AddColumn } from './addColumn/addColumn';
 
 
@@ -35,9 +37,9 @@ export const App = () => {
           height: '100vh',
         }}
       >
-        {/* React task PRO */}
-        <AddColumn/>
-
+        React task PRO
+        <Sidebar />
+        <AddColumn />
       </div>
     </>
   );
