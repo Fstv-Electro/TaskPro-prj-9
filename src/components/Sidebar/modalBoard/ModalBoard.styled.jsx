@@ -14,11 +14,15 @@ export const Forma = styled(Form)`
 `;
 
 export const Input = styled(Field)`
-  /* padding: 8px 32px 8px 8px; */
-  /* border-radius: 4px;
-  outline: none;
-  font: inherit; */
-  /* width: 800px; */
+  display: flex;
+  width: 302px;
+  padding: 14px 256px 14px 18px;
+  align-items: center;
+  border-radius: 8px;
+  border: 1px solid #bedbb0;
+  opacity: 0.4000000059604645;
+  background: #1f1f1f;
+  box-shadow: 0px 4px 16px 0px rgba(22, 22, 22, 0.08);
 `;
 
 export const Label = styled.label`

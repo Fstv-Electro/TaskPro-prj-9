@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { Wrapper, Forma, Label, Text } from './ModalBoard.styled';
+import { Wrapper, Forma, Label, Text, Input } from './ModalBoard.styled';
 import SubmitButton from '../../submitButton/submitButton';
 import { Formik, Field, ErrorMessage } from 'formik';
 import * as yup from 'yup';
@@ -34,7 +34,7 @@ export const ModalBoard = () => {
       >
         <Forma>
           <Label htmlFor="name">
-            <Field
+            <Input
               type="text"
               name="name"
               pattern="^[a-zA-Zа-яА-Я]+(([' -][a-zA-Zа-яА-Я ])?[a-zA-Zа-яА-Я]*)*$"
