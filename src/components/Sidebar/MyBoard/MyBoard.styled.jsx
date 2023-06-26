@@ -1,16 +1,21 @@
 import styled from '@emotion/styled';
 
-export const WrapperProject = styled.div`
+export const List = styled.ul`
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+`;
+
+export const Item = styled.li`
   display: flex;
   align-items: center;
   justify-content: space-between;
   height: 61px;
-  width: 256px;
+  width: 100%;
   /* border-right: 4px solid #bedbb0; */
   background-color: #1f1f1f;
   margin-bottom: 24px;
   color: #fff;
-  margin-left: -24px;
   &:after {
     content: '';
     display: flex;
