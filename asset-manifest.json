@@ -1,15 +1,16 @@
 {
   "files": {
     "main.css": "/taskpro-prj-9/static/css/main.a839dd89.css",
-    "main.js": "/taskpro-prj-9/static/js/main.da080187.js",
+    "main.js": "/taskpro-prj-9/static/js/main.d03d38a7.js",
     "static/media/Poppins-Regular.ttf": "/taskpro-prj-9/static/media/Poppins-Regular.35d26b781dc5fda684cc.ttf",
     "static/media/symbol-defs.svg": "/taskpro-prj-9/static/media/symbol-defs.c263ebfaea01d4a763662bc1d0d41710.svg",
+    "static/media/user-desktop1x.png": "/taskpro-prj-9/static/media/user-desktop1x.47ac3097a0f12b998d37.png",
     "index.html": "/taskpro-prj-9/index.html",
     "main.a839dd89.css.map": "/taskpro-prj-9/static/css/main.a839dd89.css.map",
-    "main.da080187.js.map": "/taskpro-prj-9/static/js/main.da080187.js.map"
+    "main.d03d38a7.js.map": "/taskpro-prj-9/static/js/main.d03d38a7.js.map"
   },
   "entrypoints": [
     "static/css/main.a839dd89.css",
-    "static/js/main.da080187.js"
+    "static/js/main.d03d38a7.js"
   ]
 }
