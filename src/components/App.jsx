@@ -1,34 +1,46 @@
 import { Routes, Route } from 'react-router-dom';
 import { Auth } from './pages/auth';
-
 import { WelcomePage } from './auth/welcomePage/welcomePage';
-import RegistrationView from 'components/auth/RegistrationView/RegistrationView';
-import LoginView from 'components/auth/LoginView/LoginView';
-
+import { RestrictedRoute } from './routs/restrictedRoute';
+import { PrivateRout } from './routs/privateRout';
 // import { Sidebar } from './sidebar/Sidebar';
 
 // import { AddColumn } from './addColumn/addColumn';
-
 
 export const App = () => {
   return (
     <>
       <Routes>
-        <Route path="/" element={<WelcomePage />} />
-        <Route path="/register" element={<RegistrationView />} />
-        <Route path="/login" element={<LoginView />} />
+        <Route
+          path="/"
+          element={
+            <RestrictedRoute component={<WelcomePage />} redirectTo="/home" />
+          }
+        />
 
-        <Route path="/auth/:id" element={<Auth></Auth>} />
+        <Route
+          path="/auth/:id"
+          element={
+            <RestrictedRoute component={<Auth></Auth>} redirectTo="/home" />
+          }
+        />
 
-        <Route path="/home" element={<div>home</div>} />
-        <Route path="/home/:boardName" element={<div>home:id</div>} />
+        <Route
+          path="/home"
+          element={
+            <PrivateRout component={<div>home</div>} redirectTo="/welcome" />
+          }
+        />
+        <Route
+          path="/home/:boardName"
+          element={
+            <PrivateRout component={<div>home/id</div>} redirectTo="/welcome" />
+          }
+        />
         <Route
           path="*"
           element={
-            <div>
-              {/* welcome page <Link to="/auth/login"> login</Link>
-              <Link to="/auth/register"> register</Link> */}
-            </div>
+            <RestrictedRoute component={<WelcomePage />} redirectTo="/home" />
           }
         />
       </Routes>
