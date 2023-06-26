@@ -41,8 +41,7 @@ export const App = () => {
         }}
       >
         React task PRO
-
-        <AddColumn/>
+        <AddColumn />
       </div>
     </>
   );
