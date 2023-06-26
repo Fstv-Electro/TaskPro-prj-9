@@ -5,9 +5,9 @@ import { WelcomePage } from './auth/welcomePage/welcomePage';
 import RegistrationView from 'components/auth/RegistrationView/RegistrationView';
 import LoginView from 'components/auth/LoginView/LoginView';
 
-import { Sidebar } from './sidebar/Sidebar';
+// import { Sidebar } from './sidebar/Sidebar';
 
-import { AddColumn } from './addColumn/addColumn';
+// import { AddColumn } from './addColumn/addColumn';
 
 
 export const App = () => {
@@ -32,15 +32,6 @@ export const App = () => {
           }
         />
       </Routes>
-      <div
-        style={{
-          height: '100vh',
-        }}
-      >
-        React task PRO
-        <Sidebar />
-        <AddColumn />
-      </div>
     </>
   );
 };
