@@ -4,27 +4,29 @@ import {
   Title,
   Images,
   Text,
-  Button,
+  ButtonRegistered,
   ButtonLogIn,
+  Icon,
 } from './welcomePage.styled';
+import logo from '../../../images/user-desktop1x.png';
+import Sprite from '../../../images/symbol-defs.svg';
 
 export const WelcomePage = () => {
   return (
     <Container>
-      <Images
-        src="https://cdn-icons-png.flaticon.com/512/2922/2922506.png"
-        alt="Boy with Macbook"
-      />
+      <Images src={logo} alt="Boy with Macbook" />
       <TitleContainer>
-        <img src="" alt="Logo" />
+        <Icon aria-label="Logo">
+          <use href={Sprite + '#icon-icon'}></use>
+        </Icon>
         <Title>Task Pro</Title>
       </TitleContainer>
       <Text>
         Supercharge your productivity and take control of your tasks with Task
         Pro - Don't wait, start achieving your goals now!
       </Text>
-      <Button>Registration</Button>
-      <ButtonLogIn>Log In</ButtonLogIn>
+      <ButtonRegistered to="/register">Registration</ButtonRegistered>
+      <ButtonLogIn to="/login">Log In</ButtonLogIn>
     </Container>
   );
 };
