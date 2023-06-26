@@ -9,7 +9,6 @@ import { Sidebar } from './Sidebar/Sidebar';
 
 import { AddColumn } from './addColumn/addColumn';
 
-
 export const App = () => {
   return (
     <>
