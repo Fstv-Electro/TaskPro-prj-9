@@ -20,9 +20,7 @@ export const App = () => {
 
         <Route
           path="/auth/:id"
-          element={
-            <RestrictedRoute component={<Auth></Auth>} redirectTo="/home" />
-          }
+          element={<RestrictedRoute component={<Auth />} redirectTo="/home" />}
         />
 
         <Route
