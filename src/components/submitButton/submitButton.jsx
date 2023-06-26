@@ -5,16 +5,17 @@ import { SubmitBtn, IconPlus } from './submitButton.styled';
 // import SubmitButton from './submitButton/submitButton';
 // add element <SubmitButton />
 // props:
-// width : default it's 100%
-// height:  default it's 49px
-// title:  default it's 49px
-// theme:  default it's Dark
+// width : default 100%
+// height:  default 49px
+// title:  default 49px
+// theme:  default Dark
 // icon: default false
 // addColumn: default false
-// example: <SubmitButton title="Send" width="352" height="49" theme="Dark" />
-// example <SubmitButton title="Edit" width="302" height="49" theme="Dark" icon={true}/>
-// example <SubmitButton title="Edit" width="302" height="49" theme="Dark" icon={true}/>
-// example <SubmitButton title="Add another column" width="334" height="56" theme="Dark" icon={true} addColumn={true}/>
+// handleClick: without Default value
+// example: <SubmitButton title="Send" width="352" height="49" theme="Dark" handleClick={YOUR METHOD NAME}/>
+// example <SubmitButton title="Edit" width="302" height="49" theme="Dark" icon={true} handleClick={YOUR METHOD NAME}/>
+// example <SubmitButton title="Edit" width="302" height="49" theme="Dark" icon={true} handleClick={YOUR METHOD NAME}/>
+// example <SubmitButton title="Add another column" width="334" height="56" theme="Dark" icon={true} addColumn={true} handleClick={YOUR METHOD NAME}/>
 
 export default function SubmitButton({
   title = 'Add',
@@ -23,6 +24,7 @@ export default function SubmitButton({
   theme = 'Dark',
   icon = false,
   addColumn = false,
+  handleClick,
 }) {
   const bgColor = () => {
     if (theme === 'Dark' && !addColumn) return '#BEDBB0';
@@ -61,7 +63,13 @@ export default function SubmitButton({
 
   return (
     <>
-      <SubmitBtn width={width} height={height} bg={bgColor()} color={color()}>
+      <SubmitBtn
+        width={width}
+        height={height}
+        bg={bgColor()}
+        color={color()}
+        onClick={handleClick}
+      >
         {icon && (
           <IconPlus aria-label="add" fill={fill()} color={svgColor()}>
             <use href={sprite + '#icon-plus-add'}></use>
