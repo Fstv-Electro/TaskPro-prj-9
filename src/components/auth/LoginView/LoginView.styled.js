@@ -8,7 +8,7 @@ export const Container = styled.section`
   padding-left: 20px;
   padding-right: 20px;
 
-  /* height: 1000px; */
+  height: 100vh;
 
   /* border: solid 1px red; */
 

@@ -3,7 +3,7 @@ import { Auth } from '../pages/auth';
 import { WelcomePage } from './auth/welcomePage/welcomePage';
 import { RestrictedRoute } from './routs/restrictedRoute';
 import { PrivateRout } from './routs/privateRout';
-// import { Sidebar } from './sidebar/Sidebar';
+import { Sidebar } from './sidebar/Sidebar';
 
 export const App = () => {
   return (
@@ -24,7 +24,7 @@ export const App = () => {
         <Route
           path="/home"
           element={
-            <PrivateRout component={<div>home</div>} redirectTo="/welcome" />
+            <PrivateRout component={<div><Sidebar/></div>} redirectTo="/welcome" />
           }
         />
         <Route
