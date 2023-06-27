@@ -1,4 +1,5 @@
 import {
+  List,
   Item,
   WrapperProjectOffice,
   Project,
@@ -9,7 +10,7 @@ import sprite from '../../../images/symbol-defs.svg';
 
 export const MyBoard = () => {
   return (
-    <list>
+    <List>
       <Item>
         <WrapperProjectOffice onClick={() => {}}>
           <svg aria-label="question with round" width="18px" height="16px">
@@ -30,6 +31,6 @@ export const MyBoard = () => {
           </IconButton>
         </WrapperProjectIcons>
       </Item>
-    </list>
+    </List>
   );
 };
