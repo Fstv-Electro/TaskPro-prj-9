@@ -5,8 +5,6 @@ import { RestrictedRoute } from './routs/restrictedRoute';
 import { PrivateRout } from './routs/privateRout';
 // import { Sidebar } from './sidebar/Sidebar';
 
-// import { AddColumn } from './addColumn/addColumn';
-
 export const App = () => {
   return (
     <>
