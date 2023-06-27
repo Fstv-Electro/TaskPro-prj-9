@@ -1,4 +1,4 @@
-import { Sidebar } from '../components/sidebar/Sidebar.jsx';
+import { Sidebar } from '../components/sidebar/Sidebar';
 
 const styles = {
   container: {
@@ -14,7 +14,6 @@ export const Home = () => {
   return (
     <div style={styles.container}>
       <Sidebar />
-      <div style={styles.desk}></div>
     </div>
   );
 }
