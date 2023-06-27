@@ -1,4 +1,4 @@
-import { Sidebar } from 'components/sidebar/Sidebar.jsx';
+import Sidebar from 'components/sidebar/Sidebar';
 
 // const styles = {
 //   container: {
