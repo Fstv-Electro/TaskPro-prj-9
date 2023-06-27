@@ -63,8 +63,8 @@ export default function LoginView() {
     <Container>
       <UserForm>
         <Nav>
-          <Registered to="/register">Registration</Registered>
-          <Login to="/login">Log In</Login>
+          <Registered to="/auth/register">Registration</Registered>
+          <Login to="/auth/login">Log In</Login>
         </Nav>
         <Formik
           initialValues={{ email: '', password: '' }}

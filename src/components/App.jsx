@@ -3,10 +3,13 @@ import { Auth } from '../pages/auth';
 import { WelcomePage } from './auth/welcomePage/welcomePage';
 import { RestrictedRoute } from './routs/restrictedRoute';
 import { PrivateRout } from './routs/privateRout';
+import RegistrationView from './auth/RegistrationView/RegistrationView';
+import LoginView from './auth/LoginView/LoginView';
 
 import { lazy } from 'react';
 
 const Home = lazy(() => import('../pages/homePage'));
+
 
 export const App = () => {
   return (
