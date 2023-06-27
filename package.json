@@ -2,7 +2,7 @@
   "name": "taskpro-prj-9",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://fstv-electro.github.io/taskpro-prj-9/",
+  "homepage": "https://fstv-electro.github.io/TaskPro-prj-9/",
   "dependencies": {
     "@emotion/styled": "^11.11.0",
     "@reduxjs/toolkit": "^1.9.5",
