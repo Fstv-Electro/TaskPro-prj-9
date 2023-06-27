@@ -1,19 +1,9 @@
 import { Sidebar } from 'components/sidebar/Sidebar';
 
-// const styles = {
-//   container: {
-//     display: 'flex',
-//     flexDirection: 'row',
-//   },
-//   desk: {
-//     maxWidth: '100vw',
-//   },
-// };
-
-export const HomePage = () => {
+export default function HomePage() {
   return (
     <div>
       <Sidebar />
     </div>
   );
-};
+}
