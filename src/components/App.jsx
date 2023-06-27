@@ -3,7 +3,7 @@ import { Auth } from '../pages/auth';
 import { WelcomePage } from './auth/welcomePage/welcomePage';
 import { RestrictedRoute } from './routs/restrictedRoute';
 import { PrivateRout } from './routs/privateRout';
-import { Sidebar } from './sidebar/Sidebar';
+import { Sidebar } from '../components/sidebar/Sidebar';
 // import { lazy } from 'react';
 
 // const Home = lazy(() => import('../pages/home'));
