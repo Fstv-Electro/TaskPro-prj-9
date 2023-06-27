@@ -3,7 +3,7 @@ import { Auth } from '../pages/auth';
 import { WelcomePage } from './auth/welcomePage/welcomePage';
 import { RestrictedRoute } from './routs/restrictedRoute';
 import { PrivateRout } from './routs/privateRout';
-// import { Sidebar } from '../components/sidebar/Sidebar';
+import { Sidebar } from '../components/sidebar/Sidebar';
 import { lazy } from 'react';
 
 const Home = lazy(() => import('../pages/homePage'));
@@ -26,9 +26,7 @@ export const App = () => {
 
         <Route
           path="/home"
-          element={
-            <PrivateRout component={<Home/>} redirectTo="/welcome" />
-          }
+          element={<PrivateRout component={<Home />} redirectTo="/welcome" />}
         />
         <Route
           path="/home/:boardName"
@@ -43,6 +41,7 @@ export const App = () => {
           }
         />
       </Routes>
+      <Sidebar />
     </>
   );
 };
