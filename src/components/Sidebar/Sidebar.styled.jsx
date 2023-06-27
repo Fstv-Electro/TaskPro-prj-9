@@ -1,6 +1,8 @@
 import styled from '@emotion/styled';
 
 export const Container = styled.div`
+  width: 260px;
+  height: 100vh;
   min-width: 225px;
   align-items: center;
   position: relative;
@@ -12,7 +14,7 @@ export const Container = styled.div`
 export const WrapperTitle = styled.div`
   display: flex;
   align-items: center;
-  margin-bottom: 64px;
+  margin-bottom: 60px;
 `;
 
 export const Title = styled.h2`
