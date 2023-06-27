@@ -127,7 +127,7 @@ export const  EdidUserForm = () => {
                 }}
               />
 
-              <Field type="text" name="name" placeholder="Enter your name" />
+              <Field type="text" name="name" placeholder="Ivetta" />
               <ErrorMessage
                 name="name"
                 component="div"
@@ -135,7 +135,7 @@ export const  EdidUserForm = () => {
                   color: 'white',
                 }}
               />
-              <Field type="email" name="email" placeholder="Enter your email" />
+              <Field type="email" name="email" placeholder="ivetta34@gmail.com" />
               <ErrorMessage
                 name="email"
                 component="div"
@@ -147,7 +147,7 @@ export const  EdidUserForm = () => {
                 <Field
                   type={type}
                   name="password"
-                  placeholder="Create a password"
+                  placeholder="ivetta1999.23"
                 />
                 <ErrorMessage
                   name="password"
