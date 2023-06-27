@@ -11,7 +11,7 @@ import {
   Icon,
   Eye,
   ImgWrapper,
-  // Img,
+  Img,
   FieldAvatar,
   IconPlus,
   Label,
@@ -26,7 +26,6 @@ import * as Yup from 'yup';
 
 const NewUserSchema = Yup.object().shape({
   avatar: Yup.mixed()
-    .required("required")
     .test('fileType', 'Invalid file format', (value) => {
       if (!value) return true; 
       const supportedFormats = ['image/png', 'image/jpeg', 'image/jpg'];
@@ -56,7 +55,7 @@ const NewUserSchema = Yup.object().shape({
     .required('Required'),
 });
 
-export const  EdidUserForm = () => {
+export const  EdidUserForm = ({avatarURL}) => {
   const dispatch = useDispatch();
   const [type, setType] = useState('password');
 
@@ -102,10 +101,13 @@ export const  EdidUserForm = () => {
             <FormFields >
               <Label htmlFor="avatar">
               <ImgWrapper >
-                {/* <Img src="#" alt="User picture" /> */}
+              {avatarURL ? (
+                <Img src={avatarURL} alt="User picture" />
+                ) : (
                 <svg aria-label="User picture" width="68px" height="68px">
                   <use href={Sprite + '#icon-user'}></use>
                 </svg>
+                )}
                 <IconPlus aria-label="add" fill="rgba(190, 219, 176, 1)" color="rgba(22, 22, 22, 1)">
                   <use href={Sprite + '#icon-plus-add'}></use>
                 </IconPlus>

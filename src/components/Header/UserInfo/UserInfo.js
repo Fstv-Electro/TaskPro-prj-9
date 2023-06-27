@@ -5,7 +5,7 @@ import { ButtonClose } from 'components/modalBtnClose/ButtonClose';
 import { EdidUserForm }  from './EditUserForm/EditUserForm'
 import sprite from '../../../images/symbol-defs.svg';
 
-export const UserInfo = ({email, imageUrl}) => {
+export const UserInfo = ({name="user", avatarURL}) => {
   const [modal, setModal] = useState(false);
 
   const handleModalOpen = () => setModal(true);
@@ -13,10 +13,10 @@ export const UserInfo = ({email, imageUrl}) => {
 
   return (
       <UserContainer>
-        <UserEmail>Ivetta</UserEmail>
+        <UserEmail>{name}</UserEmail>
         <ImgWrapper onClick={handleModalOpen}>
-          {imageUrl ? (
-            <Img src={imageUrl} alt="User picture" />
+          {avatarURL ? (
+            <Img src={avatarURL} alt="User picture" />
           ) : (
             <svg aria-label="User picture" width="32px" height="32px">
                 <use href={sprite + '#icon-user'}></use>
@@ -26,7 +26,7 @@ export const UserInfo = ({email, imageUrl}) => {
         {modal && 
           <Modal onClose={handleClose}>
             <ButtonClose onClose={handleClose}/>
-            <EdidUserForm />
+            <EdidUserForm avatarURL={avatarURL} />
           </Modal>}
         
       </UserContainer>

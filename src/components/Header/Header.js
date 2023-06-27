@@ -1,4 +1,7 @@
 import { useState } from 'react';
+import { useDispatch, useSelector } from "react-redux";
+import { changeTheme } from 'redux/auth/operations';
+import { selectUser } from 'redux/auth/selectores';
 import {
   HeaderStyled,
   ThemeContainer,
@@ -12,18 +15,21 @@ import { UserInfo } from './UserInfo/UserInfo';
 import sprite from '../../images/symbol-defs.svg';
 
 export const Header = () => {
-  const [currentTheme, setCurrentTheme] = useState('Dark');
+  const dispatch = useDispatch();
+  const {avatarURL, name, theme} = useSelector(selectUser)
+  const [currentTheme, setCurrentTheme] = useState(theme);
   const [isDropdownActive, setIsDropdownActive] = useState(false);
 
-  const themeOptions = ['Light', 'Dark', 'Violet'];
+  const themeOptions = ['light', 'dark', 'violet'];
 
   const handleDropdownClick = () => {
     setIsDropdownActive(!isDropdownActive);
   };
   const handleThemeChange = e => {
     setCurrentTheme(e.target.value);
+    dispatch(changeTheme({theme: e.target.value}));
   };
-
+  console.log(theme);
   return (
     <HeaderStyled>
       <ThemeContainer>
@@ -49,7 +55,7 @@ export const Header = () => {
         </ThemeList>
       </ThemeContainer>
 
-      <UserInfo />
+      <UserInfo  name={name} avatarURL={avatarURL}/>
     </HeaderStyled>
   );
 };
