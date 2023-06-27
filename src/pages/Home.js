@@ -1,4 +1,4 @@
-import Sidebar from 'components/sidebar/Sidebar';
+import { Sidebar } from 'components/sidebar/Sidebar';
 
 // const styles = {
 //   container: {
@@ -10,7 +10,7 @@ import Sidebar from 'components/sidebar/Sidebar';
 //   },
 // };
 
-export const Home = () => {
+export const HomePage = () => {
   return (
     <div>
       <Sidebar />
