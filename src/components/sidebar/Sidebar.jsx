@@ -1,6 +1,6 @@
 import { CreateBoard } from './CreateBoard/CreateBoard';
-import { MyBoard } from './myBoard/MyBoard';
-import { LogOut } from './logOut/LogOut';
+import { MyBoard } from './MyBoard/MyBoard';
+import { LogOut } from './LogOut/LogOut';
 import { NeedHelp } from './needHelp/needHelp';
 import {
   Container,
