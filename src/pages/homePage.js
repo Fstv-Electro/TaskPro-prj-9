@@ -9,6 +9,7 @@ const styles = {
   deskMenu: {
     display: 'flex',
     flexDirection: 'column',
+    width: '100%',
   },
 };
 
