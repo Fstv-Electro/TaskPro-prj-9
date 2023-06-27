@@ -27,7 +27,6 @@ export const Header = () => {
   };
   const handleThemeChange = e => {
     setCurrentTheme(e.target.value);
-    console.log(e.target.value);
     dispatch(changeTheme({theme: e.target.value}));
   };
   console.log(theme);
