@@ -1,4 +1,3 @@
-
 import SubmitButton from "../../submitButton/submitButton";
 import { Formik, ErrorMessage } from 'formik';
 import { Title, Field, Form, Textarea } from './needHelpForm.styled';
@@ -26,7 +25,6 @@ export const NeedHelpForm = ({onClose}) => {
         // const { name, email, password } = value;
         onClose()
       }
-
     return (
         <>
         <ButtonClose onClose={onClose} />
