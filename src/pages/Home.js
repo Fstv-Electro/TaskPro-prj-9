@@ -1,9 +1,9 @@
-import { Sidebar } from 'components/sidebar/Sidebar';
+// import { Sidebar } from 'components/sidebar/Sidebar';
 
-export default function HomePage() {
-  return (
-    <div>
-      <Sidebar />
-    </div>
-  );
-}
+// export default function HomePage() {
+//   return (
+//     <>
+//       <Sidebar />
+//     </>
+//   );
+// }
