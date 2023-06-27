@@ -10,7 +10,7 @@ const styles = {
   },
 };
 
-export default function Home() {
+export const Home = () => {
   return (
     <div style={styles.container}>
       <Sidebar />
