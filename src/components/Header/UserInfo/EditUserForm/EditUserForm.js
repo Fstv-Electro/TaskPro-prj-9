@@ -11,7 +11,7 @@ import {
   Icon,
   Eye,
   ImgWrapper,
-  Img,
+  // Img,
   FieldAvatar,
   IconPlus,
   Label,
@@ -21,7 +21,7 @@ import { useDispatch } from 'react-redux';
 import { updata } from 'redux/auth/operations';
 import Sprite from '../../../../images/symbol-defs.svg'
 import * as Yup from 'yup';
-import SubmitButton from "../../../submitButton/submitButton"
+// import SubmitButton from "../../../submitButton/submitButton"
 
 
 const NewUserSchema = Yup.object().shape({
