@@ -3,7 +3,7 @@ import { Sidebar } from 'components/sidebar/Sidebar';
 const styles = {
   container: {
     display: 'flex',
-    flexDirection: 'row-reverse',
+    flexDirection: 'row',
   },
   desk: {
     maxWidth: '100vw',
