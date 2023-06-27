@@ -61,3 +61,17 @@ export const updata = createAsyncThunk(
     }
   }
 );
+
+export const changeTheme = createAsyncThunk(
+  'auth/updata',
+  async (changeTheme, thunkAPI) => {
+    try {
+      console.log(changeTheme);
+      const response = await axios.patch('/users/theme', changeTheme);
+
+      return response.data;
+    } catch (e) {
+      return thunkAPI.rejectWithValue(e.message);
+    }
+  }
+);
