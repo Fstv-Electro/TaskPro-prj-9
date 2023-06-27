@@ -15,9 +15,9 @@ export const LogOut = () => {
       >
         <use href={sprite + '#icon-login'}></use>
       </svg>
-      <LogOutText type="button" onClick={() => dispatch(logOut())}>
-        Log out{' '}
-      </LogOutText>
+      <LogOutButton type="button" onClick={() => dispatch(logOut())}>
+        <LogOutText>Log out</LogOutText>
+      </LogOutButton>
     </LogOutButton>
   );
 };
