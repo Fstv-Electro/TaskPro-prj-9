@@ -1,4 +1,4 @@
-import { CreateBoard } from './СreateBoard/CreateBoard';
+import { CreateBoard } from './CreateBoard/CreateBoard';
 import { MyBoard } from './myBoard/MyBoard';
 import { LogOut } from './logOut/LogOut';
 import { NeedHelp } from './needHelp/needHelp';
