@@ -3,6 +3,8 @@ import { Auth } from '../pages/auth';
 import { WelcomePage } from './auth/welcomePage/welcomePage';
 import { RestrictedRoute } from './routs/restrictedRoute';
 import { PrivateRout } from './routs/privateRout';
+import RegistrationView from './auth/RegistrationView/RegistrationView';
+import LoginView from './auth/LoginView/LoginView';
 // import { Sidebar } from './sidebar/Sidebar';
 
 export const App = () => {
