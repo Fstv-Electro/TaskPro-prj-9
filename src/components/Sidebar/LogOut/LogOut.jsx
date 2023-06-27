@@ -1,7 +1,10 @@
+import { useDispatch } from 'react-redux';
+import { logOut } from 'redux/auth/operations';
 import { LogOutButton, LogOutText } from './LogOut.styled';
 import sprite from '../../../images/symbol-defs.svg';
 
 export const LogOut = () => {
+  const dispatch = useDispatch();
   return (
     <LogOutButton onClick={() => {}}>
       <svg
@@ -12,7 +15,9 @@ export const LogOut = () => {
       >
         <use href={sprite + '#icon-login'}></use>
       </svg>
-      <LogOutText>Log out </LogOutText>
+      <LogOutText type="button" onClick={() => dispatch(logOut())}>
+        Log out{' '}
+      </LogOutText>
     </LogOutButton>
   );
 };

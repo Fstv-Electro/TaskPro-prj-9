@@ -1,8 +1,10 @@
 import { useState } from 'react';
-import { Wrapper, Forma, Label, Text, Input } from './ModalBoard.styled';
+import { Forma, Label, Input, FormTitle } from './ModalBoard.styled';
 import SubmitButton from '../../submitButton/submitButton';
-import { Formik, Field, ErrorMessage } from 'formik';
+import { IconRadioButtons } from '../../iconRadioButtons/IconRadioButtons';
+import { Formik, ErrorMessage } from 'formik';
 import * as yup from 'yup';
+import { ButtonClose } from '../../modalBtnClose/ButtonClose';
 
 const schema = yup.object().shape({
   name: yup.string().required(),
@@ -15,7 +17,8 @@ export const ModalBoard = () => {
     if (!query) {
       console.log('error');
     } else {
-      console.log(query.name);
+      setName(query.name);
+      console.log(name);
       resetForm();
     }
   };
@@ -26,7 +29,8 @@ export const ModalBoard = () => {
 
   return (
     <>
-      <h2>New board</h2>
+      <ButtonClose />
+      <FormTitle>New board</FormTitle>
       <Formik
         initialValues={initialValues}
         onSubmit={handleSubmit}
@@ -37,23 +41,25 @@ export const ModalBoard = () => {
             <Input
               type="text"
               name="name"
-              pattern="^[a-zA-Zа-яА-Я]+(([' -][a-zA-Zа-яА-Я ])?[a-zA-Zа-яА-Я]*)*$"
-              title="Name may contain only letters, apostrophe, dash and spaces. For example Adrian, Jacob Mercer, Charles de Batz de Castelmore d'Artagnan"
+              placeholder="Title"
               required
+              minlength="4"
+              maxlength="12"
             />
             <ErrorMessage name="name" component="div" />
           </Label>
 
           <SubmitButton
             title="Create"
-            width="334"
-            height="56"
+            width="302"
+            height="49"
             theme="Dark"
             icon={true}
-            addColumn={true}
+            addColumn={false}
           />
         </Forma>
       </Formik>
+      <IconRadioButtons />
     </>
   );
 };
