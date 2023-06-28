@@ -23,7 +23,7 @@ export const ThemeContainer = styled.div`
 
 export const ThemeList = styled.ul`
     position: absolute;
-    top: 16px;
+    top: 26px;
     left: -12px;
     display: grid;
     grid-template-columns: 1fr;
@@ -40,6 +40,7 @@ export const ThemeList = styled.ul`
     background: #161616;
     border-radius: 8px;
     transition: all 0.3s ease-out;
+    transition: transform 550ms cubic-bezier(0.4, 0, 0.2, 1);
     z-index: 1000;
 
       &.active  {
@@ -53,9 +54,12 @@ export const ThemeSelect = styled.div`
   justify-content: center;
   cursor: pointer;
   transition: all 0.3s ease-out;
+  transition: transform 550ms cubic-bezier(0.4, 0, 0.2, 1);
+  padding: 10px 1px;
 
   &:hover{
     text-shadow: 0 1px 4px rgba(190, 219, 176, 1);
+    transform: scale(1.1);
   }
 `
 
@@ -88,6 +92,8 @@ export const ItemBtn = styled.button`
    
     &:hover{
       text-shadow:${({ disabled }) => (!disabled ? '0 1px 4px rgba(190, 219, 176, 1)' : '')};
+      transform: ${({ disabled }) => (!disabled ? 'scale(1.1)' : 'scale(1)')};
+      
     }
 `;
 

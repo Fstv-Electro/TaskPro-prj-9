@@ -55,6 +55,7 @@ export const Field = styled(FormicField)`
   opacity: 0.4000000059604645;
   box-shadow: 0px 4px 16px 0px rgba(22, 22, 22, 0.08);
 
+
   @media screen and (min-width: 768px) {
     width: 326px;
     height: 49px;
@@ -113,6 +114,21 @@ export const ImgWrapper = styled.div`
     position: relative;
     width: 68px;
     height: 68px;
+    border-radius: 8px;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    transition: transform 550ms cubic-bezier(0.4, 0, 0.2, 1);
+      
+      &:hover{
+        box-shadow: 0px 0px 11px 0px rgba(190, 219, 176, 1);
+        transform: scale(1.1);
+      }
+
+      &:hover svg{
+        top: 50%;
+        box-shadow: 0px 0px 11px 0px rgba(190, 219, 176, 1);
+      }
+
+
 `
 export const Img = styled.img`
     width: 100%;
@@ -125,6 +141,7 @@ export const IconPlus = styled.svg`
   top: 98%;
   left: 50%;
   transform:translate(-50%, -50%);
+  transition: transform 550ms cubic-bezier(0.4, 0, 0.2, 1);
   width: 24px;
   height: 24px;
   fill: ${props => props.fill};
