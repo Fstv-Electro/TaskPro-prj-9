@@ -5,10 +5,10 @@ import {
   Project,
   WrapperProjectIcons,
   IconButton,
-} from './MyBoard.styled';
+} from './MyBoards.styled';
 import sprite from '../../../images/symbol-defs.svg';
 
-export const MyBoard = (desk) => {
+export const MyBoards = (desk) => {
   if (desk.desk === undefined) {
     return;
   }

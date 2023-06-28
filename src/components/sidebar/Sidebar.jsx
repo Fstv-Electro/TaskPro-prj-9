@@ -1,14 +1,15 @@
 import { CreateBoard } from './CreateBoard/CreateBoard';
-import { MyBoard } from './MyBoard/MyBoard';
+import { MyBoards } from './MyBoards/MyBoards';
 import { LogOut } from './LogOut/LogOut';
 import { NeedHelp } from './needHelp/needHelp';
 import {
   Container,
   WrapperTitle,
   Title,
-  WrapperNeonProject,
-  NeonProject,
   WrapperLogo,
+  NavDashboards,
+  NaviUser,
+  NeedHelpLogOutContainer,
   Logo,
 } from './Sidebar.styled';
 import sprite from '../../../src/images/symbol-defs.svg';
@@ -42,12 +43,18 @@ export const Sidebar = () => {
         <Title>Task Pro</Title>
       </WrapperTitle>
       <CreateBoard />
-      <MyBoard />
-      {selectBoards.map(board => (
-        <MyBoard key={nanoid()} desk={board} />
-      ))}
-      <NeedHelp />
-      <LogOut />
+      <NaviUser>
+        <NavDashboards>
+          <MyBoards />
+          {selectBoards.map(board => (
+            <MyBoards key={nanoid()} desk={board} />
+          ))}
+        </NavDashboards>
+        <NeedHelpLogOutContainer>
+          <NeedHelp />
+          <LogOut />
+        </NeedHelpLogOutContainer>
+      </NaviUser>
     </Container>
   );
 };
