@@ -12,6 +12,9 @@ import {
   FormIcon,
   Icon,
   Eye,
+  GoogleBtn,
+  GoogleIcon,
+  BtnPosition,
 } from './RegistrationView.styled';
 import { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
@@ -127,7 +130,14 @@ export default function RegistrationView() {
                 </Eye>
               </FormIcon>
             </FormFields>
-            <Button type="submit">Register Now </Button>
+            <BtnPosition>
+              <Button type="submit">Register Now </Button>
+              <GoogleBtn href="https://task-pro-backend.onrender.com/auth/google">
+                <GoogleIcon aria-label="Google">
+                  <use href={Sprite + '#icon-google'}></use>
+                </GoogleIcon>
+              </GoogleBtn>
+            </BtnPosition>
           </Form>
         </Formik>
       </UserForm>
