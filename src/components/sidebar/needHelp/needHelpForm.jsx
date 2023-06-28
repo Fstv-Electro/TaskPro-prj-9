@@ -1,3 +1,5 @@
+import { useDispatch } from "react-redux";
+import { needHelp } from "redux/dashboards/operations";
 import SubmitButton from "../../submitButton/submitButton";
 import { Formik, ErrorMessage } from 'formik';
 import { Title, Field, Form, Textarea } from './needHelpForm.styled';
@@ -9,20 +11,22 @@ const helpSchema = Yup.object().shape({
     .matches(
       /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/,
       {
-        message: 'Email error',
+        message: 'Invalid Email',
         excludeEmptyString: true,
       }
     )
-    .required('Required'),
+    .required('Please, enter your email'),
   text: Yup.string()
-    .required('Required'),
+    .required('Please, enter your comment'),
 });
 
 export const NeedHelpForm = ({onClose}) => {
+    const dispatch = useDispatch();
 
     function handleSubmit(value) {
         console.log(value);
-        // const { name, email, password } = value;
+        const { email, text } = value;
+        dispatch(needHelp({email, text}))
         onClose()
       }
     return (
@@ -42,7 +46,8 @@ export const NeedHelpForm = ({onClose}) => {
                 name="email"
                 component="div"
                 style={{
-                  color: 'white',
+                  color: 'red',
+                  fontSize: 14,
                 }}
               />
               <Textarea type="text" name="text" placeholder="Enter your comment" component="textarea" />
@@ -50,7 +55,8 @@ export const NeedHelpForm = ({onClose}) => {
                 name="text"
                 component="div"
                 style={{
-                  color: 'white',
+                  color: 'red',
+                  fontSize: 14,
                 }}
               />
               <SubmitButton title="Send" width="352" height="49" theme="Dark"/>
