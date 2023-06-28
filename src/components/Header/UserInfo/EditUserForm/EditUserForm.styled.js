@@ -1,71 +1,29 @@
 import styled from '@emotion/styled';
-import { NavLink } from 'react-router-dom';
 import { Field as FormicField, Form as FormicForm } from 'formik';
 
 export const Container = styled.section`
-  min-height: 100%;
-  padding-left: 20px;
-  padding-right: 20px;
-
-  height: 100vh;
-
-  /* border: solid 1px red; */
-
-  background: linear-gradient(
-    180deg,
-    rgba(196, 196, 196, 0) 25%,
-    #bedbb0 92.19%
-  );
-
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-
-  margin-left: auto;
-  margin-right: auto;
+}
 `;
 
 export const UserForm = styled.div`
   display: flex;
   flex-direction: column;
-
-  width: 287px;
-  /* height: 395px; */
-  padding: 24px;
+  width: 100%;
   border-radius: 8px;
-  background: #151515;
-
-  @media screen and (min-width: 768px) {
-    width: 344px;
-    padding: 40px;
   }
 `;
 
-export const Nav = styled.nav`
-  display: flex;
-  gap: 14px;
-  margin-bottom: 40px;
-`;
 
-export const Registered = styled(NavLink)`
-  display: inline;
+export const Title = styled.h3`
   color: #fff;
   font-size: 18px;
-  font-family: 'Poppins';
   font-weight: 500;
   letter-spacing: -0.36px;
-  text-decoration: none;
-`;
-
-export const Login = styled(NavLink)`
-  display: inline;
-  color: rgba(255, 255, 255, 0.3);
-  font-size: 18px;
-  font-family: 'Poppins';
-  font-weight: 500;
-  letter-spacing: -0.36px;
-  text-decoration: none;
+  margin: 0;
 `;
 
 export const Form = styled(FormicForm)`
@@ -76,7 +34,7 @@ export const Form = styled(FormicForm)`
   align-items: center;
 `;
 
-export const FormFields = styled.label`
+export const FormFields = styled.div`
   display: flex;
   gap: 14px;
   flex-direction: column;
@@ -131,7 +89,6 @@ export const Eye = styled.button`
   top: 50%;
   right: 12px;
   transform: translateY(-50%);
-  padding-top: 5px;
 
   background-color: transparent;
   border: none;
@@ -141,4 +98,35 @@ export const Eye = styled.button`
 export const Icon = styled.svg`
   width: 18px;
   height: 18px;
+`;
+
+export const Label = styled.label`
+    width: 68px;
+    height: 79px;
+    margin: 25px auto 0 auto;
+    cursor: pointer;
+`
+export const FieldAvatar = styled.input`
+    display: none;
+`
+export const ImgWrapper = styled.div`
+    position: relative;
+    width: 68px;
+    height: 68px;
+`
+export const Img = styled.img`
+    width: 100%;
+		height: 100%;
+		object-fit: cover;
+    border-radius: 8px;
+`
+export const IconPlus = styled.svg`
+  position: absolute;
+  top: 98%;
+  left: 50%;
+  transform:translate(-50%, -50%);
+  width: 24px;
+  height: 24px;
+  fill: ${props => props.fill};
+  color: ${props => props.color};
 `;

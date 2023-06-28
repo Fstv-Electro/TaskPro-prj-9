@@ -14,39 +14,43 @@ import {
   Eye,
 } from './RegistrationView.styled';
 import { useState } from 'react';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { register } from 'redux/auth/operations';
 import Sprite from '../../../images/symbol-defs.svg';
 import * as Yup from 'yup';
+import { selectIsError } from 'redux/auth/selectores';
+import Notiflix from 'notiflix';
 
 const NewUserSchema = Yup.object().shape({
   name: Yup.string()
-    .matches(/^[a-zA-Zа-яА-Я]+(([' -][a-zA-Zа-яА-Я ])?[a-zA-Zа-яА-Я]*)*$/, {
+    .matches(/^[A-Za-z0-9]{2,32}$/, {
       message:
         "Name may contain only letters, apostrophe, dash and spaces. For example Adrian, Jacob Mercer, Charles de Batz de Castelmore d'Artagnan",
       excludeEmptyString: true,
     })
     .required('Required'),
   email: Yup.string()
-    .matches(
-      /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/,
-      {
-        message: 'Email error',
-        excludeEmptyString: true,
-      }
-    )
+    .matches(/^(?=.*@[^@]*$)(?=.*\.[^.]*$)[A-Za-z0-9@.]+$/, {
+      message: 'Email error',
+      excludeEmptyString: true,
+    })
     .required('Required'),
   password: Yup.string()
-    .matches(/^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{5,}$/, {
+    .matches(/^(?=.*[a-zA-Z0-9])(?!.*\s).{8,64}$/, {
       message: 'Password error',
       excludeEmptyString: true,
     })
     .required('Required'),
 });
 
+Notiflix.Notify.init({
+  position: 'right-bottom',
+});
+
 export default function RegistrationView() {
   const dispatch = useDispatch();
   const [type, setType] = useState('password');
+  const isError = useSelector(selectIsError);
 
   function handleSubmit(value) {
     const { name, email, password } = value;
@@ -66,12 +70,16 @@ export default function RegistrationView() {
     }
   }
 
+  if (isError) {
+    Notiflix.Notify.warning('Email in use');
+  }
+
   return (
     <Container>
       <UserForm>
         <Nav>
-          <Registered to="/register">Registration</Registered>
-          <Login to="/login">Log In</Login>
+          <Registered to="/auth/register">Registration</Registered>
+          <Login to="/auth/login">Log In</Login>
         </Nav>
         <Formik
           initialValues={{ name: '', email: '', password: '' }}

@@ -2,12 +2,11 @@ import styled from '@emotion/styled';
 import { NavLink } from 'react-router-dom';
 
 export const Container = styled.section`
-  max-width: 375px;
   min-height: 100%;
   padding-left: 20px;
   padding-right: 20px;
 
-  height: 1000px;
+  height: 100vh;
 
   /* border: solid 1px red; */
 
@@ -25,14 +24,6 @@ export const Container = styled.section`
 
   margin-left: auto;
   margin-right: auto;
-
-  @media screen and (min-width: 768px) {
-    max-width: 768px;
-  }
-
-  @media screen and (min-width: 1280px) {
-    max-width: 1280px;
-  }
 `;
 
 export const Images = styled.img`

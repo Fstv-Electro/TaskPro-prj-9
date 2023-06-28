@@ -13,37 +13,41 @@ import {
   Icon,
   Eye,
 } from './LoginView.styled';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { useState } from 'react';
 import { logIn } from 'redux/auth/operations';
 import Sprite from '../../../images/symbol-defs.svg';
 import * as Yup from 'yup';
+import { selectIsError } from 'redux/auth/selectores';
+import Notiflix from 'notiflix';
 
 const UserSchema = Yup.object().shape({
   email: Yup.string()
-    .matches(
-      /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/,
-      {
-        message: 'Email error',
-        excludeEmptyString: true,
-      }
-    )
+    .matches(/^(?=.*@[^@]*$)(?=.*\.[^.]*$)[A-Za-z0-9@.]+$/, {
+      message: 'Email error',
+      excludeEmptyString: true,
+    })
     .required('Required'),
   password: Yup.string()
-    .matches(/^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{5,}$/, {
+    .matches(/^(?=.*[a-zA-Z0-9])(?!.*\s).{8,64}$/, {
       message: 'Password error',
       excludeEmptyString: true,
     })
     .required('Required'),
 });
 
+Notiflix.Notify.init({
+  position: 'right-bottom',
+});
+
 export default function LoginView() {
   const dispatch = useDispatch();
   const [type, setType] = useState('password');
+  const isError = useSelector(selectIsError);
 
-  function handleSubmit(value) {
+  async function handleSubmit(value) {
     const { email, password } = value;
-    dispatch(logIn({ email, password }));
+    await dispatch(logIn({ email, password }));
   }
 
   function handleClick() {
@@ -59,12 +63,16 @@ export default function LoginView() {
     }
   }
 
+  if (isError) {
+    Notiflix.Notify.warning('Email or password is wrong');
+  }
+
   return (
     <Container>
       <UserForm>
         <Nav>
-          <Registered to="/register">Registration</Registered>
-          <Login to="/login">Log In</Login>
+          <Registered to="/auth/register">Registration</Registered>
+          <Login to="/auth/login">Log In</Login>
         </Nav>
         <Formik
           initialValues={{ email: '', password: '' }}

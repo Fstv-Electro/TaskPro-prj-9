@@ -38,3 +38,40 @@ export const logIn = createAsyncThunk('auth/logIn', async (user, thunkAPI) => {
     return thunkAPI.rejectWithValue(e.message);
   }
 });
+
+export const logOut = createAsyncThunk('auth/logOut', async (_, thunkAPI) => {
+  try {
+    await axios.post('/users/logOut');
+    token.set('');
+  } catch (e) {
+    return thunkAPI.rejectWithValue(e.message);
+  }
+});
+
+export const updata = createAsyncThunk(
+  'auth/updata',
+  async (updataUser, thunkAPI) => {
+    try {
+      console.log(updataUser);
+      const response = await axios.post('/users/updata', updataUser);
+
+      return response.data;
+    } catch (e) {
+      return thunkAPI.rejectWithValue(e.message);
+    }
+  }
+);
+
+export const changeTheme = createAsyncThunk(
+  'auth/updata',
+  async (changeTheme, thunkAPI) => {
+    try {
+      console.log(changeTheme);
+      const response = await axios.patch('/users/theme', changeTheme);
+
+      return response.data;
+    } catch (e) {
+      return thunkAPI.rejectWithValue(e.message);
+    }
+  }
+);

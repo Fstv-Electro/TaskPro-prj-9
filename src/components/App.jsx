@@ -1,35 +1,41 @@
-import { Routes, Route, Link } from 'react-router-dom';
+import { Routes, Route } from 'react-router-dom';
 import { Auth } from './pages/auth';
-// import { Sidebar } from './Sidebar/Sidebar';
-import { AddColumn } from './addColumn/addColumn';
+
+import { WelcomePage } from './auth/welcomePage/welcomePage';
+import RegistrationView from 'components/auth/RegistrationView/RegistrationView';
+import LoginView from 'components/auth/LoginView/LoginView';
 
 export const App = () => {
   return (
     <>
-      {/* <Routes>
-        <Route
-          path="/welcome"
-          element={
-            <div>
-              welcome page <Link to="/auth/login"> login</Link>
-              <Link to="/auth/register"> register</Link>
-            </div>
-          }
-        />
+      <Routes>
+        <Route path="/" element={<WelcomePage />} />
+        <Route path="/register" element={<RegistrationView />} />
+        <Route path="/login" element={<LoginView />} />
+
         <Route path="/auth/:id" element={<Auth></Auth>} />
 
-        <Route path="/home" element={<div>home</div>} />
-        <Route path="/home/:boardName" element={<div>home:id</div>} />
+        <Route
+          path="/home"
+          element={<PrivateRout component={<Home />} redirectTo="/welcome" />}
+        />
+        <Route
+          path="/home/:boardName"
+          element={
+            <PrivateRout component={<div>home/id</div>} redirectTo="/welcome" />
+          }
+        />
         <Route
           path="*"
           element={
             <div>
-              welcome page <Link to="/auth/login"> login</Link>
-              <Link to="/auth/register"> register</Link>
+              {/* welcome page <Link to="/auth/login"> login</Link>
+              <Link to="/auth/register"> register</Link> */}
             </div>
           }
         />
-      </Routes> */}
+      </Routes>{' '}
+      */}
       <AddColumn />
       <div
         style={{

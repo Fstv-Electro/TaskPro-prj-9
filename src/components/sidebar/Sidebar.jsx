@@ -1,5 +1,5 @@
 import { CreateBoard } from './CreateBoard/CreateBoard';
-// import { MyBoard } from './myBoard/MyBoard';
+import { MyBoard } from './MyBoard/MyBoard';
 import { LogOut } from './LogOut/LogOut';
 import { NeedHelp } from './needHelp/needHelp';
 import {
@@ -26,7 +26,7 @@ export const Sidebar = () => {
         <Title>Task Pro</Title>
       </WrapperTitle>
       <CreateBoard />
-      {/* <MyBoard /> */}
+      <MyBoard />
       <WrapperNeonProject>
         <svg aria-label="question with round" width="18px" height="18px">
           <use href={sprite + '#icon-puzzle-piece-02'}></use>

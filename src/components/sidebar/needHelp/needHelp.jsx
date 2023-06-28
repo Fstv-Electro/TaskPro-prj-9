@@ -11,6 +11,7 @@ import {
 import background from '../../../images/help.png';
 import sprite from '../../../images/symbol-defs.svg';
 import { Modal } from 'components/modal/modal';
+import { NeedHelpForm } from './needHelpForm';
 
 export const NeedHelp = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -31,15 +32,8 @@ export const NeedHelp = () => {
         </Svg>
         <TextButton>Need help?</TextButton>
       </Button>
-      {isOpen && <Modal onClose={toggleModal} children={<h2>Hello</h2>} />}
+      {isOpen && <Modal onClose={toggleModal} children={<NeedHelpForm onClose={toggleModal}/>} />}
     </Container>
   );
 };
 
-// icon-lightning-02
-// icon-login
-// icon-pencil-01
-// icon-plus
-// icon-Project
-// icon-puzzle-piece-02
-// icon-trash-04
