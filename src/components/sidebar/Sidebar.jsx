@@ -1,5 +1,5 @@
 import { CreateBoard } from './CreateBoard/CreateBoard';
-import { MyBoards } from './MyBoards/MyBoards';
+import { MyBoards } from './myBoards/MyBoards';
 import { LogOut } from './LogOut/LogOut';
 import { NeedHelp } from './needHelp/needHelp';
 import {
