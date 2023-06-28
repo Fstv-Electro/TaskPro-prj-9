@@ -6,18 +6,16 @@ import sprite from '../../../images/symbol-defs.svg';
 export const LogOut = () => {
   const dispatch = useDispatch();
   return (
-    <LogOutButton onClick={() => {}}>
+    <LogOutButton type="button" onClick={() => dispatch(logOut())}>
       <svg
         aria-label="question with round"
-        width="20px"
-        height="20px"
+        width="24px"
+        height="24px"
         fill="inherit"
       >
         <use href={sprite + '#icon-login'}></use>
       </svg>
-      <LogOutButton type="button" onClick={() => dispatch(logOut())}>
-        <LogOutText>Log out</LogOutText>
-      </LogOutButton>
+      <LogOutText>Log out</LogOutText>
     </LogOutButton>
   );
 };
