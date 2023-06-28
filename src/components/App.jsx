@@ -10,7 +10,6 @@ import { lazy } from 'react';
 
 const Home = lazy(() => import('../pages/homePage'));
 
-
 export const App = () => {
   return (
     <>
@@ -29,7 +28,7 @@ export const App = () => {
 
         <Route
           path="/home"
-          element={<PrivateRout component={<Home/>} redirectTo="/welcome" />}
+          element={<PrivateRout component={<Home />} redirectTo="/welcome" />}
         />
         <Route
           path="/home/:boardName"

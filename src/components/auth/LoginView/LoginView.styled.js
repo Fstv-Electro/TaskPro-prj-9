@@ -3,7 +3,6 @@ import { NavLink } from 'react-router-dom';
 import { Field as FormicField, Form as FormicForm } from 'formik';
 
 export const Container = styled.section`
-  max-width: 375px;
   min-height: 100%;
   padding-left: 20px;
   padding-right: 20px;
@@ -25,14 +24,6 @@ export const Container = styled.section`
 
   margin-left: auto;
   margin-right: auto;
-
-  @media screen and (min-width: 768px) {
-    max-width: 768px;
-  }
-
-  @media screen and (min-width: 1280px) {
-    max-width: 1280px;
-  }
 `;
 
 export const UserForm = styled.div`
@@ -40,7 +31,6 @@ export const UserForm = styled.div`
   flex-direction: column;
 
   width: 287px;
-  /* height: 395px; */
   padding: 24px;
   border-radius: 8px;
   background: #151515;
