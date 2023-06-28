@@ -103,22 +103,48 @@ export const Field = styled(FormicField)`
   }
 `;
 
+export const BtnPosition = styled.div`
+  display: flex;
+  gap: 4px;
+`;
+
 export const Button = styled.button`
   font-size: 14px;
   font-family: 'Poppins';
   font-weight: 500;
   letter-spacing: -0.28px;
 
-  width: 287px;
+  width: 234px;
   height: 49px;
   background-color: #bedbb0;
   border: none;
   border-radius: 8px;
 
   @media screen and (min-width: 768px) {
-    width: 344px;
+    width: 291px;
     height: 49px;
   }
+`;
+
+export const GoogleBtn = styled.a`
+  position: relative;
+  width: 49px;
+  height: 49px;
+
+  background-color: #bedbb0;
+  border-radius: 8px;
+`;
+
+export const GoogleIcon = styled.svg`
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+
+  width: 20px;
+  height: 20px;
+
+  fill: white;
 `;
 
 export const FormIcon = styled.span`
