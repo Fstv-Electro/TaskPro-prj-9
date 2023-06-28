@@ -29,8 +29,9 @@ export const Header = () => {
     setCurrentTheme(e.target.value);
     dispatch(changeTheme({theme: e.target.value}));
   };
-  console.log(theme);
+
   return (
+    
     <HeaderStyled>
       <ThemeContainer>
         <ThemeSelect onClick={handleDropdownClick}>
