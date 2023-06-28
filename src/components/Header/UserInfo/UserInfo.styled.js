@@ -21,6 +21,12 @@ export const ImgWrapper = styled.div`
     border-radius: 8px;
     overflow: hidden;
     cursor: pointer;
+    transition: all 0.3s ease-out;
+    transition: transform 550ms cubic-bezier(0.4, 0, 0.2, 1);
+        &:hover{
+            box-shadow: 0px 0px 11px 0px rgba(190, 219, 176, 1);
+            transform: scale(1.1);
+        }
 `
 export const Img = styled.img`
         width: 100%;
