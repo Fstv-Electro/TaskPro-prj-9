@@ -1,19 +1,30 @@
 import { Routes, Route } from 'react-router-dom';
-import { Auth } from './pages/auth';
-
+import { Auth } from '../pages/auth';
 import { WelcomePage } from './auth/welcomePage/welcomePage';
-import RegistrationView from 'components/auth/RegistrationView/RegistrationView';
-import LoginView from 'components/auth/LoginView/LoginView';
+import { RestrictedRoute } from './routs/restrictedRoute';
+import { PrivateRout } from './routs/privateRout';
+// import RegistrationView from './auth/RegistrationView/RegistrationView';
+// import LoginView from './auth/LoginView/LoginView';
+
+import { lazy } from 'react';
+
+const Home = lazy(() => import('../pages/homePage'));
 
 export const App = () => {
   return (
     <>
       <Routes>
-        <Route path="/" element={<WelcomePage />} />
-        <Route path="/register" element={<RegistrationView />} />
-        <Route path="/login" element={<LoginView />} />
+        <Route
+          path="/"
+          element={
+            <RestrictedRoute component={<WelcomePage />} redirectTo="/home" />
+          }
+        />
 
-        <Route path="/auth/:id" element={<Auth></Auth>} />
+        <Route
+          path="/auth/:id"
+          element={<RestrictedRoute component={<Auth />} redirectTo="/home" />}
+        />
 
         <Route
           path="/home"
@@ -28,27 +39,10 @@ export const App = () => {
         <Route
           path="*"
           element={
-            <div>
-              {/* welcome page <Link to="/auth/login"> login</Link>
-              <Link to="/auth/register"> register</Link> */}
-            </div>
+            <RestrictedRoute component={<WelcomePage />} redirectTo="/home" />
           }
         />
-      </Routes>{' '}
-      */}
-      <AddColumn />
-      <div
-        style={{
-          height: '100vh',
-          display: 'flex',
-          justifyContent: 'center',
-          alignItems: 'center',
-          fontSize: 40,
-          color: '#010101',
-        }}
-      >
-        React task PRO
-      </div>
+      </Routes>
     </>
   );
 };

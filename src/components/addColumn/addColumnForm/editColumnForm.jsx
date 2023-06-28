@@ -13,13 +13,8 @@ import SubmitButton from '../../submitButton/submitButton';
 // import { useDispatch } from 'react-redux';
 // import { addColumn } from 'redux/contacts/operationsContacts';
 
-const initialValues = {
-  title: '',
-};
-
-export const AddColumnForm = ({ onClose }) => {
+export const EditColumnForm = ({ item, onClose }) => {
   const [windowWidth, setWindowWidth] = useState(window.innerWidth);
-  // const dispatch = useDispatch();
 
   useEffect(() => {
     const handleResize = () => {
@@ -75,13 +70,13 @@ export const AddColumnForm = ({ onClose }) => {
     <Modal onClose={onClose}>
       <ButtonClose onClose={onClose} />
       <Formik
-        initialValues={initialValues}
+        initialValues={{ title: item ? item.title : '' }}
         onSubmit={handleSubmit}
         validate={validateForm}
       >
         <Form autoComplete="off">
           <FormField htmlFor="title">
-            <Title htmlFor="title">Add column</Title>
+            <Title htmlFor="title">Edit column</Title>
             <Field type="text" name="title" placeholder="Title" />
             <ErrorMessage name="title" component="span" />
           </FormField>
@@ -92,7 +87,6 @@ export const AddColumnForm = ({ onClose }) => {
             height="49"
             theme="Dark"
             icon={true}
-            // handleClick={handleSubmit}
           />
         </Form>
       </Formik>
