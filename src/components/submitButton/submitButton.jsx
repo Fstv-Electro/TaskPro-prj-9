@@ -19,6 +19,7 @@ import { SubmitBtn, IconPlus } from './submitButton.styled';
 
 export default function SubmitButton({
   title = 'Add',
+  type,
   width,
   height = 49,
   theme = 'Dark',
@@ -64,6 +65,7 @@ export default function SubmitButton({
   return (
     <>
       <SubmitBtn
+        type={type}
         width={width}
         height={height}
         bg={bgColor()}

@@ -1,7 +1,8 @@
 import { useState } from 'react';
 import { AddColumnForm } from './addColumnForm/addColumnForm';
-import sprite from '../../images/symbol-defs.svg';
-import { Button, IconPlus } from './addColumn.styled';
+// import sprite from '../../images/symbol-defs.svg';
+// import { Button, IconPlus } from './addColumn.styled';
+import SubmitButton from '../submitButton/submitButton';
 
 export const AddColumn = () => {
   const [modal, setModal] = useState(false);
@@ -14,12 +15,17 @@ export const AddColumn = () => {
 
   return (
     <>
-      <Button type="button" onClick={handleOpen}>
-        <IconPlus aria-label="add">
-          <use href={sprite + '#icon-plus-add'}></use>
-        </IconPlus>
-        {buttonText}
-      </Button>
+      <SubmitButton
+        title={buttonText}
+        type="button"
+        width="334"
+        height="56"
+        theme="Dark"
+        icon={true}
+        addColumn={true}
+        handleClick={handleOpen}
+      />
+
       {modal && <AddColumnForm onClose={handleClose} />}
     </>
   );

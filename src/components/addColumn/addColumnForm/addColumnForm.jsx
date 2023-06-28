@@ -1,6 +1,6 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { Formik } from 'formik';
-import sprite from '../../../images/symbol-defs.svg';
+// import sprite from '../../../images/symbol-defs.svg';
 import { Modal } from '../../modal/modal';
 import { ButtonClose } from 'components/modalBtnClose/ButtonClose';
 import {
@@ -8,16 +8,47 @@ import {
   FormField,
   Field,
   ErrorMessage,
-  SubmitBtn,
+  // SubmitBtn,
   IconPlus,
   Title,
 } from './addColumnForm.styled';
+import SubmitButton from '../../submitButton/submitButton';
 
 const initialValues = {
   title: '',
 };
 
 export const AddColumnForm = ({ onClose }) => {
+  const [windowWidth, setWindowWidth] = useState(window.innerWidth);
+
+  useEffect(() => {
+    const handleResize = () => {
+      setWindowWidth(window.innerWidth);
+    };
+
+    window.addEventListener('resize', handleResize);
+
+    return () => {
+      window.removeEventListener('resize', handleResize);
+    };
+  }, []);
+
+  const widthButton = () => {
+    let a;
+    const windowWidth = window.innerWidth;
+    console.log('Ширина вікна:', windowWidth);
+
+    if (windowWidth > 767) {
+      a = '302';
+      console.log(a);
+    } else {
+      a = '287';
+      console.log(a);
+    }
+
+    return a;
+  };
+
   const handleSubmit = (values, actions) => {
     // const requestData = {
     //   title: values.title,
@@ -59,7 +90,7 @@ export const AddColumnForm = ({ onClose }) => {
 
   return (
     <Modal onClose={onClose}>
-      <ButtonClose onClose={onClose}/>
+      <ButtonClose onClose={onClose} />
       <Formik
         initialValues={initialValues}
         onSubmit={handleSubmit}
@@ -71,12 +102,15 @@ export const AddColumnForm = ({ onClose }) => {
             <Field type="text" name="title" placeholder="Title" />
             <ErrorMessage name="title" component="span" />
           </FormField>
-          <SubmitBtn type="submit">
-            <IconPlus aria-label="add">
-              <use href={sprite + '#icon-plus-add'}></use>
-            </IconPlus>
-            <span className="text">Add</span>
-          </SubmitBtn>
+          <SubmitButton
+            title="Add"
+            type="submit"
+            width={widthButton()}
+            height="49"
+            theme="Dark"
+            icon={true}
+            // handleClick={handleSubmit}
+          />
         </Form>
       </Formik>
     </Modal>
