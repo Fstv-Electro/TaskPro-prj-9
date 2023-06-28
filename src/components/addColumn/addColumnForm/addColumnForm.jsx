@@ -92,7 +92,6 @@ export const AddColumnForm = ({ onClose }) => {
             height="49"
             theme="Dark"
             icon={true}
-            // handleClick={handleSubmit}
           />
         </Form>
       </Formik>

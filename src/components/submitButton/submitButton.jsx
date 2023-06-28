@@ -65,7 +65,6 @@ export default function SubmitButton({
   return (
     <>
       <SubmitBtn
-        type={type}
         width={width}
         height={height}
         bg={bgColor()}
