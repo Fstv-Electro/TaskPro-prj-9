@@ -48,13 +48,10 @@ export const logOut = createAsyncThunk('auth/logOut', async (_, thunkAPI) => {
   }
 });
 
-export const updata = createAsyncThunk(
-  'auth/updata',
-  async (updataUser, thunkAPI) => {
+export const update = createAsyncThunk('auth/update',
+  async (updateUser, thunkAPI) => {
     try {
-      console.log(updataUser);
-      const response = await axios.post('/users/updata', updataUser);
-
+      const response = await axios.patch('/users/update', updateUser);
       return response.data;
     } catch (e) {
       return thunkAPI.rejectWithValue(e.message);
@@ -62,16 +59,33 @@ export const updata = createAsyncThunk(
   }
 );
 
-export const changeTheme = createAsyncThunk(
-  'auth/updata',
+export const changeTheme = createAsyncThunk( 'auth/theme',
   async (changeTheme, thunkAPI) => {
     try {
-      console.log(changeTheme);
       const response = await axios.patch('/users/theme', changeTheme);
-
       return response.data;
     } catch (e) {
       return thunkAPI.rejectWithValue(e.message);
+    }
+  }
+);
+
+export const refreshUser = createAsyncThunk(
+  'auth/refresh',
+  async (_, thunkAPI) => {
+    const state = thunkAPI.getState();
+    const persistedToken = state.auth.token;
+
+    if (persistedToken === null) {
+      return thunkAPI.rejectWithValue('Unable to fetch user');
+    }
+
+    try {
+      token.set(persistedToken);
+      const response = await axios.get('/users/current');
+      return response.data;
+    } catch (error) {
+      return thunkAPI.rejectWithValue(error.message);
     }
   }
 );

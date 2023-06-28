@@ -18,7 +18,7 @@ import {
 } from './EditUserForm.styled';
 import { useState } from 'react';
 import { useDispatch } from 'react-redux';
-import { updata } from 'redux/auth/operations';
+import { update } from 'redux/auth/operations';
 import Sprite from '../../../../images/symbol-defs.svg'
 import * as Yup from 'yup';
 // import SubmitButton from "../../../submitButton/submitButton"
@@ -58,6 +58,7 @@ const NewUserSchema = Yup.object().shape({
 export const  EdidUserForm = ({avatarURL}) => {
   const dispatch = useDispatch();
   const [type, setType] = useState('password');
+  const [currentImage, setCurrentImage] = useState(avatarURL);
 
   function handleSubmit(value) {
     const { avatar, name, email, password  } = value;
@@ -67,8 +68,8 @@ export const  EdidUserForm = ({avatarURL}) => {
     formData.append('name', name);
     formData.append('email', email);
     formData.append('password', password);
-
-    dispatch(updata({ formData }));
+    
+    dispatch(update(formData));
   }
 
   function handleClick() {
@@ -81,6 +82,20 @@ export const  EdidUserForm = ({avatarURL}) => {
       default:
         break;
     }
+  };
+
+  function handleFileChange(event) {
+    const file = event; 
+    if (!file) {
+      return;
+    }
+    const reader = new FileReader(); 
+    
+    reader.onload = function (e) {
+      setCurrentImage(e.target.result); 
+    };
+  
+    reader.readAsDataURL(file);
   }
 
   return (
@@ -101,8 +116,8 @@ export const  EdidUserForm = ({avatarURL}) => {
             <FormFields >
               <Label htmlFor="avatar">
               <ImgWrapper >
-              {avatarURL ? (
-                <Img src={avatarURL} alt="User picture" />
+              {currentImage ? (
+                <Img src={currentImage} alt="User picture" />
                 ) : (
                 <svg aria-label="User picture" width="68px" height="68px">
                   <use href={Sprite + '#icon-user'}></use>
@@ -119,6 +134,7 @@ export const  EdidUserForm = ({avatarURL}) => {
                     name="avatar" 
                     onChange={(event) => {
                       setFieldValue('avatar', event.currentTarget.files[0]);
+                      handleFileChange(event.currentTarget.files[0])
                     }}
               />               
               <ErrorMessage
