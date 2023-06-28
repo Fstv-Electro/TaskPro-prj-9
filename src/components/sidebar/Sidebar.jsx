@@ -29,8 +29,6 @@ export const Sidebar = () => {
     dispatch(fetchBoards());
   }, [dispatch]);
 
-  // props deskId, currentBg, title, icon
-
   return (
     <Container>
       <WrapperTitle>
