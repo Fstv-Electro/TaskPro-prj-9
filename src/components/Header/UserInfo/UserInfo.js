@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { UserContainer, UserEmail, ImgWrapper, Img } from "./UserInfo.stayled";
+import { UserContainer, UserEmail, ImgWrapper, Img } from "./UserInfo.styled";
 import { Modal } from '../../modal/modal';
 import { ButtonClose } from 'components/modalBtnClose/ButtonClose';
 import { EdidUserForm }  from './EditUserForm/EditUserForm'
