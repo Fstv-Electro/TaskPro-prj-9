@@ -1,11 +1,12 @@
 import { createSlice } from '@reduxjs/toolkit';
-import { logIn, register, logOut, update, changeTheme } from './operations';
+import { logIn, register, logOut, update, changeTheme, refreshUser } from './operations';
 
 const initialState = {
   user: { name: null, email: null },
   token: null,
   isLogin: false,
   isError: false,
+  isRefreshing: false,
 };
 
 const authSlice = createSlice({
@@ -43,6 +44,17 @@ const authSlice = createSlice({
     },
     [changeTheme.fulfilled](state, action) {
       state.user.theme = action.payload.user.theme;
+    },
+    [refreshUser.pending](state) {
+      state.isRefreshing = true;
+    },
+    [refreshUser.fulfilled](state, action) {
+      state.user = action.payload;
+      state.isLogin = true;
+      state.isRefreshing = false;
+    },
+    [refreshUser.rejected](state) {
+      state.isRefreshing = false;
     },
   },
 });
