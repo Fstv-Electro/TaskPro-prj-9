@@ -12,8 +12,24 @@ import {
   Logo,
 } from './Sidebar.styled';
 import sprite from '../../../src/images/symbol-defs.svg';
+import { useSelector, useDispatch } from 'react-redux';
+import { selectBoard } from 'redux/dashboards/selectors';
+import { fetchBoards } from 'redux/dashboards/operations';
+import { useEffect } from 'react';
+import { nanoid } from 'nanoid';
 
 export const Sidebar = () => {
+  const dispatch = useDispatch();
+  const selectBoards = useSelector(selectBoard);
+  // const isLoading = useSelector(selectIsLoading);
+  // const error = useSelector(selectError);
+
+  useEffect(() => {
+    dispatch(fetchBoards());
+  }, [dispatch]);
+
+  // props deskId, currentBg, title, icon
+
   return (
     <Container>
       <WrapperTitle>
@@ -27,12 +43,9 @@ export const Sidebar = () => {
       </WrapperTitle>
       <CreateBoard />
       <MyBoard />
-      <WrapperNeonProject>
-        <svg aria-label="question with round" width="18px" height="18px">
-          <use href={sprite + '#icon-puzzle-piece-02'}></use>
-        </svg>
-        <NeonProject>Neon Light Project</NeonProject>
-      </WrapperNeonProject>
+      {selectBoards.map(board => (
+        <MyBoard key={nanoid()} desk={board} />
+      ))}
       <NeedHelp />
       <LogOut />
     </Container>

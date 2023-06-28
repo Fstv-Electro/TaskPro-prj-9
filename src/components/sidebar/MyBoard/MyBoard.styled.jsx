@@ -49,6 +49,7 @@ export const Project = styled.p`
 export const WrapperProjectIcons = styled.div`
   display: flex;
   align-items: center;
+  margin-right: 20px;
 `;
 
 export const IconButton = styled.button`

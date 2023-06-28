@@ -1,10 +1,11 @@
 import styled from '@emotion/styled';
 
 export const Container = styled.div`
-  max-width: 260px;
+  width: 260px;
+  height: 100vh;
   align-items: center;
   position: relative;
-  padding: 24px 24px 24px 24px;
+  padding: 24px 0 0 24px;
   color: #fff;
   background: #121212;
 `;
