@@ -1,8 +1,11 @@
 import styled from '@emotion/styled';
 
 export const Container = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
   width: 260px;
-  height: 97.3vh;
+  height: calc(100vh - 24px);
   align-items: center;
   position: relative;
   margin: 0;
@@ -25,11 +28,12 @@ export const Title = styled.h2`
 `;
 
 export const NaviUser = styled.div`
-  display: flex;
+  /* display: flex;
   flex-direction: column;
-  /* justify-content: space-between; */
+  justify-content: space-between; */
   /* height: 100%; */
-  gap:28px;
+  width: 100%;
+  /* gap:28px; */
 `;
 
 export const NavDashboards = styled.nav`
@@ -37,7 +41,7 @@ export const NavDashboards = styled.nav`
 `;
 
 export const NeedHelpLogOutContainer = styled.div`
-  /* margin-top: auto; */
+  margin-top: auto;
   margin-bottom: 28px;
 `;
 

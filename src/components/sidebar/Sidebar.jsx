@@ -17,7 +17,6 @@ import { useSelector, useDispatch } from 'react-redux';
 import { selectBoard } from 'redux/dashboards/selectors';
 import { fetchBoards } from 'redux/dashboards/operations';
 import { useEffect } from 'react';
-import { nanoid } from 'nanoid';
 
 export const Sidebar = () => {
   const dispatch = useDispatch();
@@ -25,13 +24,15 @@ export const Sidebar = () => {
   // const isLoading = useSelector(selectIsLoading);
   // const error = useSelector(selectError);
 
+
   useEffect(() => {
     dispatch(fetchBoards());
   }, [dispatch]);
 
   return (
     <Container>
-      <WrapperTitle>
+      <NaviUser>
+        <WrapperTitle>
         <WrapperLogo>
           <Logo aria-label="question with round" width="32px" height="32px">
             <use href={sprite + '#icon-icon'}></use>
@@ -39,20 +40,19 @@ export const Sidebar = () => {
         </WrapperLogo>
 
         <Title>Task Pro</Title>
-      </WrapperTitle>
-      <CreateBoard />
-      <NaviUser>
+        </WrapperTitle>
+        <CreateBoard />
+      </NaviUser>
         <NavDashboards>
           <MyBoards />
           {selectBoards.map(board => (
-            <MyBoards key={nanoid()} desk={board} />
+            <MyBoards key={board._id} id={board._id} desk={board} />
           ))}
         </NavDashboards>
         <NeedHelpLogOutContainer>
           <NeedHelp />
           <LogOut />
         </NeedHelpLogOutContainer>
-      </NaviUser>
     </Container>
   );
 };
