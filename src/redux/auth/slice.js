@@ -14,6 +14,7 @@ const initialState = {
   isLogin: false,
   isError: false,
   isRefreshing: false,
+  isLoading: false,
 };
 
 const authSlice = createSlice({
@@ -48,8 +49,17 @@ const authSlice = createSlice({
       state.token = null;
       state.isLogin = false;
     },
+    [update.pending](state) {
+      state.isError = false;
+      state.isLoading = true;
+    },
     [update.fulfilled](state, action) {
       state.user = action.payload.user;
+      state.isLoading = false;
+    },
+    [update.rejected](state) {
+      state.isError = true;
+      state.isLoading = false;
     },
     [changeTheme.fulfilled](state, action) {
       state.user.theme = action.payload.user.theme;
@@ -58,7 +68,7 @@ const authSlice = createSlice({
       state.isRefreshing = true;
     },
     [refreshUser.fulfilled](state, action) {
-      state.user = action.payload;
+      state.user = action.payload.user;
       state.isLogin = true;
       state.isRefreshing = false;
     },

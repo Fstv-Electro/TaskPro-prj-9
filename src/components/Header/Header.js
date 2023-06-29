@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from "react-redux";
 import { changeTheme } from 'redux/auth/operations';
 import { selectUser } from 'redux/auth/selectores';
@@ -19,6 +19,13 @@ export const Header = () => {
   const {avatarURL, name, theme} = useSelector(selectUser)
   const [currentTheme, setCurrentTheme] = useState(theme);
   const [isDropdownActive, setIsDropdownActive] = useState(false);
+
+  useEffect(() => {
+    document.body.classList.add(currentTheme);
+    return () => {
+      document.body.classList.remove(currentTheme);
+    };
+  }, [currentTheme]);
 
   const themeOptions = ['light', 'dark', 'violet'];
 
