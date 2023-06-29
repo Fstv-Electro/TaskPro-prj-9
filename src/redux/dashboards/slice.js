@@ -1,5 +1,11 @@
 import { createSlice } from '@reduxjs/toolkit';
-import { addColumn, deleteColumn, editColumn, fetchBoards } from './operations';
+import {
+  addColumn,
+  deleteColumn,
+  editColumn,
+  fetchBoards,
+  setFilter,
+} from './operations';
 import { needHelp } from './operations';
 import { backgroundUrl } from './operations';
 // const handlePending = state => {
@@ -21,6 +27,7 @@ const initialState = {
   replyEmail: '',
   comment: '',
   bgUrl: [],
+  filter: 'Without priority',
 };
 
 const taskSlice = createSlice({
@@ -107,7 +114,9 @@ const taskSlice = createSlice({
     [deleteColumn.rejected](state, action) {
       state.isLoading = false;
       state.error = true;
-
+    },
+    [setFilter.fulfilled](state, action) {
+      state.filter = action.payload;
     },
   },
 });
