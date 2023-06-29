@@ -10,7 +10,7 @@ const schema = yup.object().shape({
   name: yup.string().required(),
 });
 
-export const ModalBoard = () => {
+export const ModalBoard = ({ onClose }) => {
   const [name, setName] = useState('');
 
   const handleSubmit = (query, { resetForm }) => {
@@ -21,6 +21,7 @@ export const ModalBoard = () => {
       console.log(name);
       resetForm();
     }
+    onClose();
   };
 
   const initialValues = {
@@ -29,7 +30,7 @@ export const ModalBoard = () => {
 
   return (
     <>
-      <ButtonClose />
+      <ButtonClose onClose={onClose} />
       <FormTitle>New board</FormTitle>
       <Formik
         initialValues={initialValues}

@@ -11,13 +11,9 @@ import {
 } from './addColumnForm.styled';
 import SubmitButton from '../../submitButton/submitButton';
 import { useDispatch } from 'react-redux';
-import { addColumn } from 'redux/dashboards/operations';
+import { editColumn } from 'redux/dashboards/operations';
 
-const initialValues = {
-  title: '',
-};
-
-export const AddColumnForm = ({ id, onClose }) => {
+export const EditColumnForm = ({ item, onClose }) => {
   const [windowWidth, setWindowWidth] = useState(window.innerWidth);
   const dispatch = useDispatch();
 
@@ -50,24 +46,15 @@ export const AddColumnForm = ({ id, onClose }) => {
 
   const handleSubmit = (values, actions) => {
     // const formData = new FormData();
-    // formData.append('parentBoard', id);
     // formData.append('title', values.title);
 
     // for (let [key, value] of formData.entries()) {
     //   console.log(key, value);
     // }
-    // dispatch(addColumn(formData));
+    // // dispatch(addColumn(formData));
+    console.log(values);
     actions.resetForm();
-    dispatch(
-      addColumn({
-        parentBoard: id,
-        ...values,
-      })
-    );
-    console.log({
-      parentBoard: id,
-      ...values,
-    });
+    dispatch(editColumn(values));
 
     onClose();
   };
@@ -86,13 +73,13 @@ export const AddColumnForm = ({ id, onClose }) => {
     <Modal onClose={onClose}>
       <ButtonClose onClose={onClose} />
       <Formik
-        initialValues={initialValues}
+        initialValues={{ id: item._id, title: item ? item.title : '' }}
         onSubmit={handleSubmit}
         validate={validateForm}
       >
         <Form autoComplete="off">
           <FormField htmlFor="title">
-            <Title htmlFor="title">Add column</Title>
+            <Title htmlFor="title">Edit column</Title>
             <Field type="text" name="title" placeholder="Title" />
             <ErrorMessage name="title" component="span" />
           </FormField>

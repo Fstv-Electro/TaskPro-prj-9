@@ -29,7 +29,12 @@ export const CreateBoard = () => {
             <use href={sprite + '#icon-plus-add'}></use>
           </IconPlus>
         </CreateButton>
-        {isOpen && <Modal onClose={toggleModal} children={<ModalBoard />} />}
+        {isOpen && (
+          <Modal
+            onClose={toggleModal}
+            children={<ModalBoard onClose={toggleModal} />}
+          />
+        )}
       </WrapperCreate>
     </>
   );

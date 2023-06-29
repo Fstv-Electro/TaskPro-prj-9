@@ -1,5 +1,7 @@
 import { Sidebar } from 'components/sidebar/Sidebar';
 import { Header } from 'components/Header/Header';
+import { AddColumn } from 'components/addColumn/addColumn';
+import { ColumnItem } from 'components/columnItem/columnItem';
 
 const styles = {
   container: {
@@ -19,6 +21,8 @@ export default function Home() {
       <Sidebar />
       <div style={styles.deskMenu}>
         <Header />
+        <AddColumn />
+        <ColumnItem />
       </div>
     </div>
   );

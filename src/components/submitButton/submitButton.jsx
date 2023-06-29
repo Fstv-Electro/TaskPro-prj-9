@@ -19,6 +19,7 @@ import { SubmitBtn, IconPlus } from './submitButton.styled';
 
 export default function SubmitButton({
   title = 'Add',
+  type,
   width,
   height = 49,
   theme = 'Dark',
