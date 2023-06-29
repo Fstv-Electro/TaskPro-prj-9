@@ -1,12 +1,12 @@
 import { Modal } from "components/modal/modal";
 import { Field, Formik, Form } from 'formik';
-import { useDispatch } from 'react-redux';
+// import { useDispatch } from 'react-redux';
 import { ButtonClose } from 'components/modalBtnClose/ButtonClose';
 
 // import { setFilter } from 'redux/dashboards/operations';
 
 export const Filter = ({onClose}) => {
-    const dispatch = useDispatch();
+    // const dispatch = useDispatch();
 
     const initialValues = {
         currentBg: 0,
