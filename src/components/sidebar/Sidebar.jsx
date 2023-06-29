@@ -24,7 +24,6 @@ export const Sidebar = () => {
   // const isLoading = useSelector(selectIsLoading);
   // const error = useSelector(selectError);
 
-
   useEffect(() => {
     dispatch(fetchBoards());
   }, [dispatch]);
@@ -33,26 +32,26 @@ export const Sidebar = () => {
     <Container>
       <NaviUser>
         <WrapperTitle>
-        <WrapperLogo>
-          <Logo aria-label="question with round" width="32px" height="32px">
-            <use href={sprite + '#icon-icon'}></use>
-          </Logo>
-        </WrapperLogo>
+          <WrapperLogo>
+            <Logo aria-label="question with round" width="32px" height="32px">
+              <use href={sprite + '#icon-icon'}></use>
+            </Logo>
+          </WrapperLogo>
 
-        <Title>Task Pro</Title>
+          <Title>Task Pro</Title>
         </WrapperTitle>
         <CreateBoard />
       </NaviUser>
-        <NavDashboards>
-          <MyBoards />
-          {selectBoards.map(board => (
-            <MyBoards key={board._id} id={board._id} desk={board} />
-          ))}
-        </NavDashboards>
-        <NeedHelpLogOutContainer>
-          <NeedHelp />
-          <LogOut />
-        </NeedHelpLogOutContainer>
+      <NavDashboards>
+        <MyBoards />
+        {selectBoards.map(board => (
+          <MyBoards key={board._id} id={board._id} desk={board} />
+        ))}
+      </NavDashboards>
+      <NeedHelpLogOutContainer>
+        <NeedHelp />
+        <LogOut />
+      </NeedHelpLogOutContainer>
     </Container>
   );
 };

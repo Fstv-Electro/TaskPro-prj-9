@@ -1,10 +1,14 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import { Forma, Label, Input, FormTitle } from './ModalBoard.styled';
 import SubmitButton from '../../submitButton/submitButton';
 import { IconRadioButtons } from '../../iconRadioButtons/IconRadioButtons';
 import { Formik, ErrorMessage } from 'formik';
 import * as yup from 'yup';
 import { ButtonClose } from '../../modalBtnClose/ButtonClose';
+// import { bgCreateBoard } from '../../../redux/dashboards/operations';
+// import { selectBgIcon } from '../../../redux/dashboards/selectors';
+import { Background } from '../../background/Background';
 
 const schema = yup.object().shape({
   name: yup.string().required(),
@@ -12,7 +16,14 @@ const schema = yup.object().shape({
 
 export const ModalBoard = ({ onClose }) => {
   const [name, setName] = useState('');
+  // const dispatch = useDispatch();
+  // const selectBgIcons = useSelector(selectBgIcon);
 
+  // useEffect(() => {
+  //   dispatch(bgCreateBoard());
+  // }, [dispatch]);
+
+  // console.log(selectBgIcons);
   const handleSubmit = (query, { resetForm }) => {
     if (!query) {
       console.log('error');
@@ -44,8 +55,8 @@ export const ModalBoard = ({ onClose }) => {
               name="name"
               placeholder="Title"
               required
-              minlength="4"
-              maxlength="12"
+              minLength="4"
+              maxLength="12"
             />
             <ErrorMessage name="name" component="div" />
           </Label>
@@ -61,6 +72,7 @@ export const ModalBoard = ({ onClose }) => {
         </Forma>
       </Formik>
       <IconRadioButtons />
+      <Background />
     </>
   );
 };

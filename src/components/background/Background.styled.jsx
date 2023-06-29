@@ -1,0 +1,61 @@
+import styled from '@emotion/styled';
+
+export const Wrapper = styled.div`
+  max-width: 300px;
+  margin: 10px auto;
+`;
+
+export const List = styled.ul`
+  border: none;
+  padding: 0;
+`;
+
+export const FormQuestion = styled.legend`
+  color: #fff;
+  font-size: 14px;
+  font-family: Poppins;
+  font-weight: 500;
+  letter-spacing: -0.28px;
+`;
+
+export const Item = styled.li`
+  display: inline-block;
+  box-sizing: border-box;
+  vertical-align: top;
+  text-align: center;
+`;
+
+export const Label = styled.label`
+  display: block;
+  height: 100%;
+  width: 100%;
+  padding-right: 4px;
+  cursor: pointer;
+  opacity: 0.5;
+  transition: all 0.5s ease-in-out;
+`;
+
+export const Input = styled.input`
+  &[type='radio'] {
+    opacity: 0;
+    width: 0;
+    height: 0;
+  }
+  &[type='radio']:active ~ label {
+    opacity: 1;
+    border: 1px solid #fff;
+  }
+  &[type='radio']:checked ~ label {
+    opacity: 1;
+  }
+`;
+
+export const Img = styled.img`
+  width: 28px;
+  height: 28px;
+
+  :hover,
+  :active {
+    border: 1px solid #fff;
+  }
+`;

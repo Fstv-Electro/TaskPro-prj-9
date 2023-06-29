@@ -22,6 +22,19 @@ export const fetchBoards = createAsyncThunk(
 
 axios.defaults.baseURL = 'https://task-pro-backend.onrender.com';
 
+
+export const backgroundUrl = createAsyncThunk(
+  'backgrounds',
+  async (_, thunkAPI) => {
+    try {
+      const response = await axios.get('/api/backgrounds');
+      return response.data;
+    } catch (e) {
+      return thunkAPI.rejectWithValue(e.message);
+    }
+ });
+
+
 export const needHelp = createAsyncThunk('help', async (user, thunkAPI) => {
   // const state = thunkAPI.getState();
   // const persistedToken = state.auth.token;
@@ -78,6 +91,7 @@ export const deleteColumn = createAsyncThunk(
       return response.data;
     } catch (error) {
       return thunkAPI.rejectWithValue(error.message);
+
     }
   }
 );
