@@ -1,5 +1,5 @@
-import { useState, useEffect } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
+import { useState } from 'react';
+// import { useDispatch, useSelector } from 'react-redux';
 import { Forma, Label, Input, FormTitle } from './ModalBoard.styled';
 import SubmitButton from '../../submitButton/submitButton';
 import { IconRadioButtons } from '../../iconRadioButtons/IconRadioButtons';
