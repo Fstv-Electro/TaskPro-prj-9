@@ -3,6 +3,8 @@ import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider';
 import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs';
 import dayjs from 'dayjs'
 import { useState, useEffect } from "react";
+import sprite from '../../../images/symbol-defs.svg';
+import { IconDown } from './datePicker.styled';
 
 export const Calendar = ({parentState}) => {
     dayjs().format();
@@ -21,12 +23,10 @@ export const Calendar = ({parentState}) => {
             value={dateDeadline}
             onChange={(newValue) => {setDateDeadline(newValue); parentState(newValue)}}
             slots={{
-              
-                openPickerIcon: ()=>(<svg width="18" height="19" viewBox="0 0 18 19" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <g id="chevron-down">
-                <path id="Vector" d="M4.5 7.25L9 11.75L13.5 7.25" stroke="#BEDBB0" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-                </g>
-                </svg>),
+              openPickerIcon: ()=>(
+                <IconDown aria-label="chevron-down">
+                  <use href={sprite + '#icon-chevron-down' }></use>
+                </IconDown>),
               }}
               dayOfWeekFormatter={(day)=>day.slice(0,2)}
               slotProps={{
