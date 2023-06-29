@@ -9,18 +9,23 @@ import {
   IconDelete,
   BtnContainer,
 } from './columnItem.styled';
+import { useDispatch } from 'react-redux';
+import { deleteColumn } from 'redux/dashboards/operations';
+// import { selectList } from 'redux/dashboards/selectors';
 
-export const ColumnItem = () => {
-  //     const dispatch = useDispatch();
-  //   const columns = useColumns();
+export const ColumnItem = ({
+  item = {
+    title: 'TO DO',
+    _id: '649d5407f4c9cb1654f8e61f',
+  },
+}) => {
+  const dispatch = useDispatch();
   const [modal, setModal] = useState(false);
 
-  const item = { title: 'TO DO' };
-
-  //   const handleOpen = columns => {
-  //     setSelectedColumn(columns);
-  //     setModal(true);
-  //   };
+  // const handleOpen = columns => {
+  //   selectList(lists);
+  //   setModal(true);
+  // };
 
   const handleOpen = () => setModal(true);
   const handleClose = () => setModal(false);
@@ -34,7 +39,10 @@ export const ColumnItem = () => {
               <use href={sprite + '#icon-pencil-01'}></use>
             </IconEdit>
           </Button>
-          <Button type="button" onClick={() => console.log('delete')}>
+          <Button
+            type="button"
+            onClick={() => dispatch(deleteColumn(item._id))}
+          >
             <IconDelete aria-label="delete">
               <use href={sprite + '#icon-trash-04'}></use>
             </IconDelete>

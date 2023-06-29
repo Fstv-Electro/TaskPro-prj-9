@@ -4,7 +4,7 @@ import { AddColumnForm } from './addColumnForm/addColumnForm';
 // import { Button, IconPlus } from './addColumn.styled';
 import SubmitButton from '../submitButton/submitButton';
 
-export const AddColumn = () => {
+export const AddColumn = ({ _id = '649d310119f7c8d34db12c34' }) => {
   const [modal, setModal] = useState(false);
 
   const handleOpen = () => setModal(true);
@@ -26,7 +26,7 @@ export const AddColumn = () => {
         handleClick={handleOpen}
       />
 
-      {modal && <AddColumnForm onClose={handleClose} />}
+      {modal && <AddColumnForm id={_id} onClose={handleClose} />}
     </>
   );
 };
