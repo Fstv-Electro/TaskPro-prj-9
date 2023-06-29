@@ -1,4 +1,4 @@
-// import { useState } from 'react';
+import { useState } from 'react';
 import {
   Form,
   FormOptions,
@@ -11,83 +11,44 @@ import {
 import sprite from '../../images/symbol-defs.svg';
 
 export const IconRadioButtons = () => {
-  // const [item, setItem] = useState('');
+  const [item, setItem] = useState('');
+  const icons = [
+    { name: 'Project', id: 'match_1' },
+    { name: 'star-04', id: 'match_2' },
+    { name: 'loading-03', id: 'match_3' },
+    { name: 'puzzle-piece-02', id: 'match_4' },
+    { name: 'container', id: 'match_5' },
+    { name: 'lightning-02', id: 'match_6' },
+    { name: 'colors', id: 'match_7' },
+    { name: 'hexagon-01', id: 'match_8' },
+  ];
 
+  const onClickIcon = e => {
+    setItem(e.target.value);
+  };
+  console.log(item);
   return (
     <>
       <Form>
-        <form>
-          <FormOptions>
-            <FormQuestion>Icons</FormQuestion>
-            <FormAnswer>
-              <Input type="radio" name="match" id="match_1" value="guy" />
-              <Label for="match_1">
+        <FormOptions>
+          <FormQuestion>Icons</FormQuestion>
+          {icons.map(({ name, id }) => (
+            <FormAnswer key={id}>
+              <Input
+                onClick={onClickIcon}
+                type="radio"
+                name="match"
+                id={id}
+                value={name}
+              />
+              <Label htmlFor={id}>
                 <Svg aria-label="question with round">
-                  <use href={sprite + '#icon-Project'}></use>
+                  <use href={sprite + `#icon-${name}`}></use>
                 </Svg>
               </Label>
             </FormAnswer>
-
-            <FormAnswer>
-              <Input type="radio" name="match" id="match_2" value="girl" />
-              <Label for="match_2">
-                <Svg aria-label="question with round">
-                  <use href={sprite + '#icon-star-04'}></use>
-                </Svg>
-              </Label>
-            </FormAnswer>
-
-            <FormAnswer>
-              <Input type="radio" name="match" id="match_3" value="cat" />
-              <Label for="match_3">
-                <Svg aria-label="question with round">
-                  <use href={sprite + '#icon-loading-03'}></use>
-                </Svg>
-              </Label>
-            </FormAnswer>
-
-            <FormAnswer>
-              <Input type="radio" name="match" id="match_4" value="bacon" />
-              <Label for="match_4">
-                <Svg aria-label="question with round">
-                  <use href={sprite + '#icon-puzzle-piece-02'}></use>
-                </Svg>
-              </Label>
-            </FormAnswer>
-            <FormAnswer>
-              <Input type="radio" name="match" id="match_5" value="bacon" />
-              <Label for="match_5">
-                <Svg aria-label="question with round">
-                  <use href={sprite + '#icon-container'}></use>
-                </Svg>
-              </Label>
-            </FormAnswer>
-            <FormAnswer>
-              <Input type="radio" name="match" id="match_6" value="bacon" />
-              <Label for="match_6">
-                <Svg aria-label="question with round">
-                  <use href={sprite + '#icon-lightning-02'}></use>
-                </Svg>
-              </Label>
-            </FormAnswer>
-            <FormAnswer>
-              <Input type="radio" name="match" id="match_7" value="bacon" />
-              <Label for="match_7">
-                <Svg aria-label="question with round">
-                  <use href={sprite + '#icon-colors'}></use>
-                </Svg>
-              </Label>
-            </FormAnswer>
-            <FormAnswer>
-              <Input type="radio" name="match" id="match_8" value="bacon" />
-              <Label for="match_8">
-                <Svg aria-label="question with round">
-                  <use href={sprite + '#icon-hexagon-01'}></use>
-                </Svg>
-              </Label>
-            </FormAnswer>
-          </FormOptions>
-        </form>
+          ))}
+        </FormOptions>
       </Form>
     </>
   );

@@ -5,8 +5,8 @@ import Notiflix from 'notiflix';
 // import { selectToken } from '../auth/selectores';
 
 Notiflix.Notify.init({
-    position: 'right-bottom',
-  });
+  position: 'right-bottom',
+});
 
 export const fetchBoards = createAsyncThunk(
   'user/boards',
@@ -20,26 +20,35 @@ export const fetchBoards = createAsyncThunk(
   }
 );
 
-
-
 axios.defaults.baseURL = 'https://task-pro-backend.onrender.com';
 
-export const needHelp = createAsyncThunk(
-    'help',
-    async (user, thunkAPI) => {
-        // const state = thunkAPI.getState();
-        // const persistedToken = state.auth.token;
-        // if (persistedToken === null) {
-        //     return thunkAPI.rejectWithValue('Unable to fetch user');
-        //   }
-      try {
-        const response = await axios.post('/api/help/email', {replyEmail: user.email, comment: user.text});
-        Notiflix.Notify.success('Your Email Send, we will contact you!');
-        return response.data;
-      } catch (e) {
-        Notiflix.Notify.failure('Something going wrong!');
-        return thunkAPI.rejectWithValue(e.message);
-      }
-    }
-  );
+export const needHelp = createAsyncThunk('help', async (user, thunkAPI) => {
+  // const state = thunkAPI.getState();
+  // const persistedToken = state.auth.token;
+  // if (persistedToken === null) {
+  //     return thunkAPI.rejectWithValue('Unable to fetch user');
+  //   }
+  try {
+    const response = await axios.post('/api/help/email', {
+      replyEmail: user.email,
+      comment: user.text,
+    });
+    Notiflix.Notify.success('Your Email Send, we will contact you!');
+    return response.data;
+  } catch (e) {
+    Notiflix.Notify.failure('Something going wrong!');
+    return thunkAPI.rejectWithValue(e.message);
+  }
+});
 
+export const backgroundUrl = createAsyncThunk(
+  'backgrounds',
+  async (_, thunkAPI) => {
+    try {
+      const response = await axios.get('/api/backgrounds');
+      return response.data;
+    } catch (e) {
+      return thunkAPI.rejectWithValue(e.message);
+    }
+  }
+);

@@ -1,6 +1,7 @@
 import { createSlice } from '@reduxjs/toolkit';
 import { fetchBoards } from './operations';
 import { needHelp } from './operations';
+import { backgroundUrl } from './operations';
 // const handlePending = state => {
 //   state.isLoading = true;
 // };
@@ -17,8 +18,9 @@ const initialState = {
   currentBcg: null,
   isLoading: false,
   error: null,
-  replyEmail: "",
-  comment: "",
+  replyEmail: '',
+  comment: '',
+  bgUrl: [],
 };
 
 const taskSlice = createSlice({
@@ -47,6 +49,19 @@ const taskSlice = createSlice({
     },
     [needHelp.rejected](state) {
       state.error = true;
+    },
+    [backgroundUrl.pending](state) {
+      state.error = false;
+      state.isLoading = true;
+    },
+    [backgroundUrl.rejected](state, action) {
+      state.error = action.payload.error;
+      state.isLoading = false;
+    },
+    [backgroundUrl.fulfilled](state, action) {
+      state.error = false;
+      state.isLoading = false;
+      state.bgUrl = action.payload;
     },
   },
 });
