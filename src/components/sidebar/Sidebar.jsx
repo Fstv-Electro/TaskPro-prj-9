@@ -1,19 +1,34 @@
 import { CreateBoard } from './CreateBoard/CreateBoard';
-import { MyBoard } from './MyBoard/MyBoard';
+import { MyBoards } from './MyBoards/MyBoards';
 import { LogOut } from './LogOut/LogOut';
 import { NeedHelp } from './needHelp/needHelp';
 import {
   Container,
   WrapperTitle,
   Title,
-  WrapperNeonProject,
-  NeonProject,
   WrapperLogo,
+  NavDashboards,
+  NaviUser,
+  NeedHelpLogOutContainer,
   Logo,
 } from './Sidebar.styled';
 import sprite from '../../../src/images/symbol-defs.svg';
+import { useSelector, useDispatch } from 'react-redux';
+import { selectBoard } from 'redux/dashboards/selectors';
+import { fetchBoards } from 'redux/dashboards/operations';
+import { useEffect } from 'react';
+import { nanoid } from 'nanoid';
 
 export const Sidebar = () => {
+  const dispatch = useDispatch();
+  const selectBoards = useSelector(selectBoard);
+  // const isLoading = useSelector(selectIsLoading);
+  // const error = useSelector(selectError);
+
+  useEffect(() => {
+    dispatch(fetchBoards());
+  }, [dispatch]);
+
   return (
     <Container>
       <WrapperTitle>
@@ -26,15 +41,18 @@ export const Sidebar = () => {
         <Title>Task Pro</Title>
       </WrapperTitle>
       <CreateBoard />
-      <MyBoard />
-      <WrapperNeonProject>
-        <svg aria-label="question with round" width="18px" height="18px">
-          <use href={sprite + '#icon-puzzle-piece-02'}></use>
-        </svg>
-        <NeonProject>Neon Light Project</NeonProject>
-      </WrapperNeonProject>
-      <NeedHelp />
-      <LogOut />
+      <NaviUser>
+        <NavDashboards>
+          <MyBoards />
+          {selectBoards.map(board => (
+            <MyBoards key={nanoid()} desk={board} />
+          ))}
+        </NavDashboards>
+        <NeedHelpLogOutContainer>
+          <NeedHelp />
+          <LogOut />
+        </NeedHelpLogOutContainer>
+      </NaviUser>
     </Container>
   );
 };

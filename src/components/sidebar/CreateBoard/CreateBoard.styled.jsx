@@ -3,6 +3,7 @@ import styled from '@emotion/styled';
 export const WrapperBoards = styled.div`
   border-bottom: 1px solid #ffffff1a;
   margin-bottom: 9px;
+  margin-right: 24px;
 `;
 
 export const Boards = styled.p`
@@ -20,6 +21,7 @@ export const WrapperCreate = styled.div`
   justify-content: space-between;
   border-bottom: 1px solid #ffffff1a;
   margin-bottom: 40px;
+    margin-right: 24px;
 `;
 
 export const CreateTitle = styled.p`
@@ -31,8 +33,15 @@ export const CreateTitle = styled.p`
 `;
 
 export const CreateButton = styled.button`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  width: 40px;
+  height: 36px;
   border-radius: 8px;
   background: #bedbb0;
+  outline: none;
   cursor: pointer;
   transform: scale(1);
   transition: transform 550ms cubic-bezier(0.4, 0, 0.2, 1);
@@ -45,8 +54,7 @@ export const CreateButton = styled.button`
 `;
 
 export const IconPlus = styled.svg`
-  width: 25px;
-  height: 27px;
+  
   flex-shrink: 0;
   fill: #bedbb0;
   color: #121212;

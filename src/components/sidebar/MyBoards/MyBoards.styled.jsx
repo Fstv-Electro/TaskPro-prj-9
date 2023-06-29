@@ -5,6 +5,7 @@ export const List = styled.ul`
   flex-direction: column;
   width: 100%;
   padding-left: 0;
+  margin: 0;
 `;
 
 export const Item = styled.li`
@@ -15,7 +16,7 @@ export const Item = styled.li`
   width: 100%;
   /* border-right: 4px solid #bedbb0; */
   background-color: #1f1f1f;
-  margin-bottom: 24px;
+  margin-bottom: 4px;
   color: #fff;
   &:after {
     content: '';
@@ -49,6 +50,7 @@ export const Project = styled.p`
 export const WrapperProjectIcons = styled.div`
   display: flex;
   align-items: center;
+  margin-right: 20px;
 `;
 
 export const IconButton = styled.button`

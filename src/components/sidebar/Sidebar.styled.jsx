@@ -1,10 +1,12 @@
 import styled from '@emotion/styled';
 
 export const Container = styled.div`
-  max-width: 260px;
+  width: 260px;
+  height: 97.3vh;
   align-items: center;
   position: relative;
-  padding: 24px 24px 24px 24px;
+  margin: 0;
+  padding: 24px 0 0 24px;
   color: #fff;
   background: #121212;
 `;
@@ -22,18 +24,21 @@ export const Title = styled.h2`
   letter-spacing: -0.64px;
 `;
 
-export const WrapperNeonProject = styled.div`
+export const NaviUser = styled.div`
   display: flex;
-  align-items: center;
-  margin-bottom: 60px;
+  flex-direction: column;
+  /* justify-content: space-between; */
+  /* height: 100%; */
+  gap:28px;
 `;
 
-export const NeonProject = styled.p`
-  font-size: 14px;
-  font-family: Poppins;
-  font-weight: 500;
-  letter-spacing: -0.28px;
-  margin-left: 8px;
+export const NavDashboards = styled.nav`
+  /* margin-bottom: auto; */
+`;
+
+export const NeedHelpLogOutContainer = styled.div`
+  /* margin-top: auto; */
+  margin-bottom: 28px;
 `;
 
 export const WrapperLogo = styled.div`

@@ -1,24 +1,25 @@
 import styled from '@emotion/styled';
 
 export const Container = styled.div`
-    max-width: 197px;
-    padding: 20px;
-    margin-bottom: 20px;
-    border-radius: 8px;
-    background: #1F1F1F;
-    @media (min-width: 768px) {
-        max-width: 212px;
-      }
+  width: 212px;
+  padding: 20px;
+  margin-bottom: 20px;
+  margin-right: 24px;
+  border-radius: 8px;
+  background: #1f1f1f;
+  @media (min-width: 768px) {
+    max-width: 212px;
+  }
 `;
 
 export const Text = styled.p`
-    color: #FFF;
-    font-size: 12px;
-    font-family: "Poppins";
-    line-height: 20px;
-    @media (min-width: 768px) {
-        font-size: 14px;
-      }
+  color: #fff;
+  font-size: 12px;
+  font-family: 'Poppins';
+  line-height: 20px;
+  @media (min-width: 768px) {
+    font-size: 14px;
+  }
 `;
 
 export const Span = styled.span`
@@ -26,33 +27,33 @@ export const Span = styled.span`
 `;
 
 export const Button = styled.button`
-    display: flex;
-    align-items: center;
-    font-size: 12px;
-    font-weight: 500;
-    padding: 0;
-    border: none;
-    color: #FFF;
-    background: #1F1F1F;
-    @media (min-width: 768px) {
-        font-size: 14px;
-      }
+  display: flex;
+  align-items: center;
+  font-size: 12px;
+  font-weight: 500;
+  padding: 0;
+  border: none;
+  color: #fff;
+  background: #1f1f1f;
+  @media (min-width: 768px) {
+    font-size: 14px;
+  }
 `;
 export const Image = styled.img`
-    width: 54px;
-    height: 78px;
-    margin-bottom: 14px;
+  width: 54px;
+  height: 78px;
+  margin-bottom: 14px;
 `;
 export const TextButton = styled.span`
   margin-left: 8px;
-  :hover{
-    color: #bedbb0
+  :hover {
+    color: #bedbb0;
   }
 `;
 
 export const Svg = styled.svg`
-  stroke: #FFF;
+  stroke: #fff;
   :hover {
     stroke: #bedbb0;
   }
-`
+`;
