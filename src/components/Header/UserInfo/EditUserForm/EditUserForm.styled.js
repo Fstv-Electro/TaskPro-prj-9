@@ -1,5 +1,5 @@
 import styled from '@emotion/styled';
-import { Field as FormicField, Form as FormicForm } from 'formik';
+import { Field as FormicField, Form as FormicForm, ErrorMessage as FormicErrorMessage } from 'formik';
 
 export const Container = styled.section`
   display: flex;
@@ -16,7 +16,9 @@ export const UserForm = styled.div`
   border-radius: 8px;
   }
 `;
+export const ErrorMessage = styled(FormicErrorMessage)`
 
+`
 
 export const Title = styled.h3`
   color: #fff;

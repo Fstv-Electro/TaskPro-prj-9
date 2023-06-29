@@ -152,26 +152,17 @@ export const  EdidUserForm = ({avatarURL, onClose}) => {
               <ErrorMessage
                 name="avatar"
                 component="div"
-                style={{
-                  color: 'white',
-                }}
               />
 
               <Field type="text" name="name" placeholder="Ivetta" />
               <ErrorMessage
                 name="name"
                 component="div"
-                style={{
-                  color: 'white',
-                }}
               />
               <Field type="email" name="email" placeholder="ivetta34@gmail.com" />
               <ErrorMessage
                 name="email"
                 component="div"
-                style={{
-                  color: 'white',
-                }}
               />
               <FormIcon>
                 <Field
@@ -179,19 +170,16 @@ export const  EdidUserForm = ({avatarURL, onClose}) => {
                   name="password"
                   placeholder="ivetta1999.23"
                 />
-                <ErrorMessage
-                  name="password"
-                  component="div"
-                  style={{
-                    color: 'white',
-                  }}
-                />
                 <Eye type="button" onClick={handleClick}>
                   <Icon aria-label="Logo">
                     <use href={Sprite + '#icon-eye'}></use>
                   </Icon>
                 </Eye>
               </FormIcon>
+              <ErrorMessage
+                  name="password"
+                  component="div"
+                />
             </FormFields>
             <Button type="submit" disabled={!isValid} > Send</Button>
           </Form>
