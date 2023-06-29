@@ -1,5 +1,5 @@
 import { createSlice } from '@reduxjs/toolkit';
-import { fetchBoards } from './operations';
+import { addColumn, deleteColumn, editColumn, fetchBoards } from './operations';
 import { needHelp } from './operations';
 import { backgroundUrl } from './operations';
 // const handlePending = state => {
@@ -62,6 +62,52 @@ const taskSlice = createSlice({
       state.error = false;
       state.isLoading = false;
       state.bgUrl = action.payload;
+    },
+    [addColumn.pending](state, action) {
+      state.isLoading = true;
+      state.error = false;
+    },
+    [addColumn.fulfilled](state, action) {
+      state.isLoading = false;
+      state.error = null;
+      state.lists.push(action.payload);
+    },
+    [addColumn.rejected](state, action) {
+      state.isLoading = false;
+      state.error = true;
+    },
+    [editColumn.pending](state, action) {
+      state.isLoading = true;
+      state.error = false;
+    },
+    [editColumn.fulfilled](state, action) {
+      state.isLoading = false;
+      state.error = null;
+      const index = state.lists.findIndex(
+        column => column.id === action.payload.id
+      );
+      state.lists[index] = action.payload;
+    },
+    [editColumn.rejected](state, action) {
+      state.isLoading = false;
+      state.error = true;
+    },
+    [deleteColumn.pending](state, action) {
+      state.isLoading = true;
+      state.error = false;
+    },
+    [deleteColumn.fulfilled](state, action) {
+      state.isLoading = false;
+      state.error = null;
+      const index = state.lists.findIndex(
+        column => column.id === action.payload.id
+      );
+      state.lists.splice(index, 1);
+    },
+    [deleteColumn.rejected](state, action) {
+      state.isLoading = false;
+      state.error = true;
+
     },
   },
 });

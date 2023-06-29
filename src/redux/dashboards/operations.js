@@ -22,6 +22,19 @@ export const fetchBoards = createAsyncThunk(
 
 axios.defaults.baseURL = 'https://task-pro-backend.onrender.com';
 
+
+export const backgroundUrl = createAsyncThunk(
+  'backgrounds',
+  async (_, thunkAPI) => {
+    try {
+      const response = await axios.get('/api/backgrounds');
+      return response.data;
+    } catch (e) {
+      return thunkAPI.rejectWithValue(e.message);
+    }
+ });
+
+
 export const needHelp = createAsyncThunk('help', async (user, thunkAPI) => {
   // const state = thunkAPI.getState();
   // const persistedToken = state.auth.token;
@@ -41,14 +54,44 @@ export const needHelp = createAsyncThunk('help', async (user, thunkAPI) => {
   }
 });
 
-export const backgroundUrl = createAsyncThunk(
-  'backgrounds',
-  async (_, thunkAPI) => {
+export const addColumn = createAsyncThunk(
+  'columns/addColumn',
+  async ({ parentBoard, title }, thunkAPI) => {
     try {
-      const response = await axios.get('/api/backgrounds');
+      const response = await axios.post('/api/columns', { parentBoard, title });
+      Notiflix.Notify.success('Column created!');
       return response.data;
     } catch (e) {
+      Notiflix.Notify.failure('Something going wrong!');
       return thunkAPI.rejectWithValue(e.message);
+    }
+  }
+);
+
+export const editColumn = createAsyncThunk(
+  'columns/editColumn',
+  async ({ id, title }, thunkAPI) => {
+    try {
+      const response = await axios.patch(`/api/columns/${id}`, { title });
+      Notiflix.Notify.success('Column renamed!');
+      return response.data;
+    } catch (error) {
+      return thunkAPI.rejectWithValue(error.message);
+    }
+  }
+);
+
+export const deleteColumn = createAsyncThunk(
+  'columns/deleteColumn',
+  async (id, thunkAPI) => {
+    console.log(id);
+    try {
+      const response = await axios.delete(`/api/columns/${id}`);
+      Notiflix.Notify.success('Column deleted successfully!');
+      return response.data;
+    } catch (error) {
+      return thunkAPI.rejectWithValue(error.message);
+
     }
   }
 );
