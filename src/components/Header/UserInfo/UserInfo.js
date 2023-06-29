@@ -4,9 +4,13 @@ import { Modal } from '../../modal/modal';
 import { ButtonClose } from 'components/modalBtnClose/ButtonClose';
 import { EdidUserForm }  from './EditUserForm/EditUserForm'
 import sprite from '../../../images/symbol-defs.svg';
+import { Loading } from '../Loading/Loading';
+import { useSelector } from "react-redux";
+import { selectIsLoading } from 'redux/auth/selectores';
 
 export const UserInfo = ({name="user", avatarURL}) => {
   const [modal, setModal] = useState(false);
+  const isLoading = useSelector(selectIsLoading);
 
   const handleModalOpen = () => setModal(true);
   const handleClose = () => setModal(false);
@@ -27,6 +31,7 @@ export const UserInfo = ({name="user", avatarURL}) => {
           <Modal onClose={handleClose}>
             <ButtonClose onClose={handleClose}/>
             <EdidUserForm avatarURL={avatarURL} />
+           {isLoading && <Loading /> }
           </Modal>}
         
       </UserContainer>

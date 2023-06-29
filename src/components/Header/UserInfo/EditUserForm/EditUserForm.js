@@ -6,7 +6,6 @@ import {
   Form,
   Field,
   FormFields,
-  Button,
   FormIcon,
   Icon,
   Eye,
@@ -15,13 +14,15 @@ import {
   FieldAvatar,
   IconPlus,
   Label,
+  Button,
 } from './EditUserForm.styled';
 import { useState } from 'react';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
+import { selectIsError } from 'redux/auth/selectores';
 import { update } from 'redux/auth/operations';
 import Sprite from '../../../../images/symbol-defs.svg'
 import * as Yup from 'yup';
-// import SubmitButton from "../../../submitButton/submitButton"
+import Notiflix from 'notiflix';
 
 
 const NewUserSchema = Yup.object().shape({
@@ -55,16 +56,23 @@ const NewUserSchema = Yup.object().shape({
     .required('Required'),
 });
 
-export const  EdidUserForm = ({avatarURL}) => {
+Notiflix.Notify.init({
+  position: 'right-bottom',
+});
+
+export const  EdidUserForm = ({avatarURL, onClose}) => {
   const dispatch = useDispatch();
   const [type, setType] = useState('password');
   const [currentImage, setCurrentImage] = useState(avatarURL);
+  const isError = useSelector(selectIsError);
 
   function handleSubmit(value) {
     const { avatar, name, email, password  } = value;
     
     const formData = new FormData();
-    formData.append('avatar', avatar);
+    if (avatar){
+      formData.append('avatar', avatar);
+    }
     formData.append('name', name);
     formData.append('email', email);
     formData.append('password', password);
@@ -97,6 +105,10 @@ export const  EdidUserForm = ({avatarURL}) => {
   
     reader.readAsDataURL(file);
   }
+  
+  if (isError) {
+    Notiflix.Notify.warning('Error update date');
+  }
 
   return (
     <Container>
@@ -111,7 +123,7 @@ export const  EdidUserForm = ({avatarURL}) => {
             resetForm();
           }}
         >
-           {({ setFieldValue }) => (
+           {({ setFieldValue, isValid }) => (
           <Form>
             <FormFields >
               <Label htmlFor="avatar">
@@ -181,7 +193,7 @@ export const  EdidUserForm = ({avatarURL}) => {
                 </Eye>
               </FormIcon>
             </FormFields>
-            <Button type="submit">Send</Button>
+            <Button type="submit" disabled={!isValid} > Send</Button>
           </Form>
          )}
         </Formik>
