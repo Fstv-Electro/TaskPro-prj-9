@@ -9,16 +9,19 @@ import {
 } from './MyBoards.styled';
 import sprite from '../../../images/symbol-defs.svg';
 
+
 export const MyBoards = (desk) => {
+
   if (desk.desk === undefined) {
     return;
   }
 
+  const deskRoute = desk.desk.title.split(' ').join('-');
   const pjIcon = `#${desk.desk.icon}`;
   return (
     <List>
       <Item>
-        <NavItem to={desk.desk.title}>
+        <NavItem to={deskRoute}>
           <WrapperProjectOffice onClick={() => {}}>
             <svg aria-label="question with round" width="18px" height="16px">
               <use href={sprite + pjIcon}></use>

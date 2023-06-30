@@ -1,8 +1,6 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
 import axios from 'axios';
 import Notiflix from 'notiflix';
-// import { useDispatch, useSelector } from 'react-redux';
-// import { selectToken } from '../auth/selectores';
 
 Notiflix.Notify.init({
   position: 'right-bottom',

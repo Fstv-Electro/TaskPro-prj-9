@@ -21,6 +21,7 @@ import { backgroundUrl } from './operations';
 
 const initialState = {
   boards: [],
+  currentBoard: [],
   lists: [],
   cards: [],
   currentBcg: null,
