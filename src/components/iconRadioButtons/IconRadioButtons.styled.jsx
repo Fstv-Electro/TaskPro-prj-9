@@ -1,13 +1,13 @@
 import styled from '@emotion/styled';
 
 export const Form = styled.div`
-  max-width: 300px;
-  margin: 10px auto;
+  margin-bottom: 24px;
 `;
 
 export const FormOptions = styled.ul`
   border: none;
   padding: 0;
+  margin: 0;
 `;
 
 export const FormQuestion = styled.legend`
