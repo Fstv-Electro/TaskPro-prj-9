@@ -107,3 +107,10 @@ export const deleteCard = createAsyncThunk(
     }
   }
 );
+
+export const AddCurrentBoard = board => {
+  return {
+    type: 'tasks/AddCurrentBoard',
+    payload: board,
+  };
+};

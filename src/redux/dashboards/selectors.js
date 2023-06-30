@@ -13,4 +13,5 @@ export const selectError = state => state.task.error;
 
 export const selectBackgroundUrl = state => state.task.bgUrl;
 
+export const selectCurrentBoard = state => state.task.currentBoard;
 // task
