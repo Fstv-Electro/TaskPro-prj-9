@@ -6,7 +6,9 @@ import {
   fetchBoards,
   addBoard,
   deleteCard,
-  addTask
+  addTask,
+  editBoard,
+  deleteBoard,
 } from './operations';
 import { needHelp } from './operations';
 import { backgroundUrl } from './operations';
@@ -152,6 +154,38 @@ const taskSlice = createSlice({
       state.cards.splice(index, 1);
     },
     [deleteCard.rejected](state, action) {
+      state.isLoading = false;
+      state.error = true;
+    },
+    [editBoard.pending](state, action) {
+      state.isLoading = true;
+      state.error = false;
+    },
+    [editBoard.fulfilled](state, action) {
+      state.isLoading = false;
+      state.error = null;
+      const index = state.boards.findIndex(
+        board => board.id === action.payload.id
+      );
+      state.board[index] = action.payload;
+    },
+    [editBoard.rejected](state, action) {
+      state.isLoading = false;
+      state.error = true;
+    },
+    [deleteBoard.pending](state, action) {
+      state.isLoading = true;
+      state.error = false;
+    },
+    [deleteBoard.fulfilled](state, action) {
+      state.isLoading = false;
+      state.error = null;
+      const index = state.boards.findIndex(
+        board => board.id === action.payload.id
+      );
+      state.board.splice(index, 1);
+    },
+    [deleteBoard.rejected](state, action) {
       state.isLoading = false;
       state.error = true;
     },
