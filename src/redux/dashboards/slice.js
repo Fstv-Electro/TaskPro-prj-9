@@ -1,5 +1,11 @@
 import { createSlice } from '@reduxjs/toolkit';
-import { addColumn, deleteColumn, editColumn, fetchBoards } from './operations';
+import {
+  addColumn,
+  deleteColumn,
+  editColumn,
+  fetchBoards,
+  addBoard,
+} from './operations';
 import { needHelp } from './operations';
 import { backgroundUrl } from './operations';
 // const handlePending = state => {
@@ -107,7 +113,19 @@ const taskSlice = createSlice({
     [deleteColumn.rejected](state, action) {
       state.isLoading = false;
       state.error = true;
-
+    },
+    [addBoard.pending](state, action) {
+      state.isLoading = true;
+      state.error = false;
+    },
+    [addBoard.fulfilled](state, action) {
+      state.isLoading = false;
+      state.error = null;
+      state.boards.push(action.payload);
+    },
+    [addBoard.rejected](state, action) {
+      state.isLoading = false;
+      state.error = true;
     },
   },
 });

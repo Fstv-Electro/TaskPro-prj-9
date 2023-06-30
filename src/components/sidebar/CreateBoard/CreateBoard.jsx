@@ -25,7 +25,7 @@ export const CreateBoard = () => {
       <WrapperCreate>
         <CreateTitle>Create a new board</CreateTitle>
         <CreateButton type="button" onClick={toggleModal}>
-          <IconPlus aria-label="question with round" width="20px" height="20px">
+          <IconPlus aria-label="question with round" width="40px" height="40px">
             <use href={sprite + '#icon-plus-add'}></use>
           </IconPlus>
         </CreateButton>

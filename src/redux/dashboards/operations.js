@@ -22,7 +22,6 @@ export const fetchBoards = createAsyncThunk(
 
 axios.defaults.baseURL = 'https://task-pro-backend.onrender.com';
 
-
 export const backgroundUrl = createAsyncThunk(
   'backgrounds',
   async (_, thunkAPI) => {
@@ -32,8 +31,8 @@ export const backgroundUrl = createAsyncThunk(
     } catch (e) {
       return thunkAPI.rejectWithValue(e.message);
     }
- });
-
+  }
+);
 
 export const needHelp = createAsyncThunk('help', async (user, thunkAPI) => {
   // const state = thunkAPI.getState();
@@ -91,7 +90,24 @@ export const deleteColumn = createAsyncThunk(
       return response.data;
     } catch (error) {
       return thunkAPI.rejectWithValue(error.message);
+    }
+  }
+);
 
+export const addBoard = createAsyncThunk(
+  'boards/addBoard',
+  async ({ title, currentBg, icon }, thunkAPI) => {
+    try {
+      const response = await axios.post('/api/boards', {
+        title,
+        currentBg,
+        icon,
+      });
+      Notiflix.Notify.success('Boards created!');
+      return response.data;
+    } catch (e) {
+      Notiflix.Notify.failure('Something going wrong!');
+      return thunkAPI.rejectWithValue(e.message);
     }
   }
 );
