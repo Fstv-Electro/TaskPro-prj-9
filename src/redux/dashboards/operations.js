@@ -94,6 +94,22 @@ export const deleteColumn = createAsyncThunk(
   }
 );
 
+
+export const addBoard = createAsyncThunk(
+  'boards/addBoard',
+  async ({ title, currentBg, icon }, thunkAPI) => {
+    try {
+      const response = await axios.post('/api/boards', {
+        title,
+        currentBg,
+        icon,
+      });
+      Notiflix.Notify.success('Boards created!');
+      return response.data;
+    } catch (e) {
+      Notiflix.Notify.failure('Something going wrong!');
+      return thunkAPI.rejectWithValue(e.message);
+
 export const deleteCard = createAsyncThunk(
   'tasks/deleteTask',
   async (id, thunkAPI) => {
@@ -104,6 +120,7 @@ export const deleteCard = createAsyncThunk(
       return response.data;
     } catch (error) {
       return thunkAPI.rejectWithValue(error.message);
+
     }
   }
 );

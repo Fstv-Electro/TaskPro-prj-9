@@ -4,6 +4,7 @@ import {
   deleteColumn,
   editColumn,
   fetchBoards,
+  addBoard,
   deleteCard,
 } from './operations';
 import { needHelp } from './operations';
@@ -114,6 +115,19 @@ const taskSlice = createSlice({
       state.isLoading = false;
       state.error = true;
     },
+    [addBoard.pending](state, action) {
+      state.isLoading = true;
+      state.error = false;
+    },
+    [addBoard.fulfilled](state, action) {
+      state.isLoading = false;
+      state.error = null;
+      state.boards.push(action.payload);
+    },
+    [addBoard.rejected](state, action) {
+      state.isLoading = false;
+      state.error = true;
+    },
     [deleteCard.pending](state, action) {
       state.isLoading = true;
       state.error = false;
@@ -127,6 +141,7 @@ const taskSlice = createSlice({
       state.cards.splice(index, 1);
     },
     [deleteCard.rejected](state, action) {
+
       state.isLoading = false;
       state.error = true;
     },
