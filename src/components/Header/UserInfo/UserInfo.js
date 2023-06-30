@@ -30,7 +30,7 @@ export const UserInfo = ({name="user", avatarURL}) => {
         {modal && 
           <Modal onClose={handleClose}>
             <ButtonClose onClose={handleClose}/>
-            <EdidUserForm avatarURL={avatarURL} />
+            <EdidUserForm avatarURL={avatarURL} onClose={handleClose} isLoading={isLoading}/>
            {isLoading && <Loading /> }
           </Modal>}
         
