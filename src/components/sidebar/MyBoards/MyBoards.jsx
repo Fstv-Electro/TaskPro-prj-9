@@ -5,6 +5,7 @@ import {
   Project,
   WrapperProjectIcons,
   IconButton,
+  NavItem
 } from './MyBoards.styled';
 import sprite from '../../../images/symbol-defs.svg';
 
@@ -17,13 +18,14 @@ export const MyBoards = (desk) => {
   return (
     <List>
       <Item>
-        <WrapperProjectOffice onClick={() => {}}>
-          <svg aria-label="question with round" width="18px" height="16px">
-            <use href={sprite + pjIcon}></use>
-          </svg>
-          <Project>{desk.desk.title}</Project>
-        </WrapperProjectOffice>
-        <WrapperProjectIcons>
+        <NavItem to={desk.desk.title}>
+          <WrapperProjectOffice onClick={() => {}}>
+            <svg aria-label="question with round" width="18px" height="16px">
+              <use href={sprite + pjIcon}></use>
+            </svg>
+            <Project>{desk.desk.title}</Project>
+          </WrapperProjectOffice>
+          <WrapperProjectIcons>
           <IconButton onClick={() => {}}>
             <svg aria-label="question with round" width="16px" height="16px">
               <use href={sprite + `#icon-pencil-01`}></use>
@@ -34,7 +36,8 @@ export const MyBoards = (desk) => {
               <use href={sprite + '#icon-trash-04'}></use>
             </svg>
           </IconButton>
-        </WrapperProjectIcons>
+          </WrapperProjectIcons>
+        </NavItem>
       </Item>
     </List>
   );
