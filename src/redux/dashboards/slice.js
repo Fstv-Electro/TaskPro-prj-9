@@ -1,6 +1,15 @@
 import { createSlice } from '@reduxjs/toolkit';
-import { addColumn, deleteColumn, editColumn, fetchBoards, addTask } from './operations';
+import {
+  addColumn,
+  deleteColumn,
+  editColumn,
+  fetchBoards,
+  addBoard,
+  deleteCard,
+  addTask
+} from './operations';
 import { needHelp } from './operations';
+import { backgroundUrl } from './operations';
 // const handlePending = state => {
 //   state.isLoading = true;
 // };
@@ -19,6 +28,7 @@ const initialState = {
   error: null,
   replyEmail: '',
   comment: '',
+  bgUrl: [],
 };
 
 const taskSlice = createSlice({
@@ -47,6 +57,19 @@ const taskSlice = createSlice({
     },
     [needHelp.rejected](state) {
       state.error = true;
+    },
+    [backgroundUrl.pending](state) {
+      state.error = false;
+      state.isLoading = true;
+    },
+    [backgroundUrl.rejected](state, action) {
+      state.error = action.payload.error;
+      state.isLoading = false;
+    },
+    [backgroundUrl.fulfilled](state, action) {
+      state.error = false;
+      state.isLoading = false;
+      state.bgUrl = action.payload;
     },
     [addColumn.pending](state, action) {
       state.isLoading = true;
@@ -101,6 +124,35 @@ const taskSlice = createSlice({
       state.isLoading = false;
       state.error = null;
       state.cards.push(action.payload);
+    },
+    [addBoard.pending](state, action) {
+      state.isLoading = true;
+      state.error = false;
+    },
+    [addBoard.fulfilled](state, action) {
+      state.isLoading = false;
+      state.error = null;
+      state.boards.push(action.payload);
+    },
+    [addBoard.rejected](state, action) {
+      state.isLoading = false;
+      state.error = true;
+    },
+    [deleteCard.pending](state, action) {
+      state.isLoading = true;
+      state.error = false;
+    },
+    [deleteCard.fulfilled](state, action) {
+      state.isLoading = false;
+      state.error = null;
+      const index = state.cards.findIndex(
+        card => card.id === action.payload.id
+      );
+      state.cards.splice(index, 1);
+    },
+    [deleteCard.rejected](state, action) {
+      state.isLoading = false;
+      state.error = true;
     },
   },
 });

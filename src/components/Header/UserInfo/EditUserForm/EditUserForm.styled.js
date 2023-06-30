@@ -1,5 +1,5 @@
 import styled from '@emotion/styled';
-import { Field as FormicField, Form as FormicForm } from 'formik';
+import { Field as FormicField, Form as FormicForm, ErrorMessage as FormicErrorMessage } from 'formik';
 
 export const Container = styled.section`
   display: flex;
@@ -16,7 +16,9 @@ export const UserForm = styled.div`
   border-radius: 8px;
   }
 `;
+export const ErrorMessage = styled(FormicErrorMessage)`
 
+`
 
 export const Title = styled.h3`
   color: #fff;
@@ -68,15 +70,19 @@ export const Button = styled.button`
   font-weight: 500;
   letter-spacing: -0.28px;
 
-  width: 287px;
-  height: 49px;
+  padding: 14px;
+  width: 100%;
+
   background-color: #bedbb0;
   border: none;
   border-radius: 8px;
-
-  @media screen and (min-width: 768px) {
-    width: 344px;
-    height: 49px;
+  cursor: pointer;
+   
+    &:active:not(:disabled) {
+      position:relative;
+      top:1px;
+      box-shadow: -4px -4px 43px 2px rgba(34, 60, 80, 0.2) inset;
+    }
   }
 `;
 

@@ -5,20 +5,43 @@ import { IconRadioButtons } from '../../iconRadioButtons/IconRadioButtons';
 import { Formik, ErrorMessage } from 'formik';
 import * as yup from 'yup';
 import { ButtonClose } from '../../modalBtnClose/ButtonClose';
+import { Background } from '../../background/Background';
+import { useDispatch } from 'react-redux';
+import { addBoard } from '../../../redux/dashboards/operations';
 
 const schema = yup.object().shape({
   name: yup.string().required(),
 });
 
 export const ModalBoard = ({ onClose }) => {
-  const [name, setName] = useState('');
+  const [icon, setIcon] = useState('');
+  const [currentBg, setCurrentBg] = useState('');
+
+  const dispatch = useDispatch();
+
+  const getIcon = icon => {
+    setIcon({ icon });
+  };
+  const getBg = currentBg => {
+    setCurrentBg({ currentBg });
+  };
 
   const handleSubmit = (query, { resetForm }) => {
     if (!query) {
       console.log('error');
     } else {
-      setName(query.name);
-      console.log(name);
+      dispatch(
+        addBoard({
+          title: query.name,
+          ...currentBg,
+          ...icon,
+        })
+      );
+      console.log({
+        title: query.name,
+        ...currentBg,
+        ...icon,
+      });
       resetForm();
     }
     onClose();
@@ -44,13 +67,16 @@ export const ModalBoard = ({ onClose }) => {
               name="name"
               placeholder="Title"
               required
-              minlength="4"
-              maxlength="12"
+              minLength="4"
+              maxLength="12"
             />
             <ErrorMessage name="name" component="div" />
           </Label>
 
+          <IconRadioButtons getIcon={getIcon} />
+          <Background getBg={getBg} />
           <SubmitButton
+            type="button"
             title="Create"
             width="302"
             height="49"
@@ -60,7 +86,6 @@ export const ModalBoard = ({ onClose }) => {
           />
         </Forma>
       </Formik>
-      <IconRadioButtons />
     </>
   );
 };

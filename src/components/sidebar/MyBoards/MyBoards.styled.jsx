@@ -1,4 +1,5 @@
 import styled from '@emotion/styled';
+import { NavLink } from 'react-router-dom';
 
 export const List = styled.ul`
   display: flex;
@@ -27,6 +28,21 @@ export const Item = styled.li`
     background: #bedbb0;
     width: 4px;
     height: 61px;
+  }
+`;
+
+export const NavItem = styled(NavLink)`
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  width: 100%;
+  height: 100%;
+  background-color: #121212;
+  &.active {
+    background-color: #1f1f1f;
+    outline: none;
   }
 `;
 

@@ -1,13 +1,16 @@
 import styled from '@emotion/styled';
 
-export const Form = styled.div`
-  margin-bottom: 24px;
+export const Wrapper = styled.div`
+  margin-bottom: 40px;
 `;
 
-export const FormOptions = styled.ul`
+export const List = styled.ul`
+  display: flex;
+  gap: 4px;
+  width: 280px;
+  flex-wrap: wrap;
   border: none;
   padding: 0;
-  margin: 0;
 `;
 
 export const FormQuestion = styled.legend`
@@ -18,18 +21,21 @@ export const FormQuestion = styled.legend`
   letter-spacing: -0.28px;
 `;
 
-export const FormAnswer = styled.li`
+export const Item = styled.li`
   display: inline-block;
   box-sizing: border-box;
   vertical-align: top;
   text-align: center;
+  width: 28px;
+  height: 28px;
 `;
 
 export const Label = styled.label`
   display: block;
-  height: 100%;
-  width: 100%;
-  padding-right: 6px;
+
+  width: 28px;
+  height: 28px;
+
   cursor: pointer;
   opacity: 0.5;
   transition: all 0.5s ease-in-out;
@@ -43,17 +49,26 @@ export const Input = styled.input`
   }
   &[type='radio']:active ~ label {
     opacity: 1;
+    border: 1px solid #fff;
+    border-radius: 15%;
   }
   &[type='radio']:checked ~ label {
     opacity: 1;
+    border: 1px solid #fff;
+    border-radius: 15%;
   }
 `;
 
-export const Svg = styled.svg`
-  width: 18px;
-  height: 18px;
-  stroke: #fff;
-  :hover {
-    stroke: #bedbb0;
+export const Img = styled.img`
+  width: 28px;
+  height: 28px;
+  padding: 0;
+  margin: 0;
+  transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+
+  :hover,
+  :active {
+    border: 1px solid #fff;
+    border-radius: 15%;
   }
 `;
