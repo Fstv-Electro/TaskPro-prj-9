@@ -132,7 +132,7 @@ export default function RegistrationView() {
             </FormFields>
             <BtnPosition>
               <Button type="submit">Register Now </Button>
-              <GoogleBtn href="https://task-pro-backend.onrender.com/auth/google">
+              <GoogleBtn href="https://task-pro-backend.onrender.com/users/google">
                 <GoogleIcon aria-label="Google">
                   <use href={Sprite + '#icon-google'}></use>
                 </GoogleIcon>
