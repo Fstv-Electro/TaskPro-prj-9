@@ -1,8 +1,8 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
 import axios from 'axios';
 import Notiflix from 'notiflix';
-// import { useDispatch, useSelector } from 'react-redux';
-// import { selectToken } from '../auth/selectores';
+import { useDispatch } from 'react-redux';
+import { AddCurrentBoard } from './slice';
 
 Notiflix.Notify.init({
   position: 'right-bottom',
@@ -108,9 +108,11 @@ export const deleteCard = createAsyncThunk(
   }
 );
 
-export const AddCurrentBoard = board => {
-  return {
-    type: 'tasks/AddCurrentBoard',
-    payload: board,
-  };
+export const AddCrntBoard = board => {
+  const dispatch = useDispatch();
+  try {
+    dispatch(AddCurrentBoard(board));
+  } catch {
+    return Notiflix.failure('Something get wrong');
+  }
 };

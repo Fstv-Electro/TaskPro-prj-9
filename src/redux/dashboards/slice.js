@@ -20,7 +20,7 @@ import { backgroundUrl } from './operations';
 
 const initialState = {
   boards: [],
-  currentBoard: '',
+  currentBoard: [],
   lists: [],
   cards: [],
   currentBcg: null,
@@ -35,7 +35,10 @@ const taskSlice = createSlice({
   name: 'task',
   initialState,
   reducers: {
-    AddCurrentBoard,
+    AddCurrentBoard(state, action) {
+      console.log(action.payload);
+      state.currentBoard = action.payload;
+    },
   },
   extraReducers: {
     [fetchBoards.pending](state) {
@@ -137,5 +140,5 @@ const taskSlice = createSlice({
     },
   },
 });
-
+export const { AddCurrentBoard } = taskSlice.actions;
 export const taskReducer = taskSlice.reducer;

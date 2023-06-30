@@ -8,15 +8,20 @@ import {
   NavItem
 } from './MyBoards.styled';
 import sprite from '../../../images/symbol-defs.svg';
-import { useSelector } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
 import { selectCurrentBoard, selectBoard } from 'redux/dashboards/selectors';
 import { useParams } from 'react-router-dom';
+import { AddCrntBoard } from 'redux/dashboards/operations';
 
 export const MyBoards = (desk) => {
+  const dispatch = useDispatch();
   const boards = useSelector(selectBoard);
   const crntBoard = useSelector(selectCurrentBoard);
   const board = useParams();
-  console.log(boards);
+  AddCrntBoard(desk);
+  console.log(desk);
+
+
 
   if (desk.desk === undefined) {
     return;
