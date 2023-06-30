@@ -6,6 +6,7 @@ import {
   fetchBoards,
   addBoard,
   deleteCard,
+  addTask
 } from './operations';
 import { needHelp } from './operations';
 import { backgroundUrl } from './operations';
@@ -115,6 +116,15 @@ const taskSlice = createSlice({
       state.isLoading = false;
       state.error = true;
     },
+    [addTask.pending](state, action) {
+      state.isLoading = true;
+      state.error = false;
+    },
+    [addTask.fulfilled](state, action) {
+      state.isLoading = false;
+      state.error = null;
+      state.cards.push(action.payload);
+    },
     [addBoard.pending](state, action) {
       state.isLoading = true;
       state.error = false;
@@ -141,7 +151,6 @@ const taskSlice = createSlice({
       state.cards.splice(index, 1);
     },
     [deleteCard.rejected](state, action) {
-
       state.isLoading = false;
       state.error = true;
     },

@@ -94,6 +94,20 @@ export const deleteColumn = createAsyncThunk(
   }
 );
 
+export const addTask = createAsyncThunk(
+  'tasks/addTask',
+  async ({ parentColumn, title }, thunkAPI) => {
+    try {
+      const response = await axios.post('/api/tasks', { parentColumn, title });
+      Notiflix.Notify.success('Task added!');
+      return response.data;
+    } catch (e) {
+      Notiflix.Notify.failure('Something going wrong!');
+      return thunkAPI.rejectWithValue(e.message);
+    }
+  }
+);
+
 export const addBoard = createAsyncThunk(
   'boards/addBoard',
   async ({ title, currentBg, icon }, thunkAPI) => {
@@ -104,6 +118,20 @@ export const addBoard = createAsyncThunk(
         icon,
       });
       Notiflix.Notify.success('Boards created!');
+      return response.data;
+    } catch (e) {
+      Notiflix.Notify.failure('Something going wrong!');
+      return thunkAPI.rejectWithValue(e.message);
+    }
+  }
+);
+
+export const editTask = createAsyncThunk(
+  'tasks/editTask',
+  async ({ parentColumn, title }, thunkAPI) => {
+    try {
+      const response = await axios.post('/api/tasks', { parentColumn, title });
+      Notiflix.Notify.success('Task corrected!');
       return response.data;
     } catch (e) {
       Notiflix.Notify.failure('Something going wrong!');
