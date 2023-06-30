@@ -94,7 +94,6 @@ export const deleteColumn = createAsyncThunk(
   }
 );
 
-
 export const addBoard = createAsyncThunk(
   'boards/addBoard',
   async ({ title, currentBg, icon }, thunkAPI) => {
@@ -109,6 +108,9 @@ export const addBoard = createAsyncThunk(
     } catch (e) {
       Notiflix.Notify.failure('Something going wrong!');
       return thunkAPI.rejectWithValue(e.message);
+    }
+  }
+);
 
 export const deleteCard = createAsyncThunk(
   'tasks/deleteTask',
@@ -120,7 +122,6 @@ export const deleteCard = createAsyncThunk(
       return response.data;
     } catch (error) {
       return thunkAPI.rejectWithValue(error.message);
-
     }
   }
 );
