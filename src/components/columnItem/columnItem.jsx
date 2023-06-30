@@ -13,12 +13,7 @@ import { useDispatch } from 'react-redux';
 import { deleteColumn } from 'redux/dashboards/operations';
 // import { selectList } from 'redux/dashboards/selectors';
 
-export const ColumnItem = ({
-  item = {
-    title: 'TO DO',
-    _id: '649d5407f4c9cb1654f8e61f',
-  },
-}) => {
+export const ColumnItem = ({ item }) => {
   const dispatch = useDispatch();
   const [modal, setModal] = useState(false);
 

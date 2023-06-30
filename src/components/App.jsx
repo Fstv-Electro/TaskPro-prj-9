@@ -8,20 +8,20 @@ import { refreshUser } from 'redux/auth/operations';
 import { useAuth } from 'hooks';
 // import RegistrationView from './auth/RegistrationView/RegistrationView';
 // import LoginView from './auth/LoginView/LoginView';
+import GlobalStyles from './GlobalStyles';
 
 import { useEffect, lazy } from 'react';
 
 const Home = lazy(() => import('../pages/homePage'));
 
 export const App = () => {
-
   const dispatch = useDispatch();
   const { isRefreshing } = useAuth();
 
   useEffect(() => {
     dispatch(refreshUser());
   }, [dispatch]);
-  
+
   return isRefreshing ? (
     <b>Refreshing user...</b>
   ) : (
@@ -56,6 +56,7 @@ export const App = () => {
           }
         />
       </Routes>
+      <GlobalStyles />
     </>
   );
 };
