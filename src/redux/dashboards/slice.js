@@ -5,6 +5,7 @@ import {
   editColumn,
   fetchBoards,
   deleteCard,
+  AddCurrentBoard,
 } from './operations';
 import { needHelp } from './operations';
 import { backgroundUrl } from './operations';
@@ -33,6 +34,9 @@ const initialState = {
 const taskSlice = createSlice({
   name: 'task',
   initialState,
+  reducers: {
+    AddCurrentBoard,
+  },
   extraReducers: {
     [fetchBoards.pending](state) {
       state.error = false;
