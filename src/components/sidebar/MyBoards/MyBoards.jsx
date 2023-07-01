@@ -11,12 +11,12 @@ import {
 import sprite from '../../../images/symbol-defs.svg';
 import { Modal } from 'components/modal/modal';
 import { EditBoard } from '../modalBoard/EditBoard';
-// import { useDispatch } from 'react-redux';
-// import { editBoard } from '../../../redux/dashboards/operations';
+import { useDispatch } from 'react-redux';
+import { deleteBoard } from '../../../redux/dashboards/operations';
 
 export const MyBoards = desk => {
   const [isOpen, setIsOpen] = useState(false);
-  // const dispatch = useDispatch();
+  const dispatch = useDispatch();
 
   if (desk.desk === undefined) {
     return;
@@ -45,7 +45,7 @@ export const MyBoards = desk => {
                 <use href={sprite + `#icon-pencil-01`}></use>
               </svg>
             </IconButton>
-            <IconButton onClick={() => {}}>
+            <IconButton onClick={() => dispatch(deleteBoard(desk.desk._id))}>
               <svg aria-label="question with round" width="16px" height="16px">
                 <use href={sprite + '#icon-trash-04'}></use>
               </svg>

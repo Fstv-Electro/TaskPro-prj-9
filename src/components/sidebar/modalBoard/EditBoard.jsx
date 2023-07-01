@@ -16,7 +16,6 @@ const schema = yup.object().shape({
 export const EditBoard = ({ desk, onClose }) => {
   const [icon, setIcon] = useState('');
   const [currentBg, setCurrentBg] = useState('');
-  console.log(desk.desk._id);
 
   const dispatch = useDispatch();
 
@@ -36,12 +35,14 @@ export const EditBoard = ({ desk, onClose }) => {
           title: query.name,
           ...currentBg,
           ...icon,
+          id: desk.desk._id,
         })
       );
       console.log({
         title: query.name,
         ...currentBg,
         ...icon,
+        id: desk.desk._id,
       });
       resetForm();
     }
