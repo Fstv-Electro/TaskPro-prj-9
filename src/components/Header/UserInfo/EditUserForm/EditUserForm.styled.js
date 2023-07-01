@@ -6,7 +6,15 @@ export const Container = styled.section`
   flex-direction: column;
   justify-content: center;
   align-items: center;
-}
+  width: 352px;
+
+    
+    @media (max-width: 768px) {
+      width: 287px;
+    }
+    @media (max-width: 375px) {
+      width: 100%;
+    }
 `;
 
 export const UserForm = styled.div`
@@ -40,14 +48,14 @@ export const FormFields = styled.div`
   display: flex;
   gap: 14px;
   flex-direction: column;
+  width: 100%;
 `;
 
 export const Field = styled(FormicField)`
   font-size: 14px;
   font-family: 'Poppins';
   letter-spacing: -0.28px;
-
-  width: 269px;
+  width: 100%;
   height: 49px;
   padding-left: 18px;
   background-color: transparent;
@@ -56,12 +64,6 @@ export const Field = styled(FormicField)`
   border: 1px solid #bedbb0;
   opacity: 0.4000000059604645;
   box-shadow: 0px 4px 16px 0px rgba(22, 22, 22, 0.08);
-
-
-  @media screen and (min-width: 768px) {
-    width: 326px;
-    height: 49px;
-  }
 `;
 
 export const Button = styled.button`
@@ -72,6 +74,7 @@ export const Button = styled.button`
 
   padding: 14px;
   width: 100%;
+  height: 49px;
 
   background-color: #bedbb0;
   border: none;
