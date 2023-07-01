@@ -14,9 +14,9 @@ import { useDispatch } from 'react-redux';
 export const MyBoards = (desk, id) => {
   const dispatch = useDispatch();
 
-
+  console.log(desk);
   const getColumns = (id) => {
-
+    console.log(id);
     dispatch(fetchColumns(id))
   }
 
