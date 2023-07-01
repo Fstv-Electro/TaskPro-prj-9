@@ -15,12 +15,7 @@ const AddList = ({ columnId }) => {
     <ul>
       {filteredCards.map(card => (
         <li key={card._id}>
-          <ListItem
-            id={card._id}
-            title={card.title}
-            text={card.description}
-            priority={card.priority}
-          />
+          <ListItem card={card} />
         </li>
       ))}
     </ul>
