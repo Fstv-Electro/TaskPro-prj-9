@@ -2,6 +2,7 @@
 import { Container, TitleDashBoard, TitleFilter, FilterButton } from "./HeaderDashboard.styled";
 import sprite from '../../images/symbol-defs.svg';
 import { useState } from "react";
+import { useParams } from "react-router-dom";
 import { Filter } from "./FilterForm";
 
 
@@ -9,6 +10,7 @@ export const DashboardHeader = () => {
     // const dispath = useDispatch();
     // const crntBoard = useSelector(currentBoard);
     const [isOpen, setIsOpen] = useState();
+    const {boardName} = useParams()
     
     const toggleModal = () => {
         setIsOpen(isOpen => !isOpen)
@@ -16,7 +18,7 @@ export const DashboardHeader = () => {
 
     return (
         <Container>
-            <TitleDashBoard>current dashboard title</TitleDashBoard>
+            <TitleDashBoard>{boardName}</TitleDashBoard>
             <FilterButton type="button" onClick={toggleModal}>
                 <svg aria-label="filter icon" width='16' height='16'>
                 <use href={sprite + '#icon-filter'}></use>
