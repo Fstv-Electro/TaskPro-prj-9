@@ -4,6 +4,7 @@ import {
   deleteColumn,
   editColumn,
   fetchBoards,
+  setFilter,
   addBoard,
   deleteCard,
   addTask,
@@ -33,6 +34,7 @@ const initialState = {
   replyEmail: '',
   comment: '',
   bgUrl: [],
+  filter: 'Without priority',
 };
 
 const taskSlice = createSlice({
@@ -119,6 +121,9 @@ const taskSlice = createSlice({
     [deleteColumn.rejected](state, action) {
       state.isLoading = false;
       state.error = true;
+    },
+    [setFilter.fulfilled](state, action) {
+      state.filter = action.payload;
     },
     [addTask.pending](state, action) {
       state.isLoading = true;

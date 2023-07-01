@@ -92,6 +92,19 @@ export const deleteColumn = createAsyncThunk(
   }
 );
 
+export const setFilter = createAsyncThunk(
+  'columns/setFilter',
+  async (name, thunkAPI) => {
+    try {
+      console.log(name);
+
+      return name;
+    } catch (error) {
+      return thunkAPI.rejectWithValue(error.message);
+    }
+  }
+);
+
 export const addTask = createAsyncThunk(
   'tasks/addTask',
   async ({ parentColumn, title }, thunkAPI) => {
