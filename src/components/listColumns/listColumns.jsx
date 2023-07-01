@@ -51,13 +51,13 @@ export const ListColumns = ({ children }) => {
                     icon={true}
                     handleClick={toggleModal}
                   />
+                  {isOpen && <Modal onClose={toggleModal} children={<AddCardForm onClose={toggleModal} id={_id}/>} />}
                 </Item>
               );
             })}
           </List>
         )}
         <AddColumn />
-        {isOpen && <Modal onClose={toggleModal} children={<AddCardForm onClose={toggleModal}/>} />}
       </Container>
     </>
   );
