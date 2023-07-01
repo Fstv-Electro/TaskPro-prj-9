@@ -152,6 +152,37 @@ export const deleteCard = createAsyncThunk(
   }
 );
 
+export const editBoard = createAsyncThunk(
+  'boards/editBoard',
+  async ({ title, currentBg, icon, id }, thunkAPI) => {
+    try {
+      const response = await axios.put(`/api/boards/${id}`, {
+        title,
+        currentBg,
+        icon,
+      });
+      Notiflix.Notify.success('Board edit!');
+      return response.data;
+    } catch (error) {
+      return thunkAPI.rejectWithValue(error.message);
+    }
+  }
+);
+
+export const deleteBoard = createAsyncThunk(
+  'boards/deleteBoard',
+  async (id, thunkAPI) => {
+    console.log(id);
+    try {
+      const response = await axios.delete(`/api/boards/${id}`);
+      Notiflix.Notify.success('Board deleted successfully!');
+      return response.data;
+    } catch (error) {
+      return thunkAPI.rejectWithValue(error.message);
+    }
+  }
+);
+
 export const shiftCard = createAsyncThunk(
   'tasks/shiftTask',
   async (prevCardId, card, newColumnId, thunkAPI) => {
