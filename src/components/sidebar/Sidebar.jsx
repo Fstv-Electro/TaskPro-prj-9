@@ -33,7 +33,7 @@ export const Sidebar = () => {
 
   useEffect(() => {
     dispatch(fetchBoards());
-  }, [dispatch]);
+  }, [dispatch, selectBoards]);
 
   const handleToggleSidebar = () => {
     setIsOpen(prevState => !prevState);

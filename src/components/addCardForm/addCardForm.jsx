@@ -3,7 +3,6 @@ import { useDispatch } from 'react-redux';
 import { Formik, Form, ErrorMessage } from "formik";
 import * as yup from 'yup';
 import moment from 'moment';
-import { Modal } from '../../modal/modal';
 import { ButtonClose } from 'components/modalBtnClose/ButtonClose';
 import { Calendar } from '../datePicker/datePicker';
 import sprite from '../../images/symbol-defs.svg'
@@ -61,13 +60,14 @@ export const AddCardForm = ({ id, onClose }) => {
   };
   
   const displayDeadline = (date) => {
+    if ( date ){
       if (date.diff(moment()) < 0) { console.log ('error')}
       if (deadline) { 
           return determineTodayTomorrow(deadline.$d)+', '+moment(deadline.$d).format('MMMM D')
       }
       return 'Today, '+moment().format('MMMM D')
-  
-  }
+    }
+}
 
 const handleSubmit = (values, actions) => {
   values = {...values, deadline: formatDate(deadline)};
@@ -83,7 +83,6 @@ const handleSubmit = (values, actions) => {
 };
 
   return(
-    <Modal onClose={onClose}>
         <Container>
             <TitleForm>Add card</TitleForm>
             <ButtonClose onClose={onClose} />
@@ -138,6 +137,5 @@ const handleSubmit = (values, actions) => {
             )}
             </Formik>
         </Container>
-    </Modal>
     )
 }

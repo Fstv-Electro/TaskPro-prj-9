@@ -165,3 +165,57 @@ export const fetchColumns = createAsyncThunk(
     }
   }
 );
+
+export const editBoard = createAsyncThunk(
+  'boards/editBoard',
+  async ({ title, currentBg, icon, id }, thunkAPI) => {
+    try {
+      const response = await axios.put(`/api/boards/${id}`, {
+        title,
+        currentBg,
+        icon,
+      });
+      Notiflix.Notify.success('Board edit!');
+      return response.data;
+    } catch (error) {
+      return thunkAPI.rejectWithValue(error.message);
+    }
+  }
+);
+
+export const deleteBoard = createAsyncThunk(
+  'boards/deleteBoard',
+  async (id, thunkAPI) => {
+    console.log(id);
+    try {
+      const response = await axios.delete(`/api/boards/${id}`);
+      Notiflix.Notify.success('Board deleted successfully!');
+      return response.data;
+    } catch (error) {
+      return thunkAPI.rejectWithValue(error.message);
+    }
+  }
+);
+
+export const shiftCard = createAsyncThunk(
+  'tasks/shiftTask',
+  async (prevCardId, card, newColumnId, thunkAPI) => {
+    try {
+      await axios.delete(`/api/tasks/${prevCardId}`);
+
+      const { title, description, priority, deadline } = card;
+      const resPost = await axios.post(`/api/tasks`, {
+        title,
+        parentColumn: newColumnId,
+        description,
+        priority,
+        deadline,
+      });
+
+      Notiflix.Notify.success('Task shifted successfully!');
+      return resPost.data;
+    } catch (error) {
+      return thunkAPI.rejectWithValue(error.message);
+    }
+  }
+);
