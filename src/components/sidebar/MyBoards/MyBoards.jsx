@@ -11,25 +11,17 @@ import {
 import sprite from '../../../images/symbol-defs.svg';
 import { fetchColumns } from 'redux/dashboards/operations';
 import { useDispatch } from 'react-redux';
-
-export const MyBoards = (desk, id) => {
-  const dispatch = useDispatch();
-
-  console.log(desk);
-  const getColumns = (id) => {
-    console.log(id);
-    dispatch(fetchColumns(id))
-  }
-
 import { Modal } from 'components/modal/modal';
 import { EditBoard } from '../modalBoard/EditBoard';
-import { useDispatch } from 'react-redux';
 import { deleteBoard } from '../../../redux/dashboards/operations';
 
-export const MyBoards = desk => {
+export const MyBoards = (desk, id) => {
   const [isOpen, setIsOpen] = useState(false);
   const dispatch = useDispatch();
 
+  const getColumns = (id) => {
+    dispatch(fetchColumns(id))
+  };
 
   if (desk.desk === undefined) {
     return;
