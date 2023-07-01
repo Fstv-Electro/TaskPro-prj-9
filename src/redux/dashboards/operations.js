@@ -156,7 +156,7 @@ export const editBoard = createAsyncThunk(
   'boards/editBoard',
   async ({ title, currentBg, icon, id }, thunkAPI) => {
     try {
-      const response = await axios.patch(`/api/boards/${id}`, {
+      const response = await axios.put(`/api/boards/${id}`, {
         title,
         currentBg,
         icon,

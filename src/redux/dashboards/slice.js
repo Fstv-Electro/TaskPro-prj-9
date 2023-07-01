@@ -167,7 +167,7 @@ const taskSlice = createSlice({
       const index = state.boards.findIndex(
         board => board.id === action.payload.id
       );
-      state.board[index] = action.payload;
+      state.boards[index] = action.payload;
     },
     [editBoard.rejected](state, action) {
       state.isLoading = false;
