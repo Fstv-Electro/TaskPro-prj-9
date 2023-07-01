@@ -12,6 +12,7 @@ export const Container = styled.div`
   padding: 24px 0 0 24px;
   color: #fff;
   background: #121212;
+  z-index: 100;
 `;
 
 export const WrapperTitle = styled.div`
