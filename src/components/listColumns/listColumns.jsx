@@ -2,7 +2,9 @@ import { AddColumn } from 'components/addColumn/addColumn';
 import { ColumnItem } from 'components/columnItem/columnItem';
 import SubmitButton from '../submitButton/submitButton';
 import { Container, List, Item } from './listColumns.styled';
-
+import { useState } from 'react';
+import { AddCardForm } from '../../components/addCardForm/addCardForm';
+import { Modal } from '../../components/modal/modal';
 // вставлено для перевірки відмальовки компонентів
 const columns = [
   {
@@ -24,6 +26,12 @@ const columns = [
 // const columns = 0;
 
 export const ListColumns = ({ children }) => {
+  const [isOpen, setIsOpen] = useState(false);
+  
+    const toggleModal = () => {
+      setIsOpen(isOpen => !isOpen)
+    };
+
   return (
     <>
       <Container>
@@ -41,6 +49,7 @@ export const ListColumns = ({ children }) => {
                     height="56"
                     theme="Dark"
                     icon={true}
+                    handleClick={toggleModal}
                   />
                 </Item>
               );
@@ -48,6 +57,7 @@ export const ListColumns = ({ children }) => {
           </List>
         )}
         <AddColumn />
+        {isOpen && <Modal onClose={toggleModal} children={<AddCardForm onClose={toggleModal}/>} />}
       </Container>
     </>
   );
