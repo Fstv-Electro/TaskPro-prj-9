@@ -50,7 +50,7 @@ export const MyBoards = (desk, id) => {
                 <use href={sprite + `#icon-pencil-01`}></use>
               </svg>
             </IconButton>
-            <IconButton onClick={() => dispatch(deleteBoard(desk.desk._id))}>
+            <IconButton onClick={() => dispatch(deleteBoard(desk.id))}>
               <svg aria-label="question with round" width="16px" height="16px">
                 <use href={sprite + '#icon-trash-04'}></use>
               </svg>
