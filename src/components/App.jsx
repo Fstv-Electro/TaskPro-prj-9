@@ -9,6 +9,8 @@ import { useAuth } from 'hooks';
 // import RegistrationView from './auth/RegistrationView/RegistrationView';
 // import LoginView from './auth/LoginView/LoginView';
 
+import ShiftBtnCard from './ShiftBtnCard/ShiftBtnCard';
+
 import { useEffect, lazy } from 'react';
 
 const Home = lazy(() => import('../pages/homePage'));
@@ -54,6 +56,10 @@ export const App = () => {
           element={
             <RestrictedRoute component={<WelcomePage />} redirectTo="/home" />
           }
+        />
+        <Route
+          path="/123"
+          element={<ShiftBtnCard />}
         />
       </Routes>
     </>
