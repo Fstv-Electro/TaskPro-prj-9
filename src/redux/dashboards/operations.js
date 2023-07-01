@@ -170,8 +170,10 @@ export const fetchColumns = createAsyncThunk(
   async (id, thunkAPI) => {
     try {
       const response = await axios.get(`/api/columns/${id}`);
+      console.log(response.data.tasks);
       return response.data;
     } catch (e) {
+      console.log(e.message);
       return thunkAPI.rejectWithValue(e.message);
     }
   }
