@@ -26,8 +26,10 @@ export const Sidebar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const isMobile = useMediaQuery({ maxWidth: 768 });
 
+  useEffect(() => {
     dispatch(fetchBoards());
-
+  }, [dispatch]);
+  
   const handleToggleSidebar = () => {
     setIsOpen(prevState => !prevState);
   };

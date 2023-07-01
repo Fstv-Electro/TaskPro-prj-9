@@ -129,7 +129,7 @@ const taskSlice = createSlice({
       state.error = null;
       state.cards.push(action.payload);
     },
-    [addBoard.pending](state, action) {
+    [addBoard.pending](state) {
       state.isLoading = true;
       state.error = false;
     },
@@ -138,11 +138,11 @@ const taskSlice = createSlice({
       state.error = null;
       state.boards.push(action.payload);
     },
-    [addBoard.rejected](state, action) {
+    [addBoard.rejected](state) {
       state.isLoading = false;
       state.error = true;
     },
-    [deleteCard.pending](state, action) {
+    [deleteCard.pending](state) {
       state.isLoading = true;
       state.error = false;
     },
