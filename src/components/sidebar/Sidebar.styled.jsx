@@ -13,6 +13,7 @@ export const Container = styled.div`
   color: #fff;
   background: #121212;
   left: 0;
+  z-index: 100;
 
   // mobile
 
