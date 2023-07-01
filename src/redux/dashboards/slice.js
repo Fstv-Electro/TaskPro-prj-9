@@ -4,7 +4,9 @@ import {
   deleteColumn,
   editColumn,
   fetchBoards,
+  addBoard,
   deleteCard,
+  addTask
 } from './operations';
 import { needHelp } from './operations';
 import { backgroundUrl } from './operations';
@@ -19,6 +21,7 @@ import { backgroundUrl } from './operations';
 
 const initialState = {
   boards: [],
+  currentBoard: [],
   lists: [],
   cards: [],
   currentBcg: null,
@@ -111,6 +114,28 @@ const taskSlice = createSlice({
       state.lists.splice(index, 1);
     },
     [deleteColumn.rejected](state, action) {
+      state.isLoading = false;
+      state.error = true;
+    },
+    [addTask.pending](state, action) {
+      state.isLoading = true;
+      state.error = false;
+    },
+    [addTask.fulfilled](state, action) {
+      state.isLoading = false;
+      state.error = null;
+      state.cards.push(action.payload);
+    },
+    [addBoard.pending](state, action) {
+      state.isLoading = true;
+      state.error = false;
+    },
+    [addBoard.fulfilled](state, action) {
+      state.isLoading = false;
+      state.error = null;
+      state.boards.push(action.payload);
+    },
+    [addBoard.rejected](state, action) {
       state.isLoading = false;
       state.error = true;
     },

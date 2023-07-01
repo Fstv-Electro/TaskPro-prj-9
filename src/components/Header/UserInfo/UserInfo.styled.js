@@ -6,7 +6,6 @@ export const UserContainer = styled.div`
     justify-content: center;
     height: auto;
     color: rgba(255, 255, 255, 1);
-    margin-right: 24px;
 `;
 export const UserEmail = styled.p`
     font-size: 14px;

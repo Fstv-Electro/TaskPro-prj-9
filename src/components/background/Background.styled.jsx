@@ -1,11 +1,14 @@
 import styled from '@emotion/styled';
 
 export const Wrapper = styled.div`
-  max-width: 300px;
-  margin: 10px auto;
+  margin-bottom: 40px;
 `;
 
 export const List = styled.ul`
+  display: flex;
+  gap: 4px;
+  width: 280px;
+  flex-wrap: wrap;
   border: none;
   padding: 0;
 `;
@@ -23,13 +26,16 @@ export const Item = styled.li`
   box-sizing: border-box;
   vertical-align: top;
   text-align: center;
+  width: 28px;
+  height: 28px;
 `;
 
 export const Label = styled.label`
   display: block;
-  height: 100%;
-  width: 100%;
-  padding-right: 4px;
+
+  width: 28px;
+  height: 28px;
+
   cursor: pointer;
   opacity: 0.5;
   transition: all 0.5s ease-in-out;
@@ -44,18 +50,25 @@ export const Input = styled.input`
   &[type='radio']:active ~ label {
     opacity: 1;
     border: 1px solid #fff;
+    border-radius: 15%;
   }
   &[type='radio']:checked ~ label {
     opacity: 1;
+    border: 1px solid #fff;
+    border-radius: 15%;
   }
 `;
 
 export const Img = styled.img`
   width: 28px;
   height: 28px;
+  padding: 0;
+  margin: 0;
+  transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 
   :hover,
   :active {
     border: 1px solid #fff;
+    border-radius: 15%;
   }
 `;

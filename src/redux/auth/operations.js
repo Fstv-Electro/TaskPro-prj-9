@@ -1,5 +1,6 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
 import axios from 'axios';
+import Notiflix from 'notiflix';
 
 axios.defaults.baseURL = 'https://task-pro-backend.onrender.com';
 
@@ -11,6 +12,10 @@ const token = {
     axios.defaults.headers.common.Authorization = '';
   },
 };
+
+Notiflix.Notify.init({
+  position: 'right-bottom',
+});
 
 export const register = createAsyncThunk(
   'auth/register',
@@ -52,8 +57,10 @@ export const update = createAsyncThunk('auth/update',
   async (updateUser, thunkAPI) => {
     try {
       const response = await axios.patch('/users/update', updateUser);
+      Notiflix.Notify.success('Data updated successfully!');
       return response.data;
     } catch (e) {
+      Notiflix.Notify.failure('Error updating data!');
       return thunkAPI.rejectWithValue(e.message);
     }
   }

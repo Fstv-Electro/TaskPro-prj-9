@@ -1,8 +1,6 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
 import axios from 'axios';
 import Notiflix from 'notiflix';
-// import { useDispatch, useSelector } from 'react-redux';
-// import { selectToken } from '../auth/selectores';
 
 Notiflix.Notify.init({
   position: 'right-bottom',
@@ -90,6 +88,52 @@ export const deleteColumn = createAsyncThunk(
       return response.data;
     } catch (error) {
       return thunkAPI.rejectWithValue(error.message);
+    }
+  }
+);
+
+export const addTask = createAsyncThunk(
+  'tasks/addTask',
+  async ({ parentColumn, title }, thunkAPI) => {
+    try {
+      const response = await axios.post('/api/tasks', { parentColumn, title });
+      Notiflix.Notify.success('Task added!');
+      return response.data;
+    } catch (e) {
+      Notiflix.Notify.failure('Something going wrong!');
+      return thunkAPI.rejectWithValue(e.message);
+    }
+  }
+);
+
+export const addBoard = createAsyncThunk(
+  'boards/addBoard',
+  async ({ title, currentBg, icon }, thunkAPI) => {
+    try {
+      const response = await axios.post('/api/boards', {
+        title,
+        currentBg,
+        icon,
+      });
+      Notiflix.Notify.success('Boards created!');
+      return response.data;
+    } catch (e) {
+      Notiflix.Notify.failure('Something going wrong!');
+      return thunkAPI.rejectWithValue(e.message);
+    }
+  }
+);
+
+export const editTask = createAsyncThunk(
+  'tasks/editTask',
+  async ({ parentColumn, title }, thunkAPI) => {
+    try {
+      const response = await axios.post('/api/tasks', { parentColumn, title });
+      Notiflix.Notify.success('Task corrected!');
+      return response.data;
+    } catch (e) {
+      Notiflix.Notify.failure('Something going wrong!');
+      return thunkAPI.rejectWithValue(e.message);
     }
   }
 );
