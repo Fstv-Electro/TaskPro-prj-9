@@ -3,11 +3,11 @@ import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider';
 import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs';
 import dayjs from 'dayjs'
 import { useState, useEffect } from "react";
-import sprite from '../../../images/symbol-defs.svg';
+import sprite from '../../images/symbol-defs.svg';
 import { IconDown } from './datePicker.styled';
 
 export const Calendar = ({parentState}) => {
-    dayjs().format();
+    dayjs().format(); 
 
     const [dateDeadline, setDateDeadline] = useState('');
 
