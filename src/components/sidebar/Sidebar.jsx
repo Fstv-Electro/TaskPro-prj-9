@@ -28,7 +28,7 @@ export const Sidebar = () => {
 
   useEffect(() => {
     dispatch(fetchBoards());
-  }, [dispatch]);
+  }, [dispatch], selectBoards);
 
 
 
