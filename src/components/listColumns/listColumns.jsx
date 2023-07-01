@@ -2,42 +2,34 @@ import { AddColumn } from 'components/addColumn/addColumn';
 import { ColumnItem } from 'components/columnItem/columnItem';
 import SubmitButton from '../submitButton/submitButton';
 import { Container, List, Item } from './listColumns.styled';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { AddCardForm } from '../../components/addCardForm/addCardForm';
 import { Modal } from '../../components/modal/modal';
-// вставлено для перевірки відмальовки компонентів
-const columns = [
-  {
-    _id: '649d483af4c9cb1654f8e5ac',
-    title: 'TO DOs',
-    parentBoard: '649d310119f7c8d34db12c34',
-  },
-  {
-    _id: '649d53c9f4c9cb1654f8e617',
-    title: 'in progress',
-    parentBoard: '649d310119f7c8d34db12c34',
-  },
-  {
-    _id: '649d6156f4c9cb1654f8e697',
-    title: 'Ask',
-    parentBoard: '649d310119f7c8d34db12c34',
-  },
-];
-// const columns = 0;
+import { selectList } from 'redux/dashboards/selectors';
+import { useSelector, useDispatch } from 'react-redux';
 
-export const ListColumns = ({ children }) => {
+export const ListColumns = ({
+  idBoard = '64a06ca19ba6a167445ae5c9',
+  children,
+}) => {
+  const selectLists = useSelector(selectList);
+  // const dispatch = useDispatch();
   const [isOpen, setIsOpen] = useState(false);
-  
-    const toggleModal = () => {
-      setIsOpen(isOpen => !isOpen)
-    };
+
+  const toggleModal = () => {
+    setIsOpen(isOpen => !isOpen);
+  };
+
+  useEffect(() => {
+    console.log('selectLists changed:', selectLists);
+  }, [selectLists]);
 
   return (
     <>
       <Container>
-        {columns.length > 0 && (
+        {selectLists.length > 0 && (
           <List>
-            {columns.map(({ _id, title }) => {
+            {selectLists.map(({ _id, title }) => {
               return (
                 <Item key={_id}>
                   <ColumnItem item={{ _id, title }} />
@@ -56,8 +48,13 @@ export const ListColumns = ({ children }) => {
             })}
           </List>
         )}
-        <AddColumn />
-        {isOpen && <Modal onClose={toggleModal} children={<AddCardForm onClose={toggleModal}/>} />}
+        <AddColumn _id={idBoard} />
+        {isOpen && (
+          <Modal
+            onClose={toggleModal}
+            children={<AddCardForm onClose={toggleModal} />}
+          />
+        )}
       </Container>
     </>
   );
