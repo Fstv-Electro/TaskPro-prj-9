@@ -16,7 +16,7 @@ export const MyBoards = (desk, id) => {
 
 
   const getColumns = (id) => {
-    console.log('dashboard CLICKED');
+
     dispatch(fetchColumns(id))
   }
 
@@ -30,7 +30,7 @@ export const MyBoards = (desk, id) => {
     <List>
       <Item>
         <NavItem to={deskRoute}>
-          <WrapperProjectOffice onClick={() => getColumns(id)}>
+          <WrapperProjectOffice onClick={() => getColumns(desk.id)}>
             <svg aria-label="question with round" width="18px" height="16px">
               <use href={sprite + pjIcon}></use>
             </svg>

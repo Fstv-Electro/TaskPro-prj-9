@@ -156,8 +156,9 @@ export const deleteCard = createAsyncThunk(
 export const fetchColumns = createAsyncThunk(
   'tasks/fetchColumns',
   async (id, thunkAPI) => {
+    console.log(id);
     try {
-      const response = await axios.get('/api/columns', { parentBoard: id });
+      const response = await axios.get(`/api/columns`, { parentBoard: id });
       console.log(response.data);
       return response.data;
     } catch (e) {
