@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import {
   Wrapper,
@@ -11,9 +11,9 @@ import {
 } from './Background.styled';
 import { backgroundUrl } from '../../redux/dashboards/operations';
 import { selectBackgroundUrl } from '../../redux/dashboards/selectors';
+import plug from '../../images/plug.png';
 
-export const Background = icons => {
-  const [item, setItem] = useState('');
+export const Background = ({ getBg }) => {
   const dispatch = useDispatch();
   const selectBgIcons = useSelector(selectBackgroundUrl);
 
@@ -21,25 +21,31 @@ export const Background = icons => {
     dispatch(backgroundUrl());
   }, [dispatch]);
 
-  const onClickIcon = e => {
-    setItem(e.target.value);
+  const onClickBg = e => {
+    getBg(e.target.value);
   };
-  console.log(item);
+  // console.log(item);
 
   return (
     <Wrapper>
+      <FormQuestion>Background</FormQuestion>
       <List>
-        <FormQuestion>Background</FormQuestion>
-        {selectBgIcons.map(({ id, previewURL }) => (
-          <Item key={id}>
+        <Item>
+          <Input onClick={onClickBg} type="radio" name="id" />
+          <Label>
+            <Img src={plug} alt={'bg'} />
+          </Label>
+        </Item>
+        {selectBgIcons.map(({ _id, previewURL }) => (
+          <Item key={_id}>
             <Input
-              onClick={onClickIcon}
+              onClick={onClickBg}
               type="radio"
               name="id"
-              id={id}
-              value={id}
+              id={_id}
+              value={_id}
             />
-            <Label htmlFor={id}>
+            <Label htmlFor={_id}>
               <Img src={previewURL} alt={'bg'} />
             </Label>
           </Item>

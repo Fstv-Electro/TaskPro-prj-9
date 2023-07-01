@@ -7,13 +7,13 @@ import * as yup from 'yup';
 import { ButtonClose } from '../../modalBtnClose/ButtonClose';
 import { Background } from '../../background/Background';
 import { useDispatch } from 'react-redux';
-import { addBoard } from '../../../redux/dashboards/operations';
+import { editBoard } from '../../../redux/dashboards/operations';
 
 const schema = yup.object().shape({
   name: yup.string().required(),
 });
 
-export const ModalBoard = ({ onClose }) => {
+export const EditBoard = ({ desk, onClose }) => {
   const [icon, setIcon] = useState('');
   const [currentBg, setCurrentBg] = useState('');
 
@@ -31,32 +31,30 @@ export const ModalBoard = ({ onClose }) => {
       console.log('error');
     } else {
       dispatch(
-        addBoard({
+        editBoard({
           title: query.name,
           ...currentBg,
           ...icon,
+          id: desk.desk._id,
         })
       );
       console.log({
         title: query.name,
         ...currentBg,
         ...icon,
+        id: desk.desk._id,
       });
       resetForm();
     }
     onClose();
   };
 
-  const initialValues = {
-    name: '',
-  };
-
   return (
     <>
       <ButtonClose onClose={onClose} />
-      <FormTitle>New board</FormTitle>
+      <FormTitle>Edit board</FormTitle>
       <Formik
-        initialValues={initialValues}
+        initialValues={{ id: desk.desk._id, name: desk ? desk.desk.title : '' }}
         onSubmit={handleSubmit}
         validationSchema={schema}
       >

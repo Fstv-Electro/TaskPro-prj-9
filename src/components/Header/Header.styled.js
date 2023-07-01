@@ -5,8 +5,17 @@ export const HeaderStyled = styled.header`
     align-items: center;
     justify-content: flex-end;
     width: 100%; 
-    height: 68px;
     background: #161616;
+    padding: 18px 24px;
+
+      @media (max-width: 1180px) {
+        padding: 18px 32px;
+      }
+      @media (max-width: 768px) {
+        padding: 14px 20px;
+      }
+
+      
 
 `
 

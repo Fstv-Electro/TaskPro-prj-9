@@ -1,4 +1,3 @@
-import { useState } from 'react';
 import {
   Form,
   FormOptions,
@@ -10,28 +9,27 @@ import {
 } from './IconRadioButtons.styled';
 import sprite from '../../images/symbol-defs.svg';
 
-export const IconRadioButtons = () => {
-  const [item, setItem] = useState('');
+export const IconRadioButtons = ({ getIcon }) => {
   const icons = [
-    { name: 'Project', id: 'match_1' },
-    { name: 'star-04', id: 'match_2' },
-    { name: 'loading-03', id: 'match_3' },
-    { name: 'puzzle-piece-02', id: 'match_4' },
-    { name: 'container', id: 'match_5' },
-    { name: 'lightning-02', id: 'match_6' },
-    { name: 'colors', id: 'match_7' },
-    { name: 'hexagon-01', id: 'match_8' },
+    { name: 'icon-Project', id: 'match_1' },
+    { name: 'icon-star-04', id: 'match_2' },
+    { name: 'icon-loading-03', id: 'match_3' },
+    { name: 'icon-puzzle-piece-02', id: 'match_4' },
+    { name: 'icon-container', id: 'match_5' },
+    { name: 'icon-lightning-02', id: 'match_6' },
+    { name: 'icon-colors', id: 'match_7' },
+    { name: 'icon-hexagon-01', id: 'match_8' },
   ];
 
   const onClickIcon = e => {
-    setItem(e.target.value);
+    getIcon(e.target.value);
   };
-  console.log(item);
+  // console.log(item);
   return (
     <>
       <Form>
+        <FormQuestion>Icons</FormQuestion>
         <FormOptions>
-          <FormQuestion>Icons</FormQuestion>
           {icons.map(({ name, id }) => (
             <FormAnswer key={id}>
               <Input
@@ -43,7 +41,7 @@ export const IconRadioButtons = () => {
               />
               <Label htmlFor={id}>
                 <Svg aria-label="question with round">
-                  <use href={sprite + `#icon-${name}`}></use>
+                  <use href={sprite + `#${name}`}></use>
                 </Svg>
               </Label>
             </FormAnswer>

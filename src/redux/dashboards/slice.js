@@ -5,6 +5,12 @@ import {
   editColumn,
   fetchBoards,
   setFilter,
+  addBoard,
+  deleteCard,
+  addTask,
+  fetchColumns,
+  editBoard,
+  deleteBoard,
 } from './operations';
 import { needHelp } from './operations';
 import { backgroundUrl } from './operations';
@@ -19,6 +25,7 @@ import { backgroundUrl } from './operations';
 
 const initialState = {
   boards: [],
+  currentBoard: [],
   lists: [],
   cards: [],
   currentBcg: null,
@@ -77,7 +84,7 @@ const taskSlice = createSlice({
     [addColumn.fulfilled](state, action) {
       state.isLoading = false;
       state.error = null;
-      state.lists.push(action.payload);
+      state.lists = action.payload;
     },
     [addColumn.rejected](state, action) {
       state.isLoading = false;
@@ -117,6 +124,87 @@ const taskSlice = createSlice({
     },
     [setFilter.fulfilled](state, action) {
       state.filter = action.payload;
+    },
+    [addTask.pending](state, action) {
+      state.isLoading = true;
+      state.error = false;
+    },
+    [addTask.fulfilled](state, action) {
+      state.isLoading = false;
+      state.error = null;
+      state.cards.push(action.payload);
+    },
+    [addBoard.pending](state) {
+      state.isLoading = true;
+      state.error = false;
+    },
+    [addBoard.fulfilled](state, action) {
+      state.isLoading = false;
+      state.error = null;
+      state.boards.push(action.payload);
+    },
+    [addBoard.rejected](state) {
+      state.isLoading = false;
+      state.error = true;
+    },
+    [deleteCard.pending](state) {
+      state.isLoading = true;
+      state.error = false;
+    },
+    [deleteCard.fulfilled](state, action) {
+      state.isLoading = false;
+      state.error = null;
+      const index = state.cards.findIndex(
+        card => card.id === action.payload.id
+      );
+      state.cards.splice(index, 1);
+    },
+    [deleteCard.rejected](state, action) {
+      state.isLoading = false;
+      state.error = true;
+    },
+    [fetchColumns.pending](state) {
+      state.isLoading = true;
+    },
+    [fetchColumns.rejected](state) {
+      state.isLoading = false;
+      state.error = true;
+    },
+    [fetchColumns.fulfilled](state, action) {
+      state.isLoading = false;
+      state.lists = action.payload;
+    },
+    [editBoard.pending](state, action) {
+      state.isLoading = true;
+      state.error = false;
+    },
+    [editBoard.fulfilled](state, action) {
+      state.isLoading = false;
+      state.error = null;
+      const index = state.boards.findIndex(
+        board => board.id === action.payload.id
+      );
+      state.boards[index] = action.payload;
+    },
+    [editBoard.rejected](state, action) {
+      state.isLoading = false;
+      state.error = true;
+    },
+    [deleteBoard.pending](state, action) {
+      state.isLoading = true;
+      state.error = false;
+    },
+    [deleteBoard.fulfilled](state, action) {
+      state.isLoading = false;
+      state.error = null;
+      const index = state.boards.findIndex(
+        board => board.id === action.payload.id
+      );
+      state.board.splice(index, 1);
+    },
+    [deleteBoard.rejected](state, action) {
+      state.isLoading = false;
+      state.error = true;
     },
   },
 });

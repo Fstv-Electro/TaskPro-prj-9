@@ -6,22 +6,21 @@ import { RestrictedRoute } from './routs/restrictedRoute';
 import { PrivateRout } from './routs/privateRout';
 import { refreshUser } from 'redux/auth/operations';
 import { useAuth } from 'hooks';
-// import RegistrationView from './auth/RegistrationView/RegistrationView';
-// import LoginView from './auth/LoginView/LoginView';
-
+import GlobalStyles from './GlobalStyles';
 import { useEffect, lazy } from 'react';
+import ScreenPage from '../pages/ScreenPage';
 
 const Home = lazy(() => import('../pages/homePage'));
+// const Screen = lazy(() => import('../pages/ScreenPage'));
 
 export const App = () => {
-
   const dispatch = useDispatch();
   const { isRefreshing } = useAuth();
 
   useEffect(() => {
     dispatch(refreshUser());
   }, [dispatch]);
-  
+
   return isRefreshing ? (
     <b>Refreshing user...</b>
   ) : (
@@ -42,13 +41,14 @@ export const App = () => {
         <Route
           path="/home"
           element={<PrivateRout component={<Home />} redirectTo="/welcome" />}
-        />
+        >
         <Route
-          path="/home/:boardName"
+          path=":boardName"
           element={
-            <PrivateRout component={<div>home/id</div>} redirectTo="/welcome" />
+            <PrivateRout component={<div><ScreenPage/></div>} redirectTo="/welcome" />
           }
-        />
+            />
+        </Route>
         <Route
           path="*"
           element={
@@ -56,6 +56,7 @@ export const App = () => {
           }
         />
       </Routes>
+      <GlobalStyles />
     </>
   );
 };

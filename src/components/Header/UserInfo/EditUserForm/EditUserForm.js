@@ -16,13 +16,11 @@ import {
   Label,
   Button,
 } from './EditUserForm.styled';
-import { useState } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
-import { selectIsError } from 'redux/auth/selectores';
+import { useState, useEffect } from 'react';
+import { useDispatch } from 'react-redux';
 import { update } from 'redux/auth/operations';
 import Sprite from '../../../../images/symbol-defs.svg'
 import * as Yup from 'yup';
-import Notiflix from 'notiflix';
 
 
 const NewUserSchema = Yup.object().shape({
@@ -56,15 +54,19 @@ const NewUserSchema = Yup.object().shape({
     .required('Required'),
 });
 
-Notiflix.Notify.init({
-  position: 'right-bottom',
-});
 
-export const  EdidUserForm = ({avatarURL, onClose}) => {
+export const  EdidUserForm = ({avatarURL, onClose, isLoading}) => {
   const dispatch = useDispatch();
   const [type, setType] = useState('password');
   const [currentImage, setCurrentImage] = useState(avatarURL);
-  const isError = useSelector(selectIsError);
+  const [isSubmit, setIsSubmit] = useState(false);
+
+  useEffect(() => {
+    if(isSubmit && !isLoading ) {
+      onClose();
+    }
+    
+  }, [onClose, isLoading , isSubmit]);
 
   function handleSubmit(value) {
     const { avatar, name, email, password  } = value;
@@ -78,6 +80,7 @@ export const  EdidUserForm = ({avatarURL, onClose}) => {
     formData.append('password', password);
     
     dispatch(update(formData));
+    setIsSubmit(true)
   }
 
   function handleClick() {
@@ -104,10 +107,6 @@ export const  EdidUserForm = ({avatarURL, onClose}) => {
     };
   
     reader.readAsDataURL(file);
-  }
-  
-  if (isError) {
-    Notiflix.Notify.warning('Error update date');
   }
 
   return (
