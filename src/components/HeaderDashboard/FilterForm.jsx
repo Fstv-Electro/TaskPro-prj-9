@@ -4,7 +4,7 @@ import { useDispatch } from 'react-redux';
 import { ButtonClose } from 'components/modalBtnClose/ButtonClose';
 import {
   Container,
-  TESTbackgroundAvatars,
+  BackgroundWrapper,
   Title,
   Div,
   Text,
@@ -13,8 +13,8 @@ import {
   Label,
   Field,
 } from './FitlerForm.styled';
-
 import { setFilter } from 'redux/dashboards/operations';
+import { Background } from 'components/background/Background';
 
 export const Filter = ({ onClose }) => {
   const dispatch = useDispatch();
@@ -28,6 +28,10 @@ export const Filter = ({ onClose }) => {
     dispatch(setFilter(evt.target.value));
   }
 
+  function handleClick() {
+    dispatch(setFilter('Without priority'));
+  }
+
   return (
     <Modal onClose={onClose}>
       <Container>
@@ -35,12 +39,15 @@ export const Filter = ({ onClose }) => {
         <Title>Filters</Title>
         <Formik initialValues={initialValues}>
           <Form autocomplete="off" onChange={handleChange}>
-            <TESTbackgroundAvatars>Background</TESTbackgroundAvatars>
-            {/* тут маж бути компонент backgroundAvatars */}
+            <BackgroundWrapper>
+              <Background />
+            </BackgroundWrapper>
             <LabelGroup role="group" aria-labelledby="my-radio-group">
               <Div>
                 <Text>Label color</Text>
-                <Button>Show all</Button>
+                <Button type="button" onClick={handleClick}>
+                  Show all
+                </Button>
               </Div>
               <Label>
                 <Field
