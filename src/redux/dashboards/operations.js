@@ -11,6 +11,7 @@ export const fetchBoards = createAsyncThunk(
   async (_, thunkAPI) => {
     try {
       const response = await axios.get('/api/boards');
+      console.log(response.data);
       return response.data;
     } catch (e) {
       return thunkAPI.rejectWithValue(e.message);
@@ -148,6 +149,19 @@ export const deleteCard = createAsyncThunk(
       return response.data;
     } catch (error) {
       return thunkAPI.rejectWithValue(error.message);
+    }
+  }
+);
+
+export const fetchColumns = createAsyncThunk(
+  'tasks/fetchColumns',
+  async (id, thunkAPI) => {
+    try {
+      const response = await axios.get(`/api/columns/${id}`);
+      console.log(response.data);
+      return response.data;
+    } catch (e) {
+      return thunkAPI.rejectWithValue(e.message);
     }
   }
 );

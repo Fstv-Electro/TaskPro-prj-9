@@ -23,10 +23,13 @@ import { useMediaQuery } from 'react-responsive';
 export const Sidebar = () => {
   const dispatch = useDispatch();
   const selectBoards = useSelector(selectBoard);
+  // const selectColumns = useSelector(selectList);
   // const isLoading = useSelector(selectIsLoading);
   // const error = useSelector(selectError);
   const [isOpen, setIsOpen] = useState(false);
   const isMobile = useMediaQuery({ maxWidth: 768 });
+
+
 
   useEffect(() => {
     dispatch(fetchBoards());

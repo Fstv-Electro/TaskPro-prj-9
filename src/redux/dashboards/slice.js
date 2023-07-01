@@ -7,6 +7,7 @@ import {
   addBoard,
   deleteCard,
   addTask,
+  fetchColumns,
   editBoard,
   deleteBoard,
 } from './operations';
@@ -81,7 +82,7 @@ const taskSlice = createSlice({
     [addColumn.fulfilled](state, action) {
       state.isLoading = false;
       state.error = null;
-      state.lists.push(action.payload);
+      state.lists = action.payload;
     },
     [addColumn.rejected](state, action) {
       state.isLoading = false;
@@ -156,6 +157,17 @@ const taskSlice = createSlice({
     [deleteCard.rejected](state, action) {
       state.isLoading = false;
       state.error = true;
+    },
+    [fetchColumns.pending](state) {
+      state.isLoading = true;
+    },
+    [fetchColumns.rejected](state) {
+      state.isLoading = false;
+      state.error = true;
+    },
+    [fetchColumns.fulfilled](state, action) {
+      state.isLoading = false;
+      state.lists = action.payload;
     },
     [editBoard.pending](state, action) {
       state.isLoading = true;
