@@ -6,7 +6,6 @@ import { RestrictedRoute } from './routs/restrictedRoute';
 import { PrivateRout } from './routs/privateRout';
 import { refreshUser } from 'redux/auth/operations';
 import { useAuth } from 'hooks';
-import ShiftBtnCard from './ShiftBtnCard/ShiftBtnCard';
 import GlobalStyles from './GlobalStyles';
 import { useEffect, lazy } from 'react';
 import ScreenPage from '../pages/ScreenPage';
@@ -55,10 +54,6 @@ export const App = () => {
           element={
             <RestrictedRoute component={<WelcomePage />} redirectTo="/home" />
           }
-        />
-        <Route
-          path="/123"
-          element={<ShiftBtnCard />}
         />
       </Routes>
       <GlobalStyles />
