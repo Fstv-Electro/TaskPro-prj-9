@@ -8,9 +8,17 @@ import {
   NavItem
 } from './MyBoards.styled';
 import sprite from '../../../images/symbol-defs.svg';
+import { fetchColumns } from 'redux/dashboards/operations';
+import { useDispatch } from 'react-redux';
+
+export const MyBoards = (desk, id) => {
+  const dispatch = useDispatch();
 
 
-export const MyBoards = (desk) => {
+  const getColumns = (id) => {
+    console.log('dashboard CLICKED');
+    dispatch(fetchColumns(id))
+  }
 
   if (desk.desk === undefined) {
     return;
@@ -22,7 +30,7 @@ export const MyBoards = (desk) => {
     <List>
       <Item>
         <NavItem to={deskRoute}>
-          <WrapperProjectOffice onClick={() => {}}>
+          <WrapperProjectOffice onClick={() => getColumns(id)}>
             <svg aria-label="question with round" width="18px" height="16px">
               <use href={sprite + pjIcon}></use>
             </svg>
