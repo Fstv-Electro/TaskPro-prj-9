@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import { Formik } from 'formik';
 import { Modal } from '../../modal/modal';
 import { ButtonClose } from 'components/modalBtnClose/ButtonClose';
@@ -18,35 +18,7 @@ const initialValues = {
 };
 
 export const AddColumnForm = ({ id, onClose }) => {
-  const [windowWidth, setWindowWidth] = useState(window.innerWidth);
   const dispatch = useDispatch();
-
-  useEffect(() => {
-    const handleResize = () => {
-      setWindowWidth(window.innerWidth);
-    };
-
-    window.addEventListener('resize', handleResize);
-
-    return () => {
-      window.removeEventListener('resize', handleResize);
-    };
-  }, []);
-
-  const widthButton = () => {
-    let a;
-    console.log('Ширина вікна:', windowWidth);
-
-    if (windowWidth > 767) {
-      a = '302';
-      console.log(a);
-    } else {
-      a = '287';
-      console.log(a);
-    }
-
-    return a;
-  };
 
   const handleSubmit = (values, actions) => {
     // const formData = new FormData();
@@ -94,14 +66,12 @@ export const AddColumnForm = ({ id, onClose }) => {
       >
         <Form autoComplete="off">
           <FormField htmlFor="title">
-            <label htmlFor="title"></label>
             <Field type="text" name="title" placeholder="Title" />
             <ErrorMessage name="title" component="span" />
           </FormField>
           <SubmitButton
             title="Add"
             type="submit"
-            width={widthButton()}
             height="49"
             theme="Dark"
             icon={true}

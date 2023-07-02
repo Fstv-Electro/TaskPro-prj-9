@@ -1,20 +1,19 @@
 import { useState } from 'react';
 import { AddColumnForm } from './addColumnForm/addColumnForm';
-// import sprite from '../../images/symbol-defs.svg';
-// import { Button, IconPlus } from './addColumn.styled';
+import { Container } from './addColumn.styled';
 import SubmitButton from '../submitButton/submitButton';
 
-export const AddColumn = ({ _id }) => {
-  const [modal, setModal] = useState(false);
+export const AddColumn = ({ boardId, numberOfColumns = null }) => {
+  const [isOpen, setIsOpen] = useState(false);
 
-  const handleOpen = () => setModal(true);
-  const handleClose = () => setModal(false);
+  const toggleModal = () => {
+    setIsOpen(isOpen => !isOpen);
+  };
 
-  const columns = [1]; // для тесту
-  const buttonText = columns.length > 0 ? 'Add another column' : 'Add column';
+  const buttonText = numberOfColumns > 0 ? 'Add another column' : 'Add column';
 
   return (
-    <>
+    <Container>
       <SubmitButton
         title={buttonText}
         type="button"
@@ -23,10 +22,10 @@ export const AddColumn = ({ _id }) => {
         theme="Dark"
         icon={true}
         addColumn={true}
-        handleClick={handleOpen}
+        handleClick={toggleModal}
       />
 
-      {modal && <AddColumnForm id={_id} onClose={handleClose} />}
-    </>
+      {isOpen && <AddColumnForm id={boardId} onClose={toggleModal} />}
+    </Container>
   );
 };

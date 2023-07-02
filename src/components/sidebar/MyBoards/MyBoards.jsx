@@ -23,9 +23,9 @@ export const MyBoards = (desk, id) => {
   const [typeModal, setTypeModal] = useState('');
   const dispatch = useDispatch();
 
-  const getColumns = (id) => {
+  const getColumns = id => {
     dispatch(fetchColumns(id));
-    dispatch(fetchTasks());
+    // dispatch(fetchTasks());
     dispatch(changeBg(desk.desk.currentBg));
     dispatch(changeCurrentBoard(id));
   };
