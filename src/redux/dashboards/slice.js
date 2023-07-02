@@ -5,6 +5,7 @@ import {
   editColumn,
   fetchBoards,
   setFilter,
+  setFilterCards,
   addBoard,
   deleteCard,
   addTask,
@@ -35,6 +36,7 @@ const initialState = {
   comment: '',
   bgUrl: [],
   filter: 'Without priority',
+  filteredCards: [],
 };
 
 const taskSlice = createSlice({
@@ -124,6 +126,10 @@ const taskSlice = createSlice({
     },
     [setFilter.fulfilled](state, action) {
       state.filter = action.payload;
+    },
+    [setFilterCards.fulfilled](state, action) {
+      console.log(action.payload);
+      state.filteredCards = action.payload;
     },
     [addTask.pending](state, action) {
       state.isLoading = true;
