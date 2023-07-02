@@ -5,8 +5,9 @@ export const HeaderStyled = styled.header`
     align-items: center;
     justify-content: flex-end;
     width: 100%; 
-    background: #161616;
+    background: var(--heder-bg-color);
     padding: 18px 24px;
+    color: var(--first-text-color);
 
       @media (max-width: 1180px) {
         padding: 18px 32px;
@@ -25,8 +26,6 @@ export const ThemeContainer = styled.div`
     width: 70px;
     height: auto;
     margin-right: 14px;
-    color: rgba(255, 255, 255, 0.80);
-
 }     
 `
 
@@ -46,7 +45,7 @@ export const ThemeList = styled.ul`
     overflow: hidden;
     list-style: none;
     cursor: pointer;
-    background: #161616;
+    background: var(--heder-bg-color);
     border-radius: 8px;
     transition: all 0.3s ease-out;
     transition: transform 550ms cubic-bezier(0.4, 0, 0.2, 1);
@@ -65,9 +64,10 @@ export const ThemeSelect = styled.div`
   transition: all 0.3s ease-out;
   transition: transform 550ms cubic-bezier(0.4, 0, 0.2, 1);
   padding: 10px 1px;
+  opacity: 0.8;
 
   &:hover{
-    text-shadow: 0 1px 4px rgba(190, 219, 176, 1);
+    text-shadow: 0 1px 4px var(--button-bg-color);
     transform: scale(1.1);
   }
 `
@@ -96,11 +96,11 @@ export const ItemBtn = styled.button`
   border: none;
   background: transparent;
   cursor: ${({ disabled }) => (disabled ? '' : 'pointer')};
-  color: ${({ selected }) => (selected ? '#BEDBB0' : 'rgba(255, 255, 255, 0.50);')};
+  color: ${({ selected }) => (selected ? 'var(--button-bg-color)' : 'var(--text-theme-color)')};
   transition: all 0.3s ease-out;
    
     &:hover{
-      text-shadow:${({ disabled }) => (!disabled ? '0 1px 4px rgba(190, 219, 176, 1)' : '')};
+      text-shadow:${({ disabled }) => (!disabled ? '0 1px 4px var(--button-bg-color)' : '')};
       transform: ${({ disabled }) => (!disabled ? 'scale(1.1)' : 'scale(1)')};
       
     }
