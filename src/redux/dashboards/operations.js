@@ -170,10 +170,8 @@ export const fetchColumns = createAsyncThunk(
   async (id, thunkAPI) => {
     try {
       const response = await axios.get(`/api/columns/${id}`);
-      console.log(response.data.tasks);
       return response.data;
     } catch (e) {
-      console.log(e.message);
       return thunkAPI.rejectWithValue(e.message);
     }
   }
@@ -229,6 +227,19 @@ export const shiftCard = createAsyncThunk(
       return resPost.data;
     } catch (error) {
       return thunkAPI.rejectWithValue(error.message);
+    }
+  }
+);
+
+export const fetchTasks = createAsyncThunk(
+  'tasks/fetchTasks',
+  async (_, thunkAPI) => {
+    try {
+      const response = await axios.get('/api/tasks');
+      console.log(response.data);
+      return response.data;
+    } catch (e) {
+      return thunkAPI.rejectWithValue(e.message);
     }
   }
 );

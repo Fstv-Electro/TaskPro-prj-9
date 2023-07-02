@@ -17,11 +17,6 @@ export const ColumnItem = ({ item }) => {
   const dispatch = useDispatch();
   const [modal, setModal] = useState(false);
 
-  // const handleOpen = columns => {
-  //   selectList(lists);
-  //   setModal(true);
-  // };
-
   const handleOpen = () => setModal(true);
   const handleClose = () => setModal(false);
   return (
