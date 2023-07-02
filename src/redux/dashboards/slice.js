@@ -41,6 +41,11 @@ const initialState = {
 const taskSlice = createSlice({
   name: 'task',
   initialState,
+  reducers: {
+    changeBg(state, action) {
+      state.currentBcg = action.payload;
+    },
+  },
   extraReducers: {
     [fetchBoards.pending](state) {
       state.error = false;
@@ -224,3 +229,4 @@ const taskSlice = createSlice({
 });
 
 export const taskReducer = taskSlice.reducer;
+export const { changeBg } = taskSlice.actions;
