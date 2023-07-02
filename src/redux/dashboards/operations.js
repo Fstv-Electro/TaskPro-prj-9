@@ -119,9 +119,9 @@ export const setFilter = createAsyncThunk(
 
 export const addTask = createAsyncThunk(
   'tasks/addTask',
-  async ({ parentColumn, title }, thunkAPI) => {
+  async (values, thunkAPI) => {
     try {
-      const response = await axios.post('/api/tasks', { parentColumn, title });
+      const response = await axios.post('/api/tasks', values);
       Notiflix.Notify.success('Task added!');
       return response.data;
     } catch (e) {
@@ -151,9 +151,9 @@ export const addBoard = createAsyncThunk(
 
 export const editTask = createAsyncThunk(
   'tasks/editTask',
-  async ({ parentColumn, title }, thunkAPI) => {
+  async (values, thunkAPI) => {
     try {
-      const response = await axios.post('/api/tasks', { parentColumn, title });
+      const response = await axios.post('/api/tasks', values);
       Notiflix.Notify.success('Task corrected!');
       return response.data;
     } catch (e) {
@@ -241,6 +241,19 @@ export const shiftCard = createAsyncThunk(
       return resPost.data;
     } catch (error) {
       return thunkAPI.rejectWithValue(error.message);
+    }
+  }
+);
+
+export const fetchTasks = createAsyncThunk(
+  'tasks/fetchTasks',
+  async (_, thunkAPI) => {
+    try {
+      const response = await axios.get('/api/tasks');
+      console.log(response.data);
+      return response.data;
+    } catch (e) {
+      return thunkAPI.rejectWithValue(e.message);
     }
   }
 );

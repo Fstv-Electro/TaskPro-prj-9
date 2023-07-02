@@ -1,6 +1,10 @@
 import { ListColumns } from 'components/listColumns/listColumns';
-
+import { MainDiv } from './MainDashboard.styled';
 
 export const DashboardMain = () => {
-  return <ListColumns />;
+  return (
+    <MainDiv>
+      <ListColumns />
+    </MainDiv>
+  );
 };

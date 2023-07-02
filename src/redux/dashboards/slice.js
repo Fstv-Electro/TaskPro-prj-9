@@ -12,6 +12,7 @@ import {
   fetchColumns,
   editBoard,
   deleteBoard,
+  fetchTasks,
 } from './operations';
 import { needHelp } from './operations';
 import { backgroundUrl } from './operations';
@@ -26,7 +27,7 @@ import { backgroundUrl } from './operations';
 
 const initialState = {
   boards: [],
-  currentBoard: [],
+  currentBoard: '',
   lists: [],
   cards: [],
   currentBcg: null,
@@ -41,6 +42,14 @@ const initialState = {
 const taskSlice = createSlice({
   name: 'task',
   initialState,
+  reducers: {
+    changeBg(state, action) {
+      state.currentBcg = action.payload;
+    },
+    changeCurrentBoard(state, action) {
+      state.currentBoard = action.payload;
+    },
+  },
   extraReducers: {
     [fetchBoards.pending](state) {
       state.error = false;
@@ -220,7 +229,21 @@ const taskSlice = createSlice({
       state.isLoading = false;
       state.error = true;
     },
+    [fetchTasks.pending](state) {
+      state.error = false;
+      state.isLoading = true;
+    },
+    [fetchTasks.rejected](state, action) {
+      state.error = action.payload.error;
+      state.isLoading = false;
+    },
+    [fetchTasks.fulfilled](state, action) {
+      state.error = false;
+      state.isLoading = false;
+      state.cards = action.payload;
+    },
   },
 });
 
 export const taskReducer = taskSlice.reducer;
+export const { changeBg, changeCurrentBoard } = taskSlice.actions;

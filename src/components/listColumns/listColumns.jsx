@@ -38,6 +38,12 @@ export const ListColumns = ({
                     icon={true}
                     handleClick={toggleModal}
                   />
+                  {isOpen && (
+                    <Modal
+                      onClose={toggleModal}
+                      children={<AddCardForm onClose={toggleModal} id={_id} />}
+                    />
+                  )}
                 </Item>
               );
             })}

@@ -25,8 +25,7 @@ import {
 const initialValues = {
   title: "",
   description: "",
-  picked: "",
-  dateDeadline: '',
+  priority: "",
 };
 
 export const AddCardForm = ({ id, onClose }) => {
@@ -38,47 +37,43 @@ export const AddCardForm = ({ id, onClose }) => {
         console.log(deadline)
     };
 
-  const schema = yup.object().shape({
+    const schema = yup.object().shape({
         title: yup.string().required(),
         description: yup.string().required(),
     });
     
     const formatDate = (param) => {
       let a = moment(param);
-      const deadline = a.format('YYYY-MM-DD')
+      const deadline = a.format('DD-MM-YYYY')
       console.log(deadline)
       return deadline
-  };
+    };
   
-  const determineTodayTomorrow = (date) => {
+    const determineTodayTomorrow = (date) => {
       const d = moment(date)
       const today = moment().endOf('day')
       const tomorrow = moment().add(1, 'day').endOf('day')
       if (d < today) return 'Today'
       if (d < tomorrow) return 'Tomorrow'
       return 'in '+d.fromNow(true)
-  };
+    };
   
-  const displayDeadline = (date) => {
-    if ( date ){
-      if (date.diff(moment()) < 0) { console.log ('error')}
-      if (deadline) { 
-          return determineTodayTomorrow(deadline.$d)+', '+moment(deadline.$d).format('MMMM D')
-      }
-      return 'Today, '+moment().format('MMMM D')
+    const displayDeadline = (date) => {
+        if ( date ){
+            if (date.diff(moment()) < 0) { console.log ('error')}
+            if (deadline) { 
+            return determineTodayTomorrow(deadline.$d)+', '+moment(deadline.$d).format('MMMM D')
+        }
+        return 'Today, '+moment().format('MMMM D')
     }
 }
 
 const handleSubmit = (values, actions) => {
-  values = {...values, deadline: formatDate(deadline)};
+    values = {...values, deadline: formatDate(deadline.$d), parentColumn: id}
+  console.log(values)
   actions.resetForm();
-    dispatch(
-      addTask(
-        {
-          parentColumn: id,
-        ...values,
-        }
-      ));
+  console.log(id)
+    dispatch(addTask(values));
   onClose();
 };
 
@@ -105,20 +100,20 @@ const handleSubmit = (values, actions) => {
                     <ErrorMessage name="description"/>
                     <TitleStatus id="taskStatusGroup">Label color</TitleStatus>
                     <BlockStatus role="group" aria-labelledby="taskStatusGroup">
-                        <label>
-                            <RadioBtn type="radio" name="picked" value="low" />
+                        <label style={{'--color':'#8FA1D0'}}>
+                            <RadioBtn type="radio" name="priority" value="low" />
                             <ColorStatus color='#8FA1D0' ></ColorStatus> 
                         </label>
-                        <label>
-                            <RadioBtn type="radio" name="picked" value="medium" />
+                        <label style={{'--color':'#E09CB5'}}>
+                            <RadioBtn type="radio" name="priority" value="medium" />
                             <ColorStatus color='#E09CB5' ></ColorStatus> 
                         </label>
-                        <label>
-                            <RadioBtn type="radio" name="picked" value="high" />
+                        <label style={{'--color':'#BEDBB0'}}>
+                            <RadioBtn type="radio" name="priority" value="high" />
                             <ColorStatus color='#BEDBB0'  ></ColorStatus> 
                         </label>
-                        <label>
-                            <RadioBtn type="radio" name="picked" value="default" checked/>
+                        <label style={{'--color':'#FFFFFF4D'}}>
+                            <RadioBtn type="radio" name="priority" value="default" checked/>
                             <ColorStatus color='#FFFFFF4D' ></ColorStatus> 
                         </label>     
                     </BlockStatus>
