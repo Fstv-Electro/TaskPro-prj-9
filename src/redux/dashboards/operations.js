@@ -51,6 +51,18 @@ export const needHelp = createAsyncThunk('help', async (user, thunkAPI) => {
   }
 });
 
+export const getColumns = createAsyncThunk(
+  'columns/getColumns',
+  async (id, thunkAPI) => {
+    try {
+      const response = await axios.get(`/api/columns/${id}`);
+      return response.data;
+    } catch (e) {
+      return thunkAPI.rejectWithValue(e.message);
+    }
+  }
+);
+
 export const addColumn = createAsyncThunk(
   'columns/addColumn',
   async ({ parentBoard, title }, thunkAPI) => {
