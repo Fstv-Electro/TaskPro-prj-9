@@ -9,7 +9,7 @@ import {
   NavItem,
 } from './MyBoards.styled';
 import sprite from '../../../images/symbol-defs.svg';
-import { fetchColumns } from 'redux/dashboards/operations';
+import { fetchColumns, fetchTasks } from 'redux/dashboards/operations';
 import { useDispatch } from 'react-redux';
 import { Modal } from 'components/modal/modal';
 import { EditBoard } from '../modalBoard/EditBoard';
@@ -21,6 +21,7 @@ export const MyBoards = (desk, id) => {
 
   const getColumns = (id) => {
     dispatch(fetchColumns(id))
+    dispatch(fetchTasks())
   };
 
   if (desk.desk === undefined) {

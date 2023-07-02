@@ -11,6 +11,7 @@ import {
   fetchColumns,
   editBoard,
   deleteBoard,
+  fetchTasks,
 } from './operations';
 import { needHelp } from './operations';
 import { backgroundUrl } from './operations';
@@ -205,6 +206,19 @@ const taskSlice = createSlice({
     [deleteBoard.rejected](state, action) {
       state.isLoading = false;
       state.error = true;
+    },
+    [fetchTasks.pending](state) {
+      state.error = false;
+      state.isLoading = true;
+    },
+    [fetchTasks.rejected](state, action) {
+      state.error = action.payload.error;
+      state.isLoading = false;
+    },
+    [fetchTasks.fulfilled](state, action) {
+      state.error = false;
+      state.isLoading = false;
+      state.cards = action.payload;
     },
   },
 });
