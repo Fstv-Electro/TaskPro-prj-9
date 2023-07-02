@@ -70,7 +70,7 @@ export default function SubmitButton({
         bg={bgColor()}
         color={color()}
         onClick={handleClick}
-        type="submit"
+        type={type}
       >
         {icon && (
           <IconPlus aria-label="add" fill={fill()} color={svgColor()}>

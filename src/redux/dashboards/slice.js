@@ -11,6 +11,7 @@ import {
   fetchColumns,
   editBoard,
   deleteBoard,
+  fetchTasks,
 } from './operations';
 import { needHelp } from './operations';
 import { backgroundUrl } from './operations';
@@ -25,7 +26,7 @@ import { backgroundUrl } from './operations';
 
 const initialState = {
   boards: [],
-  currentBoard: [],
+  currentBoard: '',
   lists: [],
   cards: [],
   currentBcg: null,
@@ -40,6 +41,14 @@ const initialState = {
 const taskSlice = createSlice({
   name: 'task',
   initialState,
+  reducers: {
+    changeBg(state, action) {
+      state.currentBcg = action.payload;
+    },
+    changeCurrentBoard(state, action) {
+      state.currentBoard = action.payload;
+    },
+  },
   extraReducers: {
     [fetchBoards.pending](state) {
       state.error = false;
@@ -84,7 +93,7 @@ const taskSlice = createSlice({
     [addColumn.fulfilled](state, action) {
       state.isLoading = false;
       state.error = null;
-      state.lists = action.payload;
+      state.lists.push(action.payload);
     },
     [addColumn.rejected](state, action) {
       state.isLoading = false;
@@ -98,7 +107,7 @@ const taskSlice = createSlice({
       state.isLoading = false;
       state.error = null;
       const index = state.lists.findIndex(
-        column => column.id === action.payload.id
+        column => column._id === action.payload._id
       );
       state.lists[index] = action.payload;
     },
@@ -114,7 +123,7 @@ const taskSlice = createSlice({
       state.isLoading = false;
       state.error = null;
       const index = state.lists.findIndex(
-        column => column.id === action.payload.id
+        column => column._id === action.payload.id
       );
       state.lists.splice(index, 1);
     },
@@ -164,6 +173,7 @@ const taskSlice = createSlice({
       state.error = true;
     },
     [fetchColumns.pending](state) {
+      state.error = false;
       state.isLoading = true;
     },
     [fetchColumns.rejected](state) {
@@ -171,6 +181,7 @@ const taskSlice = createSlice({
       state.error = true;
     },
     [fetchColumns.fulfilled](state, action) {
+      state.error = false;
       state.isLoading = false;
       state.lists = action.payload;
     },
@@ -206,7 +217,21 @@ const taskSlice = createSlice({
       state.isLoading = false;
       state.error = true;
     },
+    [fetchTasks.pending](state) {
+      state.error = false;
+      state.isLoading = true;
+    },
+    [fetchTasks.rejected](state, action) {
+      state.error = action.payload.error;
+      state.isLoading = false;
+    },
+    [fetchTasks.fulfilled](state, action) {
+      state.error = false;
+      state.isLoading = false;
+      state.cards = action.payload;
+    },
   },
 });
 
 export const taskReducer = taskSlice.reducer;
+export const { changeBg, changeCurrentBoard } = taskSlice.actions;

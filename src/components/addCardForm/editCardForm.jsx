@@ -3,12 +3,12 @@ import { useDispatch } from 'react-redux';
 import { Formik, Form, ErrorMessage } from "formik";
 import * as yup from 'yup';
 import moment from 'moment';
+import { Notify } from 'notiflix/build/notiflix-notify-aio';
 import { ButtonClose } from 'components/modalBtnClose/ButtonClose';
 import { Calendar } from '../datePicker/datePicker';
 import sprite from '../../images/symbol-defs.svg'
 import { editTask } from 'redux/dashboards/operations';
 import { 
-    Container,
     TitleForm,
     InputTitle, 
     InputDescription,
@@ -25,62 +25,64 @@ import {
 const initialValues = {
   title: "",
   description: "",
-  priority: "",
+  priority: "default",
 };
 
 export const EditCardForm = ({ id, onClose }) => {
     
-    const [deadline, setDeadline] = useState()
-    const dispatch = useDispatch();
+const [deadline, setDeadline] = useState()
+const dispatch = useDispatch();
 
-    const setDateValue = (value) =>{
-        setDeadline(value)
-        console.log(deadline)
-    };
+const setDateValue = (value) =>{
+    setDeadline(value)
+};
 
-  const schema = yup.object().shape({
-        title: yup.string().required(),
-        description: yup.string().required(),
-    });
+const schema = yup.object().shape({
+    title: yup.string().required(),
+    description: yup.string().required(),
+});
 
-    const formatDate = (param) => {
-      let a = moment(param);
-      const deadline = a.format('DD-MM-YYYY')
-      console.log(deadline)
-      return deadline
+const formatDate = (param) => {
+    let a = moment(param);
+    const deadline = a.format('DD-MM-YYYY')
+    console.log(deadline)
+    return deadline
+};
+  
+const determineTodayTomorrow = (date) => {
+    const d = moment(date)
+    const today = moment().endOf('day')
+    const tomorrow = moment().add(1, 'day').endOf('day')
+    if (d < today) return 'Today'
+    if (d < tomorrow) return 'Tomorrow'
+    return 'in '+d.fromNow(true)
   };
   
-  const determineTodayTomorrow = (date) => {
-      const d = moment(date)
-      const today = moment().endOf('day')
-      const tomorrow = moment().add(1, 'day').endOf('day')
-      if (d < today) return 'Today'
-      if (d < tomorrow) return 'Tomorrow'
-      return 'in '+d.fromNow(true)
-  };
-  
-  const displayDeadline = (date) => {
+const displayDeadline = (date) => {
+    let printDeadline = 'Today, '+moment().format('MMMM D');
     if ( date ){
-        if (date.diff(moment()) < 0) { console.log ('error')}
-        if (deadline) { 
-        return determineTodayTomorrow(deadline.$d)+', '+moment(deadline.$d).format('MMMM D')
+        if (date.diff(moment()) < 0) { Notify.failure('Select a date after now');}
+        if (deadline) {
+            printDeadline = determineTodayTomorrow(deadline.$d)+', '+moment(deadline.$d).format('MMMM D')
+        return printDeadline
+        } else {printDeadline = 'Today, '+moment().format('MMMM D') }
+        return printDeadline
     }
-    return 'Today, '+moment().format('MMMM D')
-}}
+    return printDeadline
+}
 
 const handleSubmit = (values, actions) => {
     values = {...values, deadline: formatDate(deadline.$d), parentColumn: id}
-  console.log(values)
-  actions.resetForm();
-  console.log(id)
+    actions.resetForm();
     dispatch(editTask(values));
   onClose();
 };
 
 return(
-    <Container>
+    <div>
+        <ButtonClose onClose={onClose} />
         <TitleForm>Edit card</TitleForm>
-          <ButtonClose onClose={onClose} />
+          
           <Formik 
               initialValues={initialValues}
               onSubmit={ handleSubmit }
@@ -113,7 +115,7 @@ return(
                             <ColorStatus color='#BEDBB0'  ></ColorStatus> 
                         </label>
                         <label>
-                            <RadioBtn type="radio" name="priority" value="default" checked/>
+                            <RadioBtn type="radio" name="priority" value="default"/>
                             <ColorStatus color='#FFFFFF4D' ></ColorStatus> 
                         </label>     
                     </BlockStatus>
@@ -131,6 +133,6 @@ return(
             </Form> 
             )}
             </Formik>
-        </Container>
+        </div>
     )
 }

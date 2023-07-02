@@ -11,7 +11,8 @@ import {
   BtnContainer,
 } from './MyBoards.styled';
 import sprite from '../../../images/symbol-defs.svg';
-import { fetchColumns } from 'redux/dashboards/operations';
+import { fetchColumns, fetchTasks } from 'redux/dashboards/operations';
+import { changeBg, changeCurrentBoard } from 'redux/dashboards/slice';
 import { useDispatch } from 'react-redux';
 import { Modal } from 'components/modal/modal';
 import { EditBoard } from '../modalBoard/EditBoard';
@@ -22,8 +23,11 @@ export const MyBoards = (desk, id) => {
   const [typeModal, setTypeModal] = useState('');
   const dispatch = useDispatch();
 
-  const getColumns = id => {
+  const getColumns = (id) => {
     dispatch(fetchColumns(id));
+    dispatch(fetchTasks());
+    dispatch(changeBg(desk.desk.currentBg));
+    dispatch(changeCurrentBoard(id));
   };
 
   if (desk.desk === undefined) {

@@ -11,6 +11,7 @@ export const Container = styled.div`
 `;
 
 export const TitleForm = styled.h1`
+    display: inline;
     color: #ffffff;
     font-size: 18px;
     font-style: normal;
@@ -23,31 +24,32 @@ export const InputTitle = styled(Field)`
     width: 296px;
     height: 45px;
     margin-top: 24px;
-    background: #151515;
+    background: #1F1F1F;
     border-radius: 8px;
-    border: 1px solid #BEDBB0;
+    border: 1px solid rgba(190, 219, 176, 0.4);
     color: #ffffff;
-    opacity: 0.4;
-    /* background: #1F1F1F; */
     box-shadow: 0px 4px 16px 0px rgba(22, 22, 22, 0.08);
 `;
 export const InputDescription = styled(Field)`
-    display: flex;
     width: 296px;
     height: 150px;
     margin-top: 14px;
-    background: #151515;
+    background: #1F1F1F;
     border-radius: 8px;
-    border: 1px solid #BEDBB0;
-    opacity: 0.4;
+    border: 1px solid rgba(190, 219, 176, 0.4);
     flex-shrink: 0;
     box-shadow: 0px 4px 16px 0px rgba(22, 22, 22, 0.08);
+    color: #ffffff;
 `;
 
 export const TitleStatus = styled.div`
-    margin-top: 14px;
+    margin-top: 24px;
+    margin-bottom: 4px;
     color: rgba(255, 255, 255, 0.50);
     font-size: 12px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
     letter-spacing: -0.24px;
 `;
 
@@ -62,6 +64,7 @@ export const RadioBtn = styled(Field)`
     height: 14px;
     margin: 0;
     border-radius: 50%;
+    opacity: 0;
     &:checked + div:before {
         content: "";
         position: absolute;
@@ -71,9 +74,8 @@ export const RadioBtn = styled(Field)`
         width: 8px;
         height: 8px;
         border-radius: 50%;
-        left: 4px;
-        top: 4px;
-
+        left: 3px;
+        top: 3px;
     }
     &:checked+div:after{
         content: "";
@@ -100,9 +102,6 @@ export const ColorStatus = styled.div(props =>
         border-radius: 50%;
         cursor: pointer;
         background-color: ${props.color};
-        &:checked + div {
-            background-color: 'teal'
-        }
     `
 )
 
@@ -122,8 +121,7 @@ export const CalendarShow = styled.div`
     letter-spacing: -0.28px;
 `;
 export const SubmitButton = styled.button`
-    position: fixed;
-    bottom: 73px; 
+    margin-top: 40px;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -134,6 +132,9 @@ export const SubmitButton = styled.button`
     background: #BEDBB0;
     color: #161616;
     font-size: 14px;
+    font-weight: 500;
+    line-height: normal;
+    letter-spacing: -0.28px;
     cursor: pointer;
 `
 export const IconPlus = styled.svg`
