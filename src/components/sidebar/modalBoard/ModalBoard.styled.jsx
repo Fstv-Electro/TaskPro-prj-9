@@ -43,4 +43,36 @@ export const FormTitle = styled.h2`
   font-family: Poppins;
   font-weight: 500;
   letter-spacing: -0.36px;
+  margin-top: 14px;
+  margin-bottom: 24px;
+`;
+
+export const WrapperDelete = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 25px;
+  width: 250px;
+  transform: scale(1);
+  transition: transform 550ms cubic-bezier(0.4, 0, 0.2, 1);
+`;
+
+export const Btn = styled.button`
+  font-size: 18px;
+  font-family: Poppins;
+  font-weight: 500;
+  letter-spacing: -0.36px;
+  padding: 5px;
+  background-color: #bedbb0;
+  border: 1px solid #fff;
+  border-radius: 8%;
+  color: #161616;
+  cursor: pointer;
+  width: 100px;
+  &:hover {
+    transform: scale(1.1);
+  }
+  &:focus {
+    transform: scale(1.1);
+  }
 `;

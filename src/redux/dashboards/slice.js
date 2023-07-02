@@ -211,7 +211,7 @@ const taskSlice = createSlice({
       const index = state.boards.findIndex(
         board => board.id === action.payload.id
       );
-      state.board.splice(index, 1);
+      state.boards.splice(index, 1);
     },
     [deleteBoard.rejected](state, action) {
       state.isLoading = false;

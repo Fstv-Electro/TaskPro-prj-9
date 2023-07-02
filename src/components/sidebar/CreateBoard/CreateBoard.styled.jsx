@@ -4,6 +4,7 @@ export const WrapperBoards = styled.div`
   border-bottom: 1px solid #ffffff1a;
   margin-bottom: 9px;
   margin-right: 24px;
+  padding-bottom: 8px;
 `;
 
 export const Boards = styled.p`
@@ -21,7 +22,9 @@ export const WrapperCreate = styled.div`
   justify-content: space-between;
   border-bottom: 1px solid #ffffff1a;
   margin-bottom: 40px;
-    margin-right: 24px;
+  margin-right: 24px;
+  padding-top: 14px;
+  padding-bottom: 14px;
 `;
 
 export const CreateTitle = styled.p`
@@ -54,7 +57,6 @@ export const CreateButton = styled.button`
 `;
 
 export const IconPlus = styled.svg`
-  
   flex-shrink: 0;
   fill: #bedbb0;
   color: #121212;

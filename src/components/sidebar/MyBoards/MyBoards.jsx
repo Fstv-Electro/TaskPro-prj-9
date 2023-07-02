@@ -7,6 +7,9 @@ import {
   WrapperProjectIcons,
   IconButton,
   NavItem,
+  IconEdit,
+  IconDelete,
+  BtnContainer,
 } from './MyBoards.styled';
 import sprite from '../../../images/symbol-defs.svg';
 import { fetchColumns, fetchTasks } from 'redux/dashboards/operations';
@@ -14,10 +17,12 @@ import { changeBg, changeCurrentBoard } from 'redux/dashboards/slice';
 import { useDispatch } from 'react-redux';
 import { Modal } from 'components/modal/modal';
 import { EditBoard } from '../modalBoard/EditBoard';
+import { DeleteBoard } from '../modalBoard/DeleteBoard';
 import { deleteBoard } from '../../../redux/dashboards/operations';
 
 export const MyBoards = (desk, id) => {
   const [isOpen, setIsOpen] = useState(false);
+  const [typeModal, setTypeModal] = useState('');
   const dispatch = useDispatch();
 
   const getColumns = (id) => {
@@ -35,8 +40,9 @@ export const MyBoards = (desk, id) => {
 
   const pjIcon = `#${desk.desk.icon}`;
 
-  const toggleModal = () => {
+  const toggleModal = typeToggle => {
     setIsOpen(isOpen => !isOpen);
+    setTypeModal(typeToggle);
   };
   return (
     <List>
@@ -48,26 +54,44 @@ export const MyBoards = (desk, id) => {
             </svg>
             <Project>{desk.desk.title}</Project>
           </WrapperProjectOffice>
-          <WrapperProjectIcons>
-            <IconButton onClick={toggleModal}>
-              <svg aria-label="question with round" width="16px" height="16px">
-                <use href={sprite + `#icon-pencil-01`}></use>
-              </svg>
-            </IconButton>
-            <IconButton onClick={() => dispatch(deleteBoard(desk.id))}>
-              <svg aria-label="question with round" width="16px" height="16px">
-                <use href={sprite + '#icon-trash-04'}></use>
-              </svg>
-            </IconButton>
-          </WrapperProjectIcons>
+          <BtnContainer>
+            <WrapperProjectIcons>
+              <IconEdit onClick={() => toggleModal('edit')}>
+                <svg
+                  aria-label="question with round"
+                  width="16px"
+                  height="16px"
+                >
+                  <use href={sprite + `#icon-pencil-01`}></use>
+                </svg>
+              </IconEdit>
+            </WrapperProjectIcons>
+            <WrapperProjectIcons>
+              <IconDelete onClick={() => toggleModal('delete')}>
+                <svg
+                  aria-label="question with round"
+                  width="16px"
+                  height="16px"
+                >
+                  <use href={sprite + '#icon-trash-04'}></use>
+                </svg>
+              </IconDelete>
+            </WrapperProjectIcons>
+          </BtnContainer>
         </NavItem>
       </Item>
-      {isOpen && (
-        <Modal
-          onClose={toggleModal}
-          children={<EditBoard desk={desk} onClose={toggleModal} />}
-        />
-      )}
+      {isOpen &&
+        (typeModal === 'edit' ? (
+          <Modal
+            onClose={toggleModal}
+            children={<EditBoard desk={desk} onClose={toggleModal} />}
+          />
+        ) : (
+          <Modal
+            onClose={toggleModal}
+            children={<DeleteBoard desk={desk} onClose={toggleModal} />}
+          />
+        ))}
     </List>
   );
 };
