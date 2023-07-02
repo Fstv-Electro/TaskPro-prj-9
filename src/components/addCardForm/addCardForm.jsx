@@ -100,19 +100,19 @@ const handleSubmit = (values, actions) => {
                     <ErrorMessage name="description"/>
                     <TitleStatus id="taskStatusGroup">Label color</TitleStatus>
                     <BlockStatus role="group" aria-labelledby="taskStatusGroup">
-                        <label>
+                        <label style={{'--color':'#8FA1D0'}}>
                             <RadioBtn type="radio" name="priority" value="low" />
                             <ColorStatus color='#8FA1D0' ></ColorStatus> 
                         </label>
-                        <label>
+                        <label style={{'--color':'#E09CB5'}}>
                             <RadioBtn type="radio" name="priority" value="medium" />
                             <ColorStatus color='#E09CB5' ></ColorStatus> 
                         </label>
-                        <label>
+                        <label style={{'--color':'#BEDBB0'}}>
                             <RadioBtn type="radio" name="priority" value="high" />
                             <ColorStatus color='#BEDBB0'  ></ColorStatus> 
                         </label>
-                        <label>
+                        <label style={{'--color':'#FFFFFF4D'}}>
                             <RadioBtn type="radio" name="priority" value="default" checked/>
                             <ColorStatus color='#FFFFFF4D' ></ColorStatus> 
                         </label>     

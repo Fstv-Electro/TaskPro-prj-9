@@ -5,7 +5,7 @@ export const Container = styled.div`
     position: relative;
     width: 302px;
     height: 522px;
-    padding: 24px;
+    /* padding: 24px; */
     background: #151515;
     border-radius: 8px;
 `;
@@ -13,7 +13,7 @@ export const Container = styled.div`
 export const TitleForm = styled.h1`
     color: #ffffff;
     font-size: 18px;
-    font-family: Poppins;
+    font-style: normal;
     font-weight: 500;
     letter-spacing: -0.36px;
 `;
@@ -23,11 +23,12 @@ export const InputTitle = styled(Field)`
     width: 296px;
     height: 45px;
     margin-top: 24px;
-    background: #161616;
+    background: #151515;
     border-radius: 8px;
     border: 1px solid #BEDBB0;
+    color: #ffffff;
     opacity: 0.4;
-    background: #1F1F1F;
+    /* background: #1F1F1F; */
     box-shadow: 0px 4px 16px 0px rgba(22, 22, 22, 0.08);
 `;
 export const InputDescription = styled(Field)`
@@ -35,11 +36,11 @@ export const InputDescription = styled(Field)`
     width: 296px;
     height: 150px;
     margin-top: 14px;
-    background: #161616;
+    background: #151515;
     border-radius: 8px;
     border: 1px solid #BEDBB0;
     opacity: 0.4;
-    background: #1F1F1F;
+    flex-shrink: 0;
     box-shadow: 0px 4px 16px 0px rgba(22, 22, 22, 0.08);
 `;
 
@@ -47,7 +48,6 @@ export const TitleStatus = styled.div`
     margin-top: 14px;
     color: rgba(255, 255, 255, 0.50);
     font-size: 12px;
-    font-family: Poppins;
     letter-spacing: -0.24px;
 `;
 
@@ -85,7 +85,7 @@ export const RadioBtn = styled(Field)`
         width: 100%;
         height: 100%;
         border-radius: 100%;
-        background: black
+        background: #000000;
     }
 `;   
 
@@ -110,7 +110,6 @@ export const TitleDeadline = styled.p`
     margin-top: 14px;
     color: rgba(255, 255, 255, 0.50);
     font-size: 12px;
-    font-family: Poppins;
     letter-spacing: -0.24px;
 `;
 
@@ -118,8 +117,7 @@ export const CalendarShow = styled.div`
     display: flex;
     align-items: center;
     color: #BEDBB0;
-    font-size: 14px;
-    font-family: Poppins;
+    font-size: 14px
     font-weight: 500;
     letter-spacing: -0.28px;
 `;
