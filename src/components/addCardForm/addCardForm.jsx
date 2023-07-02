@@ -3,12 +3,12 @@ import { useDispatch } from 'react-redux';
 import { Formik, Form, ErrorMessage } from "formik";
 import * as yup from 'yup';
 import moment from 'moment';
+import { Notify } from 'notiflix/build/notiflix-notify-aio';
 import { ButtonClose } from 'components/modalBtnClose/ButtonClose';
 import { Calendar } from '../datePicker/datePicker';
 import sprite from '../../images/symbol-defs.svg'
 import { addTask } from 'redux/dashboards/operations';
 import { 
-    Container,
     TitleForm,
     InputTitle, 
     InputDescription,
@@ -25,7 +25,7 @@ import {
 const initialValues = {
   title: "",
   description: "",
-  priority: "",
+  priority: "default",
 };
 
 export const AddCardForm = ({ id, onClose }) => {
@@ -58,14 +58,17 @@ export const AddCardForm = ({ id, onClose }) => {
       return 'in '+d.fromNow(true)
     };
   
-    const displayDeadline = (date) => {
-        if ( date ){
-            if (date.diff(moment()) < 0) { console.log ('error')}
-            if (deadline) { 
-            return determineTodayTomorrow(deadline.$d)+', '+moment(deadline.$d).format('MMMM D')
-        }
-        return 'Today, '+moment().format('MMMM D')
+const displayDeadline = (date) => {
+    let printDeadline = 'Today, '+moment().format('MMMM D');
+    if ( date ){
+        if (date.diff(moment()) < 0) { Notify.failure('Select a date after now');}
+        if (deadline) {
+            printDeadline = determineTodayTomorrow(deadline.$d)+', '+moment(deadline.$d).format('MMMM D')
+        return printDeadline
+        } else {printDeadline = 'Today, '+moment().format('MMMM D') }
+        return printDeadline
     }
+    return printDeadline
 }
 
 const handleSubmit = (values, actions) => {
@@ -77,10 +80,10 @@ const handleSubmit = (values, actions) => {
   onClose();
 };
 
-  return(
-        <Container>
+  return(<div>
+    <ButtonClose onClose={onClose} />
             <TitleForm>Add card</TitleForm>
-            <ButtonClose onClose={onClose} />
+            
             <Formik 
                 initialValues={initialValues}
                 onSubmit={ handleSubmit }
@@ -113,7 +116,7 @@ const handleSubmit = (values, actions) => {
                             <ColorStatus color='#BEDBB0'  ></ColorStatus> 
                         </label>
                         <label style={{'--color':'#FFFFFF4D'}}>
-                            <RadioBtn type="radio" name="priority" value="default" checked/>
+                            <RadioBtn type="radio" name="priority" value="default"/>
                             <ColorStatus color='#FFFFFF4D' ></ColorStatus> 
                         </label>     
                     </BlockStatus>
@@ -131,6 +134,6 @@ const handleSubmit = (values, actions) => {
             </Form> 
             )}
             </Formik>
-        </Container>
+    </div>  
     )
 }

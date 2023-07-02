@@ -52,6 +52,10 @@ export const Calendar = ({parentState}) => {
                         color: '#fff',
                         margin: 0,
                         padding: 0,
+                        fontSize: '14px',
+                        fontStyle: 'normal',
+                        fontWeight: '400',
+                        lineHeight: '18px'
                       },
                       '& .MuiPickersArrowSwitcher-root': {
                         width: '100%',
@@ -79,16 +83,13 @@ export const Calendar = ({parentState}) => {
                         padding: '18px',
                         boxSizing: 'border-box',
                       },
-
+                     
                       '& .MuiPickersDay-hiddenDaySpacingFiller':{
                         height: '24px',
                         width: '24px',
                         minWidth: '24px',
                         maxWidth: '24px',
                       },
-                      '& .MuiPickersSlideTransition-root': {
-                        minHeight: '140px'
-                      }
                     }
                   },
                 day: {
@@ -98,6 +99,7 @@ export const Calendar = ({parentState}) => {
                         minWidth: '24px',
                         maxWidth: '24px',
                         fontSize: '14px',
+                    
                         '&.Mui-selected': {
                             backgroundColor: '#BEDBB0',
                             color: '#1F1F1F'
@@ -110,7 +112,7 @@ export const Calendar = ({parentState}) => {
                         borderWidth: 1,
                         borderColor: '#BEDBB0',
                         color: '#ffffff'
-                      }
+                      },
                     }
                   },
                 textField: {
