@@ -29,7 +29,6 @@ export const ErrorMessage = styled(FormicErrorMessage)`
 `
 
 export const Title = styled.h3`
-  color: #fff;
   font-size: 18px;
   font-weight: 500;
   letter-spacing: -0.36px;
@@ -58,12 +57,16 @@ export const Field = styled(FormicField)`
   width: 100%;
   height: 49px;
   padding-left: 18px;
+  color: currentColor;
   background-color: transparent;
-  color: white;
   border-radius: 8px;
-  border: 1px solid #bedbb0;
+  border: 1px solid var(--button-bg-color);
+  outline: none;
   opacity: 0.4000000059604645;
-  box-shadow: 0px 4px 16px 0px rgba(22, 22, 22, 0.08);
+
+    &:focus {
+      opacity: 1;
+    }
 `;
 
 export const Button = styled.button`
@@ -76,7 +79,7 @@ export const Button = styled.button`
   width: 100%;
   height: 49px;
 
-  background-color: #bedbb0;
+  background-color: var(--button-bg-color);
   border: none;
   border-radius: 8px;
   cursor: pointer;
@@ -127,14 +130,19 @@ export const ImgWrapper = styled.div`
     transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
     transition: transform 550ms cubic-bezier(0.4, 0, 0.2, 1);
       
+    svg {
+        --color1 : var(--main-bg-color);
+        --color2 : var(--heder-bg-color);
+      }
+      
       &:hover{
-        box-shadow: 0px 0px 11px 0px rgba(190, 219, 176, 1);
+        box-shadow: 0px 0px 11px 0px var(--button-bg-color);
         transform: scale(1.1);
       }
 
       &:hover svg{
         top: 50%;
-        box-shadow: 0px 0px 11px 0px rgba(190, 219, 176, 1);
+        box-shadow: 0px 0px 11px 0px var(--button-bg-color);
       }
 
 
@@ -153,6 +161,6 @@ export const IconPlus = styled.svg`
   transition: transform 550ms cubic-bezier(0.4, 0, 0.2, 1);
   width: 24px;
   height: 24px;
-  fill: ${props => props.fill};
-  color: ${props => props.color};
+  fill: var(--fill-icon-plus);
+  color: rgba(22, 22, 22, 1);
 `;
