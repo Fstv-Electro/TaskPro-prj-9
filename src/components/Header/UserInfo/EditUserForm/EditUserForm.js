@@ -134,7 +134,7 @@ export const  EdidUserForm = ({avatarURL, onClose, isLoading}) => {
                   <use href={Sprite + '#icon-user'}></use>
                 </svg>
                 )}
-                <IconPlus aria-label="add" fill="rgba(190, 219, 176, 1)" color="rgba(22, 22, 22, 1)">
+                <IconPlus aria-label="add" >
                   <use href={Sprite + '#icon-plus-add'}></use>
                 </IconPlus>
               </ImgWrapper>

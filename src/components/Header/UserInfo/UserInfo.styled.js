@@ -4,8 +4,6 @@ export const UserContainer = styled.div`
     display: flex;
     align-items: center;
     justify-content: center;
-    height: auto;
-    color: rgba(255, 255, 255, 1);
 `;
 export const UserEmail = styled.p`
     font-size: 14px;
@@ -22,6 +20,11 @@ export const ImgWrapper = styled.div`
     cursor: pointer;
     transition: all 0.3s ease-out;
     transition: transform 550ms cubic-bezier(0.4, 0, 0.2, 1);
+
+        svg {
+            --color1 : var(--main-bg-color);
+            --color2 : var(--heder-bg-color);
+        }
         &:hover{
             box-shadow: 0px 0px 11px 0px rgba(190, 219, 176, 1);
             transform: scale(1.1);

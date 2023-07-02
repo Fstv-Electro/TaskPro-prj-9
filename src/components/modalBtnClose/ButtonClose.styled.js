@@ -14,15 +14,15 @@ export const Btn = styled.button`
   background-color: transparent;
   border: transparent;
   border-radius: 50%;
-  color: #ffffff;
+  color: currentColor;
   cursor: pointer;
   transition: all 350ms cubic-bezier(0.4, 0, 0.2, 1);
 
   &:hover,
   &:focus {
     /* border: 1px solid #bedbb0; */
-    background-color: #1f1f1f;
-    color: #bedbb0;
+    background-color: var(--button-bg-color);
+    
   }
 `;
 
