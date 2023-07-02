@@ -5,7 +5,6 @@ import {
   WrapperProjectOffice,
   Project,
   WrapperProjectIcons,
-  IconButton,
   NavItem,
   IconEdit,
   IconDelete,
@@ -17,7 +16,6 @@ import { useDispatch } from 'react-redux';
 import { Modal } from 'components/modal/modal';
 import { EditBoard } from '../modalBoard/EditBoard';
 import { DeleteBoard } from '../modalBoard/DeleteBoard';
-import { deleteBoard } from '../../../redux/dashboards/operations';
 
 export const MyBoards = (desk, id) => {
   const [isOpen, setIsOpen] = useState(false);

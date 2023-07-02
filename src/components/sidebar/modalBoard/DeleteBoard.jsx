@@ -1,4 +1,3 @@
-import { useState } from 'react';
 import { FormTitle, Btn, WrapperDelete } from './ModalBoard.styled';
 
 import { ButtonClose } from '../../modalBtnClose/ButtonClose';
