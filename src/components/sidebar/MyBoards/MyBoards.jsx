@@ -46,7 +46,7 @@ export const MyBoards = (desk, id) => {
     <List>
       <Item>
         <NavItem to={deskRoute}>
-          <WrapperProjectOffice onClick={() => getColumns(desk.id)}>
+          <WrapperProjectOffice onClick={() => getColumns(id)}>
             <svg aria-label="question with round" width="18px" height="16px">
               <use href={sprite + pjIcon}></use>
             </svg>
