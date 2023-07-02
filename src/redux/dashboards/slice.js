@@ -187,6 +187,7 @@ const taskSlice = createSlice({
       state.error = true;
     },
     [fetchColumns.pending](state) {
+      state.error = false;
       state.isLoading = true;
     },
     [fetchColumns.rejected](state) {
@@ -194,6 +195,7 @@ const taskSlice = createSlice({
       state.error = true;
     },
     [fetchColumns.fulfilled](state, action) {
+      state.error = false;
       state.isLoading = false;
       state.lists = action.payload;
     },
