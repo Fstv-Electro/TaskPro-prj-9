@@ -26,7 +26,7 @@ import { backgroundUrl } from './operations';
 
 const initialState = {
   boards: [],
-  currentBoard: [],
+  currentBoard: '',
   lists: [],
   cards: [],
   currentBcg: null,
@@ -44,6 +44,9 @@ const taskSlice = createSlice({
   reducers: {
     changeBg(state, action) {
       state.currentBcg = action.payload;
+    },
+    changeCurrentBoard(state, action) {
+      state.currentBoard = action.payload;
     },
   },
   extraReducers: {
@@ -229,4 +232,4 @@ const taskSlice = createSlice({
 });
 
 export const taskReducer = taskSlice.reducer;
-export const { changeBg } = taskSlice.actions;
+export const { changeBg, changeCurrentBoard } = taskSlice.actions;

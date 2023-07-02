@@ -10,7 +10,7 @@ import {
 } from './MyBoards.styled';
 import sprite from '../../../images/symbol-defs.svg';
 import { fetchColumns, fetchTasks } from 'redux/dashboards/operations';
-import { changeBg } from 'redux/dashboards/slice';
+import { changeBg, changeCurrentBoard } from 'redux/dashboards/slice';
 import { useDispatch } from 'react-redux';
 import { Modal } from 'components/modal/modal';
 import { EditBoard } from '../modalBoard/EditBoard';
@@ -21,9 +21,10 @@ export const MyBoards = (desk, id) => {
   const dispatch = useDispatch();
 
   const getColumns = (id) => {
-    dispatch(fetchColumns(id))
-    dispatch(fetchTasks())
-    dispatch(changeBg(desk.desk.currentBg))
+    dispatch(fetchColumns(id));
+    dispatch(fetchTasks());
+    dispatch(changeBg(desk.desk.currentBg));
+    dispatch(changeCurrentBoard(id));
   };
 
   if (desk.desk === undefined) {
