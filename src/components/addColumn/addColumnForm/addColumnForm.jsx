@@ -85,6 +85,8 @@ export const AddColumnForm = ({ id, onClose }) => {
   return (
     <Modal onClose={onClose}>
       <ButtonClose onClose={onClose} />
+
+      <Title>Add column</Title>
       <Formik
         initialValues={initialValues}
         onSubmit={handleSubmit}
@@ -92,7 +94,7 @@ export const AddColumnForm = ({ id, onClose }) => {
       >
         <Form autoComplete="off">
           <FormField htmlFor="title">
-            <Title htmlFor="title">Add column</Title>
+            <label htmlFor="title"></label>
             <Field type="text" name="title" placeholder="Title" />
             <ErrorMessage name="title" component="span" />
           </FormField>

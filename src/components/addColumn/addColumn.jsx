@@ -4,7 +4,7 @@ import { AddColumnForm } from './addColumnForm/addColumnForm';
 // import { Button, IconPlus } from './addColumn.styled';
 import SubmitButton from '../submitButton/submitButton';
 
-export const AddColumn = ({ _id = '649d310119f7c8d34db12c34' }) => {
+export const AddColumn = ({ _id }) => {
   const [modal, setModal] = useState(false);
 
   const handleOpen = () => setModal(true);

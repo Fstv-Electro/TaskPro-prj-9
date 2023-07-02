@@ -40,7 +40,7 @@ export const Form = styled(FormicForm)`
   gap: 24px;
   width: 100%; /* Задаємо початкову ширину 287px */
 
-  @media (min-width: 320px) and (max-width: 767px) {
+  @media (min-width: 375px) and (max-width: 767px) {
     width: 287px; /* Ширина залишається 287px для екранів шириною від 320px до 767px */
   }
 
@@ -49,7 +49,7 @@ export const Form = styled(FormicForm)`
   }
 `;
 
-export const Title = styled.label`
+export const Title = styled.h2`
   margin-bottom: 24px;
 
   color: #fff;

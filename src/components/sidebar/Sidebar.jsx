@@ -26,17 +26,19 @@ export const Sidebar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const isMobile = useMediaQuery({ maxWidth: 768 });
 
-  useEffect(() => {
-    dispatch(fetchBoards());
-  }, [dispatch], selectBoards);
-
-
+  useEffect(
+    () => {
+      dispatch(fetchBoards());
+    },
+    [dispatch],
+    selectBoards
+  );
 
   const handleToggleSidebar = () => {
     setIsOpen(prevState => !prevState);
   };
 
-  const handleOutsideClick = (event) => {
+  const handleOutsideClick = event => {
     if (!event.target.closest('.sidebar')) {
       setIsOpen(false);
     }
@@ -44,7 +46,7 @@ export const Sidebar = () => {
 
   useEffect(() => {
     let timeoutId;
-  
+
     if (isOpen && isMobile) {
       timeoutId = setTimeout(() => {
         document.addEventListener('click', handleOutsideClick);
@@ -52,7 +54,7 @@ export const Sidebar = () => {
     } else {
       document.removeEventListener('click', handleOutsideClick);
     }
-  
+
     return () => {
       clearTimeout(timeoutId);
       document.removeEventListener('click', handleOutsideClick);
@@ -61,12 +63,11 @@ export const Sidebar = () => {
 
   return (
     <>
-     
-      <IconMenu onClick={handleToggleSidebar} >
-          <use href={sprite + '#icon-menu-01'}></use>
-      </IconMenu> 
-      
-      <Container className='sidebar' isOpen={isOpen} >
+      <IconMenu onClick={handleToggleSidebar}>
+        <use href={sprite + '#icon-menu-01'}></use>
+      </IconMenu>
+
+      <Container className="sidebar" isOpen={isOpen}>
         <NaviUser>
           <WrapperTitle>
             <WrapperLogo>
