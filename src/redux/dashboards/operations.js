@@ -93,11 +93,24 @@ export const deleteColumn = createAsyncThunk(
 
 export const setFilter = createAsyncThunk(
   'columns/setFilter',
-  async (name, thunkAPI) => {
+  async (filter, thunkAPI) => {
     try {
-      console.log(name);
+      console.log(filter);
 
-      return name;
+      return filter;
+    } catch (error) {
+      return thunkAPI.rejectWithValue(error.message);
+    }
+  }
+);
+
+export const setFilterCards = createAsyncThunk(
+  'columns/setFilter',
+  async (filteredCards, thunkAPI) => {
+    try {
+      console.log(filteredCards);
+
+      return filteredCards;
     } catch (error) {
       return thunkAPI.rejectWithValue(error.message);
     }

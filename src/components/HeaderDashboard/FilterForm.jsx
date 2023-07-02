@@ -1,6 +1,6 @@
 import { Modal } from 'components/modal/modal';
 import { Formik, Form } from 'formik';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { ButtonClose } from 'components/modalBtnClose/ButtonClose';
 import {
   Container,
@@ -13,11 +13,13 @@ import {
   Label,
   Field,
 } from './FitlerForm.styled';
-import { setFilter } from 'redux/dashboards/operations';
+import { setFilter, setFilterCards } from 'redux/dashboards/operations';
 import { Background } from 'components/background/Background';
+import { selectCard } from 'redux/dashboards/selectors';
 
 export const Filter = ({ onClose }) => {
   const dispatch = useDispatch();
+  const cards = useSelector(selectCard);
 
   const initialValues = {
     currentBg: 0,
@@ -25,11 +27,15 @@ export const Filter = ({ onClose }) => {
   };
 
   function handleChange(evt) {
-    dispatch(setFilter(evt.target.value));
+    const filter = evt.target.value;
+    const filteredCards = cards.filter(card => card.filter === filter);
+    dispatch(setFilterCards(filteredCards));
+    dispatch(setFilter(filter));
   }
 
   function handleClick() {
-    dispatch(setFilter('Without priority'));
+    dispatch(setFilterCards(cards));
+    dispatch(setFilter('All'));
   }
 
   return (
@@ -54,19 +60,35 @@ export const Filter = ({ onClose }) => {
                   type="radio"
                   name="currentPrority"
                   value="Without priority"
+                  color={'rgba(255, 255, 255, 0.3)'}
                 />
                 Without priority
               </Label>
               <Label>
-                <Field type="radio" name="currentPrority" value="Low" />
+                <Field
+                  type="radio"
+                  name="currentPrority"
+                  value="Low"
+                  color={'#8FA1D0'}
+                />
                 Low
               </Label>
               <Label>
-                <Field type="radio" name="currentPrority" value="Medium" />
+                <Field
+                  type="radio"
+                  name="currentPrority"
+                  value="Medium"
+                  color={'#E09CB5'}
+                />
                 Medium
               </Label>
               <Label>
-                <Field type="radio" name="currentPrority" value="High" />
+                <Field
+                  type="radio"
+                  name="currentPrority"
+                  value="High"
+                  color={'#BEDBB0'}
+                />
                 High
               </Label>
             </LabelGroup>
