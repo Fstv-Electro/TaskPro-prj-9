@@ -47,6 +47,17 @@ export const FormTitle = styled.h2`
   margin-bottom: 24px;
 `;
 
+export const DeleteTitle = styled.h2`
+  color: #fff;
+  text-align: center;
+  font-size: 18px;
+  font-family: Poppins;
+  font-weight: 500;
+  letter-spacing: -0.36px;
+  margin-top: 14px;
+  margin-bottom: 24px;
+`;
+
 export const WrapperDelete = styled.div`
   display: flex;
   justify-content: center;

@@ -1,4 +1,4 @@
-import { FormTitle, Btn, WrapperDelete } from './ModalBoard.styled';
+import { DeleteTitle, Btn, WrapperDelete } from './ModalBoard.styled';
 
 import { ButtonClose } from '../../modalBtnClose/ButtonClose';
 
@@ -17,7 +17,7 @@ export const DeleteBoard = ({ desk, onClose }) => {
   return (
     <>
       <ButtonClose onClose={onClose} />
-      <FormTitle>Delete Board?</FormTitle>
+      <DeleteTitle>Delete Board?</DeleteTitle>
       <WrapperDelete>
         <Btn onClick={handleSubmit}>yes</Btn>
         <Btn onClick={() => onClose()}>no</Btn>
