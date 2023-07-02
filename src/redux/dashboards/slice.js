@@ -5,7 +5,6 @@ import {
   editColumn,
   fetchBoards,
   setFilter,
-  getColumns,
   addBoard,
   deleteCard,
   addTask,
