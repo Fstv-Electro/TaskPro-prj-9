@@ -5,15 +5,12 @@ import { Container, List, Item } from './listColumns.styled';
 import { useState } from 'react';
 import { AddCardForm } from '../../components/addCardForm/addCardForm';
 import { Modal } from 'components/modal/modal';
-import {
-  selectUserLists,
-  selectCurrentBoard,
-} from 'redux/dashboards/selectors';
+import { selectList, selectCurrentBoard } from 'redux/dashboards/selectors';
 import { useSelector } from 'react-redux';
 
 export const ListColumns = ({ children }) => {
   const boardId = useSelector(selectCurrentBoard);
-  const lists = useSelector(selectUserLists);
+  const lists = useSelector(selectList);
   const [isOpen, setIsOpen] = useState(false);
 
   const toggleModal = () => {

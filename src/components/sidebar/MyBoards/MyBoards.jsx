@@ -9,7 +9,7 @@ import {
   NavItem,
 } from './MyBoards.styled';
 import sprite from '../../../images/symbol-defs.svg';
-import { fetchColumns, fetchTasks } from 'redux/dashboards/operations';
+import { fetchColumns } from 'redux/dashboards/operations';
 import { changeBg, changeCurrentBoard } from 'redux/dashboards/slice';
 import { useDispatch } from 'react-redux';
 import { Modal } from 'components/modal/modal';
