@@ -3,7 +3,6 @@ import { useDispatch } from 'react-redux';
 import { Formik, Form, ErrorMessage } from "formik";
 import * as yup from 'yup';
 import moment from 'moment';
-import { Modal } from '../../modal/modal';
 import { ButtonClose } from 'components/modalBtnClose/ButtonClose';
 import { Calendar } from '../datePicker/datePicker';
 import sprite from '../../images/symbol-defs.svg'
@@ -26,11 +25,10 @@ import {
 const initialValues = {
   title: "",
   description: "",
-  picked: "",
-  deadline: '',
+  priority: "",
 };
 
-export const AddCardForm = ({ id, onClose }) => {
+export const EditCardForm = ({ id, onClose }) => {
     
     const [deadline, setDeadline] = useState()
     const dispatch = useDispatch();
@@ -47,7 +45,7 @@ export const AddCardForm = ({ id, onClose }) => {
 
     const formatDate = (param) => {
       let a = moment(param);
-      const deadline = a.format('YYYY-MM-DD')
+      const deadline = a.format('DD-MM-YYYY')
       console.log(deadline)
       return deadline
   };
@@ -62,31 +60,26 @@ export const AddCardForm = ({ id, onClose }) => {
   };
   
   const displayDeadline = (date) => {
-      if (date.diff(moment()) < 0) { console.log ('error')}
-      if (deadline) { 
-          return determineTodayTomorrow(deadline.$d)+', '+moment(deadline.$d).format('MMMM D')
-      }
-      return 'Today, '+moment().format('MMMM D')
-  
-  }
+    if ( date ){
+        if (date.diff(moment()) < 0) { console.log ('error')}
+        if (deadline) { 
+        return determineTodayTomorrow(deadline.$d)+', '+moment(deadline.$d).format('MMMM D')
+    }
+    return 'Today, '+moment().format('MMMM D')
+}}
 
 const handleSubmit = (values, actions) => {
-  values = {...values, deadline: formatDate(deadline)};
+    values = {...values, deadline: formatDate(deadline.$d), parentColumn: id}
+  console.log(values)
   actions.resetForm();
-    dispatch(
-      editTask(
-        {
-          parentColumn: id,
-        ...values,
-        }
-      ));
+  console.log(id)
+    dispatch(editTask(values));
   onClose();
 };
 
 return(
-  <Modal onClose={onClose}>
-      <Container>
-          <TitleForm>Add card</TitleForm>
+    <Container>
+        <TitleForm>Edit card</TitleForm>
           <ButtonClose onClose={onClose} />
           <Formik 
               initialValues={initialValues}
@@ -107,23 +100,23 @@ return(
                   <ErrorMessage name="description"/>
                   <TitleStatus id="taskStatusGroup">Label color</TitleStatus>
                   <BlockStatus role="group" aria-labelledby="taskStatusGroup">
-                      <label>
-                          <RadioBtn type="radio" name="picked" value="low" />
-                          <ColorStatus color='#8FA1D0' ></ColorStatus> 
-                      </label>
-                      <label>
-                          <RadioBtn type="radio" name="picked" value="medium" />
-                          <ColorStatus color='#E09CB5' ></ColorStatus> 
-                      </label>
-                      <label>
-                          <RadioBtn type="radio" name="picked" value="high" />
-                          <ColorStatus color='#BEDBB0'  ></ColorStatus> 
-                      </label>
-                      <label>
-                          <RadioBtn type="radio" name="picked" value="default" checked/>
-                          <ColorStatus color='#FFFFFF4D' ></ColorStatus> 
-                      </label>     
-                  </BlockStatus>
+                        <label>
+                            <RadioBtn type="radio" name="priority" value="low" />
+                            <ColorStatus color='#8FA1D0' ></ColorStatus> 
+                        </label>
+                        <label>
+                            <RadioBtn type="radio" name="priority" value="medium" />
+                            <ColorStatus color='#E09CB5' ></ColorStatus> 
+                        </label>
+                        <label>
+                            <RadioBtn type="radio" name="priority" value="high" />
+                            <ColorStatus color='#BEDBB0'  ></ColorStatus> 
+                        </label>
+                        <label>
+                            <RadioBtn type="radio" name="priority" value="default" checked/>
+                            <ColorStatus color='#FFFFFF4D' ></ColorStatus> 
+                        </label>     
+                    </BlockStatus>
                   <TitleDeadline>Deadline</TitleDeadline>
                   <CalendarShow>
                       <div>{displayDeadline(deadline) }</div>
@@ -133,12 +126,11 @@ return(
                     <IconPlus aria-label="add">
                         <use href={sprite + '#icon-plus-add'}></use>
                     </IconPlus>
-                        Add
+                        Edit
                 </SubmitButton>
-          </Form> 
-          )}
-          </Formik>
-      </Container>
-  </Modal>
-  )
+            </Form> 
+            )}
+            </Formik>
+        </Container>
+    )
 }
