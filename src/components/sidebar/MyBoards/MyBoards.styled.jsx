@@ -1,6 +1,32 @@
 import styled from '@emotion/styled';
 import { NavLink } from 'react-router-dom';
 
+export const NavItem = styled(NavLink)`
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  min-width: 260px;
+  height: 100%;
+  background-color: #121212;
+  &.active {
+    background-color: #1f1f1f;
+    outline: none;
+    width: 100%;
+    &:after {
+      content: '';
+      display: flex;
+      position: absolute;
+      right: 0;
+      border-radius: 4px 0px 0px 4px;
+      background: #bedbb0;
+      width: 4px;
+      height: 61px;
+    }
+  }
+`;
+
 export const List = styled.ul`
   display: flex;
   flex-direction: column;
@@ -15,35 +41,9 @@ export const Item = styled.li`
   justify-content: space-between;
   height: 61px;
   width: 100%;
-  /* border-right: 4px solid #bedbb0; */
   background-color: #1f1f1f;
   margin-bottom: 4px;
   color: #fff;
-  &:after {
-    content: '';
-    display: flex;
-    position: absolute;
-    right: 0;
-    border-radius: 4px 0px 0px 4px;
-    background: #bedbb0;
-    width: 4px;
-    height: 61px;
-  }
-`;
-
-export const NavItem = styled(NavLink)`
-  margin: 0;
-  padding: 0;
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  width: 100%;
-  height: 100%;
-  background-color: #121212;
-  &.active {
-    background-color: #1f1f1f;
-    outline: none;
-  }
 `;
 
 export const WrapperProjectOffice = styled.button`
@@ -65,13 +65,45 @@ export const Project = styled.p`
 
 export const WrapperProjectIcons = styled.div`
   display: flex;
+  justify-content: center;
   align-items: center;
-  margin-right: 20px;
-`;
-
-export const IconButton = styled.button`
-  background: none;
+  padding: 0;
+  background-color: transparent;
   border: none;
   cursor: pointer;
-  color: #fff;
+
+  &:not(:last-child) {
+    margin-right: 8px;
+  }
+`;
+
+export const BtnContainer = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-right: 24px;
+`;
+
+export const IconEdit = styled.svg`
+  width: 16px;
+  height: 16px;
+  color: rgba(255, 255, 255, 0.5);
+  transition: color 350ms cubic-bezier(0.4, 0, 0.2, 1);
+
+  &:hover,
+  &:focus {
+    color: blue;
+  }
+`;
+
+export const IconDelete = styled.svg`
+  width: 16px;
+  height: 16px;
+  color: rgba(255, 255, 255, 0.5);
+  transition: color 350ms cubic-bezier(0.4, 0, 0.2, 1);
+
+  &:hover,
+  &:focus {
+    color: tomato;
+  }
 `;

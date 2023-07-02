@@ -4,7 +4,7 @@ export const Container = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  width: 260px;
+  /* width: 260px; */
   height: calc(100vh - 24px);
   align-items: center;
   position: relative;
@@ -17,15 +17,13 @@ export const Container = styled.div`
 
   // mobile
 
-    @media (max-width: 768px ) {
-      position: absolute;
-      top: 0;
-      left: ${({ isOpen }) => (isOpen ? "0" : "-100%" )};
-      bottom: 0;
-      transition: all 1s;
-    }
-    
-
+  @media (max-width: 768px) {
+    position: absolute;
+    top: 0;
+    left: ${({ isOpen }) => (isOpen ? '0' : '-100%')};
+    bottom: 0;
+    transition: all 1s;
+  }
 `;
 
 export const WrapperTitle = styled.div`
@@ -75,30 +73,25 @@ export const Logo = styled.svg`
   fill: #1f1f1f;
   color: #121212;
 `;
- export const IconMenu = styled.svg`
-    position: absolute;
-    top: 18px;
-    left: 32px;
-    width: 32px;
-    height: 32px;
-    display: none;
-    cursor: pointer;
-    transition: all 1s;
+export const IconMenu = styled.svg`
+  position: absolute;
+  top: 18px;
+  left: 32px;
+  width: 32px;
+  height: 32px;
+  display: none;
+  cursor: pointer;
+  transition: all 1s;
 
+  &:active {
+    opacity: 0;
+  }
 
-      &:active {
-        opacity: 0;
-      }
+  @media (max-width: 375px) {
+    left: 20px;
+  }
 
-
-      @media (max-width: 375px ) {
-        left: 20px;
-      }
-
-      @media (max-width: 768px ) {
-        display: block;
-      }
-
-
-
-`
+  @media (max-width: 768px) {
+    display: block;
+  }
+`;
