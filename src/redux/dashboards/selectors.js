@@ -1,5 +1,3 @@
-import { createSelector } from '@reduxjs/toolkit';
-
 // task
 export const selectBoard = state => state.task.boards;
 
@@ -17,5 +15,3 @@ export const selectBackgroundUrl = state => state.task.bgUrl;
 
 export const selectCurrentBoard = state => state.task.currentBoard;
 // task
-
-export const selectUserLists = createSelector([selectList], lists => lists);

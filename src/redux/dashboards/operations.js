@@ -81,7 +81,6 @@ export const editColumn = createAsyncThunk(
 export const deleteColumn = createAsyncThunk(
   'columns/deleteColumn',
   async (id, thunkAPI) => {
-    console.log(id);
     try {
       const response = await axios.delete(`/api/columns/${id}`);
       Notiflix.Notify.success('Column deleted successfully!');
