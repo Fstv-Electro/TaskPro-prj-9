@@ -5,6 +5,7 @@ import {
   editColumn,
   fetchBoards,
   setFilter,
+  getColumns,
   addBoard,
   deleteCard,
   addTask,
@@ -77,6 +78,19 @@ const taskSlice = createSlice({
       state.isLoading = false;
       state.bgUrl = action.payload;
     },
+    [getColumns.pending](state) {
+      state.error = false;
+      state.isLoading = true;
+    },
+    [getColumns.rejected](state, action) {
+      state.error = action.payload.error;
+      state.isLoading = false;
+    },
+    [getColumns.fulfilled](state, action) {
+      state.error = false;
+      state.isLoading = false;
+      state.lists = action.payload;
+    },
     [addColumn.pending](state, action) {
       state.isLoading = true;
       state.error = false;
@@ -84,7 +98,7 @@ const taskSlice = createSlice({
     [addColumn.fulfilled](state, action) {
       state.isLoading = false;
       state.error = null;
-      state.lists = action.payload;
+      state.lists.push(action.payload);
     },
     [addColumn.rejected](state, action) {
       state.isLoading = false;
@@ -98,7 +112,7 @@ const taskSlice = createSlice({
       state.isLoading = false;
       state.error = null;
       const index = state.lists.findIndex(
-        column => column.id === action.payload.id
+        column => column._id === action.payload._id
       );
       state.lists[index] = action.payload;
     },
@@ -114,7 +128,7 @@ const taskSlice = createSlice({
       state.isLoading = false;
       state.error = null;
       const index = state.lists.findIndex(
-        column => column.id === action.payload.id
+        column => column._id === action.payload.id
       );
       state.lists.splice(index, 1);
     },

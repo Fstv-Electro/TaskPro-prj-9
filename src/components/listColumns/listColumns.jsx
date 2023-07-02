@@ -2,34 +2,29 @@ import { AddColumn } from 'components/addColumn/addColumn';
 import { ColumnItem } from 'components/columnItem/columnItem';
 import SubmitButton from '../submitButton/submitButton';
 import { Container, List, Item } from './listColumns.styled';
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import { AddCardForm } from '../../components/addCardForm/addCardForm';
-import { Modal } from '../../components/modal/modal';
-import { selectList } from 'redux/dashboards/selectors';
-import { useSelector, useDispatch } from 'react-redux';
+import { Modal } from 'components/modal/modal';
+import { selectUserLists } from 'redux/dashboards/selectors';
+import { useSelector } from 'react-redux';
 
 export const ListColumns = ({
-  idBoard = '64a06ca19ba6a167445ae5c9',
+  idBoard = '64a1620b3ca80058c65ec37e',
   children,
 }) => {
-  const selectLists = useSelector(selectList);
-  // const dispatch = useDispatch();
+  const lists = useSelector(selectUserLists);
   const [isOpen, setIsOpen] = useState(false);
 
   const toggleModal = () => {
     setIsOpen(isOpen => !isOpen);
   };
 
-  useEffect(() => {
-    console.log('selectLists changed:', selectLists);
-  }, [selectLists]);
-
   return (
     <>
       <Container>
-        {selectLists.length > 0 && (
+        {lists.length > 0 && (
           <List>
-            {selectLists.map(({ _id, title }) => {
+            {lists.map(({ _id, title }) => {
               return (
                 <Item key={_id}>
                   <ColumnItem item={{ _id, title }} />
