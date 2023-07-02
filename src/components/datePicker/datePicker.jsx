@@ -38,7 +38,13 @@ export const Calendar = ({parentState}) => {
                       '& .MuiPickersCalendarHeader-labelContainer': {
                         position: 'absolute',
                         left: '50%',
-                        transform: 'translateX(-50%)'
+                        transform: 'translateX(-50%)',
+                      },
+                      '& .MuiPickersCalendarHeader-label': {
+                        fontSize: '16px',
+                        
+                        fontWeight: '500',
+                        letterSpacing:'0.32px',
                       },
                       '& .MuiSvgIcon-root': {
                         fill: '#fff',
@@ -48,10 +54,17 @@ export const Calendar = ({parentState}) => {
                         height: '24px',
                         marginTop:'14px'
                       },
+                      '& .MuiDayCalendar-weekContainer':{
+                        justifyContent: 'space-between'
+                      },
                       '& .MuiButtonBase-root': {
                         color: '#fff',
                         margin: 0,
                         padding: 0,
+                        fontSize: '14px',
+                        fontStyle: 'normal',
+                        fontWeight: '400',
+                        lineHeight: '18px'
                       },
                       '& .MuiPickersArrowSwitcher-root': {
                         width: '100%',
@@ -63,10 +76,10 @@ export const Calendar = ({parentState}) => {
                       '& .MuiPickersCalendarHeader-root': {
                         padding: '0',
                         alignItems: 'baseline',
-                       margin: '0',
-                       borderBottomWidth: '2px',
-                       borderBottomStyle: 'solid',
-                       borderColor: '#FFFFFF33',
+                        margin: '0',
+                        borderBottomWidth: '2px',
+                        borderBottomStyle: 'solid',
+                        borderColor: '#FFFFFF33',
                       },
 
                       '& .MuiPickersArrowSwitcher-button': {
@@ -79,26 +92,24 @@ export const Calendar = ({parentState}) => {
                         padding: '18px',
                         boxSizing: 'border-box',
                       },
-
+                     
                       '& .MuiPickersDay-hiddenDaySpacingFiller':{
                         height: '24px',
                         width: '24px',
                         minWidth: '24px',
                         maxWidth: '24px',
                       },
-                      '& .MuiPickersSlideTransition-root': {
-                        minHeight: '140px'
-                      }
                     }
                   },
                 day: {
                     sx: {
                       height: '24px',
-                        width: '24px',
-                        minWidth: '24px',
-                        maxWidth: '24px',
-                        fontSize: '14px',
-                        '&.Mui-selected': {
+                      width: '24px',
+                      minWidth: '24px',
+                      maxWidth: '24px',
+                      fontSize: '14px',
+                    
+                        '&.MuiPickersDay-root.Mui-selected': {
                             backgroundColor: '#BEDBB0',
                             color: '#1F1F1F'
                           }, 
@@ -110,7 +121,7 @@ export const Calendar = ({parentState}) => {
                         borderWidth: 1,
                         borderColor: '#BEDBB0',
                         color: '#ffffff'
-                      }
+                      },
                     }
                   },
                 textField: {
