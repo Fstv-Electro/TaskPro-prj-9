@@ -10,6 +10,7 @@ const styles = {
     display: 'flex',
     flexDirection: 'row',
     backgroundColor: '#1F1F1F',
+    height: 'calc(100vh - 24px)',
   },
   deskMenu: {
     margin: 0,
