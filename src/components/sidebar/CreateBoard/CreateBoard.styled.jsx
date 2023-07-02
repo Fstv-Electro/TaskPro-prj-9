@@ -1,26 +1,23 @@
 import styled from '@emotion/styled';
 
 export const WrapperBoards = styled.div`
-  border-bottom: 1px solid #ffffff1a;
+  border-bottom: 1px solid var(--sidebar-line-color);
   margin-bottom: 9px;
   margin-right: 24px;
   padding-bottom: 8px;
 `;
 
 export const Boards = styled.p`
-  font-size: 16px;
-  font-family: Poppins;
-  font-weight: 600;
-  color: rgba(255, 255, 255, 0.5);
   font-size: 12px;
   letter-spacing: -0.24px;
+  opacity: 0.5;
 `;
 
 export const WrapperCreate = styled.div`
   display: flex;
   align-items: center;
   justify-content: space-between;
-  border-bottom: 1px solid #ffffff1a;
+  border-bottom: 1px solid var(--sidebar-line-color);
   margin-bottom: 40px;
   margin-right: 24px;
   padding-top: 14px;
@@ -29,8 +26,6 @@ export const WrapperCreate = styled.div`
 
 export const CreateTitle = styled.p`
   width: 76px;
-  font-size: 14px;
-  font-family: Poppins;
   font-weight: 500;
   letter-spacing: -0.28px;
 `;
@@ -43,7 +38,8 @@ export const CreateButton = styled.button`
   width: 40px;
   height: 36px;
   border-radius: 8px;
-  background: #bedbb0;
+  background: var(--sidebar-bg-icon-plus-color);
+  border: none;
   outline: none;
   cursor: pointer;
   transform: scale(1);
@@ -58,6 +54,6 @@ export const CreateButton = styled.button`
 
 export const IconPlus = styled.svg`
   flex-shrink: 0;
-  fill: #bedbb0;
-  color: #121212;
+  fill: var(--sidebar-bg-icon-plus-color);
+  color: var(--color-icon-plus);
 `;

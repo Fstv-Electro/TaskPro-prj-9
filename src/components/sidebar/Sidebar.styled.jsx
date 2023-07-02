@@ -10,8 +10,8 @@ export const Container = styled.div`
   position: relative;
   margin: 0;
   padding: 24px 0 0 24px;
-  color: #fff;
-  background: #121212;
+  color: var(--bord-list-color);
+  background: var(--sidebar-first-bg-color);
   left: 0;
   z-index: 100;
 
@@ -62,7 +62,6 @@ export const WrapperLogo = styled.div`
   align-items: center;
   justify-content: center;
   margin-right: 8px;
-  background-color: #1f1f1f;
   border-radius: 5px;
 `;
 
@@ -70,8 +69,8 @@ export const Logo = styled.svg`
   width: 32px;
   height: 32px;
   flex-shrink: 0;
-  fill: #1f1f1f;
-  color: #121212;
+  --color5: var(--sidebar-bg-icon-logo);
+  --color1: var(--sidebar-color-icon-logo);
 `;
 export const IconMenu = styled.svg`
   position: absolute;
@@ -82,6 +81,7 @@ export const IconMenu = styled.svg`
   display: none;
   cursor: pointer;
   transition: all 1s;
+  --color1: currentColor;
 
   &:active {
     opacity: 0;

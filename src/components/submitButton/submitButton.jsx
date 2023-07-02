@@ -1,5 +1,7 @@
 import sprite from '../../images/symbol-defs.svg';
 import { SubmitBtn, IconPlus } from './submitButton.styled';
+import { useSelector } from "react-redux";
+import { selectUser } from 'redux/auth/selectores';
 
 // How to use
 // import SubmitButton from './submitButton/submitButton';
@@ -22,44 +24,45 @@ export default function SubmitButton({
   type,
   width,
   height = 49,
-  theme = 'Dark',
   icon = false,
   addColumn = false,
   handleClick,
 }) {
+  const {theme} = useSelector(selectUser);
+
   const bgColor = () => {
-    if (theme === 'Dark' && !addColumn) return '#BEDBB0';
-    if (theme === 'Light' && !addColumn) return '#BEDBB0';
-    if (theme === 'Violet' && !addColumn) return '#5255BC';
-    if (theme === 'Dark' && addColumn) return '#121212';
-    if (theme === 'Light' && addColumn) return '#FFFFFF';
-    if (theme === 'Violet' && addColumn) return '#FFFFFF';
+    if (theme === 'dark' && !addColumn) return '#BEDBB0';
+    if (theme === 'light' && !addColumn) return '#BEDBB0';
+    if (theme === 'violet' && !addColumn) return '#5255BC';
+    if (theme === 'dark' && addColumn) return '#121212';
+    if (theme === 'light' && addColumn) return '#FFFFFF';
+    if (theme === 'violet' && addColumn) return '#FFFFFF';
   };
   const color = () => {
-    if (theme === 'Dark' && !addColumn) return '#161616';
-    if (theme === 'Light' && !addColumn) return '#161616';
-    if (theme === 'Violet' && !addColumn) return '#FFFFFF';
-    if (theme === 'Dark' && addColumn) return '#FFFFFF';
-    if (theme === 'Light' && addColumn) return '#161616';
-    if (theme === 'Violet' && addColumn) return '#161616';
+    if (theme === 'dark' && !addColumn) return '#161616';
+    if (theme === 'light' && !addColumn) return '#161616';
+    if (theme === 'violet' && !addColumn) return '#FFFFFF';
+    if (theme === 'dark' && addColumn) return '#FFFFFF';
+    if (theme === 'light' && addColumn) return '#161616';
+    if (theme === 'violet' && addColumn) return '#161616';
   };
 
   const fill = () => {
-    if (theme === 'Dark' && !addColumn) return '#121212';
-    if (theme === 'Light' && !addColumn) return '#121212';
-    if (theme === 'Violet' && !addColumn) return '#FFFFFF';
-    if (theme === 'Dark' && addColumn) return '#FFFFFF';
-    if (theme === 'Light' && addColumn) return '#161616';
-    if (theme === 'Violet' && addColumn) return '#5255BC';
+    if (theme === 'dark' && !addColumn) return '#121212';
+    if (theme === 'light' && !addColumn) return '#121212';
+    if (theme === 'violet' && !addColumn) return '#FFFFFF';
+    if (theme === 'dark' && addColumn) return '#FFFFFF';
+    if (theme === 'light' && addColumn) return '#161616';
+    if (theme === 'violet' && addColumn) return '#5255BC';
   };
 
   const svgColor = () => {
-    if (theme === 'Dark' && !addColumn) return '#FFFFFF';
-    if (theme === 'Light' && !addColumn) return '#FFFFFF';
-    if (theme === 'Violet' && !addColumn) return '#161616';
-    if (theme === 'Dark' && addColumn) return '#121212';
-    if (theme === 'Light' && addColumn) return '#FFFFFF';
-    if (theme === 'Violet' && addColumn) return '#FFFFFF';
+    if (theme === 'dark' && !addColumn) return '#FFFFFF';
+    if (theme === 'light' && !addColumn) return '#FFFFFF';
+    if (theme === 'violet' && !addColumn) return '#161616';
+    if (theme === 'dark' && addColumn) return '#121212';
+    if (theme === 'light' && addColumn) return '#FFFFFF';
+    if (theme === 'violet' && addColumn) return '#FFFFFF';
   };
 
   return (

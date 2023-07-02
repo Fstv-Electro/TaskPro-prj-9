@@ -130,7 +130,7 @@ export const ImgWrapper = styled.div`
     transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
     transition: transform 550ms cubic-bezier(0.4, 0, 0.2, 1);
       
-    svg {
+      svg {
         --color1 : var(--main-bg-color);
         --color2 : var(--heder-bg-color);
       }

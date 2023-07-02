@@ -10,7 +10,6 @@ export const Container = styled.div`
 export const Title = styled.h2`
     font-size: 14px;
     font-weight: 600;
-    color: #FFF;
 `;
 
 export const Text = styled.p`
@@ -33,7 +32,6 @@ export const ToolsTitle = styled.h3`
 `;
 
 export const ToolsText = styled.p`
-    color: #FFF;
     font-size: 10px;
 `;
 
