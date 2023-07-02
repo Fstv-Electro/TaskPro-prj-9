@@ -11,20 +11,21 @@ import {
 } from './columnItem.styled';
 import { useDispatch } from 'react-redux';
 import { deleteColumn } from 'redux/dashboards/operations';
-// import { selectList } from 'redux/dashboards/selectors';
 
 export const ColumnItem = ({ item }) => {
   const dispatch = useDispatch();
-  const [modal, setModal] = useState(false);
+  const [isOpen, setIsOpen] = useState(false);
 
-  const handleOpen = () => setModal(true);
-  const handleClose = () => setModal(false);
+  const toggleModal = () => {
+    setIsOpen(isOpen => !isOpen);
+  };
+
   return (
     <>
       <Container>
         <Title>{item.title}</Title>
         <BtnContainer>
-          <Button type="button" onClick={handleOpen}>
+          <Button type="button" onClick={toggleModal}>
             <IconEdit aria-label="edit">
               <use href={sprite + '#icon-pencil-01'}></use>
             </IconEdit>
@@ -39,7 +40,7 @@ export const ColumnItem = ({ item }) => {
           </Button>
         </BtnContainer>
       </Container>
-      {modal && <EditColumnForm item={item} onClose={handleClose} />}
+      {isOpen && <EditColumnForm item={item} onClose={toggleModal} />}
     </>
   );
 };

@@ -20,9 +20,9 @@ export const MyBoards = (desk, id) => {
   const [isOpen, setIsOpen] = useState(false);
   const dispatch = useDispatch();
 
-  const getColumns = (id) => {
+  const getColumns = id => {
     dispatch(fetchColumns(id));
-    dispatch(fetchTasks());
+    // dispatch(fetchTasks());
     dispatch(changeBg(desk.desk.currentBg));
     dispatch(changeCurrentBoard(id));
   };

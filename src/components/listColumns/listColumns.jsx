@@ -5,13 +5,14 @@ import { Container, List, Item } from './listColumns.styled';
 import { useState } from 'react';
 import { AddCardForm } from '../../components/addCardForm/addCardForm';
 import { Modal } from 'components/modal/modal';
-import { selectUserLists } from 'redux/dashboards/selectors';
+import {
+  selectUserLists,
+  selectCurrentBoard,
+} from 'redux/dashboards/selectors';
 import { useSelector } from 'react-redux';
 
-export const ListColumns = ({
-  idBoard = '64a1620b3ca80058c65ec37e',
-  children,
-}) => {
+export const ListColumns = ({ children }) => {
+  const boardId = useSelector(selectCurrentBoard);
   const lists = useSelector(selectUserLists);
   const [isOpen, setIsOpen] = useState(false);
 
@@ -28,7 +29,9 @@ export const ListColumns = ({
               return (
                 <Item key={_id}>
                   <ColumnItem item={{ _id, title }} />
+                  {/*  */}
                   <div>{children}</div>
+                  {/*  */}
                   <SubmitButton
                     title="Add another card"
                     type="button"
@@ -49,7 +52,7 @@ export const ListColumns = ({
             })}
           </List>
         )}
-        <AddColumn _id={idBoard} />
+        <AddColumn boardId={boardId} numberOfColumns={Number(lists.length)} />
         {isOpen && (
           <Modal
             onClose={toggleModal}
