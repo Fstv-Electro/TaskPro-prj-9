@@ -38,7 +38,13 @@ export const Calendar = ({parentState}) => {
                       '& .MuiPickersCalendarHeader-labelContainer': {
                         position: 'absolute',
                         left: '50%',
-                        transform: 'translateX(-50%)'
+                        transform: 'translateX(-50%)',
+                      },
+                      '& .MuiPickersCalendarHeader-label': {
+                        fontSize: '16px',
+                        
+                        fontWeight: '500',
+                        letterSpacing:'0.32px',
                       },
                       '& .MuiSvgIcon-root': {
                         fill: '#fff',
@@ -47,6 +53,9 @@ export const Calendar = ({parentState}) => {
                         color: '#FFFFFF80',
                         height: '24px',
                         marginTop:'14px'
+                      },
+                      '& .MuiDayCalendar-weekContainer':{
+                        justifyContent: 'space-between'
                       },
                       '& .MuiButtonBase-root': {
                         color: '#fff',
@@ -67,10 +76,10 @@ export const Calendar = ({parentState}) => {
                       '& .MuiPickersCalendarHeader-root': {
                         padding: '0',
                         alignItems: 'baseline',
-                       margin: '0',
-                       borderBottomWidth: '2px',
-                       borderBottomStyle: 'solid',
-                       borderColor: '#FFFFFF33',
+                        margin: '0',
+                        borderBottomWidth: '2px',
+                        borderBottomStyle: 'solid',
+                        borderColor: '#FFFFFF33',
                       },
 
                       '& .MuiPickersArrowSwitcher-button': {
@@ -95,12 +104,12 @@ export const Calendar = ({parentState}) => {
                 day: {
                     sx: {
                       height: '24px',
-                        width: '24px',
-                        minWidth: '24px',
-                        maxWidth: '24px',
-                        fontSize: '14px',
+                      width: '24px',
+                      minWidth: '24px',
+                      maxWidth: '24px',
+                      fontSize: '14px',
                     
-                        '&.Mui-selected': {
+                        '&.MuiPickersDay-root.Mui-selected': {
                             backgroundColor: '#BEDBB0',
                             color: '#1F1F1F'
                           }, 

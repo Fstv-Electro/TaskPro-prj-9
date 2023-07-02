@@ -30,33 +30,32 @@ const initialValues = {
 
 export const EditCardForm = ({ id, onClose }) => {
     
-    const [deadline, setDeadline] = useState()
-    const dispatch = useDispatch();
+const [deadline, setDeadline] = useState()
+const dispatch = useDispatch();
 
-    const setDateValue = (value) =>{
-        setDeadline(value)
-        console.log(deadline)
-    };
+const setDateValue = (value) =>{
+    setDeadline(value)
+};
 
-  const schema = yup.object().shape({
-        title: yup.string().required(),
-        description: yup.string().required(),
-    });
+const schema = yup.object().shape({
+    title: yup.string().required(),
+    description: yup.string().required(),
+});
 
-    const formatDate = (param) => {
-      let a = moment(param);
-      const deadline = a.format('DD-MM-YYYY')
-      console.log(deadline)
-      return deadline
-  };
+const formatDate = (param) => {
+    let a = moment(param);
+    const deadline = a.format('DD-MM-YYYY')
+    console.log(deadline)
+    return deadline
+};
   
-  const determineTodayTomorrow = (date) => {
-      const d = moment(date)
-      const today = moment().endOf('day')
-      const tomorrow = moment().add(1, 'day').endOf('day')
-      if (d < today) return 'Today'
-      if (d < tomorrow) return 'Tomorrow'
-      return 'in '+d.fromNow(true)
+const determineTodayTomorrow = (date) => {
+    const d = moment(date)
+    const today = moment().endOf('day')
+    const tomorrow = moment().add(1, 'day').endOf('day')
+    if (d < today) return 'Today'
+    if (d < tomorrow) return 'Tomorrow'
+    return 'in '+d.fromNow(true)
   };
   
 const displayDeadline = (date) => {
@@ -74,9 +73,7 @@ const displayDeadline = (date) => {
 
 const handleSubmit = (values, actions) => {
     values = {...values, deadline: formatDate(deadline.$d), parentColumn: id}
-  console.log(values)
-  actions.resetForm();
-  console.log(id)
+    actions.resetForm();
     dispatch(editTask(values));
   onClose();
 };

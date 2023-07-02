@@ -132,6 +132,9 @@ export const SubmitButton = styled.button`
     background: #BEDBB0;
     color: #161616;
     font-size: 14px;
+    font-weight: 500;
+    line-height: normal;
+    letter-spacing: -0.28px;
     cursor: pointer;
 `
 export const IconPlus = styled.svg`
