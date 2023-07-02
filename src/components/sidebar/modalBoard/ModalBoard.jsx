@@ -76,7 +76,7 @@ export const ModalBoard = ({ onClose }) => {
           <IconRadioButtons getIcon={getIcon} />
           <Background getBg={getBg} />
           <SubmitButton
-            type="button"
+            type="submit"
             title="Create"
             width="302"
             height="49"
