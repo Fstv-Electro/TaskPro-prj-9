@@ -232,3 +232,16 @@ export const shiftCard = createAsyncThunk(
     }
   }
 );
+
+export const fetchTasks = createAsyncThunk(
+  'tasks/fetchTasks',
+  async (_, thunkAPI) => {
+    try {
+      const response = await axios.get('/api/tasks');
+      console.log(response.data);
+      return response.data;
+    } catch (e) {
+      return thunkAPI.rejectWithValue(e.message);
+    }
+  }
+);
