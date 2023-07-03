@@ -5,6 +5,5 @@ export const IconDown = styled.svg`
   height: 18px;
   flex-shrink: 0;
   margin: 0;
-  fill: #bedbb0;
-  stroke: currentColor;
+  stroke: #BEDBB0;
 `;

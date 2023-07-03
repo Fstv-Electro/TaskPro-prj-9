@@ -24,7 +24,6 @@ export const EditColumnForm = ({ item, onClose }) => {
     //   console.log(key, value);
     // }
     // // dispatch(addColumn(formData));
-    console.log(values);
     actions.resetForm();
     dispatch(editColumn(values));
 

@@ -66,29 +66,6 @@ export const Label = styled.label`
   font-family: 'Poppins';
   font-weight: 400;
   letter-spacing: -0.24px;
-
-  ////////////////////////
-  /* ::after {
-    content: '';
-    left: 6.4%;
-    position: absolute;
-    width: 14px;
-    height: 14px;
-    border: 2px solid red;
-    border-radius: 50%;
-  } */
-
-  /* ::before {
-    content: '';
-    left: 6.4%;
-    transform: translateX(2.9px);
-    position: absolute;
-    width: 11px;
-    height: 11px;
-    background-color: green;
-    border-radius: 50%;
-    opacity: 0;
-  } */
 `;
 
 export const Field = styled(FormicField)`
@@ -103,8 +80,8 @@ export const Field = styled(FormicField)`
     left: 6.4%;
     position: absolute;
     transform: translate(3px, 1px);
-    width: 8px;
-    height: 8px;
+    width: 15px;
+    height: 15px;
     border: 2px solid black;
     border-radius: 50%;
     opacity: 0;
@@ -115,7 +92,7 @@ export const Field = styled(FormicField)`
     height: 14px;
     border-radius: 50%;
     transition: 120ms transform ease-in-out;
-    background-color: #8fa1d0;
+    background-color: ${props => props.color};
   }
 
   :checked::after {

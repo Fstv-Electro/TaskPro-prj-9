@@ -25,7 +25,7 @@ export const Calendar = ({parentState}) => {
             slots={{
               openPickerIcon: ()=>(
                 <IconDown aria-label="chevron-down">
-                  <use href={sprite + '#icon-chevron-down' }></use>
+                  <use href={sprite + '#icon-chevron-down' } ></use>
                 </IconDown>),
               }}
               dayOfWeekFormatter={(day)=>day.slice(0,2)}
@@ -49,6 +49,7 @@ export const Calendar = ({parentState}) => {
                       '& .MuiSvgIcon-root': {
                         fill: '#fff',
                       },
+                      
                       '& .MuiTypography-root': {
                         color: '#FFFFFF80',
                         height: '24px',
@@ -57,6 +58,7 @@ export const Calendar = ({parentState}) => {
                       '& .MuiDayCalendar-weekContainer':{
                         justifyContent: 'space-between'
                       },
+                      
                       '& .MuiButtonBase-root': {
                         color: '#fff',
                         margin: 0,

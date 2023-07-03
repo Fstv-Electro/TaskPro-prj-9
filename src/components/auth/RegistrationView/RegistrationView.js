@@ -23,6 +23,8 @@ import Sprite from '../../../images/symbol-defs.svg';
 import * as Yup from 'yup';
 import { selectIsError } from 'redux/auth/selectores';
 import Notiflix from 'notiflix';
+import { useSearchParams } from 'react-router-dom';
+import { useEffect } from 'react';
 
 const NewUserSchema = Yup.object().shape({
   name: Yup.string()
@@ -54,6 +56,16 @@ export default function RegistrationView() {
   const dispatch = useDispatch();
   const [type, setType] = useState('password');
   const isError = useSelector(selectIsError);
+  const [token, setToken] = useState('');
+
+  // получаем параметры строки запроса
+  const [searchParams] = useSearchParams();
+
+  useEffect(() => {
+    const token = searchParams.get('token');
+    setToken(token);
+    console.log(token);
+  }, [searchParams, token]);
 
   function handleSubmit(value) {
     const { name, email, password } = value;

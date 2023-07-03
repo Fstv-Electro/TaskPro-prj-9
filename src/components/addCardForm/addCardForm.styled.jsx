@@ -19,23 +19,27 @@ export const TitleForm = styled.h1`
 
 export const InputTitle = styled(Field)`
     display: flex;
-    width: 296px;
-    height: 45px;
+    width: 302px;
+    height: 49px;
     margin-top: 24px;
     background: transparent;
+    padding: 14px 18px;
+
     border-radius: 8px;
     border: 1px solid var(--button-bg-color);
     color: currentColor;
     box-shadow: 0px 4px 16px 0px rgba(22, 22, 22, 0.08);
 `;
 export const InputDescription = styled(Field)`
-    width: 296px;
-    height: 150px;
+    width: 302px;
+    height: 154px;
     margin-top: 14px;
     background: transparent;
+    padding: 14px 18px;
     border-radius: 8px;
     border: 1px solid var(--button-bg-color);
     flex-shrink: 0;
+    resize: none;
     box-shadow: 0px 4px 16px 0px rgba(22, 22, 22, 0.08);
     color: currentColor;
 `;
@@ -116,6 +120,7 @@ export const CalendarShow = styled.div`
     color: #BEDBB0;
     font-size: 14px
     font-weight: 500;
+    margin-top: 4px;
     letter-spacing: -0.28px;
 `;
 export const SubmitButton = styled.button`

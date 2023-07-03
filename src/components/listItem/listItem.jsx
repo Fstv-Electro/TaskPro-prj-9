@@ -1,36 +1,30 @@
 import { Container, Title, Text, Tools, ToolsTitle, ToolsText, ButtonList, Button } from "./listItem.styled";
 import sprite from "../../images/symbol-defs.svg";
+import ShiftBtnCard from "components/ShiftBtnCard/ShiftBtnCard";
+import DeleteBtnCard from "components/DeleteBtnCard/DeleteBtnCard";
 
-export const ListItem = ({ id, title, text }) => {
+export const ListItem = ({ _id, title, priority, description, deadline }) => {
  
   return (
     <Container>
-      <Title>The Watch Spot Design</Title> 
-      <Text>vative, and reflective of the latest trends in watch design.</Text>
+      <Title>{title}</Title> 
+      <Text>{description}</Text>
       <Tools> 
         <div>
         <ToolsTitle>
         Priority
         </ToolsTitle>
-        <ToolsText>Low</ToolsText>
+        <ToolsText>{priority}</ToolsText>
         </div>
         <div>
         <ToolsTitle>
         Deadline
         </ToolsTitle>
-        <ToolsText>12/05/2023</ToolsText>
+        <ToolsText>{deadline}</ToolsText>
         </div>   
         <ButtonList>
          <li>
-            <Button>
-            <svg
-            aria-label="icon arrow with circle"
-            width="16px"
-            height="16px"
-          >
-            <use href={sprite + "#icon-arrow-circle-broken-right"}></use>
-          </svg>
-            </Button>
+          <ShiftBtnCard id={_id}/>
         </li>
          <li>
         <Button>
@@ -44,15 +38,7 @@ export const ListItem = ({ id, title, text }) => {
             </Button>
         </li>
         <li>
-            <Button>
-            <svg
-            aria-label="icon trash"
-            width="16px"
-            height="16px"
-          >
-            <use href={sprite + "#icon-trash-04"}></use>
-          </svg>   
-        </Button>
+            <DeleteBtnCard id={_id}/>
         </li>   
         </ButtonList>
       </Tools>

@@ -22,17 +22,19 @@ export const MyBoards = (desk, id) => {
   const [isOpen, setIsOpen] = useState(false);
   const [typeModal, setTypeModal] = useState('');
   const dispatch = useDispatch();
+  console.log(desk.id);
 
+  if (desk.desk === undefined) {
+    return;
+  }
+
+  
   const getColumns = id => {
     dispatch(fetchColumns(id));
     // dispatch(fetchTasks());
     dispatch(changeBg(desk.desk.currentBg));
     dispatch(changeCurrentBoard(id));
   };
-
-  if (desk.desk === undefined) {
-    return;
-  }
 
   const deskRoute = desk.desk.title.split(' ').join('-');
 

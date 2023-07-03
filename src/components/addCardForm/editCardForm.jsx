@@ -98,7 +98,8 @@ return(
               <InputDescription 
                   type='text' 
                   name="description"
-                  placeholder="Description"/>
+                  placeholder="Description"
+                  as="textarea"/>
                   <ErrorMessage name="description"/>
                   <TitleStatus id="taskStatusGroup">Label color</TitleStatus>
                   <BlockStatus role="group" aria-labelledby="taskStatusGroup">
