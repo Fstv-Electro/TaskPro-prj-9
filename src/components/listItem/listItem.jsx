@@ -3,8 +3,8 @@ import sprite from "../../images/symbol-defs.svg";
 import ShiftBtnCard from "components/ShiftBtnCard/ShiftBtnCard";
 import DeleteBtnCard from "components/DeleteBtnCard/DeleteBtnCard";
 
-export const ListItem = ({ _id, title, priority, description, deadline }) => {
- 
+export const ListItem = ({ card: { _id, title, priority, description, deadline } }) => {
+
   return (
     <Container>
       <Title>{title}</Title> 
