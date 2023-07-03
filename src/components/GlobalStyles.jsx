@@ -62,7 +62,10 @@ export const GlobalStyles = () => {
           --sidebar-bg-icon-logo: rgba(31, 31, 31, 1);
           --sidebar-color-icon-logo: rgba(255, 255, 255, 1);
 
+          --sidebar-bg-icon-plus-color: rgba(190, 219, 176, 1);
           --sidebar-bg-icon-logout-color: rgba(190, 219, 176, 1);
+          --sidebar-line-color: rgba(255, 255, 255, 0.1);
+
           --bord-list-color: rgba(255, 255, 255, 1);
 
           --button-bg-color: rgba(190, 219, 176, 1);
@@ -85,11 +88,12 @@ export const GlobalStyles = () => {
           --sidebar-first-bg-color: rgba(255, 255, 255, 1);
           --sidebar-second-bg-color: rgba(246, 246, 247, 1);
 
-          --sidebar-bg-icon-logo: rgba(255, 255, 255, 1);
-          --sidebar-color-icon-logo: rgba(31, 31, 31, 1);
+          --sidebar-bg-icon-logo: rgba(31, 31, 31, 1);
+          --sidebar-color-icon-logo: rgba(255, 255, 255, 1);
           
           --sidebar-bg-icon-plus-color: rgba(190, 219, 176, 1);
           --sidebar-bg-icon-logout-color: rgba(190, 219, 176, 1);
+          --sidebar-line-color: rgba(22, 22, 22, 0.1);
         
           --bord-list-color: rgba(22, 22, 22, 1);
 
@@ -106,6 +110,7 @@ export const GlobalStyles = () => {
           --heder-bg-color: rgba(255, 255, 255, 1);
           --text-theme-color: rgba(22, 22, 22, 1);
           --fill-icon-plus: rgba(236, 237, 253, 1);
+          --color-icon-plus: rgba(255, 255, 255, 1);
           
 
           --main-bg-color: rgba(236, 237, 253, 1);
@@ -119,7 +124,7 @@ export const GlobalStyles = () => {
           --sidebar-bg-icon-plus-color: rgba(184, 188, 253, 1);
           --sidebar-color-icon-plus: rgba(22, 22, 22, 1);
           --sidebar-bg-icon-logout-color: rgba(255, 255, 255, 1);
-        
+          --sidebar-line-color: rgba(255, 255, 255, 0.1);
 
 
           --bord-list-color: rgba(255, 255, 255, 1);

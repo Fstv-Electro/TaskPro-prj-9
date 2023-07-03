@@ -13,6 +13,6 @@ export const LogOutText = styled.span`
   font-size: 16px;
   font-family: Poppins;
   font-weight: 500;
-  color: #fff;
   margin-left: 14px;
+  color: var(--bord-list-color);
 `;

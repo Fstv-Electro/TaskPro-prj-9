@@ -74,7 +74,7 @@ export const Sidebar = () => {
         <NaviUser>
           <WrapperTitle>
             <WrapperLogo>
-              <Logo aria-label="question with round" width="32px" height="32px">
+              <Logo aria-label="question with round" >
                 <use href={sprite + '#icon-icon'}></use>
               </Logo>
             </WrapperLogo>

@@ -16,6 +16,7 @@ const schema = yup.object().shape({
 export const ModalBoard = ({ onClose }) => {
   const [icon, setIcon] = useState('');
   const [currentBg, setCurrentBg] = useState('');
+  
 
   const dispatch = useDispatch();
 
@@ -80,7 +81,6 @@ export const ModalBoard = ({ onClose }) => {
             title="Create"
             width="302"
             height="49"
-            theme="Dark"
             icon={true}
             addColumn={false}
           />

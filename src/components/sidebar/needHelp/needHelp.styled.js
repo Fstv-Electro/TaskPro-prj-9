@@ -6,24 +6,26 @@ export const Container = styled.div`
   margin-bottom: 20px;
   margin-right: 24px;
   border-radius: 8px;
-  background: #1f1f1f;
-  @media (min-width: 768px) {
-    max-width: 212px;
-  }
+  background: var(--sidebar-second-bg-color);
+    
+    @media (min-width: 768px) {
+      max-width: 212px;
+    }
 `;
 
 export const Text = styled.p`
-  color: #fff;
+  color: var(--bord-list-color);
   font-size: 12px;
   font-family: 'Poppins';
   line-height: 20px;
-  @media (min-width: 768px) {
-    font-size: 14px;
-  }
+    
+    @media (min-width: 768px) {
+      font-size: 14px;
+    }
 `;
 
 export const Span = styled.span`
-  color: #bedbb0;
+  color: var(--button-bg-color);
 `;
 
 export const Button = styled.button`
@@ -33,11 +35,12 @@ export const Button = styled.button`
   font-weight: 500;
   padding: 0;
   border: none;
-  color: #fff;
-  background: #1f1f1f;
+  color: currentColor;
+  background: var(--sidebar-second-bg-color);
+    
   @media (min-width: 768px) {
-    font-size: 14px;
-  }
+      font-size: 14px;
+    }
 `;
 export const Image = styled.img`
   width: 54px;
@@ -47,13 +50,13 @@ export const Image = styled.img`
 export const TextButton = styled.span`
   margin-left: 8px;
   :hover {
-    color: #bedbb0;
+    color: var(--button-bg-color);
   }
 `;
 
 export const Svg = styled.svg`
-  stroke: #fff;
+  --color1: var(--bord-list-color);
   :hover {
-    stroke: #bedbb0;
+    stroke: var(--button-bg-color);
   }
 `;

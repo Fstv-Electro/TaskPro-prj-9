@@ -11,7 +11,7 @@ export const FormOptions = styled.ul`
 `;
 
 export const FormQuestion = styled.legend`
-  color: #fff;
+  color: currentColor;
   font-size: 14px;
   font-family: Poppins;
   font-weight: 500;
@@ -52,8 +52,8 @@ export const Input = styled.input`
 export const Svg = styled.svg`
   width: 18px;
   height: 18px;
-  stroke: #fff;
+  --color1: var(--first-text-color);
   :hover {
-    stroke: #bedbb0;
+    --color1: var(--button-bg-color);
   }
 `;

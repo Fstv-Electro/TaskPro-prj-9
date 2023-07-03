@@ -6,13 +6,11 @@ export const Container = styled.div`
     width: 302px;
     height: 522px;
     /* padding: 24px; */
-    background: #151515;
     border-radius: 8px;
 `;
 
 export const TitleForm = styled.h1`
     display: inline;
-    color: #ffffff;
     font-size: 18px;
     font-style: normal;
     font-weight: 500;
@@ -24,25 +22,26 @@ export const InputTitle = styled(Field)`
     width: 302px;
     height: 49px;
     margin-top: 24px;
+    background: transparent;
     padding: 14px 18px;
-    background: #1F1F1F;
+
     border-radius: 8px;
-    border: 1px solid rgba(190, 219, 176, 0.4);
-    color: #ffffff;
+    border: 1px solid var(--button-bg-color);
+    color: currentColor;
     box-shadow: 0px 4px 16px 0px rgba(22, 22, 22, 0.08);
 `;
 export const InputDescription = styled(Field)`
     width: 302px;
     height: 154px;
     margin-top: 14px;
+    background: transparent;
     padding: 14px 18px;
-    background: #1F1F1F;
     border-radius: 8px;
-    border: 1px solid rgba(190, 219, 176, 0.4);
+    border: 1px solid var(--button-bg-color);
     flex-shrink: 0;
     resize: none;
     box-shadow: 0px 4px 16px 0px rgba(22, 22, 22, 0.08);
-    color: #ffffff;
+    color: currentColor;
 `;
 
 export const TitleStatus = styled.div`

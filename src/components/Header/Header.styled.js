@@ -66,6 +66,8 @@ export const ThemeSelect = styled.div`
   padding: 10px 1px;
   opacity: 0.8;
 
+  --color1: currentColor;
+
   &:hover{
     text-shadow: 0 1px 4px var(--button-bg-color);
     transform: scale(1.1);
