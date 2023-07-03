@@ -111,6 +111,7 @@ export const Eye = styled.button`
 export const Icon = styled.svg`
   width: 18px;
   height: 18px;
+  --color1: var(--first-text-color);
 `;
 
 export const Label = styled.label`

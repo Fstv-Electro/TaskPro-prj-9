@@ -7,6 +7,8 @@ import { useMediaQuery } from 'react-responsive';
 import { DashboardHeader } from 'components/HeaderDashboard/HeaderDashboard';
 import { DashboardMain } from 'components/MainDashboard/MainDashboard';
 
+import { Container } from './ScreenPage.styled'
+
 export default function ScreenPage() {
   const [bgUrls, setBgUrls] = useState(null);
 
@@ -31,7 +33,7 @@ export default function ScreenPage() {
   const desktopScreen = useMediaQuery({ query: '(min-width: 1280px)' });
 
   return (
-    <div
+    <Container
       style={
         bgUrls
           ? mobileScreen
@@ -61,6 +63,6 @@ export default function ScreenPage() {
     >
       <DashboardHeader />
       <DashboardMain />
-    </div>
+    </Container>
   );
 }

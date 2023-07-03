@@ -34,7 +34,6 @@ export const ListColumns = ({ children }) => {
                     type="button"
                     width={334}
                     height="56"
-                    theme="Dark"
                     icon={true}
                     handleClick={toggleModal}
                   />
