@@ -19,7 +19,7 @@ export const Field = styled(FormicField)`
   padding-right: 18px;
   background-color: transparent;
   box-shadow: 0px 4px 16px 0px rgba(22, 22, 22, 0.08);
-
+  color: var(--first-text-color);
   border: 1px solid var(--button-bg-color);
   border-radius: 8px;
   opacity: 0.5;
@@ -28,7 +28,7 @@ export const Field = styled(FormicField)`
   font-family: Poppins;
   letter-spacing: -0.28px;
   &:focus {
-    outline-color: var(--button-bg-color);
+    outline: var(--button-bg-color);
     box-shadow: 0px 4px 16px 0px rgba(22, 22, 22, 0.08);
     opacity: 1;
   }
