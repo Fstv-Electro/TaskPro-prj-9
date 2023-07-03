@@ -46,7 +46,7 @@ export const Filter = ({ onClose }) => {
         <ButtonClose onClose={onClose} />
         <Title>Filters</Title>
         <Formik initialValues={initialValues}>
-          <Form onChange={handleChange}>
+          <Form autoComplete='off' onChange={handleChange}>
             <BackgroundWrapper>
               <Background />
             </BackgroundWrapper>
