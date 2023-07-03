@@ -9,7 +9,7 @@ import { Modal } from 'components/modal/modal';
 import { selectList, selectCurrentBoard } from 'redux/dashboards/selectors';
 import { useSelector } from 'react-redux';
 
-export const ListColumns = ({ children }) => {
+export const ListColumns = () => {
   const boardId = useSelector(selectCurrentBoard);
   const lists = useSelector(selectList);
   const [isOpen, setIsOpen] = useState(false);
