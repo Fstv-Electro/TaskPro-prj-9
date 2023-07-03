@@ -30,7 +30,7 @@ export const ListColumns = () => {
                 <Item key={_id}>
                   <ColumnItem item={{ _id, title }} />
                   {/*  */}
-                  <AddList tasks={tasks} />
+                  <AddList columnId={_id} />
                   {/*  */}
                   <SubmitButton
                     title="Add another card"

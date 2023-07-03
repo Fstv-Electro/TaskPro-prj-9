@@ -1,33 +1,48 @@
 import { ListItem } from 'components/listItem/listItem';
 import { useSelector } from 'react-redux';
-import {} from 'redux/dashboards/slice';
 import { selectFilter } from 'redux/dashboards/selectors';
+import { selectCard } from 'redux/dashboards/selectors';
 
-const AddList = ({ tasks }) => {
+const AddList = ({ columnId }) => {
   const filter = useSelector(selectFilter);
-
+  const tasks = useSelector(selectCard);
   // зробити юзселект до карток і додати перевірку відповідності до колонки
 
   let filteredList;
-  console.log(tasks);
-  if (tasks === undefined) {
-    return;
-  }
 
   if (filter === 'All') {
     filteredList = tasks;
-    console.log(filteredList);
   }
 
-  filteredList = tasks.filter(card => card.priority === filter.toLowerCase());
+  const checkFilterColumn = tasks.filter(card => {
+    return console.log(
+      card.parentColumn === columnId,
+      card.parentColumn,
+      columnId
+    );
+  });
+  console.log(checkFilterColumn);
+  filteredList = tasks
+    .filter(card => card.parentColumn === columnId)
+    .filter(card => card.priority === filter.toLowerCase());
+
+  if (tasks.length === 0) {
+    return;
+  }
 
   return (
     <ul>
-      {filteredList.map(card => (
-        <li key={card._id}>
-          <ListItem card={card} />
-        </li>
-      ))}
+      {filter === 'All'
+        ? tasks.map(card => (
+            <li key={card._id}>
+              <ListItem card={card} />
+            </li>
+          ))
+        : filteredList.map(card => (
+            <li key={card._id}>
+              <ListItem card={card} />
+            </li>
+          ))}
     </ul>
   );
 };
