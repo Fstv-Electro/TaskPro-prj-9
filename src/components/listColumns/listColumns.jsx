@@ -28,7 +28,7 @@ export const ListColumns = () => {
                 <Item key={_id}>
                   <ColumnItem item={{ _id, title }} />
                   {/*  */}
-                  <AddList tasks={tasks} />
+                  <AddList tasks={tasks} id={_id} />
                   {/*  */}
                   <SubmitButton
                     title="Add another card"
@@ -41,7 +41,7 @@ export const ListColumns = () => {
                   {isOpen && (
                     <Modal
                       onClose={toggleModal}
-                      children={<AddCardForm onClose={toggleModal} id={_id} />}
+                      children={<AddCardForm onClose={toggleModal} columnId={_id} />}
                     />
                   )}
                 </Item>
