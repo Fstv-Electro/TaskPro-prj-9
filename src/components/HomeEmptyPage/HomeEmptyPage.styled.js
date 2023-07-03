@@ -7,12 +7,13 @@ export const Container = styled.div`
   text-align: center;
   width: 100%;
   height: 100%;
+  background-color: var(--main-bg-color);
 `;
 
 export const InfoText = styled.p`
   width: 486px;
   height: 72px;
-  color: rgba(255, 255, 255, 0.5);
+  color: var(--last-text-color);
   font-size: 14px;
   font-weight: 400;
   line-height: 18px;
@@ -27,7 +28,7 @@ export const InfoText = styled.p`
 `;
 
 export const AccentText = styled.span`
-  color: #bedbb0;
+  color: var(--button-bg-color);
   font-size: 14px;
   font-weight: 400;
   line-height: 18px;
