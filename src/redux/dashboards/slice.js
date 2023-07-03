@@ -52,6 +52,9 @@ const taskSlice = createSlice({
       console.log(action.payload);
       state.filteredCards = action.payload;
     },
+    getCards(state, action) {
+      state.cards = action.payload;
+    },
   },
   extraReducers: {
     [fetchBoards.pending](state) {
@@ -238,5 +241,5 @@ const taskSlice = createSlice({
 });
 
 export const taskReducer = taskSlice.reducer;
-export const { changeBg, changeCurrentBoard, setFilterCards } =
+export const { changeBg, changeCurrentBoard, setFilterCards, getCards } =
   taskSlice.actions;
