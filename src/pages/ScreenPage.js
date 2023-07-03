@@ -37,7 +37,14 @@ export default function ScreenPage() {
     <div
       style={
         bgUrls
-          ? mobileScreen
+          ? isRetina
+            ? {
+                backgroundImage: `url(${bgUrls.retinaURL})`,
+                backgroundRepeat: 'no-repeat',
+                backgroundSize: 'cover',
+                height: 'calc(100vh - 24px)',
+              }
+            : mobileScreen
             ? {
                 backgroundImage: `url(${bgUrls.mobileURL})`,
                 backgroundRepeat: 'no-repeat',
@@ -47,13 +54,6 @@ export default function ScreenPage() {
             : tabletScreen
             ? {
                 backgroundImage: `url(${bgUrls.tabletURL})`,
-                backgroundRepeat: 'no-repeat',
-                backgroundSize: 'cover',
-                height: 'calc(100vh - 24px)',
-              }
-            : isRetina
-            ? {
-                backgroundImage: `url(${bgUrls.retinaURL})`,
                 backgroundRepeat: 'no-repeat',
                 backgroundSize: 'cover',
                 height: 'calc(100vh - 24px)',
