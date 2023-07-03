@@ -181,9 +181,7 @@ export const fetchColumns = createAsyncThunk(
   'tasks/fetchColumns',
   async (id, thunkAPI) => {
     try {
-      console.log(id);
       const response = await axios.get(`/api/columns/${id}`);
-      console.log(response.data);
       return response.data;
     } catch (e) {
       return thunkAPI.rejectWithValue(e.message);

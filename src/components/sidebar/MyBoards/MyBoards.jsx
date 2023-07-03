@@ -22,7 +22,6 @@ export const MyBoards = (desk, id) => {
   const [isOpen, setIsOpen] = useState(false);
   const [typeModal, setTypeModal] = useState('');
   const dispatch = useDispatch();
-  console.log(desk.id);
 
   if (desk.desk === undefined) {
     return;

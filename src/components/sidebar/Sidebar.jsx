@@ -34,9 +34,6 @@ export const Sidebar = () => {
     selectBoards
   );
 
-
-  console.log(selectBoards);
-
   const handleToggleSidebar = () => {
     setIsOpen(prevState => !prevState);
   };
