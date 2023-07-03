@@ -81,7 +81,7 @@ export const IconMenu = styled.svg`
   display: none;
   cursor: pointer;
   transition: all 1s;
-  --color1: currentColor;
+  --color1: var(--first-text-color);
 
   &:active {
     opacity: 0;

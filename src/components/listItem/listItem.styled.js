@@ -3,7 +3,7 @@ import styled from '@emotion/styled';
 export const Container = styled.div`
     max-width: 335px;
     border-radius: 8px;
-    background: #121212;
+    background: var(--main-last-bg-color);
     padding: 14px 21px 14px 24px;
 `;
 

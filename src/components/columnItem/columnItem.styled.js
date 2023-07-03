@@ -9,7 +9,7 @@ export const Container = styled.div`
   padding: 0 20px;
   border: 0;
   border-radius: 8px;
-  background: #121212;
+  background: var(--main-last-bg-color);
 
   @media (min-width: 320px) and (max-width: 375px) {
     width: 100%;
@@ -17,7 +17,6 @@ export const Container = styled.div`
 `;
 
 export const Title = styled.p`
-  color: #ffffff;
   font-size: 14px;
   font-family: Poppins;
   font-weight: 500;
@@ -47,7 +46,7 @@ export const BtnContainer = styled.div`
 export const IconEdit = styled.svg`
   width: 16px;
   height: 16px;
-  color: rgba(255, 255, 255, 0.5);
+  color: var(--last-text-color);
   transition: color 350ms cubic-bezier(0.4, 0, 0.2, 1);
 
   &:hover,
@@ -59,11 +58,11 @@ export const IconEdit = styled.svg`
 export const IconDelete = styled.svg`
   width: 16px;
   height: 16px;
-  color: rgba(255, 255, 255, 0.5);
+  color: var(--last-text-color);
   transition: color 350ms cubic-bezier(0.4, 0, 0.2, 1);
 
   &:hover,
   &:focus {
-    color: tomato;
+    color: var(--button-bg-color);
   }
 `;

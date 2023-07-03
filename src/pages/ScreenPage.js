@@ -7,6 +7,8 @@ import { useMediaQuery } from 'react-responsive';
 import { DashboardHeader } from 'components/HeaderDashboard/HeaderDashboard';
 import { DashboardMain } from 'components/MainDashboard/MainDashboard';
 
+import { Container } from './ScreenPage.styled'
+
 export default function ScreenPage() {
   const [bgUrls, setBgUrls] = useState(null);
 
@@ -34,7 +36,7 @@ export default function ScreenPage() {
   const isRetina = useMediaQuery({ query: '(min-resolution: 2dppx)' });
 
   return (
-    <div
+    <Container
       style={
         bgUrls
           ? isRetina
@@ -83,6 +85,6 @@ export default function ScreenPage() {
     >
       <DashboardHeader />
       <DashboardMain />
-    </div>
+    </Container>
   );
 }
