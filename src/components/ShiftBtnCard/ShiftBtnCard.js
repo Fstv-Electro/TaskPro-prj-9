@@ -27,9 +27,15 @@ const ShiftBtnCard = ({ id }) => {
 
   const handleColumnChange = e => {
     const nextColumnId = e.target.dataset.id;
-    const currCard = cards.filter(item => item.id === id);
+    const currCard = cards.filter(item => item._id === id);
     setCurrentColumn(e.target.value);
-    dispatch(shiftCard(id, currCard, nextColumnId));
+    dispatch(
+      shiftCard({
+        prevCardId: id,
+        card: currCard[0],
+        newColumnId: nextColumnId,
+      })
+    );
   };
 
   return (
