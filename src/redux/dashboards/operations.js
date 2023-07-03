@@ -209,11 +209,19 @@ export const deleteBoard = createAsyncThunk(
 
 export const shiftCard = createAsyncThunk(
   'tasks/shiftTask',
-  async (prevCardId, card, newColumnId, thunkAPI) => {
+  async (values, thunkAPI) => {
+    const { prevCardId, card, newColumnId } = values;
     try {
       await axios.delete(`/api/tasks/${prevCardId}`);
 
       const { title, description, priority, deadline } = card;
+      console.log({
+        title,
+        parentColumn: newColumnId,
+        description,
+        priority,
+        deadline,
+      });
       const resPost = await axios.post(`/api/tasks`, {
         title,
         parentColumn: newColumnId,
