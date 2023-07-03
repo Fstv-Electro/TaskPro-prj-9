@@ -16,6 +16,7 @@ const AddList = ({ tasks }) => {
 
   if (filter === 'All') {
     filteredList = tasks;
+    console.log(filteredList);
   }
 
   filteredList = tasks.filter(card => card.priority === filter.toLowerCase());

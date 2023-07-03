@@ -22,6 +22,7 @@ export const Filter = ({ onClose }) => {
   const dispatch = useDispatch();
   const cards = useSelector(selectCard);
   let setBg;
+  console.log(setBg);
 
   const initialValues = {
     currentBg: 0,
