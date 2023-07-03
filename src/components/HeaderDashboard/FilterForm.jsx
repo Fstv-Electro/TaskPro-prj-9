@@ -21,7 +21,6 @@ import { selectCard } from 'redux/dashboards/selectors';
 export const Filter = ({ onClose }) => {
   const dispatch = useDispatch();
   const cards = useSelector(selectCard);
-  console.log(cards);
 
   const initialValues = {
     currentBg: 0,
@@ -30,7 +29,7 @@ export const Filter = ({ onClose }) => {
 
   function handleChange(evt) {
     const filter = evt.target.value;
-    const filteredCards = cards.filter(card => card.priority === filter);
+    const filteredCards = cards.filter(card => card.priority.toString() === filter.toLowerCase().toString());
     dispatch(setFilterCards(filteredCards));
     dispatch(setFilter(filter));
   }
