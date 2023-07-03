@@ -25,15 +25,7 @@ export const TitleDashBoard = styled.p`
     font-size: 18px;
     font-weight: 500;
     letter-spacing: -0.36px;
-    color: #FFF;
     margin: 0;
-`;
-
-export const TitleFilter = styled.p`
-    font-size: 14px;
-    font-weight: 500;
-    letter-spacing: -0.28px;
-    color: rgba(255, 255, 255, 0.80);
 `;
 
 export const FilterButton = styled.button`
@@ -44,4 +36,15 @@ export const FilterButton = styled.button`
     background-color: transparent;
     border: none;
     outline: none;
+    opacity: 0.8;
+    --color1: var(--first-text-color);
+    cursor: pointer;
 `;
+
+export const TitleFilter = styled.p`
+    font-size: 14px;
+    font-weight: 500;
+    letter-spacing: -0.28px;
+    color: var(--first-text-color);
+`;
+
