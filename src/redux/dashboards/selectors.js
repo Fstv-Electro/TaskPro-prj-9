@@ -14,4 +14,8 @@ export const selectError = state => state.task.error;
 export const selectBackgroundUrl = state => state.task.bgUrl;
 
 export const selectCurrentBoard = state => state.task.currentBoard;
+
+export const selectFilteredCards = state => state.task.filteredCards;
+
+export const selectFilter = state => state.task.filter;
 // task

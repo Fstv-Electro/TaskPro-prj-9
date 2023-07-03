@@ -34,7 +34,7 @@ const initialState = {
   replyEmail: '',
   comment: '',
   bgUrl: [],
-  filter: 'Without priority',
+  filter: 'All',
   filteredCards: [],
 };
 
