@@ -53,7 +53,9 @@ const taskSlice = createSlice({
       state.filteredCards = action.payload;
     },
     getCards(state, action) {
-      state.cards = action.payload;
+      action.payload.map(task => {
+        return state.cards.push(task);
+      });
     },
   },
   extraReducers: {
