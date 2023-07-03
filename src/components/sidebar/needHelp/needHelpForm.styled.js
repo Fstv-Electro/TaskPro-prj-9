@@ -23,6 +23,10 @@ export const Field = styled(FormicField)`
     opacity: 0.4000000059604645;
     color: var(--first-text-color);
     background-color: transparent; 
+    outline: none;
+    &:focus {
+      opacity: 1;
+    }
  
 `;
 
@@ -38,5 +42,9 @@ export const Textarea = styled(FormicField)`
     opacity: 0.4000000059604645;
     color: var(--first-text-color);
     background-color: transparent;
+    outline: none;
+    &:focus {
+      opacity: 1;
+    }
 
 `;
