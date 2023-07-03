@@ -1,5 +1,6 @@
 import { AddColumn } from 'components/addColumn/addColumn';
 import { ColumnItem } from 'components/columnItem/columnItem';
+import AddList from 'components/AddList/AddList';
 import SubmitButton from '../submitButton/submitButton';
 import { Container, List, Item } from './listColumns.styled';
 import { useState } from 'react';
@@ -22,12 +23,12 @@ export const ListColumns = ({ children }) => {
       <Container>
         {lists.length > 0 && (
           <List>
-            {lists.map(({ _id, title }) => {
+            {lists.map(({ _id, title, tasks }) => {
               return (
                 <Item key={_id}>
                   <ColumnItem item={{ _id, title }} />
                   {/*  */}
-                  <div>{children}</div>
+                  <AddList tasks={tasks} />
                   {/*  */}
                   <SubmitButton
                     title="Add another card"
