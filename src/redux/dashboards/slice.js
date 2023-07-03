@@ -194,6 +194,10 @@ const taskSlice = createSlice({
       state.error = false;
       state.isLoading = false;
       state.lists = action.payload;
+      const data = action.payload;
+      data.forEach(item => {
+        state.cards.push(...item.tasks);
+      });
     },
     [editBoard.pending](state, action) {
       state.isLoading = true;
