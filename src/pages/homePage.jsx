@@ -8,7 +8,6 @@ const styles = {
     display: 'flex',
     flexDirection: 'row',
     backgroundColor: '#1F1F1F',
-    height: '100vh ',
   },
   deskMenu: {
     margin: 0,
@@ -25,7 +24,7 @@ export default function Home() {
   return (
     <div style={styles.container}>
       <Sidebar />
-        {!hasAdditionalPath ? (
+      {!hasAdditionalPath ? (
         <div style={styles.deskMenu}>
           <Header />
           <EmptyPage />
