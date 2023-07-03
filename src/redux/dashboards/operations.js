@@ -220,7 +220,7 @@ export const shiftCard = createAsyncThunk(
       await axios.delete(`/api/tasks/${prevCardId}`);
 
       const { title, description, priority, deadline } = card;
-      const resPost = await axios.post(`/api/tasks/${newColumnId}`, {
+      const resPost = await axios.post(`/api/tasks`, {
         title,
         parentColumn: newColumnId,
         description,
