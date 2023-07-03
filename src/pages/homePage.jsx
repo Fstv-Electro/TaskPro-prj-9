@@ -10,7 +10,7 @@ const styles = {
     display: 'flex',
     flexDirection: 'row',
     backgroundColor: '#1F1F1F',
-    height: 'calc(100vh - 24px)',
+    height: '100vh ',
   },
   deskMenu: {
     margin: 0,
@@ -26,17 +26,17 @@ export default function Home() {
   return (
     <div style={styles.container}>
       <Sidebar />
-        {boards.length === 0 ? (
+      {boards.length === 0 ? (
         <div style={styles.deskMenu}>
           <Header />
           <EmptyPage />
         </div>
-        ) : ( 
-          <div style={styles.deskMenu}>
-            <Header />
-            <Outlet />
-          </div>
-        )}
+      ) : (
+        <div style={styles.deskMenu}>
+          <Header />
+          <Outlet />
+        </div>
+      )}
     </div>
   );
 }
