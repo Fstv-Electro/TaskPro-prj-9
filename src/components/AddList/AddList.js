@@ -12,11 +12,12 @@ const AddList = ({ tasks }) => {
 
   return (
     <ul>
-      {tasks.map(card => (
-        <li key={card._id}>
-          <ListItem card={card} />
-        </li>
-      ))}
+      {tasks.length > 0 &&
+        tasks.map(card => (
+          <li key={card._id}>
+            <ListItem card={card} />
+          </li>
+        ))}
     </ul>
   );
 };
