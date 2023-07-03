@@ -91,18 +91,18 @@ export const deleteColumn = createAsyncThunk(
   }
 );
 
-export const setFilter = createAsyncThunk(
-  'columns/setFilter',
-  async (filter, thunkAPI) => {
-    try {
-      console.log(filter);
+// export const setFilter = createAsyncThunk(
+//   'columns/setFilter',
+//   async (filter, thunkAPI) => {
+//     try {
+//       console.log(filter);
 
-      return filter;
-    } catch (error) {
-      return thunkAPI.rejectWithValue(error.message);
-    }
-  }
-);
+//       return filter;
+//     } catch (error) {
+//       return thunkAPI.rejectWithValue(error.message);
+//     }
+//   }
+// );
 
 export const addTask = createAsyncThunk(
   'tasks/addTask',

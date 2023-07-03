@@ -1,3 +1,5 @@
+import { statusFilters } from './constants';
+
 // task
 export const selectBoard = state => state.task.boards;
 
@@ -17,5 +19,25 @@ export const selectCurrentBoard = state => state.task.currentBoard;
 
 export const selectFilteredCards = state => state.task.filteredCards;
 
-export const selectFilter = state => state.task.filter;
+// export const selectFilter = state => state.task.filter;
 // task
+
+export const selectVisibleCards = state => {
+  const tasks = selectCard(state);
+  const statusFilter = selectFilteredCards(state);
+
+  //   console.log(tasks);
+
+  switch (statusFilter) {
+    case statusFilters.low:
+      return tasks.filter(task => task.priority === 'low');
+    case statusFilters.medium:
+      return tasks.filter(task => task.priority === 'medium');
+    case statusFilters.high:
+      return tasks.filter(task => task.priority === 'high');
+    case statusFilters.without:
+      return tasks.filter(task => task.priority === 'without');
+    default:
+      return tasks;
+  }
+};

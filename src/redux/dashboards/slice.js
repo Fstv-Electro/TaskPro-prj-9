@@ -4,7 +4,6 @@ import {
   deleteColumn,
   editColumn,
   fetchBoards,
-  setFilter,
   addBoard,
   deleteCard,
   addTask,
@@ -14,6 +13,7 @@ import {
   needHelp,
   backgroundUrl,
 } from './operations';
+import { statusFilters } from './constants';
 
 // const handlePending = state => {
 //   state.isLoading = true;
@@ -35,8 +35,7 @@ const initialState = {
   replyEmail: '',
   comment: '',
   bgUrl: [],
-  filter: 'All',
-  filteredCards: [],
+  filteredCards: statusFilters.all,
 };
 
 const taskSlice = createSlice({
@@ -50,7 +49,7 @@ const taskSlice = createSlice({
       state.currentBoard = action.payload;
     },
     setFilterCards(state, action) {
-      console.log(action.payload);
+      console.log(action.payload); // видалити
       state.filteredCards = action.payload;
     },
     getCards(state, action) {
@@ -132,17 +131,19 @@ const taskSlice = createSlice({
     [deleteColumn.fulfilled](state, action) {
       state.isLoading = false;
       state.error = null;
+      console.log(state.lists);
       const index = state.lists.findIndex(
-        column => column._id === action.payload.id
+        column => column._id === action.payload._id
       );
       state.lists.splice(index, 1);
+      // state.lists = [
+      //   ...state.lists.filter(column => column._id !== action.payload._id),
+      // ];
+      console.log(state.lists);
     },
     [deleteColumn.rejected](state, action) {
       state.isLoading = false;
       state.error = true;
-    },
-    [setFilter.fulfilled](state, action) {
-      state.filter = action.payload;
     },
     [addTask.pending](state, action) {
       state.isLoading = true;
@@ -174,7 +175,7 @@ const taskSlice = createSlice({
       state.isLoading = false;
       state.error = null;
       const index = state.cards.findIndex(
-        card => card.id === action.payload.id
+        card => card._id === action.payload._id
       );
       state.cards.splice(index, 1);
     },
@@ -194,6 +195,7 @@ const taskSlice = createSlice({
       state.error = false;
       state.isLoading = false;
       state.lists = action.payload;
+      state.cards = [];
       const data = action.payload;
       data.forEach(item => {
         state.cards.push(...item.tasks);
@@ -207,7 +209,7 @@ const taskSlice = createSlice({
       state.isLoading = false;
       state.error = null;
       const index = state.boards.findIndex(
-        board => board.id === action.payload.id
+        board => board._id === action.payload._id
       );
       state.boards[index] = action.payload;
     },
@@ -223,7 +225,7 @@ const taskSlice = createSlice({
       state.isLoading = false;
       state.error = null;
       const index = state.boards.findIndex(
-        board => board.id === action.payload.id
+        board => board._id === action.payload._id
       );
       state.boards.splice(index, 1);
     },
