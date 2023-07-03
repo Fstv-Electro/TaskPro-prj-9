@@ -13,13 +13,15 @@ import {
   Label,
   Field,
 } from './FitlerForm.styled';
-import { setFilter, setFilterCards } from 'redux/dashboards/operations';
+import { setFilter } from 'redux/dashboards/operations';
+import { setFilterCards } from 'redux/dashboards/slice';
 import { Background } from 'components/background/Background';
 import { selectCard } from 'redux/dashboards/selectors';
 
 export const Filter = ({ onClose }) => {
   const dispatch = useDispatch();
   const cards = useSelector(selectCard);
+  console.log(cards);
 
   const initialValues = {
     currentBg: 0,
@@ -28,7 +30,7 @@ export const Filter = ({ onClose }) => {
 
   function handleChange(evt) {
     const filter = evt.target.value;
-    const filteredCards = cards.filter(card => card.filter === filter);
+    const filteredCards = cards.filter(card => card.priority === filter);
     dispatch(setFilterCards(filteredCards));
     dispatch(setFilter(filter));
   }
@@ -44,7 +46,7 @@ export const Filter = ({ onClose }) => {
         <ButtonClose onClose={onClose} />
         <Title>Filters</Title>
         <Formik initialValues={initialValues}>
-          <Form autocomplete="off" onChange={handleChange}>
+          <Form onChange={handleChange}>
             <BackgroundWrapper>
               <Background />
             </BackgroundWrapper>

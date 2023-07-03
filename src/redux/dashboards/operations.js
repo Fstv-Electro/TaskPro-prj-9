@@ -104,19 +104,6 @@ export const setFilter = createAsyncThunk(
   }
 );
 
-export const setFilterCards = createAsyncThunk(
-  'columns/setFilter',
-  async (filteredCards, thunkAPI) => {
-    try {
-      console.log(filteredCards);
-
-      return filteredCards;
-    } catch (error) {
-      return thunkAPI.rejectWithValue(error.message);
-    }
-  }
-);
-
 export const addTask = createAsyncThunk(
   'tasks/addTask',
   async (values, thunkAPI) => {

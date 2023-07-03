@@ -5,7 +5,6 @@ import {
   editColumn,
   fetchBoards,
   setFilter,
-  setFilterCards,
   addBoard,
   deleteCard,
   addTask,
@@ -48,6 +47,10 @@ const taskSlice = createSlice({
     },
     changeCurrentBoard(state, action) {
       state.currentBoard = action.payload;
+    },
+    setFilterCards(state, action) {
+      console.log(action.payload);
+      state.filteredCards = action.payload;
     },
   },
   extraReducers: {
@@ -134,10 +137,6 @@ const taskSlice = createSlice({
     },
     [setFilter.fulfilled](state, action) {
       state.filter = action.payload;
-    },
-    [setFilterCards.fulfilled](state, action) {
-      console.log(action.payload);
-      state.filteredCards = action.payload;
     },
     [addTask.pending](state, action) {
       state.isLoading = true;
@@ -239,4 +238,5 @@ const taskSlice = createSlice({
 });
 
 export const taskReducer = taskSlice.reducer;
-export const { changeBg, changeCurrentBoard } = taskSlice.actions;
+export const { changeBg, changeCurrentBoard, setFilterCards } =
+  taskSlice.actions;
