@@ -34,7 +34,7 @@ const initialState = {
   replyEmail: '',
   comment: '',
   bgUrl: [],
-  filter: 'Without priority',
+  filter: 'All',
   filteredCards: [],
 };
 
@@ -104,11 +104,11 @@ const taskSlice = createSlice({
       state.error = null;
       state.lists.push(action.payload);
     },
-    [addColumn.rejected](state, action) {
+    [addColumn.rejected](state) {
       state.isLoading = false;
       state.error = true;
     },
-    [editColumn.pending](state, action) {
+    [editColumn.pending](state) {
       state.isLoading = true;
       state.error = false;
     },
