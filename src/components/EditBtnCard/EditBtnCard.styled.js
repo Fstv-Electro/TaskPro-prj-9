@@ -2,9 +2,9 @@ import styled from '@emotion/styled';
 
 export const Btn = styled.button`
   display: flex;
+  padding: 0;
   justify-content: center;
   align-items: center;
-  padding: 0;
   flex-shrink: 0;
   background-color: transparent;
   border: transparent;
@@ -19,7 +19,7 @@ export const Btn = styled.button`
   }
 `;
 
-export const IconDelete = styled.svg`
+export const Icon = styled.svg`
   width: 16px;
   height: 16px;
   stroke: currentColor;

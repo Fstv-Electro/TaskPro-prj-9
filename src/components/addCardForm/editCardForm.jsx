@@ -20,7 +20,7 @@ import {
     CalendarShow,
     IconPlus,
     SubmitButton
-} from "../addCard/addCard.styled";
+} from "./addCardForm.styled";
 
 const initialValues = {
   title: "",
