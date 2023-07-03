@@ -8,7 +8,7 @@ export const Btn = styled.button`
   background-color: transparent;
   border: transparent;
   border-radius: 50%;
-  color: #000000;
+  color: #ffffff;
   cursor: pointer;
 `;
 
