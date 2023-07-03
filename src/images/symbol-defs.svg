@@ -349,8 +349,8 @@
       />
 </symbol>
 <symbol id="icon-plus-add" viewBox="0 0 32 32">
-<path fill="current"  d="M25.143 0h-18.286c-3.787 0-6.857 3.070-6.857 6.857v0 18.286c0 3.787 3.070 6.857 6.857 6.857v0h18.286c3.787 0 6.857-3.070 6.857-6.857v0-18.286c0-3.787-3.070-6.857-6.857-6.857v0z"></path>
-<path fill="none" stroke="currentColor" stroke-linejoin="round" stroke-linecap="round" stroke-miterlimit="4" stroke-width="1.1429" d="M16 11.334v9.333M11.334 16h9.333"></path>
+<path style="fill: var(--color1, current)"  d="M25.143 0h-18.286c-3.787 0-6.857 3.070-6.857 6.857v0 18.286c0 3.787 3.070 6.857 6.857 6.857v0h18.286c3.787 0 6.857-3.070 6.857-6.857v0-18.286c0-3.787-3.070-6.857-6.857-6.857v0z"></path>
+<path fill="none" style="stroke: var(--color2, currentColor)" stroke-linejoin="round" stroke-linecap="round" stroke-miterlimit="4" stroke-width="1.1429" d="M16 11.334v9.333M11.334 16h9.333"></path>
 </symbol>
 <symbol id="icon-user" viewBox="0 0 32 32">
       <path  style="fill: var(--color1, #1f1f1f)" d="M3.765 0h24.471c2.079 0 3.765 1.686 3.765 3.765v24.471c0 2.079-1.686 3.765-3.765 3.765h-24.471c-2.079 0-3.765-1.686-3.765-3.765v-24.471c0-2.079 1.686-3.765 3.765-3.765z"></path>
