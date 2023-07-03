@@ -37,10 +37,21 @@ export const Button = styled.button`
   border: none;
   color: currentColor;
   background: var(--sidebar-second-bg-color);
+  cursor: pointer;
+
+      :hover {
+        color: var(--button-bg-color);
+        svg {
+          --color1: var(--button-bg-color);
+        }
+        
+      }
     
   @media (min-width: 768px) {
       font-size: 14px;
     }
+
+    
 `;
 export const Image = styled.img`
   width: 54px;
@@ -49,14 +60,9 @@ export const Image = styled.img`
 `;
 export const TextButton = styled.span`
   margin-left: 8px;
-  :hover {
-    color: var(--button-bg-color);
-  }
+  
 `;
 
 export const Svg = styled.svg`
   --color1: var(--bord-list-color);
-  :hover {
-    stroke: var(--button-bg-color);
-  }
 `;

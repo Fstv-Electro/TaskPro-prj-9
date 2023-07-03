@@ -9,18 +9,27 @@ export const NavItem = styled(NavLink)`
   justify-content: space-between;
   min-width: 260px;
   height: 100%;
-  background-color: #121212;
+  text-decoration: none;
+
   &.active {
-    background-color: #1f1f1f;
+    background-color: var(--sidebar-active-bg-color);
     outline: none;
-    width: 100%;
+    width: calc(100% + 24px);
+    padding-left: 24px;
+    margin-left: -24px;
+
+      @media (max-width: 768px) {
+        width: calc(100% + 14px);
+        padding-left: 14px;
+        margin-left: -14px;
+      }
     &:after {
       content: '';
       display: flex;
       position: absolute;
       right: 0;
       border-radius: 4px 0px 0px 4px;
-      background: #bedbb0;
+      background: var(--sidebar-bg-icon-logout-color);
       width: 4px;
       height: 61px;
     }
@@ -41,15 +50,14 @@ export const Item = styled.li`
   justify-content: space-between;
   height: 61px;
   width: 100%;
-  background-color: #1f1f1f;
   margin-bottom: 4px;
-  color: #fff;
+
 `;
 
 export const WrapperProjectOffice = styled.button`
   display: flex;
   align-items: center;
-  color: #fff;
+  color: var(--bord-list-color);
   border: none;
   background: none;
   cursor: pointer;

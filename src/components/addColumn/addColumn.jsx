@@ -19,7 +19,6 @@ export const AddColumn = ({ boardId, numberOfColumns = null }) => {
         type="button"
         width="334"
         height="56"
-        theme="Dark"
         icon={true}
         addColumn={true}
         handleClick={toggleModal}

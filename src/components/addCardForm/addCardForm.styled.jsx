@@ -47,7 +47,7 @@ export const InputDescription = styled(Field)`
 export const TitleStatus = styled.div`
     margin-top: 24px;
     margin-bottom: 4px;
-    color: rgba(255, 255, 255, 0.50);
+    color: var(--last-text-color);
     font-size: 12px;
     font-style: normal;
     font-weight: 400;
@@ -109,7 +109,7 @@ export const ColorStatus = styled.div(props =>
 
 export const TitleDeadline = styled.p`
     margin-top: 14px;
-    color: rgba(255, 255, 255, 0.50);
+    color: var(--last-text-color);
     font-size: 12px;
     letter-spacing: -0.24px;
 `;
@@ -117,7 +117,7 @@ export const TitleDeadline = styled.p`
 export const CalendarShow = styled.div`
     display: flex;
     align-items: center;
-    color: #BEDBB0;
+    color: var(--button-bg-color);
     font-size: 14px
     font-weight: 500;
     margin-top: 4px;
@@ -132,7 +132,7 @@ export const SubmitButton = styled.button`
     width: 302px;
     height: 49px;
     border-radius: 8%;
-    background: #BEDBB0;
+    background: var(--button-bg-color);
     color: #161616;
     font-size: 14px;
     font-weight: 500;
@@ -145,6 +145,4 @@ export const IconPlus = styled.svg`
   height: 28px;
   flex-shrink: 0;
   margin-right: 8px;
-  fill: #000000;
-  color: #ffffff;
-`;
+`

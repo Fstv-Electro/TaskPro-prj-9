@@ -9,7 +9,6 @@ export const Title = styled.h2`
   font-size: 18px;
   font-family: 'Poppins';
   font-weight: 500;
-
   margin-top: 0;
 `;
 
@@ -36,7 +35,7 @@ export const Text = styled.p`
 `;
 
 export const Button = styled.button`
-  color: rgba(255, 255, 255, 0.5);
+  color: var(--last-text-color);
   font-size: 12px;
   font-family: 'Poppins';
   font-weight: 400;
@@ -60,8 +59,7 @@ export const Label = styled.label`
   align-items: center;
   gap: 8px;
   cursor: pointer;
-
-  color: rgba(255, 255, 255, 0.5);
+  color: var(--last-text-color);
   font-size: 12px;
   font-family: 'Poppins';
   font-weight: 400;
@@ -71,6 +69,7 @@ export const Label = styled.label`
 export const Field = styled(FormicField)`
   width: 14px;
   height: 14px;
+  background-color: transparent;
 
   display: grid;
   place-content: center;

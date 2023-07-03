@@ -17,20 +17,20 @@ export const Field = styled(FormicField)`
   height: 47px;
   padding-left: 18px;
   padding-right: 18px;
-  background-color: #1f1f1f;
+  background-color: transparent;
   box-shadow: 0px 4px 16px 0px rgba(22, 22, 22, 0.08);
 
-  border: 1px solid rgba(190, 219, 176, 0.5);
-  border-color: rgba(190, 219, 176, 0.5);
+  border: 1px solid var(--button-bg-color);
   border-radius: 8px;
+  opacity: 0.5;
 
-  color: #fff;
   font-size: 14px;
   font-family: Poppins;
   letter-spacing: -0.28px;
   &:focus {
-    outline-color: #bedbb0;
+    outline-color: var(--button-bg-color);
     box-shadow: 0px 4px 16px 0px rgba(22, 22, 22, 0.08);
+    opacity: 1;
   }
 `;
 
@@ -52,7 +52,6 @@ export const Form = styled(FormicForm)`
 export const Title = styled.h2`
   margin-bottom: 24px;
 
-  color: #fff;
   font-size: 18px;
   font-family: Poppins;
   font-weight: 500;
