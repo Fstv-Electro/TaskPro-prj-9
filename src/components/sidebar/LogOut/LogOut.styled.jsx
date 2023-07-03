@@ -7,6 +7,10 @@ export const LogOutButton = styled.button`
   background: none;
   border: none;
   padding: 0;
+
+    svg {
+      --color2: var(--sidebar-bg-icon-logout-color);
+    }
 `;
 
 export const LogOutText = styled.span`
