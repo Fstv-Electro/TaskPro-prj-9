@@ -45,6 +45,7 @@ export const ButtonList = styled.ul`
 `;
 export const Button = styled.button`
   padding: 0;
+  color: #ffffff;
   background-color: transparent;
   border: none;
 `;
