@@ -33,8 +33,8 @@ export const Calendar = ({parentState}) => {
                 desktopPaper: {
                     sx: {
                       borderRadius: '8px',
-                      color: '#fff',
-                      backgroundColor: '#1F1F1F',
+                      color: 'var(--first-text-color)',
+                      backgroundColor: 'var(--main-last-bg-color)',
                       '& .MuiPickersCalendarHeader-labelContainer': {
                         position: 'absolute',
                         left: '50%',
@@ -47,11 +47,11 @@ export const Calendar = ({parentState}) => {
                         letterSpacing:'0.32px',
                       },
                       '& .MuiSvgIcon-root': {
-                        fill: '#fff',
+                        fill: 'var(--first-text-color)',
                       },
                       
                       '& .MuiTypography-root': {
-                        color: '#FFFFFF80',
+                        color: 'var(--last-text-color)',
                         height: '24px',
                         marginTop:'14px'
                       },
@@ -60,7 +60,7 @@ export const Calendar = ({parentState}) => {
                       },
                       
                       '& .MuiButtonBase-root': {
-                        color: '#fff',
+                        color: 'var(--first-text-color)',
                         margin: 0,
                         padding: 0,
                         fontSize: '14px',
@@ -81,7 +81,7 @@ export const Calendar = ({parentState}) => {
                         margin: '0',
                         borderBottomWidth: '2px',
                         borderBottomStyle: 'solid',
-                        borderColor: '#FFFFFF33',
+                        borderColor: 'var(--last-text-color)',
                       },
 
                       '& .MuiPickersArrowSwitcher-button': {
@@ -112,17 +112,17 @@ export const Calendar = ({parentState}) => {
                       fontSize: '14px',
                     
                         '&.MuiPickersDay-root.Mui-selected': {
-                            backgroundColor: '#BEDBB0',
-                            color: '#1F1F1F'
+                            backgroundColor: 'var(--button-bg-color)',
+                            color: 'var(--last-text-color)'
                           }, 
                       
                       '&.Mui-selected:hover': {
-                        backgroundColor: '#BEDBB0',
+                        backgroundColor: 'var(--button-bg-color)',
                       },
                       '&.MuiPickersDay-today': {
                         borderWidth: 1,
-                        borderColor: '#BEDBB0',
-                        color: '#ffffff'
+                        borderColor: 'var(--button-bg-color)',
+                        color: 'var(--first-text-color)'
                       },
                     }
                   },
