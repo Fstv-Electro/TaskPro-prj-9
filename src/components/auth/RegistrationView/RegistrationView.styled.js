@@ -30,14 +30,14 @@ export const UserForm = styled.div`
   display: flex;
   flex-direction: column;
 
-  width: 287px;
+  width: 335px;
   /* height: 395px; */
   padding: 24px;
   border-radius: 8px;
   background: #151515;
 
   @media screen and (min-width: 768px) {
-    width: 344px;
+    width: 424px;
     padding: 40px;
   }
 `;
@@ -80,6 +80,10 @@ export const FormFields = styled.label`
   display: flex;
   gap: 14px;
   flex-direction: column;
+  font-size: 14px;
+  font-family: Poppins;
+  font-style: normal;
+  font-weight: 400;
 `;
 
 export const Field = styled(FormicField)`
