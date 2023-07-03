@@ -29,6 +29,12 @@ export const InputTitle = styled(Field)`
     border: 1px solid var(--button-bg-color);
     color: currentColor;
     box-shadow: 0px 4px 16px 0px rgba(22, 22, 22, 0.08);
+    opacity: 0.4;
+    outline: none;
+
+        &:focus {
+            opacity: 1;
+        }
 `;
 export const InputDescription = styled(Field)`
     width: 302px;
@@ -42,6 +48,12 @@ export const InputDescription = styled(Field)`
     resize: none;
     box-shadow: 0px 4px 16px 0px rgba(22, 22, 22, 0.08);
     color: currentColor;
+    outline: none;
+    opacity: 0.4;
+
+        &:focus {
+            opacity: 1;
+        }
 `;
 
 export const TitleStatus = styled.div`
@@ -122,6 +134,8 @@ export const CalendarShow = styled.div`
     font-weight: 500;
     margin-top: 4px;
     letter-spacing: -0.28px;
+     
+    
 `;
 export const SubmitButton = styled.button`
     margin-top: 40px;
@@ -131,9 +145,10 @@ export const SubmitButton = styled.button`
     gap: 8px;
     width: 302px;
     height: 49px;
-    border-radius: 8%;
+    border-radius: 8px;
+    border: none;
     background: var(--button-bg-color);
-    color: #161616;
+    color: var(--color-icon-plus);
     font-size: 14px;
     font-weight: 500;
     line-height: normal;
@@ -145,4 +160,7 @@ export const IconPlus = styled.svg`
   height: 28px;
   flex-shrink: 0;
   margin-right: 8px;
+
+  --color1: var(--color-icon-plus);
+  --color2: var(--stroke--plus-icon);
 `

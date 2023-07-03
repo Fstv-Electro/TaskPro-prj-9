@@ -5,5 +5,5 @@ export const IconDown = styled.svg`
   height: 18px;
   flex-shrink: 0;
   margin: 0;
-  stroke: #BEDBB0;
+  --color1: var(--button-bg-color);
 `;

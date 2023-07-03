@@ -92,13 +92,13 @@ const handleSubmit = (values, actions) => {
                     name="title"
                     placeholder="Title"
                     />
-                    <ErrorMessage name="title"/>
+                    <ErrorMessage name="title" component="div"/>
                 <InputDescription 
                     type='text' 
                     name="description"
                     placeholder="Description"
                     as="textarea"/>
-                    <ErrorMessage name="description"/>
+                    <ErrorMessage name="description" component="div"/>
                     <TitleStatus id="taskStatusGroup">Label color</TitleStatus>
                     <BlockStatus role="group" aria-labelledby="taskStatusGroup">
                         <label style={{'--color':'#8FA1D0'}}>

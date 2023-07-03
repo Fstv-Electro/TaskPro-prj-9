@@ -56,6 +56,7 @@ export const GlobalStyles = () => {
 
           --main-bg-color: rgba(31, 31, 31, 1);
           --main-last-bg-color: rgba(18, 18, 18, 1);
+          --stroke--plus-icon: rgba(255, 255, 255, 1);
 
           --sidebar-first-bg-color: rgba(18, 18, 18, 1);
           --sidebar-second-bg-color: rgba(31, 31, 31, 1);
@@ -87,6 +88,7 @@ export const GlobalStyles = () => {
 
           --main-bg-color: rgba(246, 246, 247, 1);
           --main-last-bg-color: rgba(255, 255, 255, 1);
+          --stroke--plus-icon: rgba(255, 255, 255, 1);
 
           --sidebar-first-bg-color: rgba(255, 255, 255, 1);
           --sidebar-second-bg-color: rgba(246, 246, 247, 1);
@@ -119,6 +121,7 @@ export const GlobalStyles = () => {
 
           --main-bg-color: rgba(236, 237, 253, 1);
           --main-last-bg-color: rgba(255, 255, 255, 1);
+          --stroke--plus-icon: rgba(22, 22, 22, 1);
 
           --sidebar-first-bg-color: rgba(82, 85, 188, 1);
           --sidebar-second-bg-color: rgba(143, 146, 214, 1);
