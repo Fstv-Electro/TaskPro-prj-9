@@ -4,8 +4,6 @@ export const Container = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  /* width: 260px; */
-  height: 100vh;
   align-items: center;
   position: relative;
   margin: 0;

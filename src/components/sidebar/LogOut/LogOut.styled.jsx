@@ -7,10 +7,18 @@ export const LogOutButton = styled.button`
   background: none;
   border: none;
   padding: 0;
+  transform: scale(1);
+  transition: transform 550ms cubic-bezier(0.4, 0, 0.2, 1);
+  &:hover {
+    transform: scale(1.1);
+  }
+  &:focus {
+    transform: scale(1.1);
+  }
 
-    svg {
-      --color2: var(--sidebar-bg-icon-logout-color);
-    }
+  svg {
+    --color2: var(--sidebar-bg-icon-logout-color);
+  }
 `;
 
 export const LogOutText = styled.span`

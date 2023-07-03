@@ -1,6 +1,29 @@
 import styled from '@emotion/styled';
 import { NavLink } from 'react-router-dom';
 
+export const List = styled.div`
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  padding-left: 0;
+  margin: 0;
+  &:last-child {
+    margin-bottom: 40px;
+  }
+`;
+
+export const Item = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 61px;
+  width: 100%;
+
+  &:not(:last-child) {
+    margin-bottom: 4px;
+  }
+`;
+
 export const NavItem = styled(NavLink)`
   margin: 0;
   padding: 0;
@@ -10,6 +33,11 @@ export const NavItem = styled(NavLink)`
   min-width: 260px;
   height: 100%;
   text-decoration: none;
+  transition: border 550ms cubic-bezier(0.4, 0, 0.2, 1);
+  &:not(.active):hover {
+    border-bottom: 1px solid var(--sidebar-bg-icon-logout-color);
+    margin-bottom: -1px;
+  }
 
   &.active {
     background-color: var(--sidebar-active-bg-color);
@@ -18,11 +46,11 @@ export const NavItem = styled(NavLink)`
     padding-left: 24px;
     margin-left: -24px;
 
-      @media (max-width: 768px) {
-        width: calc(100% + 14px);
-        padding-left: 14px;
-        margin-left: -14px;
-      }
+    @media (max-width: 768px) {
+      width: calc(100% + 14px);
+      padding-left: 14px;
+      margin-left: -14px;
+    }
     &:after {
       content: '';
       display: flex;
@@ -36,24 +64,6 @@ export const NavItem = styled(NavLink)`
   }
 `;
 
-export const List = styled.ul`
-  display: flex;
-  flex-direction: column;
-  width: 100%;
-  padding-left: 0;
-  margin: 0;
-`;
-
-export const Item = styled.li`
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  height: 61px;
-  width: 100%;
-  margin-bottom: 4px;
-
-`;
-
 export const WrapperProjectOffice = styled.button`
   display: flex;
   align-items: center;
@@ -61,6 +71,7 @@ export const WrapperProjectOffice = styled.button`
   border: none;
   background: none;
   cursor: pointer;
+  width: 100%;
 `;
 
 export const Project = styled.p`
