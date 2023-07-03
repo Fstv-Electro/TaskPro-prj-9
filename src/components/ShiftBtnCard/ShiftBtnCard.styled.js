@@ -21,8 +21,8 @@ export const IconShift = styled.svg`
 
 export const ColumnList = styled.ul`
   position: absolute;
-  top: 26px;
-  left: -12px;
+  right: -45px;
+  top: -10%;
   display: grid;
   grid-template-columns: 1fr;
   grid-template-rows: repeat(3, 1fr);
