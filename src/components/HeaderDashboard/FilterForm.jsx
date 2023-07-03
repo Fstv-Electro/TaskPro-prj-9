@@ -21,6 +21,7 @@ import { selectCard } from 'redux/dashboards/selectors';
 export const Filter = ({ onClose }) => {
   const dispatch = useDispatch();
   const cards = useSelector(selectCard);
+  let setBg;
 
   const initialValues = {
     currentBg: 0,
@@ -33,6 +34,13 @@ export const Filter = ({ onClose }) => {
     dispatch(setFilterCards(filteredCards));
     dispatch(setFilter(filter));
   }
+
+  const getBg = currentBg => {
+      //await зробити діспатч(запит на зміну бекграунду дошки) може patch запит за /api/boards/{id}
+      // а потім змінити стейт currentBg
+    // чекаємо на бек
+      setBg = currentBg;
+  };
 
   function handleClick() {
     dispatch(setFilterCards(cards));
@@ -47,7 +55,7 @@ export const Filter = ({ onClose }) => {
         <Formik initialValues={initialValues}>
           <Form onChange={handleChange}>
             <BackgroundWrapper>
-              <Background />
+              <Background getBg={getBg} />
             </BackgroundWrapper>
             <LabelGroup role="group" aria-labelledby="my-radio-group">
               <Div>
