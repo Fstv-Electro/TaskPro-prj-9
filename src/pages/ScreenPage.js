@@ -7,7 +7,7 @@ import { useMediaQuery } from 'react-responsive';
 import { DashboardHeader } from 'components/HeaderDashboard/HeaderDashboard';
 import { DashboardMain } from 'components/MainDashboard/MainDashboard';
 
-import { Container } from './ScreenPage.styled'
+import { Container } from './ScreenPage.styled';
 
 export default function ScreenPage() {
   const [bgUrls, setBgUrls] = useState(null);

@@ -30,7 +30,6 @@ export const MyBoards = (desk, id) => {
   
   const getColumns = id => {
     dispatch(fetchColumns(id));
-    // dispatch(fetchTasks());
     dispatch(changeBg(desk.desk.currentBg));
     dispatch(changeCurrentBoard(id));
   };

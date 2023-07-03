@@ -11,9 +11,10 @@ import {
   fetchColumns,
   editBoard,
   deleteBoard,
+  needHelp,
+  backgroundUrl,
 } from './operations';
-import { needHelp } from './operations';
-import { backgroundUrl } from './operations';
+
 // const handlePending = state => {
 //   state.isLoading = true;
 // };

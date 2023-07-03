@@ -18,6 +18,8 @@ export const ListColumns = () => {
     setIsOpen(isOpen => !isOpen);
   };
 
+  console.log(lists);
+
   return (
     <>
       <Container>

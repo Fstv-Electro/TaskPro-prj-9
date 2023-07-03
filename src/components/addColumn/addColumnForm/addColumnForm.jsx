@@ -11,7 +11,7 @@ import {
 } from './addColumnForm.styled';
 import SubmitButton from '../../submitButton/submitButton';
 import { useDispatch } from 'react-redux';
-import { addColumn } from 'redux/dashboards/operations';
+import { addColumn} from 'redux/dashboards/operations';
 
 const initialValues = {
   title: '',
@@ -40,7 +40,6 @@ export const AddColumnForm = ({ id, onClose }) => {
       parentBoard: id,
       ...values,
     });
-
     onClose();
   };
 
