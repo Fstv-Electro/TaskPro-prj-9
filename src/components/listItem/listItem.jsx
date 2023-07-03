@@ -1,12 +1,12 @@
-import { Container, Title, Text, Tools, ToolsTitle, ToolsText, ButtonList, Button } from "./listItem.styled";
-import sprite from "../../images/symbol-defs.svg";
+import { Container, Title, Text, Tools, ToolsTitle, ToolsText, ButtonList, Span } from "./listItem.styled";
 import ShiftBtnCard from "components/ShiftBtnCard/ShiftBtnCard";
 import DeleteBtnCard from "components/DeleteBtnCard/DeleteBtnCard";
+import EditBtnCard from "components/EditBtnCard/EditBtnCard";
 
 export const ListItem = ({ card: { _id, title, priority, description, deadline } }) => {
 
   return (
-    <Container>
+    <Container priority={priority}>
       <Title>{title}</Title> 
       <Text>{description}</Text>
       <Tools> 
@@ -14,7 +14,7 @@ export const ListItem = ({ card: { _id, title, priority, description, deadline }
         <ToolsTitle>
         Priority
         </ToolsTitle>
-        <ToolsText>{priority}</ToolsText>
+        <ToolsText><Span priority={priority}></Span>{priority}</ToolsText>
         </div>
         <div>
         <ToolsTitle>
@@ -27,15 +27,7 @@ export const ListItem = ({ card: { _id, title, priority, description, deadline }
           <ShiftBtnCard id={_id}/>
         </li>
          <li>
-        <Button>
-         <svg
-            aria-label="icon pencil"
-            width="16px"
-            height="16px"
-          >
-            <use href={sprite + "#icon-pencil-01"}></use>
-          </svg>
-            </Button>
+        <EditBtnCard id={_id} />
         </li>
         <li>
             <DeleteBtnCard id={_id}/>
