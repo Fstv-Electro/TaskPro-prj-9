@@ -108,10 +108,7 @@ export const addTask = createAsyncThunk(
   'tasks/addTask',
   async (values, thunkAPI) => {
     try {
-      const response = await axios.post(
-        `/api/tasks/${values.parentColumn}`,
-        values
-      );
+      const response = await axios.post(`/api/tasks`, values);
       Notiflix.Notify.success('Task added!');
       return response.data;
     } catch (e) {
@@ -143,10 +140,7 @@ export const editTask = createAsyncThunk(
   'tasks/editTask',
   async (values, thunkAPI) => {
     try {
-      const response = await axios.post(
-        `/api/tasks/${values.parentColumn}`,
-        values
-      );
+      const response = await axios.post(`/api/tasks`, values);
       Notiflix.Notify.success('Task corrected!');
       return response.data;
     } catch (e) {
@@ -220,7 +214,7 @@ export const shiftCard = createAsyncThunk(
       await axios.delete(`/api/tasks/${prevCardId}`);
 
       const { title, description, priority, deadline } = card;
-      const resPost = await axios.post(`/api/tasks/${newColumnId}`, {
+      const resPost = await axios.post(`/api/tasks`, {
         title,
         parentColumn: newColumnId,
         description,
