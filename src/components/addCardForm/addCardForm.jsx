@@ -29,6 +29,7 @@ const initialValues = {
 };
 
 export const AddCardForm = ({ id, onClose }) => {
+    
     const [deadline, setDeadline] = useState()
     const dispatch = useDispatch();
 

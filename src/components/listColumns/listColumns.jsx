@@ -13,10 +13,15 @@ export const ListColumns = () => {
   const boardId = useSelector(selectCurrentBoard);
   const lists = useSelector(selectList);
   const [isOpen, setIsOpen] = useState(false);
+  const [parent_id, setParentId] = useState('')
 
   const toggleModal = () => {
     setIsOpen(isOpen => !isOpen);
   };
+  const toggleModalWId = (id) => {
+    setParentId(id)
+    toggleModal()
+  }
 
   return (
     <>
@@ -36,14 +41,15 @@ export const ListColumns = () => {
                     width={334}
                     height="56"
                     icon={true}
-                    handleClick={toggleModal}
+                    handleClick={()=>toggleModalWId(_id)}
                   />
-                  {isOpen && (
+                 
+                  {/* {isOpen && (
                     <Modal
                       onClose={toggleModal}
                       children={<AddCardForm onClose={toggleModal} id={_id} />}
                     />
-                  )}
+                  )} */}
                 </Item>
               );
             })}
@@ -53,7 +59,7 @@ export const ListColumns = () => {
         {isOpen && (
           <Modal
             onClose={toggleModal}
-            children={<AddCardForm onClose={toggleModal} />}
+            children={<AddCardForm onClose={toggleModal} id={parent_id} />}
           />
         )}
       </Container>
