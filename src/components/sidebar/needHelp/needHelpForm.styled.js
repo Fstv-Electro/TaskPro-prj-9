@@ -23,6 +23,7 @@ export const Field = styled(FormicField)`
     opacity: 0.4000000059604645;
     color: var(--first-text-color);
     background-color: transparent; 
+ 
 `;
 
 export const Textarea = styled(FormicField)`
@@ -33,9 +34,9 @@ export const Textarea = styled(FormicField)`
     padding-bottom: 14px;
     padding-left: 18px;
     border-radius: 8px;
-    border: 1px solid var(--bu-bg-color);
+    border: 1px solid var(--button-bg-color);
     opacity: 0.4000000059604645;
     color: var(--first-text-color);
     background-color: transparent;
-     
+
 `;
