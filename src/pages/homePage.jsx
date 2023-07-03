@@ -1,9 +1,7 @@
 import { Sidebar } from 'components/sidebar/Sidebar';
 import { Header } from 'components/Header/Header';
 import { EmptyPage } from 'components/HomeEmptyPage/HomeEmptyPage';
-import { useSelector } from 'react-redux';
-import { selectBoard } from 'redux/dashboards/selectors';
-import { Outlet } from 'react-router-dom';
+import { Outlet, useLocation } from 'react-router-dom';
 
 const styles = {
   container: {
@@ -21,12 +19,13 @@ const styles = {
 };
 
 export default function Home() {
-  const boards = useSelector(selectBoard);
+  const location = useLocation();
+  const hasAdditionalPath = location.pathname.length > '/home/'.length;
 
   return (
     <div style={styles.container}>
       <Sidebar />
-      {boards.length === 0 ? (
+        {!hasAdditionalPath ? (
         <div style={styles.deskMenu}>
           <Header />
           <EmptyPage />

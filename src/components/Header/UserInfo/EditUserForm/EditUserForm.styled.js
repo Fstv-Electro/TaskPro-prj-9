@@ -83,6 +83,7 @@ export const Button = styled.button`
   border: none;
   border-radius: 8px;
   cursor: pointer;
+  color: var(--color-icon-plus);
    
     &:active:not(:disabled) {
       position:relative;

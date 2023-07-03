@@ -15,7 +15,6 @@
 <symbol id="icon-bell-01" viewBox="0 0 32 32">
 <path
         fill="none"
-        stroke="#bedbb0"
         style="stroke: var(--color2, #bedbb0)"
         stroke-linejoin="round"
         stroke-linecap="round"
@@ -192,7 +191,6 @@
 <symbol id="icon-login" viewBox="0 0 32 32">
 <path
         fill="none"
-        stroke="#bedbb0"
         style="stroke: var(--color2, #bedbb0)"
         stroke-linejoin="round"
         stroke-linecap="round"
@@ -202,7 +200,6 @@
       />
 <path
         fill="none"
-        stroke="#bedbb0"
         style="stroke: var(--color2, #bedbb0)"
         stroke-linejoin="round"
         stroke-linecap="round"
@@ -212,7 +209,6 @@
       />
 <path
         fill="none"
-        stroke="#bedbb0"
         style="stroke: var(--color2, #bedbb0)"
         stroke-linejoin="round"
         stroke-linecap="round"

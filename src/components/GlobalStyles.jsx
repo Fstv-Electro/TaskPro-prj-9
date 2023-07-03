@@ -59,6 +59,7 @@ export const GlobalStyles = () => {
 
           --sidebar-first-bg-color: rgba(18, 18, 18, 1);
           --sidebar-second-bg-color: rgba(31, 31, 31, 1);
+          --sidebar-active-bg-color: rgba(31, 31, 31, 0.4);
 
           --sidebar-bg-icon-logo: rgba(31, 31, 31, 1);
           --sidebar-color-icon-logo: rgba(255, 255, 255, 1);
@@ -89,6 +90,7 @@ export const GlobalStyles = () => {
 
           --sidebar-first-bg-color: rgba(255, 255, 255, 1);
           --sidebar-second-bg-color: rgba(246, 246, 247, 1);
+          --sidebar-active-bg-color: rgba(246, 246, 247, 0.4);
 
           --sidebar-bg-icon-logo: rgba(31, 31, 31, 1);
           --sidebar-color-icon-logo: rgba(255, 255, 255, 1);
@@ -120,6 +122,7 @@ export const GlobalStyles = () => {
 
           --sidebar-first-bg-color: rgba(82, 85, 188, 1);
           --sidebar-second-bg-color: rgba(143, 146, 214, 1);
+          --sidebar-active-bg-color: rgba(143, 146, 214, 0.4);
 
           --sidebar-bg-icon-logo: rgba(236, 237, 253, 1);
           --sidebar-color-icon-logo: rgba(82, 85, 188, 1);
