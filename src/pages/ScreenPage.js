@@ -23,12 +23,15 @@ export default function ScreenPage() {
   }, [currBg, dispatch]);
 
   const mobileScreen = useMediaQuery({
-    query: '(min-width: 375px, max-width: 767px)',
+    minWidth: 375,
+    maxWidth: 767,
   });
   const tabletScreen = useMediaQuery({
-    query: '(min-width: 768px, max-width: 1179px)',
+    minWidth: 768,
+    maxWidth: 1279,
   });
-  const desktopScreen = useMediaQuery({ query: '(min-width: 1280px)' });
+  const desktopScreen = useMediaQuery({ minWidth: 1280 });
+  const isRetina = useMediaQuery({ query: '(min-resolution: 2dppx)' });
 
   return (
     <div
@@ -44,6 +47,13 @@ export default function ScreenPage() {
             : tabletScreen
             ? {
                 backgroundImage: `url(${bgUrls.tabletURL})`,
+                backgroundRepeat: 'no-repeat',
+                backgroundSize: 'cover',
+                height: 'calc(100vh - 24px)',
+              }
+            : isRetina
+            ? {
+                backgroundImage: `url(${bgUrls.retinaURL})`,
                 backgroundRepeat: 'no-repeat',
                 backgroundSize: 'cover',
                 height: 'calc(100vh - 24px)',
