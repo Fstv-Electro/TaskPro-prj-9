@@ -24,7 +24,7 @@ export const Sidebar = () => {
   const dispatch = useDispatch();
   const selectBoards = useSelector(selectBoard);
   const [isOpen, setIsOpen] = useState(false);
-  const isMobile = useMediaQuery({ maxWidth: 1280 });
+  const isMobile = useMediaQuery({ maxWidth: 1440 });
 
   useEffect(
     () => {

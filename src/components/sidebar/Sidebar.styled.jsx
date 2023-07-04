@@ -17,7 +17,7 @@ export const Container = styled.div`
 
   // mobile
 
-  @media (max-width: 1280px) {
+  @media (max-width: 1440px) {
     position: absolute;
     top: 0;
     left: ${({ isOpen }) => (isOpen ? '0' : '-100%')};
@@ -91,7 +91,7 @@ export const IconMenu = styled.svg`
     left: 20px;
   }
 
-  @media (max-width: 1280px) {
+  @media (max-width: 1440px) {
     display: block;
   }
 `;
