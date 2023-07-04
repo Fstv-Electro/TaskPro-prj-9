@@ -32,7 +32,7 @@ export const ListItem = ({
           <li>
             <ShiftBtnCard id={_id} parentColumn={parentColumn} />
           </li>
-          <li>
+          <li style={{height: 16}}>
             <Button>
               <svg aria-label="icon pencil" width="16px" height="16px">
                 <use href={sprite + '#icon-pencil-01'}></use>
