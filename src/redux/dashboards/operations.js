@@ -212,17 +212,8 @@ export const shiftCard = createAsyncThunk(
   async (values, thunkAPI) => {
     const { prevCardId, card, newColumnId } = values;
     try {
-      await axios.delete(`/api/tasks/${prevCardId}`);
-
       const { title, description, priority, deadline } = card;
-      console.log({
-        title,
-        parentColumn: newColumnId,
-        description,
-        priority,
-        deadline,
-      });
-      const resPost = await axios.post(`/api/tasks`, {
+      const resPost = await axios.put(`/api/tasks/${prevCardId}`, {
         title,
         parentColumn: newColumnId,
         description,
