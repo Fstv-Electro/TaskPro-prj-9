@@ -56,7 +56,9 @@ const ShiftBtnCard = ({ id, parentColumn }) => {
                 onClick={handleColumnChange}
                 data-id={_id}
               >
-                {title.length > 12 ? title.slice(0, 12) + '...' : title}
+                <nobr>
+                  {title.length > 12 ? title.slice(0, 12) + '...' : title}
+                </nobr>
                 <IconShift>
                   <use href={sprite + '#icon-arrow-circle-broken-right'}></use>
                 </IconShift>
