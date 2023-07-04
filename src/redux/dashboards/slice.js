@@ -13,6 +13,7 @@ import {
   needHelp,
   backgroundUrl,
   shiftCard,
+  changeBackground
 } from './operations';
 import { statusFilters } from './constants';
 
@@ -243,6 +244,29 @@ const taskSlice = createSlice({
     [shiftCard.rejected](state, action) {
       state.isLoading = false;
       state.error = true;
+    },
+    [changeBackground.pending](state) {
+      state.error = false;
+      state.isLoading = true;
+    },
+    [changeBackground.rejected](state, action) {
+      state.error = action.payload.error;
+      state.isLoading = false;
+    },
+    [changeBackground.fulfilled](state, action) {
+      state.error = false;
+      state.isLoading = false;
+      console.log(action.payload);
+      state.boards = state.boards.map(board => {
+        if (board._id === action.payload._id) {
+          return {
+            ...board,
+            currentBg: action.payload.currentBg,
+          };
+        }
+        return board;
+      });
+      state.currentBcg = action.payload.currentBg;
     },
     // [fetchTasks.pending](state) {
     //   state.error = false;
