@@ -18,7 +18,7 @@ export const ListColumns = () => {
   const toggleModal = () => {
     setIsOpen(isOpen => !isOpen);
   };
-  
+
   return (
     <>
       <Container>
@@ -42,7 +42,7 @@ export const ListColumns = () => {
                       toggleModal();
                     }}
                   />
-
+                 
                   {isOpen && (
                     <Modal
                       onClose={toggleModal}
