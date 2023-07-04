@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import { Modal } from 'components/modal/modal';
 import { Formik, Form } from 'formik';
 import { useDispatch } from 'react-redux';
@@ -18,6 +19,8 @@ import { Background } from 'components/background/Background';
 
 export const Filter = ({ onClose }) => {
   const dispatch = useDispatch();
+  const [isShowAllActive, setIsShowAllActive] = useState(false);
+  const [currentPrority, setCurrentPrority] = useState('');
   let setBg;
   console.log(setBg);
 
@@ -28,11 +31,21 @@ export const Filter = ({ onClose }) => {
 
   const handleChange = event => {
     const filter = event.target.value;
+    setCurrentPrority(filter);
     dispatch(setFilterCards(filter));
+    setIsShowAllActive(false);
   };
 
   const handleShowAll = () => {
+    setCurrentPrority('');
     dispatch(setFilterCards(''));
+    setIsShowAllActive(true);
+  };
+
+  const handleRadioClick = () => {
+    if (isShowAllActive) {
+      setIsShowAllActive(false);
+    }
   };
 
   const getBg = currentBg => {
@@ -55,7 +68,11 @@ export const Filter = ({ onClose }) => {
             <LabelGroup role="group" aria-labelledby="my-radio-group">
               <Div>
                 <Text>Label color</Text>
-                <Button type="button" onClick={handleShowAll}>
+                <Button
+                  type="button"
+                  onClick={handleShowAll}
+                  disabled={isShowAllActive}
+                >
                   Show all
                 </Button>
               </Div>
@@ -65,6 +82,8 @@ export const Filter = ({ onClose }) => {
                   name="currentPrority"
                   value="without"
                   color={'rgba(255, 255, 255, 0.3)'}
+                  checked={currentPrority === 'without'}
+                  onClick={handleRadioClick}
                 />
                 Without priority
               </Label>
@@ -74,6 +93,8 @@ export const Filter = ({ onClose }) => {
                   name="currentPrority"
                   value="low"
                   color={'#8FA1D0'}
+                  checked={currentPrority === 'low'}
+                  onClick={handleRadioClick}
                 />
                 Low
               </Label>
@@ -83,6 +104,8 @@ export const Filter = ({ onClose }) => {
                   name="currentPrority"
                   value="medium"
                   color={'#E09CB5'}
+                  checked={currentPrority === 'medium'}
+                  onClick={handleRadioClick}
                 />
                 Medium
               </Label>
@@ -92,6 +115,8 @@ export const Filter = ({ onClose }) => {
                   name="currentPrority"
                   value="high"
                   color={'#BEDBB0'}
+                  checked={currentPrority === 'high'}
+                  onClick={handleRadioClick}
                 />
                 High
               </Label>

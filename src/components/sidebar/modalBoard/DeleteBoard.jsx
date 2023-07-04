@@ -1,19 +1,13 @@
 import { DeleteTitle, Btn, WrapperDelete } from './ModalBoard.styled';
-
 import { ButtonClose } from '../../modalBtnClose/ButtonClose';
-
-import { useDispatch, useSelector } from 'react-redux';
-import { deleteBoard, fetchBoards } from '../../../redux/dashboards/operations';
-import { selectBoard } from 'redux/dashboards/selectors';
+import { useDispatch } from 'react-redux';
+import { deleteBoard } from '../../../redux/dashboards/operations';
 
 export const DeleteBoard = ({ desk, onClose }) => {
   const dispatch = useDispatch();
-  const Boards = useSelector(selectBoard)
-  console.log(desk.id);
 
   const handleSubmit = () => {
     dispatch(deleteBoard(desk.id));
-    dispatch(fetchBoards(Boards));
     onClose();
   };
 
