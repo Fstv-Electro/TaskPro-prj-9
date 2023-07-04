@@ -4,21 +4,22 @@ export const Container = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: flex-start;
-  width: calc(100% - 20px);
-  padding: 24px 10px;
+  width: 100%;
+  padding: 14px 24px;
+  background: var(--main-heder-bg-color);
   
-    @media (min-width: 1280px) {
-        height: 48px;
-    };
-    @media (min-width: 768px) {
-        height: 80px;
-    };
-    @media (min-width: 375px) {
-        height: 134px;
-    };
-    @media (max-width: 374px) {
-        max-height: 134px;
-    };
+    // @media (min-width: 1280px) {
+    //     height: 48px;
+    // };
+    // @media (min-width: 768px) {
+    //     height: 80px;
+    // };
+    // @media (min-width: 375px) {
+    //     height: 134px;
+    // };
+    // @media (max-width: 374px) {
+    //     max-height: 134px;
+    // };
 `;
 
 export const TitleDashBoard = styled.p`    

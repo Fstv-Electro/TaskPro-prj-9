@@ -55,8 +55,10 @@ export const GlobalStyles = () => {
           
 
           --main-bg-color: rgba(31, 31, 31, 1);
+          --main-heder-bg-color: rgba(31, 31, 31, 0.5);
           --main-last-bg-color: rgba(18, 18, 18, 1);
           --stroke--plus-icon: rgba(255, 255, 255, 1);
+          --main-line-color: rgba(255, 255, 255, 0.1);
 
           --sidebar-first-bg-color: rgba(18, 18, 18, 1);
           --sidebar-second-bg-color: rgba(31, 31, 31, 1);
@@ -87,8 +89,10 @@ export const GlobalStyles = () => {
           --color-icon-plus: rgba(22, 22, 22, 1);
 
           --main-bg-color: rgba(246, 246, 247, 1);
+          --main-heder-bg-color: rgba(246, 246, 247, 0.5);
           --main-last-bg-color: rgba(255, 255, 255, 1);
           --stroke--plus-icon: rgba(255, 255, 255, 1);
+          --main-line-color: rgba(22, 22, 22, 0.1);
 
           --sidebar-first-bg-color: rgba(255, 255, 255, 1);
           --sidebar-second-bg-color: rgba(246, 246, 247, 1);
@@ -120,8 +124,10 @@ export const GlobalStyles = () => {
           
 
           --main-bg-color: rgba(236, 237, 253, 1);
+          --main-heder-bg-color: rgba(236, 237, 253, 0.5);
           --main-last-bg-color: rgba(255, 255, 255, 1);
           --stroke--plus-icon: rgba(22, 22, 22, 1);
+          --main-line-color: rgba(22, 22, 22, 0.1);
 
           --sidebar-first-bg-color: rgba(82, 85, 188, 1);
           --sidebar-second-bg-color: rgba(143, 146, 214, 1);

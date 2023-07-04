@@ -9,13 +9,11 @@ export const Btn = styled.button`
   background-color: transparent;
   border: transparent;
   border-radius: 50%;
-  color: #ffffff;
+  color: var(--last-text-color); 
   cursor: pointer;
-  transition: color 500ms cubic-bezier(0.4, 0, 0.2, 1),
-  scale 500ms cubic-bezier(0.4, 0, 0.2, 1);
+  transition: 500ms cubic-bezier(0.4, 0, 0.2, 1);
   &:hover {
     color: var(--button-bg-color);
-    scale: 1.4;
   }
 `;
 
@@ -28,13 +26,12 @@ export const IconShift = styled.svg`
 
 export const ColumnList = styled.ul`
   position: absolute;
-  right: -45px;
-  top: -10%;
-  display: grid;
-  grid-template-columns: 1fr;
-  grid-template-rows: repeat(3, 1fr);
-  grid-column-gap: 0px;
-  grid-row-gap: 4px;
+  left: 25%;
+  bottom: -50%;
+  display: flex;
+  align-items: flex-start;
+  flex-direction: column;
+  gap: 8px;
   margin: 0px;
   max-height: 0px;
   padding: 0 44px 0 18px;
@@ -42,25 +39,31 @@ export const ColumnList = styled.ul`
   overflow: hidden;
   list-style: none;
   cursor: pointer;
-  background: #161616;
+  background: var(--main-last-bg-color);  
   border-radius: 8px;
   transition: all 0.3s ease-out;
   transition: transform 550ms cubic-bezier(0.4, 0, 0.2, 1);
   z-index: 1000;
 
   &.active {
-    max-height: 107px;
-    padding: 18px 44px 18px 18px;
+    max-height: none;
+    padding: 18px 18px 18px 18px;
   }
 `;
 
-export const Item = styled.li``;
+export const Item = styled.li`
+  width: 100%;
+`;
 
 export const ItemBtn = styled.button`
   height: 21px;
+  width: 100%;
+  display: flex;
+  gap: 8px;
+  flex-wrap: no-wrap;
+  justify-content: space-between;
   margin: 0;
   padding: 0;
-  text-align: left;
   text-transform: capitalize;
   font-size: 14px;
   letter-spacing: -0.28px;
@@ -68,12 +71,14 @@ export const ItemBtn = styled.button`
   background: transparent;
   cursor: ${({ disabled }) => (disabled ? '' : 'pointer')};
   color: ${({ selected }) =>
-    selected ? '#BEDBB0' : 'rgba(255, 255, 255, 0.50);'};
-  transition: all 0.3s ease-out;
+    selected ? 'var(--button-bg-color)' : 'var(--last-text-color)'};
+  transition: 500ms cubic-bezier(0.4, 0, 0.2, 1);
 
   &:hover {
-    text-shadow: ${({ disabled }) =>
-      !disabled ? '0 1px 4px rgba(190, 219, 176, 1)' : ''};
-    transform: ${({ disabled }) => (!disabled ? 'scale(1.1)' : 'scale(1)')};
+    color: #bedbb0;
+  }
+
+  &:active {
+    color: #bedbb0;
   }
 `;

@@ -22,8 +22,8 @@ export const UserForm = styled.div`
   flex-direction: column;
   width: 100%;
   border-radius: 8px;
-  }
 `;
+
 export const ErrorMessage = styled(FormicErrorMessage)`
 
 `
@@ -90,7 +90,6 @@ export const Button = styled.button`
       top:1px;
       box-shadow: -4px -4px 43px 2px rgba(34, 60, 80, 0.2) inset;
     }
-  }
 `;
 
 export const FormIcon = styled.span`
@@ -132,11 +131,6 @@ export const ImgWrapper = styled.div`
     transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
     transition: transform 550ms cubic-bezier(0.4, 0, 0.2, 1);
       
-      svg {
-        --color1 : var(--main-bg-color);
-        --color2 : var(--heder-bg-color);
-      }
-      
       &:hover{
         box-shadow: 0px 0px 11px 0px var(--button-bg-color);
         transform: scale(1.1);
@@ -148,6 +142,10 @@ export const ImgWrapper = styled.div`
       }
 
 
+`
+export const IconAvatar = styled.svg`
+        --color1 : var(--main-bg-color);
+        --color2 : var(--heder-bg-color);
 `
 export const Img = styled.img`
     width: 100%;
@@ -163,6 +161,7 @@ export const IconPlus = styled.svg`
   transition: transform 550ms cubic-bezier(0.4, 0, 0.2, 1);
   width: 24px;
   height: 24px;
-  fill: var(--fill-icon-plus);
-  color: rgba(22, 22, 22, 1);
+  
+  --color1: var(--fill-icon-plus);
+  --color2: rgba(22, 22, 22, 1);
 `;

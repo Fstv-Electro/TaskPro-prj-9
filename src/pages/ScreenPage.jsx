@@ -3,6 +3,7 @@ import { useEffect, useState } from 'react';
 import { selectBackground } from 'redux/dashboards/selectors';
 import { backgroundUrl } from 'redux/dashboards/operations';
 import { useMediaQuery } from 'react-responsive';
+import { Header } from 'components/Header/Header';
 
 import { DashboardHeader } from 'components/HeaderDashboard/HeaderDashboard';
 import { DashboardMain } from 'components/MainDashboard/MainDashboard';
@@ -24,6 +25,7 @@ export default function ScreenPage() {
     getBgs();
   }, [currBg, dispatch]);
 
+  const responsiveScreen = useMediaQuery({ maxWidth: 374 });
   const mobileScreen = useMediaQuery({
     minWidth: 375,
     maxWidth: 767,
@@ -40,49 +42,70 @@ export default function ScreenPage() {
       style={
         bgUrls
           ? isRetina
-            ? mobileScreen
+            ? responsiveScreen
               ? {
                   backgroundImage: `url(${bgUrls.tabletURL})`,
                   backgroundRepeat: 'no-repeat',
                   backgroundSize: 'cover',
-                  height: 'calc(100vh - 24px)',
+                  height: '100vh',
+                  width: '100vw',
+                  maxWidth: '100%',
+                }
+              : mobileScreen
+              ? {
+                  backgroundImage: `url(${bgUrls.tabletURL})`,
+                  backgroundRepeat: 'no-repeat',
+                  backgroundSize: 'cover',
+                  height: '100vh',
+                  width: '100vw',
                 }
               : tabletScreen
               ? {
                   backgroundImage: `url(${bgUrls.desktopURL})`,
                   backgroundRepeat: 'no-repeat',
                   backgroundSize: 'cover',
-                  height: 'calc(100vh - 24px)',
+                  height: '100vh',
                 }
               : desktopScreen && {
                   backgroundImage: `url(${bgUrls.retinaURL})`,
                   backgroundRepeat: 'no-repeat',
                   backgroundSize: 'cover',
-                  height: 'calc(100vh - 24px)',
+                  height: '100vh',
                 }
+            : responsiveScreen
+            ? {
+                backgroundImage: `url(${bgUrls.mobileURL})`,
+                backgroundRepeat: 'no-repeat',
+                backgroundSize: 'cover',
+                height: '100vh',
+                width: '100vw',
+                maxWidth: '100%',
+              }
             : mobileScreen
             ? {
                 backgroundImage: `url(${bgUrls.mobileURL})`,
                 backgroundRepeat: 'no-repeat',
                 backgroundSize: 'cover',
-                height: 'calc(100vh - 24px)',
+                height: '100vh',
+                width: '100vw',
               }
             : tabletScreen
             ? {
                 backgroundImage: `url(${bgUrls.tabletURL})`,
                 backgroundRepeat: 'no-repeat',
                 backgroundSize: 'cover',
-                height: 'calc(100vh - 24px)',
+                height: '100vh',
               }
             : desktopScreen && {
                 backgroundImage: `url(${bgUrls.desktopURL})`,
                 backgroundRepeat: 'no-repeat',
                 backgroundSize: 'cover',
-                height: 'calc(100vh - 24px)',
+                height: '100vh',
               }
           : null
       }
     >
+      <Header />
       <DashboardHeader />
       <DashboardMain />
     </Container>
