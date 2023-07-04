@@ -25,6 +25,7 @@ export default function ScreenPage() {
     getBgs();
   }, [currBg, dispatch]);
 
+  const responsiveScreen = useMediaQuery({ maxWidth: 374 });
   const mobileScreen = useMediaQuery({
     minWidth: 375,
     maxWidth: 767,
@@ -41,12 +42,22 @@ export default function ScreenPage() {
       style={
         bgUrls
           ? isRetina
-            ? mobileScreen
+            ? responsiveScreen
               ? {
                   backgroundImage: `url(${bgUrls.tabletURL})`,
                   backgroundRepeat: 'no-repeat',
                   backgroundSize: 'cover',
                   height: '100vh',
+                  width: '100vw',
+                  maxWidth: '100%',
+                }
+              : mobileScreen
+              ? {
+                  backgroundImage: `url(${bgUrls.tabletURL})`,
+                  backgroundRepeat: 'no-repeat',
+                  backgroundSize: 'cover',
+                  height: '100vh',
+                  width: '100vw',
                 }
               : tabletScreen
               ? {
@@ -61,12 +72,22 @@ export default function ScreenPage() {
                   backgroundSize: 'cover',
                   height: '100vh',
                 }
+            : responsiveScreen
+            ? {
+                backgroundImage: `url(${bgUrls.mobileURL})`,
+                backgroundRepeat: 'no-repeat',
+                backgroundSize: 'cover',
+                height: '100vh',
+                width: '100vw',
+                maxWidth: '100%',
+              }
             : mobileScreen
             ? {
                 backgroundImage: `url(${bgUrls.mobileURL})`,
                 backgroundRepeat: 'no-repeat',
                 backgroundSize: 'cover',
                 height: '100vh',
+                width: '100vw',
               }
             : tabletScreen
             ? {

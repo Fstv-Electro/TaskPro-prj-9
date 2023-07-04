@@ -1,9 +1,14 @@
 import styled from '@emotion/styled';
 
 export const Container = styled.div`
+
   padding-bottom: 8px;
   background-color: var(--main-bg-color);
   color: var(--first-text-color);
+
+
+  overflow: hidden;
+
 
   margin: 0;
   display: flex;
