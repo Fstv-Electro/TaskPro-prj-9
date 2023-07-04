@@ -16,9 +16,16 @@ export const ListItem = ({
   card: { _id, title, priority, description, deadline, parentColumn },
 }) => {
   return (
-    <Container>
-      <Title>{title}</Title>
-      <Text>{description}</Text>
+    <Container priority={priority}>
+      <div>
+        <Title>{title}</Title>
+        <Text>
+          {description.length > 100
+            ? description.slice(0, 100) + '...'
+            : description}
+        </Text>
+      </div>
+
       <Tools>
         <div>
           <ToolsTitle>Priority</ToolsTitle>
@@ -32,7 +39,7 @@ export const ListItem = ({
           <li>
             <ShiftBtnCard id={_id} parentColumn={parentColumn} />
           </li>
-          <li>
+          <li style={{ height: 16 }}>
             <Button>
               <svg aria-label="icon pencil" width="16px" height="16px">
                 <use href={sprite + '#icon-pencil-01'}></use>
