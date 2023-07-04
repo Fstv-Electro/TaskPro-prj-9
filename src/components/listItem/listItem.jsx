@@ -24,7 +24,7 @@ export const ListItem = ({
   const toggleModal = () => {
     setIsOpen(isOpen => !isOpen);
   };
-
+ 
   return (
     <Container priority={priority}>
       <div>
@@ -62,7 +62,7 @@ export const ListItem = ({
           <EditCardForm
             id={_id}
             onClose={toggleModal}
-            columnId={parentColumn}
+            parentColumn={parentColumn}
             title={title}
             description={description}
             priority={priority}

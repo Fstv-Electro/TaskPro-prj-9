@@ -129,6 +129,7 @@ export const addBoard = createAsyncThunk(
 export const editTask = createAsyncThunk(
   'tasks/editTask',
   async ({id, values}, thunkAPI) => {
+    console.log(id, values)
     try {
       const response = await axios.put(`/api/tasks/${id}`, values);
       Notiflix.Notify.success('Task corrected!');
