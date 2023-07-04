@@ -15,6 +15,7 @@ import {
   IconPlus,
   Label,
   Button,
+  IconAvatar,
 } from './EditUserForm.styled';
 import { useState, useEffect } from 'react';
 import { useDispatch } from 'react-redux';
@@ -130,9 +131,9 @@ export const  EdidUserForm = ({avatarURL, onClose, isLoading}) => {
               {currentImage ? (
                 <Img src={currentImage} alt="User picture" />
                 ) : (
-                <svg aria-label="User picture" width="68px" height="68px">
+                <IconAvatar aria-label="User picture" width="68px" height="68px">
                   <use href={Sprite + '#icon-user'}></use>
-                </svg>
+                </IconAvatar>
                 )}
                 <IconPlus aria-label="add" >
                   <use href={Sprite + '#icon-plus-add'}></use>

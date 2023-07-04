@@ -13,7 +13,7 @@ const styles = {
     margin: 0,
     display: 'flex',
     flexDirection: 'column',
-    width: '100%',
+    width: 'calc(100% - 260px)',
   },
 };
 
