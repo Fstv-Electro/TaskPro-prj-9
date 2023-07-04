@@ -30,7 +30,7 @@ import {
 // };
 
 export const EditCardForm = ({ id, onClose, columnId, title,description,priority,old_deadline }) => {
-    console.log('t',id, columnId)
+
 const [deadline, setDeadline] = useState(
 dayjs(old_deadline, 'DD-MM-YYYY')
 )
