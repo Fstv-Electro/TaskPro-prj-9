@@ -128,18 +128,37 @@ const taskSlice = createSlice({
       state.isLoading = true;
       state.error = false;
     },
+    // [deleteColumn.fulfilled](state, action) {
+    //   state.isLoading = false;
+    //   state.error = null;
+    //   console.log('Before filter:', JSON.stringify(Array.from(state.lists)));
+
+    //   // const index = state.lists.findIndex(
+    //   //   column => column._id === action.payload._id
+    //   // );
+    //   // state.lists.splice(index, 1);
+
+    //   const updatedLists = state.lists.filter(
+    //     column => column._id !== action.payload._id
+    //   );
+    //   state.lists = updatedLists;
+    //   console.log('After filter:', JSON.stringify(Array.from(state.lists)));
+    // },
     [deleteColumn.fulfilled](state, action) {
       state.isLoading = false;
       state.error = null;
-      console.log(state.lists);
-      const index = state.lists.findIndex(
-        column => column._id === action.payload._id
+      console.log('action.payload._id:', action.payload);
+      state.lists.forEach(column => {
+        console.log('column._id:', column._id);
+      });
+      console.log('Before filter:', JSON.stringify(Array.from(state.lists)));
+
+      const updatedLists = state.lists.filter(
+        column => String(column._id) !== String(action.payload)
       );
-      state.lists.splice(index, 1);
-      // state.lists = [
-      //   ...state.lists.filter(column => column._id !== action.payload._id),
-      // ];
-      console.log(state.lists);
+      state.lists = updatedLists;
+
+      console.log('After filter:', JSON.stringify(Array.from(state.lists)));
     },
     [deleteColumn.rejected](state, action) {
       state.isLoading = false;

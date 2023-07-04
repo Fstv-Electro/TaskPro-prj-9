@@ -82,9 +82,17 @@ export const deleteColumn = createAsyncThunk(
   'columns/deleteColumn',
   async (id, thunkAPI) => {
     try {
-      const response = await axios.delete(`/api/columns/${id}`);
-      Notiflix.Notify.success('Column deleted successfully!');
-      return response.data;
+      // const response = await axios.delete(`/api/columns/${id}`);
+      // Notiflix.Notify.success(
+      //   `Column ${response.data.id} deleted successfully!`
+      // );
+      // console.log('Response:', response.data);
+      // return response.data;
+      // contactId;
+      await axios.delete(`/api/columns/${id}`);
+      Notiflix.Notify.success(`Column ${id} deleted successfully!`);
+      console.log('Response:', id);
+      return id;
     } catch (error) {
       return thunkAPI.rejectWithValue(error.message);
     }
