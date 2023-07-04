@@ -175,9 +175,7 @@ const taskSlice = createSlice({
     [deleteCard.fulfilled](state, action) {
       state.isLoading = false;
       state.error = null;
-      const index = state.cards.findIndex(
-        card => card._id === action.payload._id
-      );
+      const index = state.cards.findIndex(card => card._id === action.payload);
       state.cards.splice(index, 1);
     },
     [deleteCard.rejected](state, action) {

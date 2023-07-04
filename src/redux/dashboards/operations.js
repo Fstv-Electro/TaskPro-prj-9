@@ -155,9 +155,9 @@ export const deleteCard = createAsyncThunk(
   async (id, thunkAPI) => {
     console.log(id);
     try {
-      const response = await axios.delete(`/api/tasks/${id}`);
+      await axios.delete(`/api/tasks/${id}`);
       Notiflix.Notify.success('Task deleted successfully!');
-      return response.data;
+      return id;
     } catch (error) {
       return thunkAPI.rejectWithValue(error.message);
     }
