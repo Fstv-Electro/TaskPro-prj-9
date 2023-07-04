@@ -20,12 +20,7 @@ export const ListColumns = () => {
   const toggleModal = () => {
     setIsOpen(isOpen => !isOpen);
   };
-  // const toggleModalWId = (id) => {
-  //   setParentId(id)
-  //   toggleModal()
-  // }
-
-
+  
   return (
     <>
       <Container>

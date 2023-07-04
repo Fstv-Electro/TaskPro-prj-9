@@ -1,3 +1,7 @@
+import { useState } from 'react';
+import { EditCardForm } from 'components/addCardForm/editCardForm';
+import { Modal } from 'components/modal/modal';
+
 import {
   Container,
   Title,
@@ -15,6 +19,12 @@ import DeleteBtnCard from 'components/DeleteBtnCard/DeleteBtnCard';
 export const ListItem = ({
   card: { _id, title, priority, description, deadline, parentColumn },
 }) => {
+  const [isOpen, setIsOpen] = useState(false);
+  console.log(description, parentColumn, _id, title)
+  const toggleModal = () => {
+    setIsOpen(isOpen => !isOpen);
+  };
+
   return (
     <Container priority={priority}>
       <div>
@@ -40,7 +50,9 @@ export const ListItem = ({
             <ShiftBtnCard id={_id} parentColumn={parentColumn} />
           </li>
           <li style={{ height: 16 }}>
-            <Button>
+            <Button onClick={() => {
+                      toggleModal();
+                    }}>
               <svg aria-label="icon pencil" width="16px" height="16px">
                 <use href={sprite + '#icon-pencil-01'}></use>
               </svg>
@@ -51,6 +63,23 @@ export const ListItem = ({
           </li>
         </ButtonList>
       </Tools>
+      {isOpen && (
+        <Modal
+          onClose={toggleModal}
+          children={
+          <EditCardForm
+            id={_id}
+            onClose={toggleModal}
+            columnId={parentColumn}
+            title={title}
+            description={description}
+            priority={priority}
+            old_deadline={deadline}
+
+          />
+          }
+        />
+      )}
     </Container>
   );
 };

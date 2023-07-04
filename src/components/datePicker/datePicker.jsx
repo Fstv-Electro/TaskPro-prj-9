@@ -6,10 +6,10 @@ import { useState, useEffect } from 'react';
 import sprite from '../../images/symbol-defs.svg';
 import { IconDown } from './datePicker.styled';
 
-export const Calendar = ({ parentState }) => {
+export const Calendar = ({ parentState, initial }) => {
   dayjs().format();
 
-  const [dateDeadline, setDateDeadline] = useState('');
+  const [dateDeadline, setDateDeadline] = useState(initial?initial:'');
 
   useEffect(() => {
     // console.log(dateDeadline);
@@ -21,6 +21,7 @@ export const Calendar = ({ parentState }) => {
         <DatePicker
           views={['month', 'day']}
           value={dateDeadline}
+          
           onChange={newValue => {
             setDateDeadline(newValue);
             parentState(newValue);
