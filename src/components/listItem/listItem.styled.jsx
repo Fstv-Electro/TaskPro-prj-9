@@ -19,8 +19,10 @@ export const Container = styled.div`
           return '#E09CB5';
         case 'high':
           return '#BEDBB0';
+        case 'without':
+          return '#FFFFFF4D'; 
         default:
-          return 'rgba(255, 255, 255, 0.30';
+          break
       }
     }};
 `;
@@ -92,8 +94,10 @@ export const Span = styled.span`
         return '#E09CB5';
       case 'high':
         return '#BEDBB0';
+      case 'without':
+        return '#FFFFFF4D'; 
       default:
-        return 'rgba(255, 255, 255, 0.30';
+        break;
     }
   }};
 `;
