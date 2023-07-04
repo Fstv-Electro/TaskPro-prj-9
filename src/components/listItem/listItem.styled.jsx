@@ -43,7 +43,7 @@ export const Text = styled.p`
 export const Tools = styled.div`
   display: flex;
   justify-content: space-between;
-  border-bottom: 1px solid var(--main-line-color); 
+  border-top: 1px solid var(--main-line-color); 
   margin-top: 14px;
   padding-top: 14px;
 `;

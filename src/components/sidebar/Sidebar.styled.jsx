@@ -13,6 +13,7 @@ export const Container = styled.div`
   background: var(--sidebar-first-bg-color);
   left: 0;
   z-index: 100;
+  width: 260px;
 
   // mobile
 
