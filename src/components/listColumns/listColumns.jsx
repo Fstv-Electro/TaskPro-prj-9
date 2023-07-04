@@ -4,8 +4,8 @@ import AddList from 'components/AddList/AddList';
 import SubmitButton from '../submitButton/submitButton';
 import { Container, List, Item } from './listColumns.styled';
 import { useState } from 'react';
-// import { AddCardForm } from '../../components/addCardForm/addCardForm';
-// import { Modal } from 'components/modal/modal';
+import { AddCardForm } from '../../components/addCardForm/addCardForm';
+import { Modal } from 'components/modal/modal';
 import { selectList, selectCurrentBoard } from 'redux/dashboards/selectors';
 import { useSelector } from 'react-redux';
 
@@ -51,7 +51,7 @@ export const ListColumns = () => {
                     }}
                   />
                  
-                  {/* {isOpen && (
+                  {isOpen && (
                     <Modal
                       onClose={toggleModal}
                       children={
@@ -61,7 +61,7 @@ export const ListColumns = () => {
                         />
                       }
                     />
-                  )} */}
+                  )}
                 </Item>
               );
             })}
