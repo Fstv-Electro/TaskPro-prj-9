@@ -15,8 +15,6 @@ export const ListColumns = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [currentColumnId, setCurrentColumnId] = useState(null);
 
-  console.log(currentColumnId, isOpen);
-
   const toggleModal = () => {
     setIsOpen(isOpen => !isOpen);
   };

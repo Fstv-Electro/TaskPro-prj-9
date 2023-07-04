@@ -23,7 +23,7 @@ export const FormQuestion = styled.legend`
 
 export const Item = styled.li`
   display: inline-block;
-  box-sizing: border-box;
+
   vertical-align: top;
   text-align: center;
   width: 28px;
@@ -50,25 +50,25 @@ export const Input = styled.input`
   &[type='radio']:active ~ label {
     opacity: 1;
     border: 1px solid #fff;
-    border-radius: 15%;
+    border-radius: 5%;
   }
   &[type='radio']:checked ~ label {
     opacity: 1;
     border: 1px solid #fff;
-    border-radius: 15%;
+    border-radius: 5%;
   }
 `;
 
 export const Img = styled.img`
   width: 28px;
   height: 28px;
-  padding: 0;
+  padding-bottom: 2px;
   margin: 0;
   transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 
   :hover,
   :active {
     border: 1px solid #fff;
-    border-radius: 15%;
+    border-radius: 5%;
   }
 `;

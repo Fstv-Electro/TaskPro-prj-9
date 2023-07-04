@@ -5,7 +5,7 @@ import { deleteBoard } from '../../../redux/dashboards/operations';
 
 export const DeleteBoard = ({ desk, onClose }) => {
   const dispatch = useDispatch();
-
+  console.log(desk);
   const handleSubmit = () => {
     dispatch(deleteBoard(desk.id));
     onClose();

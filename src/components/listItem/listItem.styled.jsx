@@ -19,8 +19,10 @@ export const Container = styled.div`
           return '#E09CB5';
         case 'high':
           return '#BEDBB0';
+        case 'without':
+          return '#FFFFFF4D'; 
         default:
-          return 'rgba(255, 255, 255, 0.30';
+          break
       }
     }};
 `;
@@ -76,10 +78,6 @@ export const Button = styled.button`
   transition: color 500ms cubic-bezier(0.4, 0, 0.2, 1),
   scale 500ms cubic-bezier(0.4, 0, 0.2, 1);
 
-  &:hover {
-    color: var(--button-bg-color);
-    scale: 1.4;
-  }
 `;
 export const Span = styled.span`
   display: inline-block;
@@ -96,8 +94,10 @@ export const Span = styled.span`
         return '#E09CB5';
       case 'high':
         return '#BEDBB0';
+      case 'without':
+        return '#FFFFFF4D'; 
       default:
-        return 'rgba(255, 255, 255, 0.30';
+        break;
     }
   }};
 `;

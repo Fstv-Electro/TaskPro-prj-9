@@ -33,6 +33,7 @@ export const NavItem = styled(NavLink)`
   min-width: 260px;
   height: 100%;
   text-decoration: none;
+
   transition: border 550ms cubic-bezier(0.4, 0, 0.2, 1);
   &:not(.active):hover {
     border-bottom: 1px solid var(--sidebar-bg-icon-logout-color);
@@ -54,8 +55,6 @@ export const NavItem = styled(NavLink)`
     &:after {
       content: '';
       display: flex;
-      position: absolute;
-      right: 0;
       border-radius: 4px 0px 0px 4px;
       background: var(--sidebar-bg-icon-logout-color);
       width: 4px;
@@ -100,7 +99,7 @@ export const BtnContainer = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  margin-right: 24px;
+  margin-right: 20px;
 `;
 
 export const IconEdit = styled.svg`

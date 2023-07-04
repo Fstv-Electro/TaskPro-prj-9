@@ -16,7 +16,7 @@ export const Container = styled.div`
   width: calc(100% - 260px);
   width: 100%;
 
-    @media (max-width: 767px) {
+    @media (max-width: 1440px) {
       width: 100%;
     };
 `;

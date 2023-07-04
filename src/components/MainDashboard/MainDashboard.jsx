@@ -1,10 +1,14 @@
 import { ListColumns } from 'components/listColumns/listColumns';
 import { MainDiv } from './MainDashboard.styled';
+import Scroll from '../Scroll/ScrollCostom'
+
 
 export const DashboardMain = () => {
   return (
-    <MainDiv>
-      <ListColumns />
-    </MainDiv>
+    <Scroll >
+      <MainDiv>
+        <ListColumns />
+      </MainDiv>
+    </Scroll>
   );
 };

@@ -24,15 +24,20 @@ export const Background = ({ getBg }) => {
   const onClickBg = e => {
     getBg(e.target.value);
   };
-  // console.log(item);
 
   return (
     <Wrapper>
       <FormQuestion>Background</FormQuestion>
       <List>
-        <Item>
-          <Input onClick={onClickBg} type="radio" name="id" />
-          <Label>
+        <Item key={'1'}>
+          <Input
+            onClick={onClickBg}
+            type="radio"
+            name="id"
+            id={'1'}
+            value={'1'}
+          />
+          <Label htmlFor={'1'}>
             <Img src={plug} alt={'bg'} />
           </Label>
         </Item>
