@@ -32,9 +32,9 @@ export default function ScreenPage() {
   });
   const tabletScreen = useMediaQuery({
     minWidth: 768,
-    maxWidth: 1279,
+    maxWidth: 1440,
   });
-  const desktopScreen = useMediaQuery({ minWidth: 1280 });
+  const desktopScreen = useMediaQuery({ minWidth: 1440 });
   const isRetina = useMediaQuery({ query: '(min-resolution: 2dppx)' });
 
   return (

@@ -5,5 +5,5 @@ export const MainDiv = styled.div`
   display: flex;
   align-items: flex-start;
   /* height: 100%; */
-  overflow-x: scroll;
+  /* overflow-x: scroll; */
 `;

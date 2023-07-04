@@ -12,8 +12,10 @@ export const Btn = styled.button`
   color: var(--last-text-color); 
   cursor: pointer;
   transition: 500ms cubic-bezier(0.4, 0, 0.2, 1);
-  &:hover {
+  &:hover,
+  &:focus {
     color: var(--button-bg-color);
+    scale: 1.4;
   }
 `;
 

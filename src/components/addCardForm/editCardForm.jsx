@@ -8,6 +8,7 @@ import { ButtonClose } from 'components/modalBtnClose/ButtonClose';
 import { Calendar } from '../datePicker/datePicker';
 import sprite from '../../images/symbol-defs.svg'
 import { editTask } from 'redux/dashboards/operations';
+import dayjs from 'dayjs';
 import { 
     TitleForm,
     InputTitle, 
@@ -22,15 +23,17 @@ import {
     SubmitButton
 } from "./addCardForm.styled";
 
-const initialValues = {
-  title: "",
-  description: "",
-  priority: "default",
-};
+// const initialValues = {
+//   title: "",
+//   description: "",
+//   priority: "without",
+// };
 
-export const EditCardForm = ({ id, onClose }) => {
-    
-const [deadline, setDeadline] = useState()
+export const EditCardForm = ({ id, onClose, columnId, title,description,priority,old_deadline }) => {
+
+const [deadline, setDeadline] = useState(
+dayjs(old_deadline, 'DD-MM-YYYY')
+)
 const dispatch = useDispatch();
 
 const setDateValue = (value) =>{
@@ -72,9 +75,10 @@ const displayDeadline = (date) => {
 }
 
 const handleSubmit = (values, actions) => {
-    values = {...values, deadline: formatDate(deadline.$d), parentColumn: id}
+    console.log(id)
+    values = {...values, deadline: formatDate(deadline.$d), parentColumn: columnId}
     actions.resetForm();
-    dispatch(editTask(values));
+    dispatch(editTask({id,values}));
   onClose();
 };
 
@@ -84,7 +88,10 @@ return(
         <TitleForm>Edit card</TitleForm>
           
           <Formik 
-              initialValues={initialValues}
+              initialValues={{ 
+                title,
+              description,
+              priority}}
               onSubmit={ handleSubmit }
               validationSchema={schema} >
           {({ values }) => (
@@ -116,14 +123,14 @@ return(
                             <ColorStatus color='#BEDBB0'  ></ColorStatus> 
                         </label>
                         <label>
-                            <RadioBtn type="radio" name="priority" value="default"/>
+                            <RadioBtn type="radio" name="priority" value="without"/>
                             <ColorStatus color='#FFFFFF4D' ></ColorStatus> 
                         </label>     
                     </BlockStatus>
                   <TitleDeadline>Deadline</TitleDeadline>
                   <CalendarShow>
                       <div>{displayDeadline(deadline) }</div>
-                      <Calendar parentState={setDateValue}/>
+                      <Calendar parentState={setDateValue} initial={dayjs(old_deadline, 'DD-MM-YYYY')}/>
                   </CalendarShow>
                   <SubmitButton type="submit">
                     <IconPlus aria-label="add">

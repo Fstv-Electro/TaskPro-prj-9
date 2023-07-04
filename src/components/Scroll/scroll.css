@@ -13,8 +13,16 @@
 }
 
 .os-scrollbar-horizontal {
-    height: 12px;
+    height: 12px;  
+    margin-left: 24px;
+    margin-right: 24px;
+
+    @media (max-width: 767px) {
+        margin-left: 32px;
+        margin-right: 32px;
+    }
 }
+
 .os-scrollbar-horizontal > .os-scrollbar-track > .os-scrollbar-handle {
     min-width: 179px;
     max-width: 637px;

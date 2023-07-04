@@ -14,16 +14,16 @@ const schema = yup.object().shape({
 });
 
 export const EditBoard = ({ desk, onClose }) => {
-  const [icon, setIcon] = useState('');
-  const [currentBg, setCurrentBg] = useState('');
+  const [icon, setIcon] = useState(desk.desk.icon);
+  const [currentBg, setCurrentBg] = useState(desk.desk.currentBg);
 
   const dispatch = useDispatch();
 
   const getIcon = icon => {
-    setIcon({ icon });
+    setIcon(icon);
   };
   const getBg = currentBg => {
-    setCurrentBg({ currentBg });
+    setCurrentBg(currentBg);
   };
 
   const handleSubmit = (query, { resetForm }) => {
@@ -33,15 +33,15 @@ export const EditBoard = ({ desk, onClose }) => {
       dispatch(
         editBoard({
           title: query.name,
-          ...currentBg,
-          ...icon,
+          currentBg: currentBg,
+          icon: icon,
           id: desk.desk._id,
         })
       );
       console.log({
         title: query.name,
-        ...currentBg,
-        ...icon,
+        currentBg: currentBg,
+        icon: icon,
         id: desk.desk._id,
       });
       resetForm();
