@@ -2,6 +2,7 @@ import { Sidebar } from 'components/sidebar/Sidebar';
 import { Header } from 'components/Header/Header';
 import { EmptyPage } from 'components/HomeEmptyPage/HomeEmptyPage';
 import { Outlet, useLocation } from 'react-router-dom';
+import { Container, ContainerMain } from './homePage.styled';
 
 const styles = {
   container: {
@@ -22,18 +23,18 @@ export default function Home() {
   const hasAdditionalPath = location.pathname.length > '/home/'.length;
 
   return (
-    <div style={styles.container}>
+    <Container>
       <Sidebar />
       {!hasAdditionalPath ? (
-        <div style={styles.deskMenu}>
+        <ContainerMain >
           <Header />
           <EmptyPage />
-        </div>
+        </ContainerMain>
       ) : (
-        <div style={styles.deskMenu}>
+        <ContainerMain >
           <Outlet />
-        </div>
+        </ContainerMain>
       )}
-    </div>
+    </Container>
   );
 }
