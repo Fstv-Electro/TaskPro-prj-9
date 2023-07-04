@@ -5,7 +5,7 @@ export const Container = styled.div`
   padding-bottom: 8px;
   background-color: var(--main-bg-color);
   color: var(--first-text-color);
-  overflow: hidden;
+  overflow-y: hidden;
 
   // backgroundImage: url("");
   // backgroundRepeat: 'no-repeat';

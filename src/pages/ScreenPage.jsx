@@ -3,6 +3,7 @@ import { useEffect, useState } from 'react';
 import { selectBackground } from 'redux/dashboards/selectors';
 import { backgroundUrl } from 'redux/dashboards/operations';
 import { useMediaQuery } from 'react-responsive';
+import { Header } from 'components/Header/Header';
 
 import { DashboardHeader } from 'components/HeaderDashboard/HeaderDashboard';
 import { DashboardMain } from 'components/MainDashboard/MainDashboard';
@@ -45,44 +46,45 @@ export default function ScreenPage() {
                   backgroundImage: `url(${bgUrls.tabletURL})`,
                   backgroundRepeat: 'no-repeat',
                   backgroundSize: 'cover',
-                  height: 'calc(100vh - 24px)',
+                  height: '100vh',
                 }
               : tabletScreen
               ? {
                   backgroundImage: `url(${bgUrls.desktopURL})`,
                   backgroundRepeat: 'no-repeat',
                   backgroundSize: 'cover',
-                  height: 'calc(100vh - 24px)',
+                  height: '100vh',
                 }
               : desktopScreen && {
                   backgroundImage: `url(${bgUrls.retinaURL})`,
                   backgroundRepeat: 'no-repeat',
                   backgroundSize: 'cover',
-                  height: 'calc(100vh - 24px)',
+                  height: '100vh',
                 }
             : mobileScreen
             ? {
                 backgroundImage: `url(${bgUrls.mobileURL})`,
                 backgroundRepeat: 'no-repeat',
                 backgroundSize: 'cover',
-                height: 'calc(100vh - 24px)',
+                height: '100vh',
               }
             : tabletScreen
             ? {
                 backgroundImage: `url(${bgUrls.tabletURL})`,
                 backgroundRepeat: 'no-repeat',
                 backgroundSize: 'cover',
-                height: 'calc(100vh - 24px)',
+                height: '100vh',
               }
             : desktopScreen && {
                 backgroundImage: `url(${bgUrls.desktopURL})`,
                 backgroundRepeat: 'no-repeat',
                 backgroundSize: 'cover',
-                height: 'calc(100vh - 24px)',
+                height: '100vh',
               }
           : null
       }
     >
+      <Header />
       <DashboardHeader />
       <DashboardMain />
     </Container>

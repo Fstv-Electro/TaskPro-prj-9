@@ -13,7 +13,7 @@ import ShiftBtnCard from 'components/ShiftBtnCard/ShiftBtnCard';
 import DeleteBtnCard from 'components/DeleteBtnCard/DeleteBtnCard';
 
 export const ListItem = ({
-  card: { _id, title, priority, description, deadline },
+  card: { _id, title, priority, description, deadline, parentColumn },
 }) => {
   return (
     <Container>
@@ -30,7 +30,7 @@ export const ListItem = ({
         </div>
         <ButtonList>
           <li>
-            <ShiftBtnCard id={_id} />
+            <ShiftBtnCard id={_id} parentColumn={parentColumn} />
           </li>
           <li>
             <Button>
