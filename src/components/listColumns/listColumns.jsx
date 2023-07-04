@@ -18,6 +18,10 @@ export const ListColumns = () => {
   const toggleModal = () => {
     setIsOpen(isOpen => !isOpen);
   };
+  const toggleModalWId = (id) => {
+    setParentId(id)
+    toggleModal()
+  }
 
   console.log(lists);
 
@@ -44,7 +48,8 @@ export const ListColumns = () => {
                       toggleModal();
                     }}
                   />
-                  {isOpen && (
+                 
+                  {/* {isOpen && (
                     <Modal
                       onClose={toggleModal}
                       children={
@@ -54,7 +59,7 @@ export const ListColumns = () => {
                         />
                       }
                     />
-                  )}
+                  )} */}
                 </Item>
               );
             })}

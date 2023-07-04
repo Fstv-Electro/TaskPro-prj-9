@@ -28,9 +28,11 @@ const initialValues = {
   priority: 'without',
 };
 
+
 export const AddCardForm = ({ columnId, onClose }) => {
   const [deadline, setDeadline] = useState();
   const dispatch = useDispatch();
+
 
   console.log(columnId);
 

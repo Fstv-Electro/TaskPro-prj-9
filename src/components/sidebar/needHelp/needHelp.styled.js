@@ -18,6 +18,7 @@ export const Text = styled.p`
   font-size: 12px;
   font-family: 'Poppins';
   line-height: 20px;
+  margin-bottom: 15px;
     
     @media (min-width: 768px) {
       font-size: 14px;
