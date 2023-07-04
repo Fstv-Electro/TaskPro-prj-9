@@ -76,10 +76,6 @@ export const Button = styled.button`
   transition: color 500ms cubic-bezier(0.4, 0, 0.2, 1),
   scale 500ms cubic-bezier(0.4, 0, 0.2, 1);
 
-  &:hover {
-    color: var(--button-bg-color);
-    scale: 1.4;
-  }
 `;
 export const Span = styled.span`
   display: inline-block;
