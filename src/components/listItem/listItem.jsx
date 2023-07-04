@@ -49,7 +49,7 @@ export const ListItem = ({
           <li>
             <ShiftBtnCard id={_id} parentColumn={parentColumn} />
           </li>
-          <EditBtnCard id={_id}/>
+          <EditBtnCard id={_id} title={title} description={description} deadline={deadline} priority={priority} parentColumn={parentColumn}/>
           <li>
             <DeleteBtnCard id={_id} />
           </li>
