@@ -4,6 +4,16 @@
           @license MIT
           */
 
+/*!
+ * OverlayScrollbars
+ * Version: 2.2.0
+ *
+ * Copyright (c) Rene Haas | KingSora.
+ * https://github.com/KingSora
+ *
+ * Released under the MIT license.
+ */
+
 /*! ./Component */
 
 /*! ./Context */
