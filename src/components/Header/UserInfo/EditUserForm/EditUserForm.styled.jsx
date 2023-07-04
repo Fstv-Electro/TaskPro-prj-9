@@ -22,8 +22,8 @@ export const UserForm = styled.div`
   flex-direction: column;
   width: 100%;
   border-radius: 8px;
-  }
 `;
+
 export const ErrorMessage = styled(FormicErrorMessage)`
 
 `
@@ -90,7 +90,6 @@ export const Button = styled.button`
       top:1px;
       box-shadow: -4px -4px 43px 2px rgba(34, 60, 80, 0.2) inset;
     }
-  }
 `;
 
 export const FormIcon = styled.span`

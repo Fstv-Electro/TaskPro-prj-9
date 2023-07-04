@@ -46,40 +46,40 @@ export default function ScreenPage() {
                   backgroundImage: `url(${bgUrls.tabletURL})`,
                   backgroundRepeat: 'no-repeat',
                   backgroundSize: 'cover',
-                  height: 'calc(100vh - 24px)',
+                  height: '100vh',
                 }
               : tabletScreen
               ? {
                   backgroundImage: `url(${bgUrls.desktopURL})`,
                   backgroundRepeat: 'no-repeat',
                   backgroundSize: 'cover',
-                  height: 'calc(100vh - 24px)',
+                  height: '100vh',
                 }
               : desktopScreen && {
                   backgroundImage: `url(${bgUrls.retinaURL})`,
                   backgroundRepeat: 'no-repeat',
                   backgroundSize: 'cover',
-                  height: 'calc(100vh - 24px)',
+                  height: '100vh',
                 }
             : mobileScreen
             ? {
                 backgroundImage: `url(${bgUrls.mobileURL})`,
                 backgroundRepeat: 'no-repeat',
                 backgroundSize: 'cover',
-                height: 'calc(100vh - 24px)',
+                height: '100vh',
               }
             : tabletScreen
             ? {
                 backgroundImage: `url(${bgUrls.tabletURL})`,
                 backgroundRepeat: 'no-repeat',
                 backgroundSize: 'cover',
-                height: 'calc(100vh - 24px)',
+                height: '100vh',
               }
             : desktopScreen && {
                 backgroundImage: `url(${bgUrls.desktopURL})`,
                 backgroundRepeat: 'no-repeat',
                 backgroundSize: 'cover',
-                height: 'calc(100vh - 24px)',
+                height: '100vh',
               }
           : null
       }

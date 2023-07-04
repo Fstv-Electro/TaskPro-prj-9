@@ -1,11 +1,12 @@
 import styled from '@emotion/styled';
 
 export const Container = styled.div`
+  position: relative;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   align-items: center;
-  position: relative;
+  height: 100vh;
   margin: 0;
   padding: 24px 0 0 24px;
   color: var(--bord-list-color);
