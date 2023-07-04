@@ -1,11 +1,11 @@
 import styled from '@emotion/styled';
 
 export const Container = styled.div`
-  width: 100%;
+  width: calc(100vw - 260px);
   padding-bottom: 8px;
   background-color: var(--main-bg-color);
   color: var(--first-text-color);
-  overflow-y: hidden;
+  overflow: hidden;
 
   // backgroundImage: url("");
   // backgroundRepeat: 'no-repeat';
