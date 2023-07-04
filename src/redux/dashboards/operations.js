@@ -222,6 +222,21 @@ export const shiftCard = createAsyncThunk(
   }
 );
 
+export const changeBackground = createAsyncThunk(
+  'boards/changeBackground',
+  async ({ id, currentBg }, thunkAPI) => {
+    try {
+      console.log({ id, currentBg });
+      const response = await axios.patch(`/api/boards/${id}/currentBg`, {
+        currentBg,
+      });
+      Notiflix.Notify.success('Background edit!');
+      return response.data;
+    } catch (error) {
+      return thunkAPI.rejectWithValue(error.message);
+    }
+  }
+);
 // export const fetchTasks = createAsyncThunk(
 //   'tasks/fetchTasks',
 //   async (_, thunkAPI) => {
