@@ -9,7 +9,7 @@ export const Btn = styled.button`
   background-color: transparent;
   border: transparent;
   border-radius: 50%;
-  color: #ffffff;
+  color: var(--last-text-color);
   cursor: pointer;
   transition: color 500ms cubic-bezier(0.4, 0, 0.2, 1),
   scale 500ms cubic-bezier(0.4, 0, 0.2, 1);
@@ -42,7 +42,7 @@ export const ColumnList = styled.ul`
   overflow: hidden;
   list-style: none;
   cursor: pointer;
-  background: #161616;
+  background: var(--main-last-bg-color);
   border-radius: 8px;
   transition: all 0.3s ease-out;
   transition: transform 550ms cubic-bezier(0.4, 0, 0.2, 1);
@@ -68,7 +68,7 @@ export const ItemBtn = styled.button`
   background: transparent;
   cursor: ${({ disabled }) => (disabled ? '' : 'pointer')};
   color: ${({ selected }) =>
-    selected ? '#BEDBB0' : 'rgba(255, 255, 255, 0.50);'};
+    selected ? 'var(--button-bg-color)' : 'var(--last-text-color);'};
   transition: all 0.3s ease-out;
 
   &:hover {

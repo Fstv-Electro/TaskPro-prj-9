@@ -9,7 +9,7 @@ export const Btn = styled.button`
   background-color: transparent;
   border: transparent;
   border-radius: 50%;
-  color: #ffffff;
+  color: var(--last-text-color);
   cursor: pointer;
   transition: color 500ms cubic-bezier(0.4, 0, 0.2, 1),
   scale 500ms cubic-bezier(0.4, 0, 0.2, 1);
