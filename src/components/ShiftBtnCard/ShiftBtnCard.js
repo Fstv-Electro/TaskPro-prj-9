@@ -12,8 +12,7 @@ import {
   ItemBtn,
 } from './ShiftBtnCard.styled';
 
-const ShiftBtnCard = ({ id }) => {
-  const [currentColumn, setCurrentColumn] = useState();
+const ShiftBtnCard = ({ id, parentColumn }) => {
   const [isDropdownActive, setIsDropdownActive] = useState(false);
 
   const lists = useSelector(selectList);
@@ -28,7 +27,6 @@ const ShiftBtnCard = ({ id }) => {
   const handleColumnChange = e => {
     const nextColumnId = e.target.dataset.id;
     const currCard = cards.filter(item => item._id === id);
-    setCurrentColumn(e.target.value);
     dispatch(
       shiftCard({
         prevCardId: id,
@@ -36,6 +34,7 @@ const ShiftBtnCard = ({ id }) => {
         newColumnId: nextColumnId,
       })
     );
+    handleDropdownClick();
   };
 
   return (
@@ -47,19 +46,24 @@ const ShiftBtnCard = ({ id }) => {
       </Btn>
 
       <ColumnList className={isDropdownActive ? 'active' : ''}>
-        {lists.map(({ title, _id }) => (
-          <Item key={_id}>
-            <ItemBtn
-              selected={currentColumn === title}
-              disabled={currentColumn === title}
-              value={title}
-              onClick={handleColumnChange}
-              data-id={_id}
-            >
-              {title}
-            </ItemBtn>
-          </Item>
-        ))}
+        {lists.map(({ title, _id }) => {
+          return (
+            <Item key={_id}>
+              <ItemBtn
+                selected={parentColumn === _id}
+                disabled={parentColumn === _id}
+                value={title}
+                onClick={handleColumnChange}
+                data-id={_id}
+              >
+                {title.length > 12 ? title.slice(0, 12) + '...' : title}
+                <IconShift>
+                  <use href={sprite + '#icon-arrow-circle-broken-right'}></use>
+                </IconShift>
+              </ItemBtn>
+            </Item>
+          );
+        })}
       </ColumnList>
     </div>
   );
