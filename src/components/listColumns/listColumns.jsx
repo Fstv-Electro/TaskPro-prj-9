@@ -18,7 +18,7 @@ export const ListColumns = () => {
   const toggleModal = () => {
     setIsOpen(isOpen => !isOpen);
   };
-
+  
   return (
     <>
       <Container>
