@@ -1,40 +1,49 @@
-import { Container, Title, Text, Tools, ToolsTitle, ToolsText, ButtonList, Span } from "./listItem.styled";
-import ShiftBtnCard from "components/ShiftBtnCard/ShiftBtnCard";
-import DeleteBtnCard from "components/DeleteBtnCard/DeleteBtnCard";
-import EditBtnCard from "components/EditBtnCard/EditBtnCard";
+import {
+  Container,
+  Title,
+  Text,
+  Tools,
+  ToolsTitle,
+  ToolsText,
+  ButtonList,
+  Button,
+} from './listItem.styled';
+import sprite from '../../images/symbol-defs.svg';
+import ShiftBtnCard from 'components/ShiftBtnCard/ShiftBtnCard';
+import DeleteBtnCard from 'components/DeleteBtnCard/DeleteBtnCard';
 
-export const ListItem = ({ card: { _id, title, priority, description, deadline } }) => {
-
+export const ListItem = ({
+  card: { _id, title, priority, description, deadline },
+}) => {
   return (
-    <Container priority={priority}>
-      <Title>{title}</Title> 
+    <Container>
+      <Title>{title}</Title>
       <Text>{description}</Text>
-      <Tools> 
+      <Tools>
         <div>
-        <ToolsTitle>
-        Priority
-        </ToolsTitle>
-        <ToolsText><Span priority={priority}></Span>{priority}</ToolsText>
+          <ToolsTitle>Priority</ToolsTitle>
+          <ToolsText>{priority}</ToolsText>
         </div>
         <div>
-        <ToolsTitle>
-        Deadline
-        </ToolsTitle>
-        <ToolsText>{deadline}</ToolsText>
-        </div>   
+          <ToolsTitle>Deadline</ToolsTitle>
+          <ToolsText>{deadline}</ToolsText>
+        </div>
         <ButtonList>
-         <li>
-          <ShiftBtnCard id={_id}/>
-        </li>
-         <li>
-        <EditBtnCard id={_id} />
-        </li>
-        <li>
-            <DeleteBtnCard id={_id}/>
-        </li>   
+          <li>
+            <ShiftBtnCard id={_id} />
+          </li>
+          <li>
+            <Button>
+              <svg aria-label="icon pencil" width="16px" height="16px">
+                <use href={sprite + '#icon-pencil-01'}></use>
+              </svg>
+            </Button>
+          </li>
+          <li>
+            <DeleteBtnCard id={_id} />
+          </li>
         </ButtonList>
       </Tools>
-
     </Container>
   );
 };

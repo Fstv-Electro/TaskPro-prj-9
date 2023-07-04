@@ -1,6 +1,6 @@
 import { Modal } from 'components/modal/modal';
 import { Formik, Form } from 'formik';
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import { ButtonClose } from 'components/modalBtnClose/ButtonClose';
 import {
   Container,
@@ -13,40 +13,34 @@ import {
   Label,
   Field,
 } from './FitlerForm.styled';
-import { setFilter } from 'redux/dashboards/operations';
 import { setFilterCards } from 'redux/dashboards/slice';
 import { Background } from 'components/background/Background';
-import { selectCard } from 'redux/dashboards/selectors';
 
 export const Filter = ({ onClose }) => {
   const dispatch = useDispatch();
-  const cards = useSelector(selectCard);
   let setBg;
   console.log(setBg);
 
   const initialValues = {
     currentBg: 0,
-    currentPrority: 'without priority',
+    currentPrority: '',
   };
 
-  function handleChange(evt) {
-    const filter = evt.target.value;
-    const filteredCards = cards.filter(card => card.priority.toString() === filter.toLowerCase().toString());
-    dispatch(setFilterCards(filteredCards));
-    dispatch(setFilter(filter));
-  }
+  const handleChange = event => {
+    const filter = event.target.value;
+    dispatch(setFilterCards(filter));
+  };
+
+  const handleShowAll = () => {
+    dispatch(setFilterCards(''));
+  };
 
   const getBg = currentBg => {
-      //await зробити діспатч(запит на зміну бекграунду дошки) може patch запит за /api/boards/{id}
-      // а потім змінити стейт currentBg
+    //await зробити діспатч(запит на зміну бекграунду дошки) може patch запит за /api/boards/{id}
+    // а потім змінити стейт currentBg
     // чекаємо на бек
-      setBg = currentBg;
+    setBg = currentBg;
   };
-
-  function handleClick() {
-    dispatch(setFilterCards(cards));
-    dispatch(setFilter('All'));
-  }
 
   return (
     <Modal onClose={onClose}>
@@ -61,7 +55,7 @@ export const Filter = ({ onClose }) => {
             <LabelGroup role="group" aria-labelledby="my-radio-group">
               <Div>
                 <Text>Label color</Text>
-                <Button type="button" onClick={handleClick}>
+                <Button type="button" onClick={handleShowAll}>
                   Show all
                 </Button>
               </Div>
@@ -69,7 +63,7 @@ export const Filter = ({ onClose }) => {
                 <Field
                   type="radio"
                   name="currentPrority"
-                  value="Without priority"
+                  value="without"
                   color={'rgba(255, 255, 255, 0.3)'}
                 />
                 Without priority
@@ -78,7 +72,7 @@ export const Filter = ({ onClose }) => {
                 <Field
                   type="radio"
                   name="currentPrority"
-                  value="Low"
+                  value="low"
                   color={'#8FA1D0'}
                 />
                 Low
@@ -87,7 +81,7 @@ export const Filter = ({ onClose }) => {
                 <Field
                   type="radio"
                   name="currentPrority"
-                  value="Medium"
+                  value="medium"
                   color={'#E09CB5'}
                 />
                 Medium
@@ -96,7 +90,7 @@ export const Filter = ({ onClose }) => {
                 <Field
                   type="radio"
                   name="currentPrority"
-                  value="High"
+                  value="high"
                   color={'#BEDBB0'}
                 />
                 High
