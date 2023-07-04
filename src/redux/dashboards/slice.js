@@ -12,6 +12,7 @@ import {
   deleteBoard,
   needHelp,
   backgroundUrl,
+  shiftCard,
 } from './operations';
 import { statusFilters } from './constants';
 
@@ -230,6 +231,22 @@ const taskSlice = createSlice({
       state.boards.splice(index, 1);
     },
     [deleteBoard.rejected](state, action) {
+      state.isLoading = false;
+      state.error = true;
+    },
+    [shiftCard.pending](state, action) {
+      state.isLoading = true;
+      state.error = false;
+    },
+    [shiftCard.fulfilled](state, action) {
+      state.isLoading = false;
+      state.error = null;
+      const index = state.cards.findIndex(
+        card => card._id === action.payload._id
+      );
+      state.cards.splice(index, 1, action.payload);
+    },
+    [shiftCard.rejected](state, action) {
       state.isLoading = false;
       state.error = true;
     },
