@@ -32,26 +32,24 @@ export const Title = styled.h2`
 `;
 
 export const Text = styled.p`
-  color: rgba(255, 255, 255, 0.5);
+  color:  var(--last-text-color); 
   font-size: 12px;
   line-height: 1.3;
   width: 290px;
   word-wrap: break-word;
-  /* border-bottom: 1px solid #ffffff1a; */
   padding-bottom: auto;
-  /* margin-bottom: 14px; */
 `;
 
 export const Tools = styled.div`
   display: flex;
   justify-content: space-between;
-  border-top: 1px solid #ffffff1a;
+  border-bottom: 1px solid var(--main-line-color); 
   margin-top: 14px;
   padding-top: 14px;
 `;
 
 export const ToolsTitle = styled.h3`
-  color: rgba(255, 255, 255, 0.5);
+  color:  var(--last-text-color); 
   font-size: 8px;
   letter-spacing: -0.16px;
   margin-bottom: 5px;
@@ -72,9 +70,16 @@ export const ButtonList = styled.ul`
 `;
 export const Button = styled.button`
   padding: 0;
-  color: #ffffff;
+  color: var(--first-text-color);
   background-color: transparent;
   border: none;
+  transition: color 500ms cubic-bezier(0.4, 0, 0.2, 1),
+  scale 500ms cubic-bezier(0.4, 0, 0.2, 1);
+
+  &:hover {
+    color: var(--button-bg-color);
+    scale: 1.4;
+  }
 `;
 export const Span = styled.span`
   display: inline-block;
