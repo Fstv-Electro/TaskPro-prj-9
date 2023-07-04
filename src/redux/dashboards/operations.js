@@ -82,35 +82,17 @@ export const deleteColumn = createAsyncThunk(
   'columns/deleteColumn',
   async (id, thunkAPI) => {
     try {
-      // const response = await axios.delete(`/api/columns/${id}`);
-      // Notiflix.Notify.success(
-      //   `Column ${response.data.id} deleted successfully!`
-      // );
-      // console.log('Response:', response.data);
-      // return response.data;
-      // contactId;
-      await axios.delete(`/api/columns/${id}`);
-      Notiflix.Notify.success(`Column ${id} deleted successfully!`);
-      console.log('Response:', id);
-      return id;
+      const response = await axios.delete(`/api/columns/${id}`);
+      if (response.status === 204) {
+        Notiflix.Notify.success(`Column deleted successfully!`);
+        console.log('Response:', id);
+        return id;
+      }
     } catch (error) {
       return thunkAPI.rejectWithValue(error.message);
     }
   }
 );
-
-// export const setFilter = createAsyncThunk(
-//   'columns/setFilter',
-//   async (filter, thunkAPI) => {
-//     try {
-//       console.log(filter);
-
-//       return filter;
-//     } catch (error) {
-//       return thunkAPI.rejectWithValue(error.message);
-//     }
-//   }
-// );
 
 export const addTask = createAsyncThunk(
   'tasks/addTask',
@@ -161,11 +143,12 @@ export const editTask = createAsyncThunk(
 export const deleteCard = createAsyncThunk(
   'tasks/deleteTask',
   async (id, thunkAPI) => {
-    console.log(id);
     try {
       const response = await axios.delete(`/api/tasks/${id}`);
-      Notiflix.Notify.success('Task deleted successfully!');
-      return response.data;
+      if (response.status === 204) {
+        Notiflix.Notify.success('Task deleted successfully!');
+        return id;
+      }
     } catch (error) {
       return thunkAPI.rejectWithValue(error.message);
     }
@@ -204,11 +187,13 @@ export const editBoard = createAsyncThunk(
 export const deleteBoard = createAsyncThunk(
   'boards/deleteBoard',
   async (id, thunkAPI) => {
-    console.log(id);
     try {
       const response = await axios.delete(`/api/boards/${id}`);
-      Notiflix.Notify.success('Board deleted successfully!');
-      return response.data;
+
+      if (response.status === 204) {
+        Notiflix.Notify.success('Board deleted successfully!');
+        return id;
+      }
     } catch (error) {
       return thunkAPI.rejectWithValue(error.message);
     }

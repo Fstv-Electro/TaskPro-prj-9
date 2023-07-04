@@ -49,7 +49,6 @@ const taskSlice = createSlice({
       state.currentBoard = action.payload;
     },
     setFilterCards(state, action) {
-      console.log(action.payload); // видалити
       state.filteredCards = action.payload;
     },
     getCards(state, action) {
@@ -128,37 +127,13 @@ const taskSlice = createSlice({
       state.isLoading = true;
       state.error = false;
     },
-    // [deleteColumn.fulfilled](state, action) {
-    //   state.isLoading = false;
-    //   state.error = null;
-    //   console.log('Before filter:', JSON.stringify(Array.from(state.lists)));
-
-    //   // const index = state.lists.findIndex(
-    //   //   column => column._id === action.payload._id
-    //   // );
-    //   // state.lists.splice(index, 1);
-
-    //   const updatedLists = state.lists.filter(
-    //     column => column._id !== action.payload._id
-    //   );
-    //   state.lists = updatedLists;
-    //   console.log('After filter:', JSON.stringify(Array.from(state.lists)));
-    // },
     [deleteColumn.fulfilled](state, action) {
       state.isLoading = false;
       state.error = null;
-      console.log('action.payload._id:', action.payload);
-      state.lists.forEach(column => {
-        console.log('column._id:', column._id);
-      });
-      console.log('Before filter:', JSON.stringify(Array.from(state.lists)));
-
       const updatedLists = state.lists.filter(
         column => String(column._id) !== String(action.payload)
       );
       state.lists = updatedLists;
-
-      console.log('After filter:', JSON.stringify(Array.from(state.lists)));
     },
     [deleteColumn.rejected](state, action) {
       state.isLoading = false;
@@ -193,10 +168,10 @@ const taskSlice = createSlice({
     [deleteCard.fulfilled](state, action) {
       state.isLoading = false;
       state.error = null;
-      const index = state.cards.findIndex(
-        card => card._id === action.payload._id
+      const updatedCards = state.cards.filter(
+        card => String(card._id) !== String(action.payload)
       );
-      state.cards.splice(index, 1);
+      state.cards = updatedCards;
     },
     [deleteCard.rejected](state, action) {
       state.isLoading = false;
@@ -227,10 +202,10 @@ const taskSlice = createSlice({
     [editBoard.fulfilled](state, action) {
       state.isLoading = false;
       state.error = null;
-      const index = state.boards.findIndex(
-        board => board._id === action.payload._id
+      const updatedBoards = state.boards.filter(
+        board => String(board._id) !== String(action.payload)
       );
-      state.boards[index] = action.payload;
+      state.boards = updatedBoards;
     },
     [editBoard.rejected](state, action) {
       state.isLoading = false;
@@ -244,7 +219,7 @@ const taskSlice = createSlice({
       state.isLoading = false;
       state.error = null;
       const index = state.boards.findIndex(
-        board => board._id === action.payload._id
+        board => board._id === action.payload
       );
       state.boards.splice(index, 1);
     },
