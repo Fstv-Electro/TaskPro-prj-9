@@ -6,6 +6,7 @@ export const Container = styled.div`
   flex-direction: column;
   justify-content: space-between;
   align-items: center;
+  box-sizing: content-box;
   height: 100vh;
   margin: 0;
   padding: 24px 0 0 24px;
@@ -50,6 +51,14 @@ export const NaviUser = styled.div`
 
 export const NavDashboards = styled.nav`
   /* margin-bottom: auto; */
+
+  height: 300px;
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+  overflow: scroll;
+  &::-webkit-scrollbar {
+    width: 0px;
+  }
 `;
 
 export const NeedHelpLogOutContainer = styled.div`

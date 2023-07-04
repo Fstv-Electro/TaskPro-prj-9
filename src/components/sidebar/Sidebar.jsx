@@ -71,7 +71,7 @@ export const Sidebar = () => {
         <NaviUser>
           <WrapperTitle>
             <WrapperLogo>
-              <Logo aria-label="question with round" >
+              <Logo aria-label="question with round">
                 <use href={sprite + '#icon-icon'}></use>
               </Logo>
             </WrapperLogo>
@@ -81,7 +81,6 @@ export const Sidebar = () => {
           <CreateBoard />
         </NaviUser>
         <NavDashboards>
-          <MyBoards />
           {selectBoards.map(board => (
             <MyBoards key={board._id} id={board._id} desk={board} />
           ))}
