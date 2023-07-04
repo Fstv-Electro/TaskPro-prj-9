@@ -3,6 +3,7 @@ import { useEffect, useState } from 'react';
 import { selectBackground } from 'redux/dashboards/selectors';
 import { backgroundUrl } from 'redux/dashboards/operations';
 import { useMediaQuery } from 'react-responsive';
+import { Header } from 'components/Header/Header';
 
 import { DashboardHeader } from 'components/HeaderDashboard/HeaderDashboard';
 import { DashboardMain } from 'components/MainDashboard/MainDashboard';
@@ -83,6 +84,7 @@ export default function ScreenPage() {
           : null
       }
     >
+      <Header />
       <DashboardHeader />
       <DashboardMain />
     </Container>

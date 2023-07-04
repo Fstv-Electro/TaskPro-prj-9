@@ -31,7 +31,6 @@ export default function Home() {
         </div>
       ) : (
         <div style={styles.deskMenu}>
-          <Header />
           <Outlet />
         </div>
       )}
