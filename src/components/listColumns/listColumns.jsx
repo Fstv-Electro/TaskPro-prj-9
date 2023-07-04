@@ -25,7 +25,6 @@ export const ListColumns = () => {
   //   toggleModal()
   // }
 
-  console.log(lists);
 
   return (
     <>

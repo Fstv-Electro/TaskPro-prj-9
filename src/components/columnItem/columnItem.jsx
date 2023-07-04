@@ -9,15 +9,22 @@ import {
   IconDelete,
   BtnContainer,
 } from './columnItem.styled';
-import { useDispatch } from 'react-redux';
-import { deleteColumn } from 'redux/dashboards/operations';
+import { useDispatch, useSelector } from 'react-redux';
+import { deleteColumn, fetchColumns } from 'redux/dashboards/operations';
+import { selectCurrentBoard } from 'redux/dashboards/selectors';
 
 export const ColumnItem = ({ item }) => {
   const dispatch = useDispatch();
+  const currentBoard = useSelector(selectCurrentBoard);
   const [isOpen, setIsOpen] = useState(false);
 
   const toggleModal = () => {
     setIsOpen(isOpen => !isOpen);
+  };
+
+  const onDelete = (id) => {
+    dispatch(deleteColumn(id));
+    dispatch(fetchColumns(currentBoard));
   };
 
   return (
@@ -32,7 +39,7 @@ export const ColumnItem = ({ item }) => {
           </Button>
           <Button
             type="button"
-            onClick={() => dispatch(deleteColumn(item._id))}
+            onClick={() => onDelete(item._id)}
           >
             <IconDelete aria-label="delete">
               <use href={sprite + '#icon-trash-04'}></use>
