@@ -27,8 +27,8 @@ export const IconShift = styled.svg`
 
 export const ColumnList = styled.ul`
   position: absolute;
-  left: 25%;
-  bottom: -50%;
+  right: 47%;
+  bottom: 100%;
   display: flex;
   align-items: flex-start;
   flex-direction: column;
