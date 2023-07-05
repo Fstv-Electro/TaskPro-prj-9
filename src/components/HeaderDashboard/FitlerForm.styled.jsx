@@ -2,18 +2,19 @@ import styled from '@emotion/styled';
 import { Field as FormicField } from 'formik';
 
 export const Container = styled.div`
-  width: 300px;
+  width: 250px;
 `;
 
 export const Title = styled.h2`
   font-size: 18px;
   font-family: 'Poppins';
   font-weight: 500;
-  margin-top: 0;
+  margin-bottom: 14px;
 `;
 
 export const BackgroundWrapper = styled.div`
-  padding-top: 2px;
+  padding-top: 14px;
+  height: 123px;
   margin-bottom: 24px;
   border-top: 1px solid #ffffff1a;
   border-bottom: 1px solid #ffffff1a;
@@ -23,7 +24,7 @@ export const Div = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: baseline;
-  margin-bottom: 14px;
+  margin-bottom: 2px;
 `;
 
 export const Text = styled.p`
@@ -50,13 +51,15 @@ export const Button = styled.button`
 export const LabelGroup = styled.div`
   display: flex;
   flex-direction: column;
-  gap: 12px;
+  gap: 8px;
   justify-content: center;
+  /* align-items: baseline; */
 `;
 
 export const Label = styled.label`
   display: flex;
   align-items: center;
+  /* justify-content: center; */
   gap: 8px;
   cursor: pointer;
   color: var(--last-text-color);
@@ -78,10 +81,10 @@ export const Field = styled(FormicField)`
     content: '';
     left: 6.4%;
     position: absolute;
-    transform: translate(3px, 1px);
-    width: 15px;
-    height: 15px;
-    border: 2px solid black;
+    transform: translate(6px, 1px);
+    width: 12px;
+    height: 12px;
+    border: 2.5px solid black;
     border-radius: 50%;
     opacity: 0;
   }

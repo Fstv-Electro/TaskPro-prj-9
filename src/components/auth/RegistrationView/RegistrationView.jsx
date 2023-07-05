@@ -18,7 +18,7 @@ import {
 } from './RegistrationView.styled';
 import { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { register } from 'redux/auth/operations';
+import { register, registerGoogle } from 'redux/auth/operations';
 import Sprite from '../../../images/symbol-defs.svg';
 import * as Yup from 'yup';
 import { selectIsError } from 'redux/auth/selectores';
@@ -56,16 +56,15 @@ export default function RegistrationView() {
   const dispatch = useDispatch();
   const [type, setType] = useState('password');
   const isError = useSelector(selectIsError);
-  const [token, setToken] = useState('');
 
-  // получаем параметры строки запроса
   const [searchParams] = useSearchParams();
 
   useEffect(() => {
     const token = searchParams.get('token');
-    setToken(token);
-    console.log(token);
-  }, [searchParams, token]);
+    if (token) {
+      dispatch(registerGoogle(token));
+    }
+  }, [dispatch, searchParams]);
 
   function handleSubmit(value) {
     const { name, email, password } = value;
