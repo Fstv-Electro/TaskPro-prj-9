@@ -24,7 +24,7 @@ const CustomScrollbar = ({ children, width="100%", height }) => {
   return (
     <OverlayScrollbarsComponent
       ref={scrollRef}
-      style={{ width, height }}
+      style={{ width, height, marginTop: '-14px', paddingTop: '14px' }}
     >
 
         {children}

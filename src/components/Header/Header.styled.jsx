@@ -10,7 +10,7 @@ export const HeaderStyled = styled.header`
   padding: 18px 24px;
   color: var(--first-text-color);
 
-  @media (max-width: 1180px) {
+  @media (max-width: 1440px) {
     padding: 18px 32px;
   }
   @media (max-width: 768px) {
@@ -60,7 +60,7 @@ export const ThemeSelect = styled.div`
   cursor: pointer;
   transition: all 0.3s ease-out;
   transition: transform 550ms cubic-bezier(0.4, 0, 0.2, 1);
-  padding: 10px 1px;
+  padding: 7px 0;
   opacity: 0.8;
 
   --color1: currentColor;
