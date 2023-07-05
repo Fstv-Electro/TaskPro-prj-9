@@ -230,6 +230,18 @@ const bellAnimation = keyframes`
 `;
 
 const bellAnimationShine = keyframes`
+   /* 0% {
+    box-shadow: 0px 0px 0px 0px rgba(255, 56, 20, 0.7);
+    filter: drop-shadow(0px 0px 0px currentColor);
+  }
+  50% {
+    box-shadow: 0px 0px 2px 4px rgba(255, 56, 20, 0.7);
+    filter: drop-shadow(0px 0px 5.5px currentColor);
+  }
+  100% {
+    box-shadow: 0px 0px 0px 0px rgba(255, 56, 20, 0.7);
+    filter: drop-shadow(0px 0px 0px currentColor);
+  } */
      0% {
         box-shadow: 0px 0px 0px 0px rgba(255, 56, 20, 0.7);
     
@@ -242,11 +254,6 @@ const bellAnimationShine = keyframes`
     box-shadow: 0px 0px 0px 0px rgba(255, 56, 20, 0.7);
     
   }
-`;
-
-export const BoxShadow = styled.div`
-  border-radius: 8px;
-  box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
 `;
 
 export const Icon = styled.svg`
@@ -262,7 +269,7 @@ export const Icon = styled.svg`
   filter: drop-shadow(0px 0px 5.5px currentColor);
 
   ${props =>
-    props.color === '#FFD700' &&
+    props.color === '#0B5BF1' &&
     css`
       -webkit-animation: ${bellAnimationWebkit} 4s 0.7s ease-in-out infinite;
       -webkit-transform-origin: 50% 4px;
@@ -275,7 +282,9 @@ export const Icon = styled.svg`
   ${props =>
     props.color === '#FF3814' &&
     css`
+      filter: drop-shadow(0px 0px 15.5px currentColor);
       border-radius: 50%;
       animation: ${bellAnimationShine} 2.5s linear infinite;
+      transform-origin: 50% 14px;
     `}
 `;

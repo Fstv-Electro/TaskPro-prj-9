@@ -23,7 +23,7 @@ export const BellCard = ({ deadline }) => {
   let color = '#bedbb0';
 
   if (remainingDays === 0) {
-    color = '#FFD700';
+    color = '#0B5BF1';
   } else if (remainingDays < 0) {
     color = '#FF3814';
   } else if (remainingDays === 1) {
@@ -32,11 +32,9 @@ export const BellCard = ({ deadline }) => {
 
   return (
     <li>
-      <BoxShadow>
-        <Icon color={color}>
-          <use href={sprite + '#icon-bell-01'}></use>
-        </Icon>
-      </BoxShadow>
+      <Icon color={color}>
+        <use href={sprite + '#icon-bell-01'}></use>
+      </Icon>
     </li>
   );
 };
