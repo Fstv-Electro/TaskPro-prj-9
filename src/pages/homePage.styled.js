@@ -2,7 +2,7 @@ import styled from '@emotion/styled';
 
 export const Container = styled.div`
     display: flex;
-    flexDirection: row;
+    flex-direction: row;
     background-color: #1F1F1F;
 `
 
