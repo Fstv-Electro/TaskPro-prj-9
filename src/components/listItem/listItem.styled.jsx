@@ -20,7 +20,7 @@ export const Container = styled.div`
         case 'high':
           return '#BEDBB0';
         case 'without':
-          return '#FFFFFF4D'; 
+          return 'var(--item-span-color)'; 
         default:
           break
       }
@@ -95,7 +95,7 @@ export const Span = styled.span`
       case 'high':
         return '#BEDBB0';
       case 'without':
-        return '#FFFFFF4D'; 
+        return 'var(--item-span-color)'; 
       default:
         break;
     }

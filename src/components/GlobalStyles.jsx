@@ -5,10 +5,21 @@ export const GlobalStyles = () => {
   return (
     <Global
       styles={css`
-
+      
       root {
         --modal-shadow-color: rgba(22, 22, 22, 0.05);
       }
+
+      ::-webkit-scrollbar { 
+          width: 0px; 
+          background: transparent;  
+      }
+
+      html {
+        -ms-overflow-style: none;  /* IE 10+ */
+        scrollbar-width: none; /* Firefox */
+      }
+
         body {
           margin: 0;
           font-family: 'Poppins', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto',
@@ -60,6 +71,7 @@ export const GlobalStyles = () => {
           --main-last-bg-color: rgba(18, 18, 18, 1);
           --stroke--plus-icon: rgba(255, 255, 255, 1);
           --main-line-color: rgba(255, 255, 255, 0.1);
+          --item-span-color: rgba(255, 255, 255, 0.3);
 
           --sidebar-first-bg-color: rgba(18, 18, 18, 1);
           --sidebar-second-bg-color: rgba(31, 31, 31, 1);
@@ -94,6 +106,7 @@ export const GlobalStyles = () => {
           --main-last-bg-color: rgba(255, 255, 255, 1);
           --stroke--plus-icon: rgba(255, 255, 255, 1);
           --main-line-color: rgba(22, 22, 22, 0.1);
+          --item-span-color: rgba(22, 22, 22, 0.3);
 
           --sidebar-first-bg-color: rgba(255, 255, 255, 1);
           --sidebar-second-bg-color: rgba(246, 246, 247, 1);
@@ -129,6 +142,7 @@ export const GlobalStyles = () => {
           --main-last-bg-color: rgba(255, 255, 255, 1);
           --stroke--plus-icon: rgba(22, 22, 22, 1);
           --main-line-color: rgba(22, 22, 22, 0.1);
+          --item-span-color: rgba(22, 22, 22, 0.3);
 
           --sidebar-first-bg-color: rgba(82, 85, 188, 1);
           --sidebar-second-bg-color: rgba(143, 146, 214, 1);

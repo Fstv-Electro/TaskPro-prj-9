@@ -6,11 +6,11 @@ export const Container = styled.div`
   align-items: center;
   text-align: center;
   width: 100%;
-  height: calc(100vh - 72px);
+  height: calc(100vh - 68px);
   background-color: var(--main-bg-color);
 
   @media (max-width: 768px) {
-    height: calc(100vh - 64px);
+    height: calc(100vh - 60px);
   }
 `;
 
