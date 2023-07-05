@@ -5,7 +5,9 @@ export const Container = styled.div`
   flex-direction: row;
   flex-wrap: nowrap;
   gap: 34px;
+  height: 100%;
   /* overflow-x: scroll; */
+  padding-right: 24px;
 `;
 
 export const List = styled.ul`

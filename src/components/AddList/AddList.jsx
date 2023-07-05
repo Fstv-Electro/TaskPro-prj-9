@@ -2,6 +2,8 @@ import { ListItem } from 'components/listItem/listItem';
 import { useSelector } from 'react-redux';
 import { selectVisibleCards } from 'redux/dashboards/selectors';
 
+import Scroll from '../Scroll/ScrollCostom';
+
 const AddList = ({ columnId }) => {
   const tasks = useSelector(selectVisibleCards);
 
@@ -12,7 +14,7 @@ const AddList = ({ columnId }) => {
   }
 
   return (
-    <div>
+    <Scroll width='calc(100% + 16px)'>
       <ul>
         {filteredList.map(card => (
           <li key={card._id}>
@@ -20,7 +22,7 @@ const AddList = ({ columnId }) => {
           </li>
         ))}
       </ul>
-    </div>
+    </Scroll >
   );
 };
 

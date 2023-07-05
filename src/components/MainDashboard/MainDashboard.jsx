@@ -1,6 +1,6 @@
 import { ListColumns } from 'components/listColumns/listColumns';
 import { MainDiv } from './MainDashboard.styled';
-import Scroll from '../Scroll/ScrollCostom'
+import Scroll from '../Scroll/ScrollCostom';
 
 
 export const DashboardMain = () => {
