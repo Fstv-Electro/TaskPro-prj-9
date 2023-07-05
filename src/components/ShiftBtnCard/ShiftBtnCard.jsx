@@ -2,7 +2,7 @@ import { useState } from 'react';
 
 import { useDispatch, useSelector } from 'react-redux';
 import { selectList, selectCard } from 'redux/dashboards/selectors';
-import { shiftCard } from 'redux/dashboards/operations';
+import { shiftTask } from 'redux/dashboards/operations';
 import sprite from '../../images/symbol-defs.svg';
 import {
   Btn,
@@ -29,7 +29,7 @@ const ShiftBtnCard = ({ id, parentColumn }) => {
     console.log(e.target.dataset)
     const currCard = cards.filter(item => item._id === id);
     dispatch(
-      shiftCard({
+      shiftTask({
         prevCardId: id,
         card: currCard[0],
         newColumnId: nextColumnId,

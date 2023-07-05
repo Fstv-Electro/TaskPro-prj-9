@@ -6,6 +6,8 @@ Notiflix.Notify.init({
   position: 'right-bottom',
 });
 
+axios.defaults.baseURL = 'https://task-pro-backend.onrender.com';
+
 export const fetchBoards = createAsyncThunk(
   'user/boards',
   async (_, thunkAPI) => {
@@ -18,7 +20,58 @@ export const fetchBoards = createAsyncThunk(
   }
 );
 
-axios.defaults.baseURL = 'https://task-pro-backend.onrender.com';
+export const addBoard = createAsyncThunk(
+  'boards/addBoard',
+  async ({ title, currentBg, icon }, thunkAPI) => {
+    try {
+      const response = await axios.post('/api/boards', {
+        title,
+        currentBg,
+        icon,
+      });
+      Notiflix.Notify.success('Boards created!');
+      return response.data;
+    } catch (e) {
+      Notiflix.Notify.failure('Something going wrong!');
+      return thunkAPI.rejectWithValue(e.message);
+    }
+  }
+);
+
+export const editBoard = createAsyncThunk(
+  'boards/editBoard',
+  async ({ title, currentBg, icon, id }, thunkAPI) => {
+    try {
+      const response = await axios.put(`/api/boards/${id}`, {
+        title,
+        currentBg,
+        icon,
+      });
+      Notiflix.Notify.success('Board edit!');
+      return response.data;
+    } catch (error) {
+      return thunkAPI.rejectWithValue(error.message);
+    }
+  }
+);
+
+export const deleteBoard = createAsyncThunk(
+  'boards/deleteBoard',
+  async (id, thunkAPI) => {
+    try {
+      const response = await axios.delete(`/api/boards/${id}`);
+
+      if (response.status === 204) {
+        Notiflix.Notify.success('Board deleted successfully!');
+        return id;
+      }
+    } catch (error) {
+      return thunkAPI.rejectWithValue(error.message);
+    }
+  }
+);
+
+
 
 export const backgroundUrl = createAsyncThunk(
   'backgrounds',
@@ -45,6 +98,18 @@ export const needHelp = createAsyncThunk('help', async (user, thunkAPI) => {
     return thunkAPI.rejectWithValue(e.message);
   }
 });
+
+export const fetchColumns = createAsyncThunk(
+  'tasks/fetchColumns',
+  async (id, thunkAPI) => {
+    try {
+      const response = await axios.get(`/api/columns/${id}`);
+      return response.data;
+    } catch (e) {
+      return thunkAPI.rejectWithValue(e.message);
+    }
+  }
+);
 
 export const addColumn = createAsyncThunk(
   'columns/addColumn',
@@ -103,23 +168,7 @@ export const addTask = createAsyncThunk(
   }
 );
 
-export const addBoard = createAsyncThunk(
-  'boards/addBoard',
-  async ({ title, currentBg, icon }, thunkAPI) => {
-    try {
-      const response = await axios.post('/api/boards', {
-        title,
-        currentBg,
-        icon,
-      });
-      Notiflix.Notify.success('Boards created!');
-      return response.data;
-    } catch (e) {
-      Notiflix.Notify.failure('Something going wrong!');
-      return thunkAPI.rejectWithValue(e.message);
-    }
-  }
-);
+
 
 export const editTask = createAsyncThunk(
   'tasks/editTask',
@@ -135,7 +184,7 @@ export const editTask = createAsyncThunk(
   }
 );
 
-export const deleteCard = createAsyncThunk(
+export const deleteTask = createAsyncThunk(
   'tasks/deleteTask',
   async (id, thunkAPI) => {
     try {
@@ -150,52 +199,11 @@ export const deleteCard = createAsyncThunk(
   }
 );
 
-export const fetchColumns = createAsyncThunk(
-  'tasks/fetchColumns',
-  async (id, thunkAPI) => {
-    try {
-      const response = await axios.get(`/api/columns/${id}`);
-      return response.data;
-    } catch (e) {
-      return thunkAPI.rejectWithValue(e.message);
-    }
-  }
-);
 
-export const editBoard = createAsyncThunk(
-  'boards/editBoard',
-  async ({ title, currentBg, icon, id }, thunkAPI) => {
-    try {
-      const response = await axios.put(`/api/boards/${id}`, {
-        title,
-        currentBg,
-        icon,
-      });
-      Notiflix.Notify.success('Board edit!');
-      return response.data;
-    } catch (error) {
-      return thunkAPI.rejectWithValue(error.message);
-    }
-  }
-);
 
-export const deleteBoard = createAsyncThunk(
-  'boards/deleteBoard',
-  async (id, thunkAPI) => {
-    try {
-      const response = await axios.delete(`/api/boards/${id}`);
 
-      if (response.status === 204) {
-        Notiflix.Notify.success('Board deleted successfully!');
-        return id;
-      }
-    } catch (error) {
-      return thunkAPI.rejectWithValue(error.message);
-    }
-  }
-);
 
-export const shiftCard = createAsyncThunk(
+export const shiftTask = createAsyncThunk(
   'tasks/shiftTask',
   async (values, thunkAPI) => {
     const { prevCardId, card, newColumnId } = values;
@@ -231,15 +239,4 @@ export const changeBackground = createAsyncThunk(
     }
   }
 );
-// export const fetchTasks = createAsyncThunk(
-//   'tasks/fetchTasks',
-//   async (_, thunkAPI) => {
-//     try {
-//       const response = await axios.get('/api/tasks');
-//       console.log(response.data);
-//       return response.data;
-//     } catch (e) {
-//       return thunkAPI.rejectWithValue(e.message);
-//     }
-//   }
-// );
+

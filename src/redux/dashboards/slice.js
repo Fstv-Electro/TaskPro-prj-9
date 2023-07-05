@@ -5,14 +5,14 @@ import {
   editColumn,
   fetchBoards,
   addBoard,
-  deleteCard,
+  deleteTask,
   addTask,
   fetchColumns,
   editBoard,
   deleteBoard,
   needHelp,
   backgroundUrl,
-  shiftCard,
+  shiftTask,
   changeBackground
 } from './operations';
 import { statusFilters } from './constants';
@@ -73,6 +73,51 @@ const taskSlice = createSlice({
       state.isLoading = false;
       state.boards = action.payload;
     },
+    [addBoard.pending](state) {
+      state.isLoading = true;
+      state.error = false;
+    },
+    [addBoard.fulfilled](state, action) {
+      state.isLoading = false;
+      state.error = null;
+      state.boards.push(action.payload);
+    },
+    [addBoard.rejected](state) {
+      state.isLoading = false;
+      state.error = true;
+    },
+    [editBoard.pending](state, action) {
+      state.isLoading = true;
+      state.error = false;
+    },
+    [editBoard.fulfilled](state, action) {
+      state.isLoading = false;
+      state.error = null;
+      const updatedBoards = state.boards.filter(
+        board => String(board._id) !== String(action.payload)
+      );
+      state.boards = updatedBoards;
+    },
+    [editBoard.rejected](state, action) {
+      state.isLoading = false;
+      state.error = true;
+    },
+    [deleteBoard.pending](state, action) {
+      state.isLoading = true;
+      state.error = false;
+    },
+    [deleteBoard.fulfilled](state, action) {
+      state.isLoading = false;
+      state.error = null;
+      const index = state.boards.findIndex(
+        board => board._id === action.payload
+      );
+      state.boards.splice(index, 1);
+    },
+    [deleteBoard.rejected](state, action) {
+      state.isLoading = false;
+      state.error = true;
+    },
     [needHelp.pending](state) {
       state.error = false;
     },
@@ -95,6 +140,24 @@ const taskSlice = createSlice({
       state.error = false;
       state.isLoading = false;
       state.bgUrl = action.payload;
+    },
+    [fetchColumns.pending](state) {
+      state.error = false;
+      state.isLoading = true;
+    },
+    [fetchColumns.rejected](state) {
+      state.isLoading = false;
+      state.error = true;
+    },
+    [fetchColumns.fulfilled](state, action) {
+      state.error = false;
+      state.isLoading = false;
+      state.lists = action.payload;
+      state.cards = [];
+      const data = action.payload;
+      data.forEach(item => {
+        state.cards.push(...item.tasks);
+      });
     },
     [addColumn.pending](state, action) {
       state.isLoading = true;
@@ -150,24 +213,11 @@ const taskSlice = createSlice({
       state.error = null;
       state.cards.push(action.payload);
     },
-    [addBoard.pending](state) {
+    [deleteTask.pending](state) {
       state.isLoading = true;
       state.error = false;
     },
-    [addBoard.fulfilled](state, action) {
-      state.isLoading = false;
-      state.error = null;
-      state.boards.push(action.payload);
-    },
-    [addBoard.rejected](state) {
-      state.isLoading = false;
-      state.error = true;
-    },
-    [deleteCard.pending](state) {
-      state.isLoading = true;
-      state.error = false;
-    },
-    [deleteCard.fulfilled](state, action) {
+    [deleteTask.fulfilled](state, action) {
       state.isLoading = false;
       state.error = null;
       const updatedCards = state.cards.filter(
@@ -175,65 +225,15 @@ const taskSlice = createSlice({
       );
       state.cards = updatedCards;
     },
-    [deleteCard.rejected](state, action) {
+    [deleteTask.rejected](state, action) {
       state.isLoading = false;
       state.error = true;
     },
-    [fetchColumns.pending](state) {
-      state.error = false;
-      state.isLoading = true;
-    },
-    [fetchColumns.rejected](state) {
-      state.isLoading = false;
-      state.error = true;
-    },
-    [fetchColumns.fulfilled](state, action) {
-      state.error = false;
-      state.isLoading = false;
-      state.lists = action.payload;
-      state.cards = [];
-      const data = action.payload;
-      data.forEach(item => {
-        state.cards.push(...item.tasks);
-      });
-    },
-    [editBoard.pending](state, action) {
+    [shiftTask.pending](state, action) {
       state.isLoading = true;
       state.error = false;
     },
-    [editBoard.fulfilled](state, action) {
-      state.isLoading = false;
-      state.error = null;
-      const updatedBoards = state.boards.filter(
-        board => String(board._id) !== String(action.payload)
-      );
-      state.boards = updatedBoards;
-    },
-    [editBoard.rejected](state, action) {
-      state.isLoading = false;
-      state.error = true;
-    },
-    [deleteBoard.pending](state, action) {
-      state.isLoading = true;
-      state.error = false;
-    },
-    [deleteBoard.fulfilled](state, action) {
-      state.isLoading = false;
-      state.error = null;
-      const index = state.boards.findIndex(
-        board => board._id === action.payload
-      );
-      state.boards.splice(index, 1);
-    },
-    [deleteBoard.rejected](state, action) {
-      state.isLoading = false;
-      state.error = true;
-    },
-    [shiftCard.pending](state, action) {
-      state.isLoading = true;
-      state.error = false;
-    },
-    [shiftCard.fulfilled](state, action) {
+    [shiftTask.fulfilled](state, action) {
       state.isLoading = false;
       state.error = null;
       const index = state.cards.findIndex(
@@ -241,7 +241,7 @@ const taskSlice = createSlice({
       );
       state.cards.splice(index, 1, action.payload);
     },
-    [shiftCard.rejected](state, action) {
+    [shiftTask.rejected](state, action) {
       state.isLoading = false;
       state.error = true;
     },
@@ -267,19 +267,6 @@ const taskSlice = createSlice({
       });
       state.currentBcg = action.payload.currentBg;
     },
-    // [fetchTasks.pending](state) {
-    //   state.error = false;
-    //   state.isLoading = true;
-    // },
-    // [fetchTasks.rejected](state, action) {
-    //   state.error = action.payload.error;
-    //   state.isLoading = false;
-    // },
-    // [fetchTasks.fulfilled](state, action) {
-    //   state.error = false;
-    //   state.isLoading = false;
-    //   state.cards = action.payload;
-    // },
   },
 });
 
