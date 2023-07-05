@@ -35,12 +35,12 @@ export const ColumnList = styled.ul`
   gap: 8px;
   margin: 0px;
   max-height: 0px;
-  padding: 0 44px 0 18px;
+  padding: 0 18px 0 18px;
 
   overflow: hidden;
   list-style: none;
   cursor: pointer;
-  background: var(--main-last-bg-color);  
+  background: var(--main-bg-color);  
   border-radius: 8px;
   transition: all 0.3s ease-out;
   transition: transform 550ms cubic-bezier(0.4, 0, 0.2, 1);
@@ -50,7 +50,7 @@ export const ColumnList = styled.ul`
     max-height: none;
     padding: 18px 18px 18px 18px;
     height: 114px;
-    overflow: scroll;
+    overflow-y: scroll;
   }
 `;
 
