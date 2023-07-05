@@ -23,7 +23,7 @@ export const BellCard = ({ deadline }) => {
   let color = '#bedbb0';
 
   if (remainingDays === 0) {
-    color = '#FFD700';
+    color = '#0b5bf1';
   } else if (remainingDays < 0) {
     color = '#FF3814';
   } else if (remainingDays === 1) {
