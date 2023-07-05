@@ -75,7 +75,7 @@ export const EditBoard = ({ desk, onClose }) => {
           <Background getBg={getBg} />
           <SubmitButton
             type="submit"
-            title="Create"
+            title="Edit"
             width="302"
             height="49"
             theme="Dark"
