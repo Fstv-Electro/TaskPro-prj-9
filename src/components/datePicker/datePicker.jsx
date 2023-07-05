@@ -8,7 +8,7 @@ import { IconDown } from './datePicker.styled';
 
 export const Calendar = ({ parentState, initial }) => {
   dayjs().format();
-  let w = window.innerWidth
+  
   const [dateDeadline, setDateDeadline] = useState(initial?initial:'');
 
   useEffect(() => {
