@@ -79,7 +79,9 @@ export const Filter = ({ onClose }) => {
                   type="radio"
                   name="currentPrority"
                   value="without"
+<<<<
                   color="#5b5b5b"
+==
                   checked={currentPrority === 'without'}
                   onClick={handleRadioClick}
                 />

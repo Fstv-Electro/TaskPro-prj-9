@@ -3,6 +3,8 @@ import { Field as FormicField } from 'formik';
 
 export const Container = styled.div`
   width: 250px;
+
+
 `;
 
 export const Title = styled.h2`
@@ -10,6 +12,9 @@ export const Title = styled.h2`
   font-family: 'Poppins';
   font-weight: 500;
   margin-bottom: 14px;
+
+
+
 `;
 
 export const BackgroundWrapper = styled.div`
@@ -18,6 +23,7 @@ export const BackgroundWrapper = styled.div`
   margin-bottom: 24px;
   border-top: 1px solid #ffffff1a;
   border-bottom: 1px solid #ffffff1a;
+
 `;
 
 export const Div = styled.div`
@@ -25,6 +31,10 @@ export const Div = styled.div`
   justify-content: space-between;
   align-items: baseline;
   margin-bottom: 2px;
+
+
+
+
 `;
 
 export const Text = styled.p`
@@ -67,6 +77,8 @@ export const Label = styled.label`
   font-family: 'Poppins';
   font-weight: 400;
   letter-spacing: -0.24px;
+  padding-top: 1px;
+  padding-bottom: 1px;
 `;
 
 export const Field = styled(FormicField)`

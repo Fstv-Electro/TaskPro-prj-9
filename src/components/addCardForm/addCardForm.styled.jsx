@@ -1,13 +1,21 @@
 import styled from '@emotion/styled';
 import { Field } from 'formik';
 
-export const Container = styled.div`
-  position: relative;
-  width: 302px;
-  height: 522px;
-  /* padding: 24px; */
-  border-radius: 8px;
-`;
+// export const Container = styled.div`
+//   position: relative;
+//   @media (min-width: 375px) and (max-width: 768px) {
+//   width: 287px;
+// }
+
+// @media (min-width: 768px) {
+//   width: 302px;
+// }
+// `;
+//   width: 302px;
+//   height: 522px;
+//   /* padding: 24px; */
+//   border-radius: 8px;
+// `;
 
 export const TitleForm = styled.h1`
   display: inline;
@@ -19,7 +27,15 @@ export const TitleForm = styled.h1`
 
 export const InputTitle = styled(Field)`
   display: flex;
-  width: 302px;
+  @media (max-width: 375px)  {
+    width: 100%;
+  }
+  @media (min-width: 375px) and (max-width: 768px) {
+    width: 287px;
+  }
+  @media (min-width: 768px) {
+    width: 302px;
+  }
   height: 49px;
   margin-top: 24px;
   background: transparent;
@@ -37,7 +53,15 @@ export const InputTitle = styled(Field)`
   }
 `;
 export const InputDescription = styled(Field)`
-  width: 302px;
+  @media (max-width: 375px)  {
+    width: 100%;
+  }
+  @media (min-width: 375px) and (max-width: 768px) {
+    width: 287px;
+  }
+  @media (min-width: 768px) {
+    width: 302px;
+  }
   height: 154px;
   margin-top: 14px;
   background: transparent;
@@ -142,7 +166,15 @@ export const SubmitButton = styled.button`
   justify-content: center;
   align-items: center;
   gap: 8px;
-  width: 302px;
+  @media (max-width: 375px)  {
+    width: 100%;
+  }
+  @media (min-width: 375px) and (max-width: 768px) {
+    width: 287px;
+  }
+  @media (min-width: 768px) {
+    width: 302px;
+  }
   height: 49px;
   border-radius: 8px;
   border: none;
