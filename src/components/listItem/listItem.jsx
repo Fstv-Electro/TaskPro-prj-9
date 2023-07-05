@@ -10,11 +10,12 @@ import {
   ToolsTitle,
   ToolsText,
   ButtonList,
-  Span
+  Span,
 } from './listItem.styled';
 import ShiftBtnCard from 'components/ShiftBtnCard/ShiftBtnCard';
 import DeleteBtnCard from 'components/DeleteBtnCard/DeleteBtnCard';
 import EditBtnCard from 'components/EditBtnCard/EditBtnCard';
+import { BellCard } from 'components/bellCard/bellCard';
 
 export const ListItem = ({
   card: { _id, title, priority, description, deadline, parentColumn },
@@ -23,7 +24,7 @@ export const ListItem = ({
   const toggleModal = () => {
     setIsOpen(isOpen => !isOpen);
   };
- 
+
   return (
     <Container priority={priority}>
       <div>
@@ -38,17 +39,28 @@ export const ListItem = ({
       <Tools>
         <div>
           <ToolsTitle>Priority</ToolsTitle>
-          <ToolsText><Span priority={priority}></Span>{priority}</ToolsText>
+          <ToolsText>
+            <Span priority={priority}></Span>
+            {priority}
+          </ToolsText>
         </div>
         <div>
           <ToolsTitle>Deadline</ToolsTitle>
           <ToolsText>{deadline}</ToolsText>
         </div>
         <ButtonList>
+          <BellCard deadline={deadline} />
           <li>
             <ShiftBtnCard id={_id} parentColumn={parentColumn} />
           </li>
-          <EditBtnCard id={_id} title={title} description={description} deadline={deadline} priority={priority} parentColumn={parentColumn}/>
+          <EditBtnCard
+            id={_id}
+            title={title}
+            description={description}
+            deadline={deadline}
+            priority={priority}
+            parentColumn={parentColumn}
+          />
           <li>
             <DeleteBtnCard id={_id} />
           </li>
@@ -58,16 +70,15 @@ export const ListItem = ({
         <Modal
           onClose={toggleModal}
           children={
-          <EditCardForm
-            id={_id}
-            onClose={toggleModal}
-            parentColumn={parentColumn}
-            title={title}
-            description={description}
-            priority={priority}
-            old_deadline={deadline}
-
-          />
+            <EditCardForm
+              id={_id}
+              onClose={toggleModal}
+              parentColumn={parentColumn}
+              title={title}
+              description={description}
+              priority={priority}
+              old_deadline={deadline}
+            />
           }
         />
       )}
