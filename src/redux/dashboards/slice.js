@@ -93,10 +93,10 @@ const taskSlice = createSlice({
     [editBoard.fulfilled](state, action) {
       state.isLoading = false;
       state.error = null;
-      const updatedBoards = state.boards.filter(
-        board => String(board._id) !== String(action.payload)
+      const index = state.boards.findIndex(
+        board => board._id === action.payload._id
       );
-      state.boards = updatedBoards;
+      state.boards[index] = action.payload;
     },
     [editBoard.rejected](state, action) {
       state.isLoading = false;
@@ -113,10 +113,6 @@ const taskSlice = createSlice({
         board => board._id === action.payload
       );
       state.boards.splice(index, 1);
-    },
-    [deleteBoard.rejected](state, action) {
-      state.isLoading = false;
-      state.error = true;
     },
     [needHelp.pending](state) {
       state.error = false;
