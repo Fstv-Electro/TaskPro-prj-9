@@ -25,6 +25,10 @@ export const ListItem = ({
     setIsOpen(isOpen => !isOpen);
   };
 
+  let str = priority;
+  const newPriority = str => str.charAt(0).toUpperCase() + str.slice(1);
+  console.log(newPriority(str));
+  
   return (
     <Container priority={priority}>
       <div>
@@ -41,7 +45,7 @@ export const ListItem = ({
           <ToolsTitle>Priority</ToolsTitle>
           <ToolsText>
             <Span priority={priority}></Span>
-            {priority}
+            {newPriority(str)}
           </ToolsText>
         </div>
         <div>
