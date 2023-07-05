@@ -16,8 +16,8 @@ export const BackgroundWrapper = styled.div`
   padding-top: 14px;
   height: 123px;
   margin-bottom: 24px;
-  border-top: 1px solid #ffffff1a;
-  border-bottom: 1px solid #ffffff1a;
+  border-top: 1px solid var(--main-line-color);
+  border-bottom: 1px solid var(--main-line-color);
 `;
 
 export const Div = styled.div`
