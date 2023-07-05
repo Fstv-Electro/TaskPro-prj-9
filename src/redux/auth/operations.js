@@ -32,6 +32,19 @@ export const register = createAsyncThunk(
   }
 );
 
+export const registerGoogle = createAsyncThunk(
+  'auth/registerGoogle',
+  async (tokenGoogle, thunkAPI) => {
+    try {
+      token.set(tokenGoogle);
+
+      return tokenGoogle;
+    } catch (e) {
+      return thunkAPI.rejectWithValue(e.message);
+    }
+  }
+);
+
 export const logIn = createAsyncThunk('auth/logIn', async (user, thunkAPI) => {
   try {
     console.log(user);
@@ -53,7 +66,8 @@ export const logOut = createAsyncThunk('auth/logOut', async (_, thunkAPI) => {
   }
 });
 
-export const update = createAsyncThunk('auth/update',
+export const update = createAsyncThunk(
+  'auth/update',
   async (updateUser, thunkAPI) => {
     try {
       const response = await axios.patch('/users/update', updateUser);
@@ -66,7 +80,8 @@ export const update = createAsyncThunk('auth/update',
   }
 );
 
-export const changeTheme = createAsyncThunk( 'auth/theme',
+export const changeTheme = createAsyncThunk(
+  'auth/theme',
   async (changeTheme, thunkAPI) => {
     try {
       const response = await axios.patch('/users/theme', changeTheme);

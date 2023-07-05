@@ -79,7 +79,9 @@ export const Filter = ({ onClose }) => {
                   type="radio"
                   name="currentPrority"
                   value="without"
-                  color={'var(--item-span-color)'}
+<<<<
+                  color="#5b5b5b"
+==
                   checked={currentPrority === 'without'}
                   onClick={handleRadioClick}
                 />
@@ -90,7 +92,7 @@ export const Filter = ({ onClose }) => {
                   type="radio"
                   name="currentPrority"
                   value="low"
-                  color={'#8FA1D0'}
+                  color="#8FA1D0"
                   checked={currentPrority === 'low'}
                   onClick={handleRadioClick}
                 />
@@ -101,7 +103,7 @@ export const Filter = ({ onClose }) => {
                   type="radio"
                   name="currentPrority"
                   value="medium"
-                  color={'#E09CB5'}
+                  color="#E09CB5"
                   checked={currentPrority === 'medium'}
                   onClick={handleRadioClick}
                 />
@@ -112,7 +114,7 @@ export const Filter = ({ onClose }) => {
                   type="radio"
                   name="currentPrority"
                   value="high"
-                  color={'#BEDBB0'}
+                  color="#BEDBB0"
                   checked={currentPrority === 'high'}
                   onClick={handleRadioClick}
                 />

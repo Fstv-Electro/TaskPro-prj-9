@@ -2,6 +2,7 @@ import { createSlice } from '@reduxjs/toolkit';
 import {
   logIn,
   register,
+  registerGoogle,
   logOut,
   update,
   changeTheme,
@@ -32,7 +33,10 @@ const authSlice = createSlice({
     [register.rejected](state, action) {
       state.isError = true;
     },
-
+    [registerGoogle.fulfilled](state, action) {
+      state.token = action.payload;
+      state.isLogin = true;
+    },
     [logIn.pending](state, action) {
       state.isError = false;
     },

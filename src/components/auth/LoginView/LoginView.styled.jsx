@@ -87,7 +87,7 @@ export const Field = styled(FormicField)`
   font-family: 'Poppins';
   letter-spacing: -0.28px;
 
-  width: 269px;
+  width: 287px;
   height: 49px;
   padding-left: 18px;
   background-color: transparent;
@@ -98,7 +98,7 @@ export const Field = styled(FormicField)`
   box-shadow: 0px 4px 16px 0px rgba(22, 22, 22, 0.08);
 
   @media screen and (min-width: 768px) {
-    width: 326px;
+    width: 344px;
     height: 49px;
   }
 `;
