@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { Modal } from 'components/modal/modal';
 import { Formik, Form } from 'formik';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { ButtonClose } from 'components/modalBtnClose/ButtonClose';
 import {
   Container,
@@ -15,14 +15,15 @@ import {
   Field,
 } from './FitlerForm.styled';
 import { setFilterCards } from 'redux/dashboards/slice';
+import { selectCurrentBoard } from 'redux/dashboards/selectors';
 import { Background } from 'components/background/Background';
+import { changeBackground } from 'redux/dashboards/operations';
 
 export const Filter = ({ onClose }) => {
   const dispatch = useDispatch();
   const [isShowAllActive, setIsShowAllActive] = useState(false);
   const [currentPrority, setCurrentPrority] = useState('');
-  let setBg;
-  console.log(setBg);
+  const boardId = useSelector(selectCurrentBoard);
 
   const initialValues = {
     currentBg: 0,
@@ -48,11 +49,8 @@ export const Filter = ({ onClose }) => {
     }
   };
 
-  const getBg = currentBg => {
-    //await зробити діспатч(запит на зміну бекграунду дошки) може patch запит за /api/boards/{id}
-    // а потім змінити стейт currentBg
-    // чекаємо на бек
-    setBg = currentBg;
+  const handleBackgroundChange = newBg => {
+    dispatch(changeBackground({ id: boardId, currentBg: newBg }));
   };
 
   return (
@@ -63,7 +61,7 @@ export const Filter = ({ onClose }) => {
         <Formik initialValues={initialValues}>
           <Form onChange={handleChange}>
             <BackgroundWrapper>
-              <Background getBg={getBg} />
+              <Background getBg={handleBackgroundChange} />
             </BackgroundWrapper>
             <LabelGroup role="group" aria-labelledby="my-radio-group">
               <Div>
