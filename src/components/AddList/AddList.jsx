@@ -12,13 +12,15 @@ const AddList = ({ columnId }) => {
   }
 
   return (
-    <ul>
-      {filteredList.map(card => (
-        <li key={card._id}>
-          <ListItem card={card} />
-        </li>
-      ))}
-    </ul>
+    <div>
+      <ul>
+        {filteredList.map(card => (
+          <li key={card._id}>
+            <ListItem card={card} />
+          </li>
+        ))}
+      </ul>
+    </div>
   );
 };
 

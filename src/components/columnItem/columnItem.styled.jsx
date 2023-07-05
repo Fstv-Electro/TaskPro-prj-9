@@ -47,13 +47,11 @@ export const IconEdit = styled.svg`
   width: 16px;
   height: 16px;
   color: var(--last-text-color);
-  transition: color 500ms cubic-bezier(0.4, 0, 0.2, 1),
-   scale 500ms cubic-bezier(0.4, 0, 0.2, 1);    
+  transition: 500ms cubic-bezier(0.4, 0, 0.2, 1); 
 
   &:hover,
   &:focus {
-    color: blue;
-    scale: 1.4;   
+    color: blue; 
   }
 `;
 
@@ -61,12 +59,10 @@ export const IconDelete = styled.svg`
   width: 16px;
   height: 16px;
   color: var(--last-text-color);
-  transition: color 500ms cubic-bezier(0.4, 0, 0.2, 1),
-   scale 500ms cubic-bezier(0.4, 0, 0.2, 1);    
+  transition: 500ms cubic-bezier(0.4, 0, 0.2, 1);
 
   &:hover,
   &:focus {
-    color: red;
-    scale: 1.4;   
+    color: red;  
   }
 `;
