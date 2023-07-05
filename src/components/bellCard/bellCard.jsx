@@ -1,7 +1,10 @@
 import sprite from '../../images/symbol-defs.svg';
-import { BoxShadow, Icon } from './bellCard.styled';
+import { Icon } from './bellCard.styled';
 
 export const BellCard = ({ deadline }) => {
+  if (deadline === null) {
+    return;
+  }
   const now = new Date();
   now.setHours(0, 0, 0, 0);
 
