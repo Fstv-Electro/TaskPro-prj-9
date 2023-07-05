@@ -14,7 +14,7 @@ const AddList = ({ columnId }) => {
   }
 
   return (
-    <Scroll width='calc(100% + 16px)'>
+    <Scroll width='calc(100% + 16px)' height='-1%'>
       <ul>
         {filteredList.map(card => (
           <li key={card._id}>
