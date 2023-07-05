@@ -131,7 +131,7 @@ return(
                       <Calendar parentState={setDateValue} initial={dayjs(old_deadline, 'DD-MM-YYYY')}/>
                   </CalendarShow>
                   <SubmitButton type="submit">
-                    <IconPlus aria-label="add">
+                    <IconPlus aria-label="edit">
                         <use href={sprite + '#icon-plus-add'}></use>
                     </IconPlus>
                         Edit
