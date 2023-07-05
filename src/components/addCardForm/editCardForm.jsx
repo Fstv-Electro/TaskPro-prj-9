@@ -48,7 +48,6 @@ const schema = yup.object().shape({
 const formatDate = (param) => {
     let a = moment(param);
     const deadline = a.format('DD-MM-YYYY')
-    console.log(deadline)
     return deadline
 };
   
@@ -75,10 +74,7 @@ const displayDeadline = (date) => {
 }
 
 const handleSubmit = (values, actions) => {
-    console.log(id)
-    console.log(parentColumn)
     values = {...values, deadline: formatDate(deadline.$d), parentColumn: parentColumn}
-    console.log(parentColumn)
     actions.resetForm();
     dispatch(editTask({id,values}));
   onClose();

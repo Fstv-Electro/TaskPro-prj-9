@@ -20,7 +20,6 @@ export const ListItem = ({
   card: { _id, title, priority, description, deadline, parentColumn },
 }) => {
   const [isOpen, setIsOpen] = useState(false);
-  console.log(description, parentColumn, _id, title)
   const toggleModal = () => {
     setIsOpen(isOpen => !isOpen);
   };

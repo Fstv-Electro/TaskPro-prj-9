@@ -256,7 +256,6 @@ const taskSlice = createSlice({
     [changeBackground.fulfilled](state, action) {
       state.error = false;
       state.isLoading = false;
-      console.log(action.payload);
       state.boards = state.boards.map(board => {
         if (board._id === action.payload._id) {
           return {

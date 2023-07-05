@@ -129,7 +129,6 @@ export const addBoard = createAsyncThunk(
 export const editTask = createAsyncThunk(
   'tasks/editTask',
   async ({id, values}, thunkAPI) => {
-    console.log(id, values)
     try {
       const response = await axios.put(`/api/tasks/${id}`, values);
       Notiflix.Notify.success('Task corrected!');
@@ -227,7 +226,6 @@ export const changeBackground = createAsyncThunk(
   'boards/changeBackground',
   async ({ id, currentBg }, thunkAPI) => {
     try {
-      console.log({ id, currentBg });
       const response = await axios.patch(`/api/boards/${id}/currentBg`, {
         currentBg,
       });
