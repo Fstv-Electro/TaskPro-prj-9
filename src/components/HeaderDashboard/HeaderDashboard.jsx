@@ -22,7 +22,7 @@ export const DashboardHeader = () => {
 
   return (
     <Container>
-      <TitleDashBoard>{boardName}</TitleDashBoard>
+      <TitleDashBoard>{boardName.split('-').join(' ')}</TitleDashBoard>
       <FilterButton type="button" onClick={toggleModal}>
         <svg aria-label="filter icon" width="16" height="16">
           <use href={sprite + '#icon-filter'}></use>
