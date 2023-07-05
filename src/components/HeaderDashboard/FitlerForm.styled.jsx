@@ -2,7 +2,6 @@ import styled from '@emotion/styled';
 import { Field as FormicField } from 'formik';
 
 export const Container = styled.div`
-  width: 300px;
 `;
 
 export const Title = styled.h2`
@@ -10,20 +9,22 @@ export const Title = styled.h2`
   font-family: 'Poppins';
   font-weight: 500;
   margin-top: 0;
+  padding-bottom: 14px;
 `;
 
 export const BackgroundWrapper = styled.div`
-  padding-top: 2px;
-  margin-bottom: 24px;
-  border-top: 1px solid #ffffff1a;
-  border-bottom: 1px solid #ffffff1a;
+  padding-top: 14px;
+  padding-bottom: 14px;
+  border-top: 1px solid var(--main-line-color);
+  border-bottom: 1px solid var(--main-line-color);
 `;
 
 export const Div = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: baseline;
-  margin-bottom: 14px;
+  padding-top: 24px;
+  padding-bottom: 14px;
 `;
 
 export const Text = styled.p`
@@ -64,6 +65,8 @@ export const Label = styled.label`
   font-family: 'Poppins';
   font-weight: 400;
   letter-spacing: -0.24px;
+  padding-top: 1px;
+  padding-bottom: 1px;
 `;
 
 export const Field = styled(FormicField)`

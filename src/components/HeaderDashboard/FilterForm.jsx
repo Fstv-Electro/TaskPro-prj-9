@@ -79,7 +79,7 @@ export const Filter = ({ onClose }) => {
                   type="radio"
                   name="currentPrority"
                   value="without"
-                  color={'rgba(255, 255, 255, 0.3)'}
+                  color={'var(--item-span-color)'}
                   checked={currentPrority === 'without'}
                   onClick={handleRadioClick}
                 />

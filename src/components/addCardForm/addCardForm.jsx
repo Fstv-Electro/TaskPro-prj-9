@@ -127,9 +127,9 @@ export const AddCardForm = ({ columnId, onClose }) => {
                 <RadioBtn type="radio" name="priority" value="high" />
                 <ColorStatus color="#BEDBB0"></ColorStatus>
               </label>
-              <label style={{ '--color': '#FFFFFF4D' }}>
+              <label style={{ '--color': 'var(--item-span-color)' }}>
                 <RadioBtn type="radio" name="priority" value="without" />
-                <ColorStatus color="#FFFFFF4D"></ColorStatus>
+                <ColorStatus color="var(--item-span-color)"></ColorStatus>
               </label>
             </BlockStatus>
             <TitleDeadline>Deadline</TitleDeadline>
