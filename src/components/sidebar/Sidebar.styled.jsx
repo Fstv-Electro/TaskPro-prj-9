@@ -7,7 +7,7 @@ export const Container = styled.div`
   justify-content: space-between;
   align-items: center;
   box-sizing: content-box;
-  height: 100vh;
+  height: calc(100vh - 24px);
   margin: 0;
   padding: 24px 0 0 24px;
   color: var(--bord-list-color);

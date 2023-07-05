@@ -6,8 +6,12 @@ export const Container = styled.div`
   align-items: center;
   text-align: center;
   width: 100%;
-  height: 100%;
+  height: calc(100vh - 72px);
   background-color: var(--main-bg-color);
+
+  @media (max-width: 768px) {
+    height: calc(100vh - 64px);
+  }
 `;
 
 export const InfoText = styled.p`
