@@ -7,13 +7,14 @@ import {
   addBoard,
   deleteCard,
   addTask,
+  editTask,
   fetchColumns,
   editBoard,
   deleteBoard,
   needHelp,
   backgroundUrl,
   shiftCard,
-  changeBackground
+  changeBackground,
 } from './operations';
 import { statusFilters } from './constants';
 
@@ -149,6 +150,22 @@ const taskSlice = createSlice({
       state.isLoading = false;
       state.error = null;
       state.cards.push(action.payload);
+    },
+    [editTask.pending](state) {
+      state.isLoading = true;
+      state.error = false;
+    },
+    [editTask.fulfilled](state, action) {
+      state.isLoading = false;
+      state.error = null;
+      const index = state.cards.findIndex(
+        card => card._id === action.payload._id
+      );
+      state.cards[index] = action.payload;
+    },
+    [editTask.rejected](state, action) {
+      state.isLoading = false;
+      state.error = true;
     },
     [addBoard.pending](state) {
       state.isLoading = true;
