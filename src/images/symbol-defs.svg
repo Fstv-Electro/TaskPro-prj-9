@@ -15,7 +15,7 @@
 <symbol id="icon-bell-01" viewBox="0 0 32 32">
 <path
         fill="none"
-        style="stroke: var(--color2, #bedbb0)"
+        style="stroke: var(--color2, currentColor)"
         stroke-linejoin="round"
         stroke-linecap="round"
         stroke-miterlimit="4"

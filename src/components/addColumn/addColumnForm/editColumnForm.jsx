@@ -17,13 +17,6 @@ export const EditColumnForm = ({ item, onClose }) => {
   const dispatch = useDispatch();
 
   const handleSubmit = (values, actions) => {
-    // const formData = new FormData();
-    // formData.append('title', values.title);
-
-    // for (let [key, value] of formData.entries()) {
-    //   console.log(key, value);
-    // }
-    // // dispatch(addColumn(formData));
     actions.resetForm();
     dispatch(editColumn(values));
 
@@ -56,7 +49,7 @@ export const EditColumnForm = ({ item, onClose }) => {
             <ErrorMessage name="title" component="span" />
           </FormField>
           <SubmitButton
-            title="Add"
+            title="Edit"
             type="submit"
             height="49"
             theme="Dark"
