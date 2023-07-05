@@ -33,11 +33,6 @@ export const backgroundUrl = createAsyncThunk(
 );
 
 export const needHelp = createAsyncThunk('help', async (user, thunkAPI) => {
-  // const state = thunkAPI.getState();
-  // const persistedToken = state.auth.token;
-  // if (persistedToken === null) {
-  //     return thunkAPI.rejectWithValue('Unable to fetch user');
-  //   }
   try {
     const response = await axios.post('/api/help/email', {
       replyEmail: user.email,

@@ -105,7 +105,7 @@ export const BtnContainer = styled.div`
 export const IconEdit = styled.svg`
   width: 16px;
   height: 16px;
-  color: rgba(255, 255, 255, 0.5);
+  color: var(--last-text-color);
   transition: color 350ms cubic-bezier(0.4, 0, 0.2, 1);
 
   &:hover,
@@ -117,7 +117,7 @@ export const IconEdit = styled.svg`
 export const IconDelete = styled.svg`
   width: 16px;
   height: 16px;
-  color: rgba(255, 255, 255, 0.5);
+  color: var(--last-text-color);
   transition: color 350ms cubic-bezier(0.4, 0, 0.2, 1);
 
   &:hover,

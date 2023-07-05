@@ -20,7 +20,6 @@ export const ListColumns = () => {
   };
 
   return (
-    <>
       <Container>
         {lists.length > 0 && (
           <List>
@@ -61,6 +60,5 @@ export const ListColumns = () => {
         )}
         <AddColumn boardId={boardId} numberOfColumns={Number(lists.length)} />
       </Container>
-    </>
   );
 };

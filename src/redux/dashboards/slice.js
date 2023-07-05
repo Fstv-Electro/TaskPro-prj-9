@@ -204,10 +204,10 @@ const taskSlice = createSlice({
     [editBoard.fulfilled](state, action) {
       state.isLoading = false;
       state.error = null;
-      const updatedBoards = state.boards.filter(
-        board => String(board._id) !== String(action.payload)
+      const index = state.boards.findIndex(
+        board => board._id === action.payload._id
       );
-      state.boards = updatedBoards;
+      state.boards[index] = action.payload;
     },
     [editBoard.rejected](state, action) {
       state.isLoading = false;
