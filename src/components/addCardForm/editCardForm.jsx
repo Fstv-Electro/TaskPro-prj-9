@@ -29,7 +29,7 @@ import {
 //   priority: "without",
 // };
 
-export const EditCardForm = ({ id, onClose, columnId, title,description,priority,old_deadline }) => {
+export const EditCardForm = ({ id, onClose, parentColumn, title,description,priority,old_deadline }) => {
 
 const [deadline, setDeadline] = useState(
 dayjs(old_deadline, 'DD-MM-YYYY')
@@ -64,7 +64,7 @@ const determineTodayTomorrow = (date) => {
 const displayDeadline = (date) => {
     let printDeadline = 'Today, '+moment().format('MMMM D');
     if ( date ){
-        if (date.diff(moment()) < 0) { Notify.failure('Select a date after now');}
+        if (date.diff(moment()) < 0) { Notify.failure('Select a date');}
         if (deadline) {
             printDeadline = determineTodayTomorrow(deadline.$d)+', '+moment(deadline.$d).format('MMMM D')
         return printDeadline
@@ -76,7 +76,9 @@ const displayDeadline = (date) => {
 
 const handleSubmit = (values, actions) => {
     console.log(id)
-    values = {...values, deadline: formatDate(deadline.$d), parentColumn: columnId}
+    console.log(parentColumn)
+    values = {...values, deadline: formatDate(deadline.$d), parentColumn: parentColumn}
+    console.log(parentColumn)
     actions.resetForm();
     dispatch(editTask({id,values}));
   onClose();
@@ -110,19 +112,19 @@ return(
                   <ErrorMessage name="description"/>
                   <TitleStatus id="taskStatusGroup">Label color</TitleStatus>
                   <BlockStatus role="group" aria-labelledby="taskStatusGroup">
-                        <label>
+                        <label style={{ '--color': '#8FA1D0' }}>
                             <RadioBtn type="radio" name="priority" value="low" />
                             <ColorStatus color='#8FA1D0' ></ColorStatus> 
                         </label>
-                        <label>
+                        <label style={{ '--color': '#E09CB5' }}>
                             <RadioBtn type="radio" name="priority" value="medium" />
                             <ColorStatus color='#E09CB5' ></ColorStatus> 
                         </label>
-                        <label>
+                        <label style={{ '--color': '#BEDBB0' }}>
                             <RadioBtn type="radio" name="priority" value="high" />
                             <ColorStatus color='#BEDBB0'  ></ColorStatus> 
                         </label>
-                        <label>
+                        <label style={{ '--color': '#FFFFFF4D' }}>
                             <RadioBtn type="radio" name="priority" value="without"/>
                             <ColorStatus color='#FFFFFF4D' ></ColorStatus> 
                         </label>     
