@@ -27,7 +27,6 @@ export const ListItem = ({
 
   let str = priority;
   const newPriority = str => str.charAt(0).toUpperCase() + str.slice(1);
-  console.log(newPriority(str));
   
   return (
     <Container priority={priority}>

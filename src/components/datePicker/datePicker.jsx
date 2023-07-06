@@ -12,7 +12,6 @@ export const Calendar = ({ parentState, initial }) => {
   const [dateDeadline, setDateDeadline] = useState(initial?initial:'');
 
   useEffect(() => {
-    // console.log(dateDeadline);
   }, [dateDeadline]);
 
   return (

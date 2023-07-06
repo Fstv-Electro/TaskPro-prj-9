@@ -1,4 +1,3 @@
-// import { useDispatch } from "react-redux";
 import {
   Container,
   TitleDashBoard,
@@ -11,8 +10,6 @@ import { useParams } from 'react-router-dom';
 import { Filter } from './FilterForm';
 
 export const DashboardHeader = () => {
-  // const dispath = useDispatch();
-  // const crntBoard = useSelector(currentBoard);
   const [isOpen, setIsOpen] = useState();
   const { boardName } = useParams();
 

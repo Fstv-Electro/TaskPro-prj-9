@@ -23,12 +23,6 @@ import {
     SubmitButton
 } from "./addCardForm.styled";
 
-// const initialValues = {
-//   title: "",
-//   description: "",
-//   priority: "without",
-// };
-
 export const EditCardForm = ({ id, onClose, parentColumn, title,description,priority,old_deadline }) => {
 
 const [deadline, setDeadline] = useState(

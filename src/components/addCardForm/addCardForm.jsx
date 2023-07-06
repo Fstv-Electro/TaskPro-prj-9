@@ -33,12 +33,8 @@ export const AddCardForm = ({ columnId, onClose }) => {
   const [deadline, setDeadline] = useState();
   const dispatch = useDispatch();
 
-
-  console.log(columnId);
-
   const setDateValue = value => {
     setDeadline(value);
-    console.log(deadline);
   };
 
   const schema = yup.object().shape({

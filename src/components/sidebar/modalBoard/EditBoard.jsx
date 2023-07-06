@@ -8,6 +8,7 @@ import { ButtonClose } from '../../modalBtnClose/ButtonClose';
 import { Background } from '../../background/Background';
 import { useDispatch } from 'react-redux';
 import { editBoard } from '../../../redux/dashboards/operations';
+import Notiflix from 'notiflix';
 
 const schema = yup.object().shape({
   name: yup.string().required(),
@@ -28,7 +29,7 @@ export const EditBoard = ({ desk, onClose }) => {
 
   const handleSubmit = (query, { resetForm }) => {
     if (!query) {
-      console.log('error');
+      Notiflix.Notify.failure('Something got wrong');
     } else {
       dispatch(
         editBoard({
@@ -38,12 +39,6 @@ export const EditBoard = ({ desk, onClose }) => {
           id: desk.desk._id,
         })
       );
-      console.log({
-        title: query.name,
-        currentBg: currentBg,
-        icon: icon,
-        id: desk.desk._id,
-      });
       resetForm();
     }
     onClose();

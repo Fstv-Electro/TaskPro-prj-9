@@ -18,7 +18,6 @@ const ShiftBtnCard = ({ id, parentColumn }) => {
   const lists = useSelector(selectList);
   const cards = useSelector(selectCard);
   const dispatch = useDispatch();
-  // const listsTitles = lists.map(item => item.title);
 
   const handleDropdownClick = () => {
     setIsDropdownActive(!isDropdownActive);
@@ -26,7 +25,6 @@ const ShiftBtnCard = ({ id, parentColumn }) => {
 
   const handleColumnChange = e => {
     const nextColumnId = e.target.dataset.id;
-    console.log(e.target.dataset)
     const currCard = cards.filter(item => item._id === id);
     dispatch(
       shiftTask({

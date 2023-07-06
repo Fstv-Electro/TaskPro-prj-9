@@ -21,14 +21,6 @@ export const AddColumnForm = ({ id, onClose }) => {
   const dispatch = useDispatch();
 
   const handleSubmit = (values, actions) => {
-    // const formData = new FormData();
-    // formData.append('parentBoard', id);
-    // formData.append('title', values.title);
-
-    // for (let [key, value] of formData.entries()) {
-    //   console.log(key, value);
-    // }
-    // dispatch(addColumn(formData));
     actions.resetForm();
     dispatch(
       addColumn({
@@ -36,10 +28,6 @@ export const AddColumnForm = ({ id, onClose }) => {
         ...values,
       })
     );
-    console.log({
-      parentBoard: id,
-      ...values,
-    });
     onClose();
   };
 

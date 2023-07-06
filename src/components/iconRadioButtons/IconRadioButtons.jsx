@@ -24,7 +24,7 @@ export const IconRadioButtons = ({ getIcon }) => {
   const onClickIcon = e => {
     getIcon(e.target.value);
   };
-  // console.log(item);
+
   return (
     <>
       <Form>
