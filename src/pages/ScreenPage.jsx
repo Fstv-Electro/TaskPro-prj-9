@@ -38,12 +38,10 @@ export default function ScreenPage() {
   // const isRetina = useMediaQuery({ query: '(min-resolution: 2dppx)' });
 
   return (
-    (bgUrls && (
-      <Container bg={bgUrls} >
+      <Container bg={bgUrls ? bgUrls : undefined} >
       <Header />
       <DashboardHeader />
       <DashboardMain />
     </Container>
-    ))
   );
 }
