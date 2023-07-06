@@ -41,7 +41,7 @@ const NewUserSchema = Yup.object().shape({
     })
     .required('Required'),
   password: Yup.string()
-    .matches(/^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{5,}$/, {
+    .matches(/^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d!@#$%^&*()-=_+{}[\]|\\;:'",.<>/?]{8,64}$/, {
       message: 'Password error',
       excludeEmptyString: true,
     })

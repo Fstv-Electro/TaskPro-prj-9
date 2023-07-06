@@ -32,7 +32,7 @@ const NewUserSchema = Yup.object().shape({
       return supportedFormats.includes(value.type);
     }),
   name: Yup.string()
-    .matches(/^[a-zA-Zа-яА-Я]+(([' -][a-zA-Zа-яА-Я ])?[a-zA-Zа-яА-Я]*)*$/, {
+    .matches(/^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d!@#$%^&*()-=_+{}[\]|\\;:'",.<>/?]{8,64}$/, {
       message:
         "Name may contain only letters, apostrophe, dash and spaces. For example Adrian, Jacob Mercer, Charles de Batz de Castelmore d'Artagnan",
       excludeEmptyString: true,
