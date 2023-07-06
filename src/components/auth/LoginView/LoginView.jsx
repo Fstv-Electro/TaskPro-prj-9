@@ -89,7 +89,8 @@ export default function LoginView() {
                 name="email"
                 component="div"
                 style={{
-                  color: 'white',
+                  color: 'red',
+                  fontSize: 14,
                 }}
               />
               <FormIcon>
@@ -102,7 +103,8 @@ export default function LoginView() {
                   name="password"
                   component="div"
                   style={{
-                    color: 'white',
+                    color: 'red',
+                    fontSize: 14,
                   }}
                 />
                 <Eye type="button" s onClick={handleClick}>

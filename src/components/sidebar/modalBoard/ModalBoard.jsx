@@ -66,7 +66,14 @@ export const ModalBoard = ({ onClose }) => {
               minLength="4"
               maxLength="12"
             />
-            <ErrorMessage name="name" component="div" />
+            <ErrorMessage 
+            name="name" 
+            component="div"
+            style={{
+              color: 'red',
+              fontSize: 14,
+            }}
+            />
           </Label>
 
           <IconRadioButtons getIcon={getIcon} />
