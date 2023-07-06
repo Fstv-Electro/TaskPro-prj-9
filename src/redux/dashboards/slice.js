@@ -114,6 +114,8 @@ const taskSlice = createSlice({
         board => board._id === action.payload
       );
       state.boards.splice(index, 1);
+      state.lists = [];
+      state.cards = [];
     },
     [needHelp.pending](state) {
       state.error = false;
