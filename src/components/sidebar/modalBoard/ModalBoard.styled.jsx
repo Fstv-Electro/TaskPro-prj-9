@@ -47,7 +47,6 @@ export const FormTitle = styled.h2`
   font-family: Poppins;
   font-weight: 500;
   letter-spacing: -0.36px;
-  margin-top: 14px;
   margin-bottom: 24px;
 `;
 
@@ -90,3 +89,8 @@ export const Btn = styled.button`
     transform: scale(1.1);
   }
 `;
+
+export const BgWrapper = styled.div`
+  padding-bottom: 50px;
+
+`

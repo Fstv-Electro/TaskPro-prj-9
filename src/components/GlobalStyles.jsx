@@ -1,7 +1,128 @@
 import { Global, css } from '@emotion/react';
 import 'modern-normalize';
+import { selectUser } from 'redux/auth/selectores';
+import { useSelector } from "react-redux";
 
 export const GlobalStyles = () => {
+  const {theme} = useSelector(selectUser);
+
+  const themes = {
+    dark:  {
+      '--first-text-color': 'rgba(255, 255, 255, 1)',
+      '--last-text-color': 'rgba(255, 255, 255, 0.5)',
+
+      ' --heder-bg-color': 'rgba(22, 22, 22, 1)',
+      '--text-theme-color': 'rgba(255, 255, 255, 0.5)',
+      '--fill-icon-plus': 'rgba(190, 219, 176, 1)',
+      '--color-icon-plus': 'rgba(22, 22, 22, 1)',
+      
+
+      '--main-bg-color': 'rgba(31, 31, 31, 1)',
+      '--main-heder-bg-color': 'rgba(31, 31, 31, 0.5)',
+      '--main-last-bg-color': 'rgba(18, 18, 18, 1)',
+      '--stroke--plus-icon': 'rgba(255, 255, 255, 1)',
+      '--main-line-color': 'rgba(255, 255, 255, 0.1)',
+      '--item-span-color': 'rgba(255, 255, 255, 0.3)',
+
+      '--sidebar-first-bg-color': 'rgba(18, 18, 18, 1)',
+      '--sidebar-second-bg-color': 'rgba(31, 31, 31, 1)',
+      '--sidebar-active-bg-color': 'rgba(31, 31, 31, 0.4)',
+
+      '--sidebar-bg-icon-logo': 'rgba(31, 31, 31, 1)',
+      '--sidebar-color-icon-logo': 'rgba(255, 255, 255, 1)',
+
+      '--sidebar-bg-icon-plus-color': 'rgba(190, 219, 176, 1)',
+      '--sidebar-bg-icon-logout-color': 'rgba(190, 219, 176, 1)',
+      '--sidebar-line-color': 'rgba(255, 255, 255, 0.1)',
+
+      '--bord-list-color': 'rgba(255, 255, 255, 1)',
+
+      '--button-bg-color': 'rgba(190, 219, 176, 1)',
+
+      '--modal-bg-color':' #151515',
+        },
+  
+  light: {
+      '--first-text-color':' rgba(22, 22, 22, 1)',
+      '--last-text-color': 'rgba(22, 22, 22, 0.7)',
+
+      '--heder-bg-color': 'rgba(252, 252, 252, 1)',
+      '--text-theme-color':' rgba(22, 22, 22, 1)',
+      '--fill-icon-plus': 'rgba(190, 219, 176, 1)',
+      '--color-icon-plus':' rgba(22, 22, 22, 1)',
+
+      '--main-bg-color': 'rgba(246, 246, 247, 1)',
+      '--main-heder-bg-color': 'rgba(246, 246, 247, 0.5)',
+      '--main-last-bg-color': 'rgba(255, 255, 255, 1)',
+      '--stroke--plus-icon': 'rgba(255, 255, 255, 1)',
+      '--main-line-color': 'rgba(22, 22, 22, 0.1)',
+      '--item-span-color': 'rgba(22, 22, 22, 0.3)',
+
+      '--sidebar-first-bg-color': 'rgba(255, 255, 255, 1)',
+      '--sidebar-second-bg-color': 'rgba(246, 246, 247, 1)',
+      '--sidebar-active-bg-color': 'rgba(246, 246, 247, 0.4)',
+
+      '--sidebar-bg-icon-logo': 'rgba(31, 31, 31, 1)',
+      '--sidebar-color-icon-logo': 'rgba(255, 255, 255, 1)',
+      
+      '--sidebar-bg-icon-plus-color': 'rgba(190, 219, 176, 1)',
+      '--sidebar-bg-icon-logout-color': 'rgba(190, 219, 176, 1)',
+      '--sidebar-line-color': 'rgba(22, 22, 22, 0.1)',
+    
+      '--bord-list-color':' rgba(22, 22, 22, 1)',
+
+      '--button-bg-color': 'rgba(190, 219, 176, 1)',
+
+     ' --modal-bg-color': 'rgba(252, 252, 252, 1)',
+  },
+  violet: {
+    '--first-text-color':' rgba(22, 22, 22, 1)',
+    '--last-text-color': 'rgba(22, 22, 22, 0.5)',
+
+    '--heder-bg-color':' rgba(255, 255, 255, 1)',
+    '--text-theme-color':' rgba(22, 22, 22, 1)',
+    '--fill-icon-plus': 'rgba(236, 237, 253, 1)',
+    '--color-icon-plus':' rgba(255, 255, 255, 1)',
+    
+
+    '--main-bg-color': 'rgba(236, 237, 253, 1)',
+    '--main-heder-bg-color': 'rgba(236, 237, 253, 0.5)',
+    '--main-last-bg-color':' rgba(255, 255, 255, 1)',
+    '--stroke--plus-icon':' rgba(22, 22, 22, 1)',
+    '--main-line-color': 'rgba(22, 22, 22, 0.1)',
+    '--item-span-color': 'rgba(22, 22, 22, 0.3)',
+
+    '--sidebar-first-bg-color': 'rgba(82, 85, 188, 1)',
+    '--sidebar-second-bg-color': 'rgba(143, 146, 214, 1)',
+    '--sidebar-active-bg-color': 'rgba(143, 146, 214, 0.4)',
+
+   ' --sidebar-bg-icon-logo': 'rgba(236, 237, 253, 1)',
+    '--sidebar-color-icon-logo': 'rgba(82, 85, 188, 1)',
+    
+    '--sidebar-bg-icon-plus-color': 'rgba(184, 188, 253, 1)',
+    '--sidebar-color-icon-plus':' rgba(22, 22, 22, 1)',
+    '--sidebar-bg-icon-logout-color':' rgba(255, 255, 255, 1)',
+    '--sidebar-line-color': 'rgba(255, 255, 255, 0.1)',
+
+
+    '--bord-list-color':' rgba(255, 255, 255, 1)',
+
+    '--button-bg-color': 'rgba(82, 85, 188, 1)',
+
+    '--modal-bg-color': 'rgba(252, 252, 252, 1)',
+  }
+};
+
+function generateCSSFromTheme(themeVariables) {
+  let css = '';
+  for (const variable in themeVariables) {
+    css += `${variable}: ${themeVariables[variable]};\n`;
+  }
+  return css;
+}
+const themeVariables = themes[theme];
+
+  
   return (
     <Global
       styles={css`
@@ -28,6 +149,8 @@ export const GlobalStyles = () => {
           -webkit-font-smoothing: antialiased;
           -moz-osx-font-smoothing: grayscale;
           font-size: 14px;
+
+          ${generateCSSFromTheme(themeVariables)}
         }
         code {
           font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
@@ -56,114 +179,6 @@ export const GlobalStyles = () => {
           height: auto;
         }
         
-        .dark {
-          --first-text-color: rgba(255, 255, 255, 1);
-          --last-text-color: rgba(255, 255, 255, 0.5);
-
-          --heder-bg-color: rgba(22, 22, 22, 1);
-          --text-theme-color: rgba(255, 255, 255, 0.5);
-          --fill-icon-plus: rgba(190, 219, 176, 1);
-          --color-icon-plus: rgba(22, 22, 22, 1);
-          
-
-          --main-bg-color: rgba(31, 31, 31, 1);
-          --main-heder-bg-color: rgba(31, 31, 31, 0.5);
-          --main-last-bg-color: rgba(18, 18, 18, 1);
-          --stroke--plus-icon: rgba(255, 255, 255, 1);
-          --main-line-color: rgba(255, 255, 255, 0.1);
-          --item-span-color: rgba(255, 255, 255, 0.3);
-
-          --sidebar-first-bg-color: rgba(18, 18, 18, 1);
-          --sidebar-second-bg-color: rgba(31, 31, 31, 1);
-          --sidebar-active-bg-color: rgba(31, 31, 31, 0.4);
-
-          --sidebar-bg-icon-logo: rgba(31, 31, 31, 1);
-          --sidebar-color-icon-logo: rgba(255, 255, 255, 1);
-
-          --sidebar-bg-icon-plus-color: rgba(190, 219, 176, 1);
-          --sidebar-bg-icon-logout-color: rgba(190, 219, 176, 1);
-          --sidebar-line-color: rgba(255, 255, 255, 0.1);
-
-          --bord-list-color: rgba(255, 255, 255, 1);
-
-          --button-bg-color: rgba(190, 219, 176, 1);
-
-          --modal-bg-color: #151515;
-          
-        }
-        .light {
-
-          --first-text-color: rgba(22, 22, 22, 1);
-          --last-text-color: rgba(22, 22, 22, 0.7);
-
-          --heder-bg-color: rgba(252, 252, 252, 1);
-          --text-theme-color: rgba(22, 22, 22, 1);
-          --fill-icon-plus: rgba(190, 219, 176, 1);
-          --color-icon-plus: rgba(22, 22, 22, 1);
-
-          --main-bg-color: rgba(246, 246, 247, 1);
-          --main-heder-bg-color: rgba(246, 246, 247, 0.5);
-          --main-last-bg-color: rgba(255, 255, 255, 1);
-          --stroke--plus-icon: rgba(255, 255, 255, 1);
-          --main-line-color: rgba(22, 22, 22, 0.1);
-          --item-span-color: rgba(22, 22, 22, 0.3);
-
-          --sidebar-first-bg-color: rgba(255, 255, 255, 1);
-          --sidebar-second-bg-color: rgba(246, 246, 247, 1);
-          --sidebar-active-bg-color: rgba(246, 246, 247, 0.4);
-
-          --sidebar-bg-icon-logo: rgba(31, 31, 31, 1);
-          --sidebar-color-icon-logo: rgba(255, 255, 255, 1);
-          
-          --sidebar-bg-icon-plus-color: rgba(190, 219, 176, 1);
-          --sidebar-bg-icon-logout-color: rgba(190, 219, 176, 1);
-          --sidebar-line-color: rgba(22, 22, 22, 0.1);
-        
-          --bord-list-color: rgba(22, 22, 22, 1);
-
-          --button-bg-color: rgba(190, 219, 176, 1);
-
-          --modal-bg-color: rgba(252, 252, 252, 1);
-          
-        }
-        
-        .violet {
-          --first-text-color: rgba(22, 22, 22, 1);
-          --last-text-color: rgba(22, 22, 22, 0.5);
-
-          --heder-bg-color: rgba(255, 255, 255, 1);
-          --text-theme-color: rgba(22, 22, 22, 1);
-          --fill-icon-plus: rgba(236, 237, 253, 1);
-          --color-icon-plus: rgba(255, 255, 255, 1);
-          
-
-          --main-bg-color: rgba(236, 237, 253, 1);
-          --main-heder-bg-color: rgba(236, 237, 253, 0.5);
-          --main-last-bg-color: rgba(255, 255, 255, 1);
-          --stroke--plus-icon: rgba(22, 22, 22, 1);
-          --main-line-color: rgba(22, 22, 22, 0.1);
-          --item-span-color: rgba(22, 22, 22, 0.3);
-
-          --sidebar-first-bg-color: rgba(82, 85, 188, 1);
-          --sidebar-second-bg-color: rgba(143, 146, 214, 1);
-          --sidebar-active-bg-color: rgba(143, 146, 214, 0.4);
-
-          --sidebar-bg-icon-logo: rgba(236, 237, 253, 1);
-          --sidebar-color-icon-logo: rgba(82, 85, 188, 1);
-          
-          --sidebar-bg-icon-plus-color: rgba(184, 188, 253, 1);
-          --sidebar-color-icon-plus: rgba(22, 22, 22, 1);
-          --sidebar-bg-icon-logout-color: rgba(255, 255, 255, 1);
-          --sidebar-line-color: rgba(255, 255, 255, 0.1);
-
-
-          --bord-list-color: rgba(255, 255, 255, 1);
-
-          --button-bg-color: rgba(82, 85, 188, 1);
-
-          --modal-bg-color: rgba(252, 252, 252, 1);
-          
-        }
       `}
     />
   );

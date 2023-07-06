@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { Forma, Label, Input, FormTitle } from './ModalBoard.styled';
+import { Forma, Label, Input, FormTitle, BgWrapper } from './ModalBoard.styled';
 import SubmitButton from '../../submitButton/submitButton';
 import { IconRadioButtons } from '../../iconRadioButtons/IconRadioButtons';
 import { Formik, ErrorMessage } from 'formik';
@@ -71,7 +71,9 @@ export const ModalBoard = ({ onClose }) => {
           </Label>
 
           <IconRadioButtons getIcon={getIcon} />
-          <Background getBg={getBg} />
+          <BgWrapper>
+            <Background getBg={getBg} />
+          </BgWrapper>
           <SubmitButton
             type="submit"
             title="Create"
