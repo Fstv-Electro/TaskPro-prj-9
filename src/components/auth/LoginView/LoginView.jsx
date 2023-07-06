@@ -30,7 +30,7 @@ const UserSchema = Yup.object().shape({
     .required('Required'),
   password: Yup.string()
     .matches(/^(?=.*[a-zA-Z0-9])(?!.*\s).{8,64}$/, {
-      message: 'Password error',
+      message: 'Password must contain Latin letters and numbers, without spaces in different case, from 8 to 64 characters.',
       excludeEmptyString: true,
     })
     .required('Required'),
