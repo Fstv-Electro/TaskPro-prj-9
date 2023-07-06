@@ -1,5 +1,13 @@
 import styled from '@emotion/styled';
 
+export const Item = styled.li`
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  gap: 14px;
+  flex-grow: 1;
+`;
+
 export const Container = styled.div`
   display: flex;
   justify-content: space-between;
@@ -47,11 +55,11 @@ export const IconEdit = styled.svg`
   width: 16px;
   height: 16px;
   color: var(--last-text-color);
-  transition: 500ms cubic-bezier(0.4, 0, 0.2, 1); 
+  transition: 500ms cubic-bezier(0.4, 0, 0.2, 1);
 
   &:hover,
   &:focus {
-    color: blue; 
+    color: blue;
   }
 `;
 
@@ -63,6 +71,6 @@ export const IconDelete = styled.svg`
 
   &:hover,
   &:focus {
-    color: red;  
+    color: red;
   }
 `;
