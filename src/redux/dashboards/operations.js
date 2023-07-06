@@ -71,8 +71,6 @@ export const deleteBoard = createAsyncThunk(
   }
 );
 
-
-
 export const backgroundUrl = createAsyncThunk(
   'backgrounds',
   async (_, thunkAPI) => {
@@ -168,11 +166,9 @@ export const addTask = createAsyncThunk(
   }
 );
 
-
-
 export const editTask = createAsyncThunk(
   'tasks/editTask',
-  async ({id, values}, thunkAPI) => {
+  async ({ id, values }, thunkAPI) => {
     try {
       const response = await axios.put(`/api/tasks/${id}`, values);
       Notiflix.Notify.success('Task corrected!');
@@ -198,10 +194,6 @@ export const deleteTask = createAsyncThunk(
     }
   }
 );
-
-
-
-
 
 export const shiftTask = createAsyncThunk(
   'tasks/shiftTask',
@@ -239,4 +231,3 @@ export const changeBackground = createAsyncThunk(
     }
   }
 );
-

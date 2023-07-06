@@ -27,13 +27,11 @@ export const Column = ({ column, tasks, index, handleClick }) => {
     setIsOpen(isOpen => !isOpen);
   };
 
-  // const tasks = useSelector(selectVisibleCards);
+  const visibleTasks = useSelector(selectVisibleCards);
 
-  // const filteredList = tasks.filter(card => card.parentColumn === column._id);
-
-  // if (filteredList.length === 0) {
-  //   return;
-  // }
+  const filtredTasks = visibleTasks.filter(
+    task => task.parentColumn === column._id
+  );
 
   return (
     <Draggable draggableId={column._id} index={index}>
@@ -62,10 +60,9 @@ export const Column = ({ column, tasks, index, handleClick }) => {
             <Droppable droppableId={column._id} type="task">
               {provided => (
                 <div ref={provided.innerRef} {...provided.droppableProps}>
-                  {tasks.map((task, index) => {
+                  {filtredTasks.map((task, index) => {
                     return <Task key={task._id} task={task} index={index} />;
                   })}
-
                   {provided.placeholder}
                 </div>
               )}
