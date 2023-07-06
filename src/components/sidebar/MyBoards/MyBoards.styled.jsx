@@ -41,6 +41,9 @@ export const NavItem = styled(NavLink)`
   &:not(.active):hover {
     border-bottom: 1px solid var(--sidebar-bg-icon-logout-color);
     margin-bottom: -1px;
+    div {
+      opacity: 1;
+    }
   }
   &:active {
     background-color: var(--sidebar-active-bg-color);
