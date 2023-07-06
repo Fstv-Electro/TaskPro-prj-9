@@ -2,6 +2,7 @@ import React from 'react';
 import { Formik } from 'formik';
 import { Modal } from '../../modal/modal';
 import { ButtonClose } from 'components/modalBtnClose/ButtonClose';
+import * as yup from 'yup'
 import {
   Form,
   FormField,
@@ -31,15 +32,9 @@ export const AddColumnForm = ({ id, onClose }) => {
     onClose();
   };
 
-  const validateForm = values => {
-    const errors = {};
-
-    if (!values.title) {
-      errors.title = 'Field must not be empty';
-    }
-
-    return errors;
-  };
+const validateSchema = yup.object().shape({
+  title: yup.string().required(),
+});
 
   return (
     <Modal onClose={onClose}>
@@ -49,7 +44,7 @@ export const AddColumnForm = ({ id, onClose }) => {
       <Formik
         initialValues={initialValues}
         onSubmit={handleSubmit}
-        validate={validateForm}
+        validationSchema={validateSchema}
       >
         <Form autoComplete="off">
           <FormField htmlFor="title">

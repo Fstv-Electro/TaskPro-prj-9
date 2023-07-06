@@ -63,7 +63,6 @@ export const ModalBoard = ({ onClose }) => {
               type="text"
               name="name"
               placeholder="Title"
-              required
               minLength="4"
               maxLength="12"
             />
