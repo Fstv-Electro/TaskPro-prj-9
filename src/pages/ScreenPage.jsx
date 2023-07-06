@@ -1,8 +1,7 @@
 import { useSelector, useDispatch } from 'react-redux';
 import { useEffect, useState } from 'react';
-import { selectBackground } from 'redux/dashboards/selectors';
+import { selectBackground} from 'redux/dashboards/selectors';
 import { backgroundUrl } from 'redux/dashboards/operations';
-// import { useMediaQuery } from 'react-responsive';
 import { Header } from 'components/Header/Header';
 
 import { DashboardHeader } from 'components/HeaderDashboard/HeaderDashboard';
@@ -24,18 +23,6 @@ export default function ScreenPage() {
     };
     getBgs();
   }, [currBg, dispatch]);
-
-  // const responsiveScreen = useMediaQuery({ maxWidth: 374 });
-  // const mobileScreen = useMediaQuery({
-  //   minWidth: 375,
-  //   maxWidth: 767,
-  // });
-  // const tabletScreen = useMediaQuery({
-  //   minWidth: 768,
-  //   maxWidth: 1440,
-  // });
-  // const desktopScreen = useMediaQuery({ minWidth: 1440 });
-  // const isRetina = useMediaQuery({ query: '(min-resolution: 2dppx)' });
 
   return (
       <Container bg={bgUrls ? bgUrls : undefined} >
