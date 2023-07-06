@@ -101,14 +101,28 @@ export const AddCardForm = ({ columnId, onClose }) => {
         {({ values }) => (
           <Form>
             <InputTitle type="text" name="title" placeholder="Title" />
-            <ErrorMessage name="title" component="div" />
+            <ErrorMessage 
+            name="title" 
+            component="div"
+            style={{
+              color: 'red',
+              fontSize: 14,
+            }}
+            />
             <InputDescription
               type="text"
               name="description"
               placeholder="Description"
               as="textarea"
             />
-            <ErrorMessage name="description" component="div" />
+            <ErrorMessage 
+            name="description" 
+            component="div"
+            style={{
+              color: 'red',
+              fontSize: 14,
+            }}
+            />
             <TitleStatus id="taskStatusGroup">Label color</TitleStatus>
             <BlockStatus role="group" aria-labelledby="taskStatusGroup">
               <label style={{ '--color': '#8FA1D0' }}>
