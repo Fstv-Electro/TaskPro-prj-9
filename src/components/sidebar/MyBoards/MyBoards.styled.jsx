@@ -33,19 +33,33 @@ export const NavItem = styled(NavLink)`
   min-width: 260px;
   height: 100%;
   text-decoration: none;
+  background-color: transparent;
+  opacity: 0.5;
+  transition: all 550ms cubic-bezier(0.4, 0, 0.2, 1);
 
   transition: border 550ms cubic-bezier(0.4, 0, 0.2, 1);
   &:not(.active):hover {
     border-bottom: 1px solid var(--sidebar-bg-icon-logout-color);
     margin-bottom: -1px;
+    div {
+      opacity: 1;
+    }
   }
-
+  &:active {
+    background-color: var(--sidebar-active-bg-color);
+  }
+  
   &.active {
     background-color: var(--sidebar-active-bg-color);
     outline: none;
     width: calc(100% + 24px);
     padding-left: 24px;
     margin-left: -24px;
+    opacity: 1;
+     
+    div {
+      opacity: 1;
+    }
 
     @media (max-width: 768px) {
       width: calc(100% + 14px);
@@ -100,12 +114,15 @@ export const BtnContainer = styled.div`
   justify-content: center;
   align-items: center;
   margin-right: 20px;
+  opacity: 0;
+  transition: all 350ms cubic-bezier(0.4, 0, 0.2, 1);
 `;
 
 export const IconEdit = styled.svg`
   width: 16px;
   height: 16px;
-  color: var(--last-text-color);
+  color: var(--bord-list-color);
+  opacity: 0.5;
   transition: color 350ms cubic-bezier(0.4, 0, 0.2, 1);
 
   &:hover,
@@ -117,7 +134,8 @@ export const IconEdit = styled.svg`
 export const IconDelete = styled.svg`
   width: 16px;
   height: 16px;
-  color: var(--last-text-color);
+  color: var(--bord-list-color);
+  opacity: 0.5;
   transition: color 350ms cubic-bezier(0.4, 0, 0.2, 1);
 
   &:hover,
