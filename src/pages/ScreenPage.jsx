@@ -45,62 +45,32 @@ export default function ScreenPage() {
             ? responsiveScreen
               ? {
                   backgroundImage: `url(${bgUrls.tabletURL})`,
-                  backgroundRepeat: 'no-repeat',
-                  backgroundSize: 'cover',
-                  height: '100vh',
-                  width: '100vw',
-                  maxWidth: '100%',
                 }
               : mobileScreen
               ? {
                   backgroundImage: `url(${bgUrls.tabletURL})`,
-                  backgroundRepeat: 'no-repeat',
-                  backgroundSize: 'cover',
-                  height: '100vh',
-                  width: '100vw',
                 }
               : tabletScreen
               ? {
                   backgroundImage: `url(${bgUrls.desktopURL})`,
-                  backgroundRepeat: 'no-repeat',
-                  backgroundSize: 'cover',
-                  height: '100vh',
                 }
               : desktopScreen && {
                   backgroundImage: `url(${bgUrls.retinaURL})`,
-                  backgroundRepeat: 'no-repeat',
-                  backgroundSize: 'cover',
-                  height: '100vh',
                 }
             : responsiveScreen
             ? {
                 backgroundImage: `url(${bgUrls.mobileURL})`,
-                backgroundRepeat: 'no-repeat',
-                backgroundSize: 'cover',
-                height: '100vh',
-                width: '100vw',
-                maxWidth: '100%',
               }
             : mobileScreen
             ? {
                 backgroundImage: `url(${bgUrls.mobileURL})`,
-                backgroundRepeat: 'no-repeat',
-                backgroundSize: 'cover',
-                height: '100vh',
-                width: '100vw',
               }
             : tabletScreen
             ? {
                 backgroundImage: `url(${bgUrls.tabletURL})`,
-                backgroundRepeat: 'no-repeat',
-                backgroundSize: 'cover',
-                height: '100vh',
               }
             : desktopScreen && {
                 backgroundImage: `url(${bgUrls.desktopURL})`,
-                backgroundRepeat: 'no-repeat',
-                backgroundSize: 'cover',
-                height: '100vh',
               }
           : null
       }
