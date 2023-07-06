@@ -44,33 +44,33 @@ export default function ScreenPage() {
           ? isRetina
             ? responsiveScreen
               ? {
-                  backgroundImage: `url(${bgUrls.tabletURL})`,
+                  backgroundImage: 'url('+bgUrls.tabletURL+')',
                 }
               : mobileScreen
               ? {
-                  backgroundImage: `url(${bgUrls.tabletURL})`,
+                  backgroundImage: 'url('+bgUrls.tabletURL+')',
                 }
               : tabletScreen
               ? {
-                  backgroundImage: `url(${bgUrls.desktopURL})`,
+                  backgroundImage: 'url('+bgUrls.desktopURL+')',
                 }
               : desktopScreen && {
-                  backgroundImage: `url(${bgUrls.retinaURL})`,
+                  backgroundImage: 'url('+bgUrls.retinaURL+')',
                 }
             : responsiveScreen
             ? {
-                backgroundImage: `url(${bgUrls.mobileURL})`,
+                backgroundImage: 'url('+bgUrls.mobileURL+')',
               }
             : mobileScreen
             ? {
-                backgroundImage: `url(${bgUrls.mobileURL})`,
+                backgroundImage: 'url('+bgUrls.mobileURL+')',
               }
             : tabletScreen
             ? {
-                backgroundImage: `url(${bgUrls.tabletURL})`,
+                backgroundImage: 'url('+bgUrls.tabletURL+')',
               }
             : desktopScreen && {
-                backgroundImage: `url(${bgUrls.desktopURL})`,
+                backgroundImage: 'url('+bgUrls.desktopURL+')',
               }
           : null
       }
