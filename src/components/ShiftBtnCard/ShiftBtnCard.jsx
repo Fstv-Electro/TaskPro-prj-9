@@ -36,6 +36,8 @@ const ShiftBtnCard = ({ id, parentColumn }) => {
     handleDropdownClick();
   };
 
+  const modalList = lists.filter(list => list._id !== parentColumn);
+
   return (
     <div>
       <Btn onClick={handleDropdownClick}>
@@ -45,7 +47,7 @@ const ShiftBtnCard = ({ id, parentColumn }) => {
       </Btn>
 
       <ColumnList className={isDropdownActive ? 'active' : ''}>
-        {lists.map(({ title, _id }) => {
+        {modalList.map(({ title, _id }) => {
           return (
             <Item key={_id}>
               <ItemBtn
