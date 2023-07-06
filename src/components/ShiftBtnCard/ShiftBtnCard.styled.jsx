@@ -47,9 +47,8 @@ export const ColumnList = styled.ul`
   z-index: 1000;
 
   &.active {
-    max-height: none;
+    max-height: 114px;
     padding: 18px 18px 18px 18px;
-    height: 114px;
     overflow-y: scroll;
   }
 `;
