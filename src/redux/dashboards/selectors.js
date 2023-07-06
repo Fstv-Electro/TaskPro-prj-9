@@ -1,6 +1,5 @@
 import { statusFilters } from './constants';
 
-// task
 export const selectBoard = state => state.task.boards;
 
 export const selectList = state => state.task.lists;
@@ -19,14 +18,9 @@ export const selectCurrentBoard = state => state.task.currentBoard;
 
 export const selectFilteredCards = state => state.task.filteredCards;
 
-// export const selectFilter = state => state.task.filter;
-// task
-
 export const selectVisibleCards = state => {
   const tasks = selectCard(state);
   const statusFilter = selectFilteredCards(state);
-
-  //   console.log(tasks);
 
   switch (statusFilter) {
     case statusFilters.low:
