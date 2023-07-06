@@ -5,8 +5,8 @@ export const Container = styled.div`
   padding-bottom: 8px;
   background-color: var(--main-bg-color);
   color: var(--first-text-color);
-  background-repeat: 'no-repeat';
-  background-size: 'cover';
+  background-repeat: no-repeat;
+  background-size: cover;
   height: 100vh;
   width: 100vw;
 
