@@ -110,7 +110,8 @@ export default function RegistrationView() {
                 name="name"
                 component="div"
                 style={{
-                  color: 'white',
+                  color: 'red',
+                  fontSize: 14,
                 }}
               />
               <Field type="email" name="email" placeholder="Enter your email" />
@@ -118,7 +119,8 @@ export default function RegistrationView() {
                 name="email"
                 component="div"
                 style={{
-                  color: 'white',
+                  color: 'red',
+                  fontSize: 14,
                 }}
               />
               <FormIcon>
@@ -131,7 +133,8 @@ export default function RegistrationView() {
                   name="password"
                   component="div"
                   style={{
-                    color: 'white',
+                    color: 'red',
+                    fontSize: 14,
                   }}
                 />
                 <Eye type="button" onClick={handleClick}>

@@ -46,7 +46,14 @@ export const EditColumnForm = ({ item, onClose }) => {
         <Form autoComplete="off">
           <FormField htmlFor="title">
             <Field type="text" name="title" placeholder="Title" />
-            <ErrorMessage name="title" component="span" />
+            <ErrorMessage 
+            name="title" 
+            component="span"
+            style={{
+              color: 'red',
+              fontSize: 14,
+            }}
+            />
           </FormField>
           <SubmitButton
             title="Edit"
