@@ -158,7 +158,7 @@ export const IconPlus = styled.svg`
   top: 98%;
   left: 50%;
   transform:translate(-50%, -50%);
-  transition: transform 550ms cubic-bezier(0.4, 0, 0.2, 1);
+  transition: all 550ms cubic-bezier(0.4, 0, 0.2, 1);
   width: 24px;
   height: 24px;
   
