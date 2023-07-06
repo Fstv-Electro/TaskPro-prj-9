@@ -42,7 +42,7 @@ const NewUserSchema = Yup.object().shape({
     .required('Required'),
   password: Yup.string()
     .matches(/^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d!@#$%^&*()-=_+{}[\]|\\;:'",.<>/?]{8,64}$/, {
-      message: 'Password must contain Latin letters and numbers, without spaces in different case, from 8 to 64 characters.',
+      message: 'Password must contain Latin letters, numbers, signs and without spaces in different case, from 8 to 64 characters.',
       excludeEmptyString: true,
     })
     .required('Required'),
@@ -110,8 +110,7 @@ export default function RegistrationView() {
                 name="name"
                 component="div"
                 style={{
-                  color: 'red',
-                  fontSize: 14,
+                  color: 'white',
                 }}
               />
               <Field type="email" name="email" placeholder="Enter your email" />
@@ -119,8 +118,7 @@ export default function RegistrationView() {
                 name="email"
                 component="div"
                 style={{
-                  color: 'red',
-                  fontSize: 14,
+                  color: 'white',
                 }}
               />
               <FormIcon>
@@ -133,8 +131,7 @@ export default function RegistrationView() {
                   name="password"
                   component="div"
                   style={{
-                    color: 'red',
-                    fontSize: 14,
+                    color: 'white',
                   }}
                 />
                 <Eye type="button" onClick={handleClick}>

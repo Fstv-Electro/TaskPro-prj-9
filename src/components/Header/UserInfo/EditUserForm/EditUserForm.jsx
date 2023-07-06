@@ -32,7 +32,7 @@ const NewUserSchema = Yup.object().shape({
       return supportedFormats.includes(value.type);
     }),
   name: Yup.string()
-    .matches(/^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d!@#$%^&*()-=_+{}[\]|\\;:'",.<>/?]{8,64}$/, {
+    .matches(/^[A-Za-z0-9]{2,32}$/, {
       message:
         "Name may contain only letters, apostrophe, dash and spaces. For example Adrian, Jacob Mercer, Charles de Batz de Castelmore d'Artagnan",
       excludeEmptyString: true,
@@ -48,7 +48,7 @@ const NewUserSchema = Yup.object().shape({
     )
     .required('Required'),
   password: Yup.string()
-    .matches(/^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{5,}$/, {
+    .matches(/^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d!@#$%^&*()-=_+{}[\]|\\;:'",.<>/?]{8,64}$/, {
       message: 'Password must contain Latin letters and numbers, without spaces in different case, from 8 to 64 characters.',
       excludeEmptyString: true,
     })
