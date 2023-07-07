@@ -6,7 +6,7 @@ import {
   Button,
   Image,
   TextButton,
-  Svg
+  Svg,
 } from './needHelp.styled';
 import background from '../../../images/help.png';
 import sprite from '../../../images/symbol-defs.svg';
@@ -17,8 +17,8 @@ export const NeedHelp = () => {
   const [isOpen, setIsOpen] = useState(false);
 
   const toggleModal = () => {
-    setIsOpen(isOpen => !isOpen)
-  }
+    setIsOpen(isOpen => !isOpen);
+  };
   return (
     <Container>
       <Image src={background} alt="Logo" />
@@ -32,8 +32,12 @@ export const NeedHelp = () => {
         </Svg>
         <TextButton>Need help?</TextButton>
       </Button>
-      {isOpen && <Modal onClose={toggleModal} children={<NeedHelpForm onClose={toggleModal}/>} />}
+      {isOpen && (
+        <Modal
+          onClose={toggleModal}
+          children={<NeedHelpForm onClose={toggleModal} />}
+        />
+      )}
     </Container>
   );
 };
-

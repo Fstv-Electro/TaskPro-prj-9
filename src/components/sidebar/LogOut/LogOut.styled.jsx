@@ -9,9 +9,8 @@ export const LogOutButton = styled.button`
   padding: 0;
   transform: scale(1);
   transition: transform 550ms cubic-bezier(0.4, 0, 0.2, 1);
-  &:hover {
-    transform: scale(1.1);
-  }
+
+  &:hover,
   &:focus {
     transform: scale(1.1);
   }
@@ -23,7 +22,6 @@ export const LogOutButton = styled.button`
 
 export const LogOutText = styled.span`
   font-size: 16px;
-  font-family: Poppins;
   font-weight: 500;
   margin-left: 14px;
   color: var(--bord-list-color);

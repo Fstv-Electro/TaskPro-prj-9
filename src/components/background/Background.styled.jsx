@@ -1,8 +1,6 @@
 import styled from '@emotion/styled';
 
-export const Wrapper = styled.div`
- 
-`;
+export const Wrapper = styled.div``;
 
 export const List = styled.ul`
   display: flex;
@@ -16,7 +14,6 @@ export const List = styled.ul`
 export const FormQuestion = styled.legend`
   color: var(--first-text-color);
   font-size: 14px;
-  font-family: Poppins;
   font-weight: 500;
   letter-spacing: -0.28px;
   padding-bottom: 14px;
