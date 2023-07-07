@@ -31,11 +31,11 @@ to create their accounts, log in, and manage their tasks privately.
 #Project team:
 
 TEAM LEAD FRONT:
-[Kutsenko Oleksandr](https://www.linkedin.com/in/kutsenko-oleksandr/).
+[Kutsenko Oleksandr](https://www.linkedin.com/in/kutsenko-oleksandr/)
 
 Code review, PageHome, ScreenPage, redux store, fix bugs.
 
-TEAM LEAD BACK: [Eugene Titov](https://www.linkedin.com/in/eugene-titov/).
+TEAM LEAD BACK: [Eugene Titov](https://www.linkedin.com/in/eugene-titov/)
 
 Code review, Deployment on Render.com, environment variables, Bug fix, creation
 and addition of boards, columns, tasks, code refactoring, endpoint of changing
@@ -45,64 +45,64 @@ configuring server responses, Pair development.
 
 FRONT:
 
-[Dmytro Novitskyi](https://www.linkedin.com/in/dmytro-novitskyi/).
+[Dmytro Novitskyi](https://www.linkedin.com/in/dmytro-novitskyi/)
 
 Component listColumns and ColumnItem. Refactoring redux tasks and Board. Filter
 tasks with hook filter. deadlinebells in tasks.
 
-[Roman Korzun](https://www.linkedin.com/in/roman-korzun/).
+[Roman Korzun](https://www.linkedin.com/in/roman-korzun/)
 
 Routes, Redux slice.
 
-[Orest Mykhalchuk](https://www.linkedin.com/in/orest-m/).
+[Orest Mykhalchuk](https://www.linkedin.com/in/orest-m/)
 
 Buttons delete, shift task, component Addlist(tasks), HeaderDashboard and
 MainDashBoard style, helped fix bugs.
 
-[Aleksey Ryzhenko](www.linkedin.com/in/aleksey-ryzhenko-316477240).
+[Aleksey Ryzhenko](www.linkedin.com/in/aleksey-ryzhenko-316477240)
 
 Sidebar style, logic, redux, Components: Background, IconRadioButtons,
 CreateBoard, MyBoards, modal: ModalBoard, EditBoard, DeleteBoard, LogOut, helped
 fix bugs.
 
-[Ruslan Tenderyts](https://www.linkedin.com/in/ruslan-tenderyts/).
+[Ruslan Tenderyts](https://www.linkedin.com/in/ruslan-tenderyts/)
 
 Header, editUser, Theme, Scroll, burger menu Sidebar, centering the application,
 helped for fix bugs.
 
-[Svitlana Kozachenko]().
+[Svitlana Kozachenko](https://www.linkedin.com/in/svitlana-kozachenko-9ba34b248/)
 
 AddCard, EditCard, MUI DatePicker.
 
-[Konstantin Yevchuk ](https://www.linkedin.com/in/konstantin-yevchuk-b5aa31262).
+[Konstantin Yevchuk ](https://www.linkedin.com/in/konstantin-yevchuk-b5aa31262)
 
 NeedHelp(component, modal with form, redux), Redux refresh token, Modal +
 backdrop, sprite svg, Component Card, EditButton in Component Card(React without
 Redux), helped fix bugs.
 
-[Volodymyr Zankevych](https://www.linkedin.com/in/volodymyr-zankevych-43a209255/).
+[Volodymyr Zankevych](https://www.linkedin.com/in/volodymyr-zankevych-43a209255/)
 
 Auth, auth redux, google sign up, component Filter.
 
-[Vladyslav Rohalov](https://www.linkedin.com/in/vladyslav-rohalov/).
+[Vladyslav Rohalov](https://www.linkedin.com/in/vladyslav-rohalov/)
 
 Submit button, Drug and Drop.
 
 BACK:
 
-[Vladyslav Rohalov](https://www.linkedin.com/in/vladyslav-rohalov/).
+[Vladyslav Rohalov](https://www.linkedin.com/in/vladyslav-rohalov/)
 
 Editing and deleting columns, data validation, MongoDB models and Joi schemas,
 functionality for editing user profile, changing photo, name, email address and
 password.
 
-[Yulia Safonova](https://www.linkedin.com/in/yuliia-safonova-923986266/).
+[Yulia Safonova](https://www.linkedin.com/in/yuliia-safonova-923986266/)
 
 Scrum Master, Conducting meetings, Project and team presentation, Editing and
 deleting tasks, working with Cloudinary, collection of backgrounds, Uploading
 and changing avatar, data validation, MongoDB models and Joi schemas.
 
-[Serhii Prokip](https://www.linkedin.com/in/serhii-prokip).
+[Serhii Prokip](https://www.linkedin.com/in/serhii-prokip)
 
 Editing and deleting boards, initializing the project and starting the server,
 Sending mail to the Need Help section, Registration, Login, Logout of users,
@@ -111,7 +111,7 @@ aggregation, Decorators, Middlewares, Helpers, JWT token, data validation,
 MongoDB models and Joi schemes, Bug fix, Code review, Pair development,
 collection of backgrounds in the database, color themes.
 
-[Andrii Shatokhin](https://www.linkedin.com/in/andrii-shatokhin).
+[Andrii Shatokhin](https://www.linkedin.com/in/andrii-shatokhin)
 
 Documentation of endpoints using the swagger-ui-express package, Bug fix, Code
 review, editing of models, schemes. Server responses to endpoint requests.
