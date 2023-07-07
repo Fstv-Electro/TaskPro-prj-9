@@ -22,9 +22,9 @@ export const Input = styled(Field)`
   box-shadow: 0px 4px 16px 0px rgba(22, 22, 22, 0.08);
   color: currentColor;
 
-    &:focus {
-      opacity: 1;
-    }
+  &:focus {
+    opacity: 1;
+  }
 `;
 
 export const Label = styled.label`
@@ -44,7 +44,6 @@ export const Text = styled.p`
 
 export const FormTitle = styled.h2`
   font-size: 18px;
-  font-family: Poppins;
   font-weight: 500;
   letter-spacing: -0.36px;
   margin-bottom: 24px;
@@ -53,7 +52,6 @@ export const FormTitle = styled.h2`
 export const DeleteTitle = styled.h2`
   text-align: center;
   font-size: 18px;
-  font-family: Poppins;
   font-weight: 500;
   letter-spacing: -0.36px;
   margin-top: 14px;
@@ -72,7 +70,6 @@ export const WrapperDelete = styled.div`
 
 export const Btn = styled.button`
   font-size: 18px;
-  font-family: Poppins;
   font-weight: 500;
   letter-spacing: -0.36px;
   padding: 5px;
@@ -82,9 +79,7 @@ export const Btn = styled.button`
   color: #161616;
   cursor: pointer;
   width: 100px;
-  &:hover {
-    transform: scale(1.1);
-  }
+  &:hover,
   &:focus {
     transform: scale(1.1);
   }
@@ -92,5 +87,4 @@ export const Btn = styled.button`
 
 export const BgWrapper = styled.div`
   padding-bottom: 50px;
-
-`
+`;

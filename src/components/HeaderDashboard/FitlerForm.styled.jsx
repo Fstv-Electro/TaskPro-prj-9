@@ -7,7 +7,6 @@ export const Container = styled.div`
 
 export const Title = styled.h2`
   font-size: 18px;
-  font-family: 'Poppins';
   font-weight: 500;
   margin-bottom: 14px;
 `;
@@ -29,7 +28,6 @@ export const Div = styled.div`
 
 export const Text = styled.p`
   font-size: 14px;
-  font-family: 'Poppins';
   font-weight: 500;
   margin: 0px;
 `;
@@ -37,7 +35,6 @@ export const Text = styled.p`
 export const Button = styled.button`
   color: var(--last-text-color);
   font-size: 12px;
-  font-family: 'Poppins';
   font-weight: 400;
   letter-spacing: -0.24px;
   text-decoration-line: underline;
@@ -63,7 +60,6 @@ export const Label = styled.label`
   cursor: pointer;
   color: var(--last-text-color);
   font-size: 12px;
-  font-family: 'Poppins';
   font-weight: 400;
   letter-spacing: -0.24px;
   padding-top: 1px;

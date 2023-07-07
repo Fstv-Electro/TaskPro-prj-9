@@ -48,7 +48,7 @@ export const NavItem = styled(NavLink)`
   &:active {
     background-color: var(--sidebar-active-bg-color);
   }
-  
+
   &.active {
     background-color: var(--sidebar-active-bg-color);
     outline: none;
@@ -56,7 +56,7 @@ export const NavItem = styled(NavLink)`
     padding-left: 24px;
     margin-left: -24px;
     opacity: 1;
-     
+
     div {
       opacity: 1;
     }
@@ -89,7 +89,6 @@ export const WrapperProjectOffice = styled.button`
 
 export const Project = styled.p`
   font-size: 14px;
-  font-family: Poppins;
   font-weight: 500;
   letter-spacing: -0.28px;
   margin-left: 8px;
