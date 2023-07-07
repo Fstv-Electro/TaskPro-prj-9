@@ -59,7 +59,7 @@ Routes, Redux slice.
 Buttons delete, shift task, component Addlist(tasks), HeaderDashboard and
 MainDashBoard style, helped fix bugs.
 
-[Aleksey Ryzhenko](www.linkedin.com/in/aleksey-ryzhenko-316477240)
+[Aleksey Ryzhenko](www.linkedin.com/in/aleksey-ryzhenko-316477240/)
 
 Sidebar style, logic, redux, Components: Background, IconRadioButtons,
 CreateBoard, MyBoards, modal: ModalBoard, EditBoard, DeleteBoard, LogOut, helped
@@ -74,7 +74,7 @@ helped for fix bugs.
 
 AddCard, EditCard, MUI DatePicker.
 
-[Konstantin Yevchuk ](https://www.linkedin.com/in/konstantin-yevchuk-b5aa31262)
+[Konstantin Yevchuk ](https://www.linkedin.com/in/konstantin-yevchuk-b5aa31262/)
 
 NeedHelp(component, modal with form, redux), Redux refresh token, Modal +
 backdrop, sprite svg, Component Card, EditButton in Component Card(React without
@@ -102,7 +102,7 @@ Scrum Master, Conducting meetings, Project and team presentation, Editing and
 deleting tasks, working with Cloudinary, collection of backgrounds, Uploading
 and changing avatar, data validation, MongoDB models and Joi schemas.
 
-[Serhii Prokip](https://www.linkedin.com/in/serhii-prokip)
+[Serhii Prokip](https://www.linkedin.com/in/serhii-prokip/)
 
 Editing and deleting boards, initializing the project and starting the server,
 Sending mail to the Need Help section, Registration, Login, Logout of users,
@@ -111,7 +111,7 @@ aggregation, Decorators, Middlewares, Helpers, JWT token, data validation,
 MongoDB models and Joi schemes, Bug fix, Code review, Pair development,
 collection of backgrounds in the database, color themes.
 
-[Andrii Shatokhin](https://www.linkedin.com/in/andrii-shatokhin)
+[Andrii Shatokhin](https://www.linkedin.com/in/andrii-shatokhin/)
 
 Documentation of endpoints using the swagger-ui-express package, Bug fix, Code
 review, editing of models, schemes. Server responses to endpoint requests.
