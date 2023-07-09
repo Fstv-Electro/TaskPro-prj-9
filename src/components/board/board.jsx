@@ -1,37 +1,38 @@
-import { useState, useEffect } from 'react';
-import { useSelector } from 'react-redux';
+import { useState } from 'react';
+import { useSelector, useDispatch } from 'react-redux';
 import { DragDropContext, Droppable } from 'react-beautiful-dnd';
+import {
+  selectVisibleCards,
+  selectIsLoading,
+  selectCurrentBoardData,
+  selectList,
+} from 'redux/dashboards/selectors';
+import {
+  updateColumnOrder,
+  updateTaskOrder,
+  moveTaskToColumn,
+} from 'redux/dashboards/operations';
+import {
+  updateColumnOrderState,
+  updateTaskOrderState,
+} from 'redux/dashboards/slice';
 import { AddColumn } from 'components/addColumn/addColumn';
 import { Column } from 'components/column/column';
 import { Container, List } from './board.styled';
 import { AddCardForm } from '../addCardForm/addCardForm';
 import { Modal } from 'components/modal/modal';
-import axios from 'axios';
-
-import {
-  selectList,
-  selectCurrentBoard,
-  selectBoard,
-} from 'redux/dashboards/selectors';
 
 export const Board = () => {
-  const boardId = useSelector(selectCurrentBoard);
-  const boards = useSelector(selectBoard);
+  const currentBoard = useSelector(selectCurrentBoardData);
   const lists = useSelector(selectList);
+  const visibleTasks = useSelector(selectVisibleCards);
+  const isLoading = useSelector(selectIsLoading);
+  const boardId = currentBoard._id;
+
   const [isOpen, setIsOpen] = useState(false);
   const [currentColumnId, setCurrentColumnId] = useState(null);
-  const [dashBoard, setDashBoard] = useState(null);
 
-  useEffect(() => {
-    if (lists.length === 0) return;
-    const columnsMod = Object.fromEntries(lists.map(n => [n._id, n]));
-    const tasks = lists.map(column => column.tasks).flat(1);
-    const tasksMod = Object.fromEntries(tasks.map(n => [n._id, n]));
-    const board = boards.find(n => n._id === boardId);
-    const set = { board, columns: columnsMod, tasks: tasksMod };
-    setDashBoard(set);
-    console.log(set);
-  }, [lists, boardId, boards]);
+  const dispatch = useDispatch();
 
   const toggleModal = () => {
     setIsOpen(isOpen => !isOpen);
@@ -59,127 +60,111 @@ export const Board = () => {
 
     // if columns moved
     if (type === 'column') {
-      const newColumnOrder = Array.from(dashBoard.board.columnOrder);
+      const newColumnOrder = Array.from(currentBoard.columnOrder);
 
       newColumnOrder.splice(source.index, 1);
       newColumnOrder.splice(destination.index, 0, draggableId);
 
-      const newState = {
-        ...dashBoard,
-        board: {
-          ...dashBoard.board,
-          columnOrder: newColumnOrder,
-        },
-      };
-
-      // update columns on server
-      const updateColumnOrder = async () => {
-        try {
-          await axios.patch(`/api/boards/columnorder/${boardId}`, {
-            columnOrder: newColumnOrder,
-          });
-        } catch (error) {
-          console.log(error);
-        }
-      };
-      updateColumnOrder();
-      setDashBoard(newState);
+      dispatch(updateColumnOrder({ boardId, newColumnOrder }));
+      dispatch(updateColumnOrderState({ boardId, newColumnOrder }));
 
       return;
     }
 
-    // if tasks moved
-    const start = dashBoard.columns[source.droppableId];
-    const finish = dashBoard.columns[destination.droppableId];
+    // if tasks moved inside column
+
+    const start = lists.filter(item => item._id === source.droppableId)[0];
+    const finish = lists.filter(
+      item => item._id === destination.droppableId
+    )[0];
+    // const finish = lists[destination.droppableId];
 
     if (start === finish) {
       const newTaskOrder = Array.from(start.taskOrder);
+      console.log(newTaskOrder);
       newTaskOrder.splice(source.index, 1);
       newTaskOrder.splice(destination.index, 0, draggableId);
+      console.log(newTaskOrder);
 
-      const newColumn = {
-        ...start,
-        taskOrder: newTaskOrder,
-      };
+      // const newColumn = {
+      //   ...start,
+      //   taskOrder: newTaskOrder,
+      // };
 
-      const newState = {
-        ...dashBoard,
-        columns: {
-          ...dashBoard.columns,
-          [newColumn._id]: newColumn,
-        },
-      };
-      console.log(newState);
+      // const newState = {
+      //   ...dashBoard,
+      //   columns: {
+      //     ...dashBoard.columns,
+      //     [newColumn._id]: newColumn,
+      //   },
+      // };
 
-      const updateTaskOrder = async () => {
-        const columnId = start._id;
-        try {
-          await axios.patch(`/api/columns/taskorder/${columnId}`, {
-            taskOrder: newTaskOrder,
-          });
-        } catch (error) {
-          console.log(error);
-        }
-      };
-      updateTaskOrder();
+      const columnId = start._id;
+      // console.log({ columnId, newTaskOrder });
+      dispatch(updateTaskOrder({ columnId, newTaskOrder }));
+      dispatch(updateTaskOrderState({ columnId, newTaskOrder }));
 
-      setDashBoard(newState);
       return;
     }
 
-    // Moving from one list to another
-    const startTaskOrder = Array.from(start.taskOrder);
+    // // Moving from one list to another
+    // const startTaskOrder = Array.from(start.taskOrder);
 
-    startTaskOrder.splice(source.index, 1);
-    const newStart = {
-      ...start,
-      taskOrder: startTaskOrder,
-    };
-    const finishTaskOrder = Array.from(finish.taskOrder);
-    finishTaskOrder.splice(destination.index, 0, draggableId);
-    const newFinish = {
-      ...finish,
-      taskOrder: finishTaskOrder,
-    };
+    // startTaskOrder.splice(source.index, 1);
+    // const newStart = {
+    //   ...start,
+    //   taskOrder: startTaskOrder,
+    // };
 
-    const newState = {
-      ...dashBoard,
-      columns: {
-        ...dashBoard.columns,
-        [newStart._id]: newStart,
-        [newFinish._id]: newFinish,
-      },
-    };
-    const movedTask = dashBoard.tasks[draggableId];
-    const columnSource = source.droppableId;
-    const columnSourceOrder = {
-      [columnSource]: newState.columns[columnSource].taskOrder,
-    };
-    const columnDestination = destination.droppableId;
-    const columnDestinationOrder = {
-      [columnDestination]: newState.columns[columnDestination].taskOrder,
-    };
+    // const finishTaskOrder = Array.from(finish.taskOrder);
+    // finishTaskOrder.splice(destination.index, 0, draggableId);
+    // const newFinish = {
+    //   ...finish,
+    //   taskOrder: finishTaskOrder,
+    // };
 
-    const updateTaskWithColumn = async () => {
-      const taskId = movedTask._id;
+    // const newState = {
+    //   ...dashBoard,
+    //   columns: {
+    //     ...dashBoard.columns,
+    //     [newStart._id]: newStart,
+    //     [newFinish._id]: newFinish,
+    //   },
+    // };
 
-      try {
-        await axios.patch(`/api/tasks/movetask/${taskId}`, {
-          columnSourceOrder,
-          columnDestinationOrder,
-        });
-      } catch (error) {
-        console.log(error);
-      }
-    };
-    updateTaskWithColumn();
+    // // console.log('newState', newState);
+    // const movedTask = dashBoard.tasks[draggableId];
+    // const columnSource = source.droppableId;
+    // const columnSourceOrder = {
+    //   [columnSource]: newState.columns[columnSource].taskOrder,
+    // };
+    // const columnDestination = destination.droppableId;
+    // const columnDestinationOrder = {
+    //   [columnDestination]: newState.columns[columnDestination].taskOrder,
+    // };
+    // const taskId = movedTask._id;
 
-    setDashBoard(newState);
+    // dispatch(
+    //   moveTaskToColumn({
+    //     taskId,
+    //     columnSourceOrder,
+    //     columnDestinationOrder,
+    //   })
+    // );
+    // setDashBoard(newState);
   };
+
+  // function sortTasks(tasks, sortingOrder) {
+  //   const result = [];
+  //   for (let i = 0; i < tasks.length; i++) {
+  //     result[sortingOrder.indexOf(tasks[i]._id)] = tasks[i];
+  //   }
+  //   return result;
+  // }
 
   return (
     <>
-      {dashBoard && (
+      {currentBoard && lists && isLoading === false && (
         <DragDropContext onDragEnd={onDragEnd}>
           <Droppable
             droppableId="all-columns"
@@ -189,15 +174,39 @@ export const Board = () => {
             {provided => (
               <Container ref={provided.innerRef} {...provided.droppableProps}>
                 <List>
-                  {dashBoard.board.columnOrder.map((columnId, index) => {
-                    const column = dashBoard.columns[columnId];
-                    const tasks = column.taskOrder.map(n => dashBoard.tasks[n]);
+                  {currentBoard.columnOrder.map((columnId, index) => {
+                    // console.log('lists', lists);
+                    const column = lists.filter(n => n._id === columnId)[0];
+                    // console.log('column', column);
+                    const filteredTasks = visibleTasks.filter(
+                      n => n.parentColumn === column._id
+                    );
+
+                    // console.log(filteredTasks, 'filteredTasks');
+
+                    // const tasks = column.taskOrder.map(n => dashBoard.tasks[n]);
+
+                    // {dashBoard.board.columnOrder.map((columnId, index) => {
+                    //   const column = dashBoard.columns[columnId];
+                    //   const tasks = column.taskOrder.map(n => dashBoard.tasks[n]);
+                    // const filteredTasks = dashBoard.tasks.filter(
+                    //   task => task.parentColumn === columnId
+                    // );
+                    // console.log(filteredTasks);
+                    // const sortedTasks = sortTasks(
+                    //   filteredTasks,
+                    //   column.taskOrder
+                    // );
+
+                    // const filteredTasks = visibleTasks.filter(
+                    //   task => task.parentColumn === column._id
+                    // );
 
                     return (
                       <Column
                         key={column._id}
                         column={column}
-                        tasks={tasks}
+                        tasks={filteredTasks}
                         index={index}
                         handleClick={handleClick}
                       />
@@ -205,69 +214,23 @@ export const Board = () => {
                   })}
                   {provided.placeholder}
                 </List>
-
-                <AddColumn
-                  boardId={boardId}
-                  numberOfColumns={Number(lists.length)}
-                />
-
-                {isOpen && (
-                  <Modal
-                    onClose={toggleModal}
-                    children={
-                      <AddCardForm
-                        onClose={toggleModal}
-                        columnId={currentColumnId}
-                      />
-                    }
-                  />
-                )}
               </Container>
             )}
           </Droppable>
         </DragDropContext>
       )}
+      <AddColumn
+        boardId={currentBoard._id}
+        numberOfColumns={Number(lists.length)}
+      />
+      {isOpen && (
+        <Modal
+          onClose={toggleModal}
+          children={
+            <AddCardForm onClose={toggleModal} columnId={currentColumnId} />
+          }
+        />
+      )}
     </>
   );
 };
-
-//   <Container>
-//     {lists.length > 0 && (
-//       <List>
-//         {lists.map(({ _id, title }) => {
-//           return (
-// <Item key={_id}>
-//   <ColumnItem item={{ _id, title }} />
-//   {/*  */}
-//   <AddList columnId={_id} />
-//   {/*  */}
-//  <SubmitButton
-//   title="Add another card"
-//   type="button"
-//   width={334}
-//   height="56"
-//   icon={true}
-//   handleClick={() => {
-//     setCurrentColumnId(_id);
-//     toggleModal();
-//   }}
-// />
-
-// {isOpen && (
-//   <Modal
-//     onClose={toggleModal}
-//     children={
-//       <AddCardForm
-//         onClose={toggleModal}
-//         columnId={currentColumnId || _id}
-//       />
-//     }
-//   />
-// )}
-// </Item>
-//           );
-//         })}
-//       </List>
-//     )}
-//     <AddColumn boardId={boardId} numberOfColumns={Number(lists.length)} />
-//   </Container>

@@ -7,6 +7,7 @@ Notiflix.Notify.init({
 });
 
 axios.defaults.baseURL = 'https://task-pro-backend.onrender.com';
+// axios.defaults.baseURL = 'http://localhost:3001';
 
 export const fetchBoards = createAsyncThunk(
   'user/boards',
@@ -225,6 +226,48 @@ export const changeBackground = createAsyncThunk(
         currentBg,
       });
       Notiflix.Notify.success('Background edit!');
+      return response.data;
+    } catch (error) {
+      return thunkAPI.rejectWithValue(error.message);
+    }
+  }
+);
+
+export const updateColumnOrder = createAsyncThunk(
+  'boards/updateColumnOrder',
+  async ({ boardId, newColumnOrder }, thunkAPI) => {
+    try {
+      await axios.patch(`/api/boards/columnorder/${boardId}`, {
+        columnOrder: newColumnOrder,
+      });
+    } catch (error) {
+      return thunkAPI.rejectWithValue(error.message);
+    }
+  }
+);
+
+export const updateTaskOrder = createAsyncThunk(
+  'columns/updateTaskOrder',
+  async ({ columnId, newTaskOrder }, thunkAPI) => {
+    try {
+      await axios.patch(`/api/columns/taskorder/${columnId}`, {
+        taskOrder: newTaskOrder,
+      });
+    } catch (error) {
+      return thunkAPI.rejectWithValue(error.message);
+    }
+  }
+);
+
+export const moveTaskToColumn = createAsyncThunk(
+  'tasks/moveTaskToColumn',
+  async ({ taskId, columnSourceOrder, columnDestinationOrder }, thunkAPI) => {
+    try {
+      const response = await axios.patch(`/api/tasks/movetask/${taskId}`, {
+        columnSourceOrder,
+        columnDestinationOrder,
+      });
+      // console.log(response.data);
       return response.data;
     } catch (error) {
       return thunkAPI.rejectWithValue(error.message);

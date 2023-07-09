@@ -1,8 +1,6 @@
 import { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { Droppable, Draggable } from 'react-beautiful-dnd';
-import { useSelector } from 'react-redux';
-import { selectVisibleCards } from 'redux/dashboards/selectors';
 import { Task } from 'components/task/task';
 import sprite from '../../images/symbol-defs.svg';
 import SubmitButton from '../submitButton/submitButton';
@@ -26,13 +24,7 @@ export const Column = ({ column, tasks, index, handleClick }) => {
   const toggleModal = () => {
     setIsOpen(isOpen => !isOpen);
   };
-
-  const visibleTasks = useSelector(selectVisibleCards);
-
-  const filtredTasks = visibleTasks.filter(
-    task => task.parentColumn === column._id
-  );
-
+  // console.log(column);
   return (
     <Draggable draggableId={column._id} index={index}>
       {provided => (
@@ -60,7 +52,7 @@ export const Column = ({ column, tasks, index, handleClick }) => {
             <Droppable droppableId={column._id} type="task">
               {provided => (
                 <div ref={provided.innerRef} {...provided.droppableProps}>
-                  {filtredTasks.map((task, index) => {
+                  {tasks.map((task, index) => {
                     return <Task key={task._id} task={task} index={index} />;
                   })}
                   {provided.placeholder}

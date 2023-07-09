@@ -59,6 +59,24 @@ const taskSlice = createSlice({
         return state.cards.push(task);
       });
     },
+    updateColumnOrderState(state, action) {
+      const { boardId, newColumnOrder } = action.payload;
+      const updatedBoard = state.boards.find(board => board._id === boardId);
+      updatedBoard.columnOrder = newColumnOrder;
+      const newBoards = state.boards.map(board =>
+        board._id === boardId ? updatedBoard : board
+      );
+      state.boards = newBoards;
+    },
+    updateTaskOrderState(state, action) {
+      const { columnId, newTaskOrder } = action.payload;
+      const updatedLists = state.lists.find(list => list._id === columnId);
+      updatedLists.taskOrder = newTaskOrder;
+      const newLists = state.lists.map(list =>
+        list._id === columnId ? updatedLists : list
+      );
+      state.lists = newLists;
+    },
   },
   extraReducers: {
     [fetchBoards.pending](state) {
@@ -163,6 +181,13 @@ const taskSlice = createSlice({
     [addColumn.fulfilled](state, action) {
       state.isLoading = false;
       state.error = null;
+      const boardId = action.payload.parentBoard;
+      const updatedBoard = state.boards.find(board => board._id === boardId);
+      updatedBoard.columnOrder.push(action.payload._id);
+      const newBoards = state.boards.map(board =>
+        board._id === updatedBoard._id ? updatedBoard : board
+      );
+      state.boards = newBoards;
       state.lists.push(action.payload);
     },
     [addColumn.rejected](state) {
@@ -192,6 +217,17 @@ const taskSlice = createSlice({
     [deleteColumn.fulfilled](state, action) {
       state.isLoading = false;
       state.error = null;
+      const updatedBoard = state.boards.find(board =>
+        board.columnOrder.find(order => order === action.payload)
+      );
+      const newColumnOrder = updatedBoard.columnOrder.filter(
+        order => order !== action.payload
+      );
+      updatedBoard.columnOrder = newColumnOrder;
+      const newBoards = state.boards.map(board =>
+        board._id === updatedBoard._id ? updatedBoard : board
+      );
+      state.boards = newBoards;
       const updatedLists = state.lists.filter(
         column => String(column._id) !== String(action.payload)
       );
@@ -284,5 +320,11 @@ const taskSlice = createSlice({
 });
 
 export const taskReducer = taskSlice.reducer;
-export const { changeBg, changeCurrentBoard, setFilterCards, getCards } =
-  taskSlice.actions;
+export const {
+  changeBg,
+  changeCurrentBoard,
+  setFilterCards,
+  getCards,
+  updateColumnOrderState,
+  updateTaskOrderState,
+} = taskSlice.actions;

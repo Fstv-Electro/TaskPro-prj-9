@@ -19,6 +19,9 @@ export const selectCurrentBoard = state => state.task.currentBoard;
 
 export const selectFilteredCards = state => state.task.filteredCards;
 
+export const selectCurrentBoardData = state =>
+  state.task.boards.find(board => board._id === state.task.currentBoard);
+
 // export const selectFilter = state => state.task.filter;
 // task
 
