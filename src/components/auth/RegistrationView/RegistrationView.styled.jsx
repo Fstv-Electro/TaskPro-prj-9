@@ -51,7 +51,6 @@ export const Registered = styled(NavLink)`
   display: inline;
   color: #fff;
   font-size: 18px;
-  font-family: 'Poppins';
   font-weight: 500;
   letter-spacing: -0.36px;
   text-decoration: none;
@@ -61,7 +60,6 @@ export const Login = styled(NavLink)`
   display: inline;
   color: rgba(255, 255, 255, 0.3);
   font-size: 18px;
-  font-family: 'Poppins';
   font-weight: 500;
   letter-spacing: -0.36px;
   text-decoration: none;
@@ -80,14 +78,12 @@ export const FormFields = styled.label`
   gap: 14px;
   flex-direction: column;
   font-size: 14px;
-  font-family: Poppins;
   font-style: normal;
   font-weight: 400;
 `;
 
 export const Field = styled(FormicField)`
   font-size: 14px;
-  font-family: 'Poppins';
   letter-spacing: -0.28px;
 
   width: 287px;
@@ -113,7 +109,6 @@ export const BtnPosition = styled.div`
 
 export const Button = styled.button`
   font-size: 14px;
-  font-family: 'Poppins';
   font-weight: 500;
   letter-spacing: -0.28px;
 

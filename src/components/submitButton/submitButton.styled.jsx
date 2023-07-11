@@ -11,7 +11,6 @@ export const SubmitBtn = styled.button`
   background: ${props => props.bg};
   color: ${props => props.color};
   font-size: 14px;
-  font-family: Poppins;
   font-weight: 500;
   letter-spacing: -0.28px;
   cursor: pointer;

@@ -23,12 +23,6 @@ import {
     SubmitButton
 } from "./addCardForm.styled";
 
-// const initialValues = {
-//   title: "",
-//   description: "",
-//   priority: "without",
-// };
-
 export const EditCardForm = ({ id, onClose, parentColumn, title,description,priority,old_deadline }) => {
 
 const [deadline, setDeadline] = useState(
@@ -99,13 +93,27 @@ return(
                   name="title"
                   placeholder="Title"
                   />
-                  <ErrorMessage name="title"/>
+                  <ErrorMessage 
+                  name="title"
+                  component="div"
+                  style={{
+                    color: 'red',
+                    fontSize: 14,
+                  }}
+                  />
               <InputDescription 
                   type='text' 
                   name="description"
                   placeholder="Description"
                   as="textarea"/>
-                  <ErrorMessage name="description"/>
+                  <ErrorMessage 
+                  name="description"
+                  component="div"
+                  style={{
+                    color: 'red',
+                    fontSize: 14,
+                  }}
+                  />
                   <TitleStatus id="taskStatusGroup">Label color</TitleStatus>
                   <BlockStatus role="group" aria-labelledby="taskStatusGroup">
                         <label style={{ '--color': '#8FA1D0' }}>

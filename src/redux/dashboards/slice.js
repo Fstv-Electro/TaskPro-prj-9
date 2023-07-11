@@ -18,15 +18,6 @@ import {
 } from './operations';
 import { statusFilters } from './constants';
 
-// const handlePending = state => {
-//   state.isLoading = true;
-// };
-
-// const handleRejected = (state, action) => {
-//   state.isLoading = false;
-//   state.error = action.payload;
-// };
-
 const initialState = {
   boards: [],
   currentBoard: '',
@@ -177,6 +168,8 @@ const taskSlice = createSlice({
         board => board._id === action.payload
       );
       state.boards.splice(index, 1);
+      state.lists = [];
+      state.cards = [];
     },
     [needHelp.pending](state) {
       state.error = false;

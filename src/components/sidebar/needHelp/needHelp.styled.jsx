@@ -7,22 +7,24 @@ export const Container = styled.div`
   margin-right: 24px;
   border-radius: 8px;
   background: var(--sidebar-second-bg-color);
-    
-    @media (min-width: 768px) {
-      max-width: 212px;
-    }
+
+  @media (min-width: 768px) {
+    max-width: 212px;
+  }
 `;
 
 export const Text = styled.p`
+  width: 168px;
   color: var(--bord-list-color);
   font-size: 12px;
-  font-family: 'Poppins';
-  line-height: 20px;
+  line-height: 1.67;
+  letter-spacing: -0.28px;
   margin-bottom: 15px;
-    
-    @media (min-width: 768px) {
-      font-size: 14px;
-    }
+
+  @media (min-width: 768px) {
+    width: 172px;
+    font-size: 14px;
+  }
 `;
 
 export const Span = styled.span`
@@ -40,19 +42,16 @@ export const Button = styled.button`
   background: var(--sidebar-second-bg-color);
   cursor: pointer;
 
-      :hover {
-        color: var(--button-bg-color);
-        svg {
-          --color1: var(--button-bg-color);
-        }
-        
-      }
-    
-  @media (min-width: 768px) {
-      font-size: 14px;
+  :hover {
+    color: var(--button-bg-color);
+    svg {
+      --color1: var(--button-bg-color);
     }
+  }
 
-    
+  @media (min-width: 768px) {
+    font-size: 14px;
+  }
 `;
 export const Image = styled.img`
   width: 54px;
@@ -61,7 +60,6 @@ export const Image = styled.img`
 `;
 export const TextButton = styled.span`
   margin-left: 8px;
-  
 `;
 
 export const Svg = styled.svg`

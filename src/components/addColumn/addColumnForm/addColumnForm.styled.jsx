@@ -25,7 +25,6 @@ export const Field = styled(FormicField)`
   opacity: 0.5;
 
   font-size: 14px;
-  font-family: Poppins;
   letter-spacing: -0.28px;
   &:focus {
     outline: var(--button-bg-color);
@@ -38,7 +37,7 @@ export const Form = styled(FormicForm)`
   display: flex;
   flex-direction: column;
   gap: 24px;
-  width: 100%; /* Задаємо початкову ширину 287px */
+  width: 100%;
 
   @media (min-width: 375px) and (max-width: 768px) {
     width: 287px;
@@ -53,7 +52,6 @@ export const Title = styled.h2`
   margin-bottom: 24px;
 
   font-size: 18px;
-  font-family: Poppins;
   font-weight: 500;
   letter-spacing: -0.36px;
 `;

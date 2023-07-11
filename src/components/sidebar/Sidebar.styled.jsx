@@ -35,7 +35,6 @@ export const WrapperTitle = styled.div`
 
 export const Title = styled.h2`
   font-size: 16px;
-  font-family: Poppins;
   font-weight: 600;
   letter-spacing: -0.64px;
 `;

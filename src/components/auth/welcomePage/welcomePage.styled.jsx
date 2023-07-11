@@ -47,7 +47,6 @@ export const TitleContainer = styled.div`
 export const Title = styled.h1`
   color: #161616;
   font-size: 28px;
-  font-family: 'Poppins';
   font-weight: 600;
   letter-spacing: -1.12px;
   margin: 0;
@@ -64,12 +63,14 @@ export const Icon = styled.svg`
 `;
 
 export const Text = styled.p`
+  display: flex;
+  flex-direction: column;
+  flex-shrink: 0;
   width: 335px;
   text-align: center;
   font-size: 14px;
-  font-family: 'Poppins';
   line-height: 18px;
-  letter-spacing: 1.28;
+  letter-spacing: -0.28px;
   margin-top: 0;
   margin-bottom: 48px;
 
@@ -81,9 +82,8 @@ export const Text = styled.p`
 export const ButtonRegistered = styled(NavLink)`
   text-align: center;
   font-size: 14px;
-  font-family: 'Poppins';
   font-weight: 500;
-  letter-spacing: 1.28;
+  letter-spacing: -0.28px;
   color: white;
   text-decoration: none;
   margin-bottom: 14px;
@@ -98,9 +98,8 @@ export const ButtonRegistered = styled(NavLink)`
 export const ButtonLogIn = styled(NavLink)`
   text-align: center;
   font-size: 14px;
-  font-family: 'Poppins';
   font-weight: 500;
-  letter-spacing: 1.28;
+  letter-spacing: -0.28px;
   text-decoration: none;
   color: black;
 

@@ -26,7 +26,6 @@ export const Container = styled.div`
 
 export const Title = styled.p`
   font-size: 14px;
-  font-family: Poppins;
   font-weight: 500;
   letter-spacing: -0.28px;
 `;

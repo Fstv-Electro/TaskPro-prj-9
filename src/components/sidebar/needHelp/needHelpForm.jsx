@@ -5,6 +5,7 @@ import { Formik, ErrorMessage } from 'formik';
 import { Title, Field, Form, Textarea } from './needHelpForm.styled';
 import { ButtonClose } from 'components/modalBtnClose/ButtonClose';
 import * as Yup from 'yup';
+import Notiflix from "notiflix";
 
 const helpSchema = Yup.object().shape({
   email: Yup.string()
@@ -24,9 +25,9 @@ export const NeedHelpForm = ({onClose}) => {
     const dispatch = useDispatch();
 
     function handleSubmit(value) {
-        console.log(value);
         const { email, text } = value;
-        dispatch(needHelp({email, text}))
+      dispatch(needHelp({ email, text }))
+      Notiflix.Notify.info('Thank you for your request, we will answer you as soon as possible.')
         onClose()
       }
     return (

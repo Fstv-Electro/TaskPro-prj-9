@@ -7,11 +7,9 @@ import { PrivateRout } from './routs/privateRout';
 import { refreshUser } from 'redux/auth/operations';
 import { useAuth } from 'hooks';
 import GlobalStyles from './GlobalStyles';
-import { useEffect, lazy } from 'react';
+import { useEffect } from 'react';
 import ScreenPage from '../pages/ScreenPage';
-
-const Home = lazy(() => import('../pages/homePage'));
-// const Screen = lazy(() => import('../pages/ScreenPage'));
+import Home from 'pages/homePage';
 
 export const App = () => {
   const dispatch = useDispatch();

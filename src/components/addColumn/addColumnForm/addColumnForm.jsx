@@ -2,6 +2,7 @@ import React from 'react';
 import { Formik } from 'formik';
 import { Modal } from '../../modal/modal';
 import { ButtonClose } from 'components/modalBtnClose/ButtonClose';
+import * as yup from 'yup'
 import {
   Form,
   FormField,
@@ -21,14 +22,6 @@ export const AddColumnForm = ({ id, onClose }) => {
   const dispatch = useDispatch();
 
   const handleSubmit = (values, actions) => {
-    // const formData = new FormData();
-    // formData.append('parentBoard', id);
-    // formData.append('title', values.title);
-
-    // for (let [key, value] of formData.entries()) {
-    //   console.log(key, value);
-    // }
-    // dispatch(addColumn(formData));
     actions.resetForm();
     dispatch(
       addColumn({
@@ -36,22 +29,12 @@ export const AddColumnForm = ({ id, onClose }) => {
         ...values,
       })
     );
-    console.log({
-      parentBoard: id,
-      ...values,
-    });
     onClose();
   };
 
-  const validateForm = values => {
-    const errors = {};
-
-    if (!values.title) {
-      errors.title = 'Field must not be empty';
-    }
-
-    return errors;
-  };
+const validateSchema = yup.object().shape({
+  title: yup.string().required(),
+});
 
   return (
     <Modal onClose={onClose}>
@@ -61,12 +44,19 @@ export const AddColumnForm = ({ id, onClose }) => {
       <Formik
         initialValues={initialValues}
         onSubmit={handleSubmit}
-        validate={validateForm}
+        validationSchema={validateSchema}
       >
         <Form autoComplete="off">
           <FormField htmlFor="title">
             <Field type="text" name="title" placeholder="Title" />
-            <ErrorMessage name="title" component="span" />
+            <ErrorMessage 
+            name="title" 
+            component="span"
+            style={{
+              color: 'red',
+              fontSize: 14,
+            }}
+            />
           </FormField>
           <SubmitButton
             title="Add"
