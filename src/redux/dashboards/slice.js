@@ -226,7 +226,8 @@ const taskSlice = createSlice({
         board._id === updatedBoard._id ? updatedBoard : board
       );
       state.boards = newBoards;
-      state.lists.push(action.payload);
+      const newColumn = { ...action.payload, tasks: [] };
+      state.lists.push(newColumn);
     },
     [addColumn.rejected](state) {
       state.isLoading = false;
