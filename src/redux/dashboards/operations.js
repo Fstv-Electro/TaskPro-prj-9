@@ -71,8 +71,6 @@ export const deleteBoard = createAsyncThunk(
   }
 );
 
-
-
 export const backgroundUrl = createAsyncThunk(
   'backgrounds',
   async (_, thunkAPI) => {
@@ -145,7 +143,6 @@ export const deleteColumn = createAsyncThunk(
       const response = await axios.delete(`/api/columns/${id}`);
       if (response.status === 204) {
         Notiflix.Notify.success(`Column deleted successfully!`);
-        console.log('Response:', id);
         return id;
       }
     } catch (error) {
@@ -168,11 +165,9 @@ export const addTask = createAsyncThunk(
   }
 );
 
-
-
 export const editTask = createAsyncThunk(
   'tasks/editTask',
-  async ({id, values}, thunkAPI) => {
+  async ({ id, values }, thunkAPI) => {
     try {
       const response = await axios.put(`/api/tasks/${id}`, values);
       Notiflix.Notify.success('Task corrected!');
@@ -198,10 +193,6 @@ export const deleteTask = createAsyncThunk(
     }
   }
 );
-
-
-
-
 
 export const shiftTask = createAsyncThunk(
   'tasks/shiftTask',
@@ -240,3 +231,42 @@ export const changeBackground = createAsyncThunk(
   }
 );
 
+export const updateColumnOrder = createAsyncThunk(
+  'boards/updateColumnOrder',
+  async ({ boardId, newColumnOrder }, thunkAPI) => {
+    try {
+      await axios.patch(`/api/boards/columnorder/${boardId}`, {
+        columnOrder: newColumnOrder,
+      });
+    } catch (error) {
+      return thunkAPI.rejectWithValue(error.message);
+    }
+  }
+);
+
+export const updateTaskOrder = createAsyncThunk(
+  'columns/updateTaskOrder',
+  async ({ columnId, newTaskOrder }, thunkAPI) => {
+    try {
+      await axios.patch(`/api/columns/taskorder/${columnId}`, {
+        taskOrder: newTaskOrder,
+      });
+    } catch (error) {
+      return thunkAPI.rejectWithValue(error.message);
+    }
+  }
+);
+
+export const moveTaskToColumn = createAsyncThunk(
+  'tasks/moveTaskToColumn',
+  async ({ taskId, columnSourceOrder, columnDestinationOrder }, thunkAPI) => {
+    try {
+      await axios.patch(`/api/tasks/movetask/${taskId}`, {
+        columnSourceOrder,
+        columnDestinationOrder,
+      });
+    } catch (error) {
+      return thunkAPI.rejectWithValue(error.message);
+    }
+  }
+);

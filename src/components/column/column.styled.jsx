@@ -1,5 +1,13 @@
 import styled from '@emotion/styled';
 
+export const Item = styled.li`
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  gap: 14px;
+  flex-grow: 1;
+`;
+
 export const Container = styled.div`
   display: flex;
   justify-content: space-between;

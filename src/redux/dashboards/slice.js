@@ -50,6 +50,69 @@ const taskSlice = createSlice({
         return state.cards.push(task);
       });
     },
+    updateColumnOrderState(state, action) {
+      const { boardId, newColumnOrder } = action.payload;
+      const updatedBoard = state.boards.find(board => board._id === boardId);
+      updatedBoard.columnOrder = newColumnOrder;
+      const newBoards = state.boards.map(board =>
+        board._id === boardId ? updatedBoard : board
+      );
+      state.boards = newBoards;
+    },
+    updateTaskOrderState(state, action) {
+      const { columnId, newTaskOrder } = action.payload;
+      const updatedLists = state.lists.find(list => list._id === columnId);
+      updatedLists.taskOrder = newTaskOrder;
+      const newLists = state.lists.map(list =>
+        list._id === columnId ? updatedLists : list
+      );
+      state.lists = newLists;
+    },
+    moveTaskToColumnState(state, action) {
+      const {
+        movedTask,
+        startTaskOrder,
+        finishTaskOrder,
+        columnSource,
+        columnDestination,
+      } = action.payload;
+
+      const destinitionColumn = state.lists.find(
+        column => column._id === columnDestination
+      );
+      const finishTasks = [...destinitionColumn.tasks, movedTask];
+      const finishColumn = {
+        ...destinitionColumn,
+        taskOrder: finishTaskOrder,
+        tasks: finishTasks,
+      };
+
+      const sourceColumn = state.lists.find(
+        column => column._id === columnSource
+      );
+      const startTasks = sourceColumn.tasks.filter(
+        task => task._id !== movedTask._id
+      );
+      const startColumn = {
+        ...sourceColumn,
+        taskOrder: startTaskOrder,
+        tasks: startTasks,
+      };
+
+      const newLists = state.lists.map(list => {
+        if (list._id === columnDestination) return finishColumn;
+        if (list._id === columnSource) return startColumn;
+        return list;
+      });
+
+      state.lists = newLists;
+
+      const newCards = state.cards.map(card =>
+        card._id === movedTask._id ? movedTask : card
+      );
+
+      state.cards = newCards;
+    },
   },
   extraReducers: {
     [fetchBoards.pending](state) {
@@ -156,6 +219,13 @@ const taskSlice = createSlice({
     [addColumn.fulfilled](state, action) {
       state.isLoading = false;
       state.error = null;
+      const boardId = action.payload.parentBoard;
+      const updatedBoard = state.boards.find(board => board._id === boardId);
+      updatedBoard.columnOrder.push(action.payload._id);
+      const newBoards = state.boards.map(board =>
+        board._id === updatedBoard._id ? updatedBoard : board
+      );
+      state.boards = newBoards;
       state.lists.push(action.payload);
     },
     [addColumn.rejected](state) {
@@ -185,6 +255,17 @@ const taskSlice = createSlice({
     [deleteColumn.fulfilled](state, action) {
       state.isLoading = false;
       state.error = null;
+      const updatedBoard = state.boards.find(board =>
+        board.columnOrder.find(order => order === action.payload)
+      );
+      const newColumnOrder = updatedBoard.columnOrder.filter(
+        order => order !== action.payload
+      );
+      updatedBoard.columnOrder = newColumnOrder;
+      const newBoards = state.boards.map(board =>
+        board._id === updatedBoard._id ? updatedBoard : board
+      );
+      state.boards = newBoards;
       const updatedLists = state.lists.filter(
         column => String(column._id) !== String(action.payload)
       );
@@ -194,13 +275,27 @@ const taskSlice = createSlice({
       state.isLoading = false;
       state.error = true;
     },
-    [addTask.pending](state, action) {
+    [addTask.pending](state) {
       state.isLoading = true;
       state.error = false;
+    },
+    [addTask.rejected](state) {
+      state.isLoading = false;
+      state.error = true;
     },
     [addTask.fulfilled](state, action) {
       state.isLoading = false;
       state.error = null;
+      const { parentColumn, _id } = action.payload;
+      const updatedColumn = state.lists.filter(
+        column => column._id === parentColumn
+      )[0];
+      updatedColumn.taskOrder.push(_id);
+      updatedColumn.tasks.push(action.payload);
+      const newLists = state.lists.map(list =>
+        list._id === parentColumn ? updatedColumn : list
+      );
+      state.lists = newLists;
       state.cards.push(action.payload);
     },
     [editTask.pending](state) {
@@ -226,6 +321,16 @@ const taskSlice = createSlice({
     [deleteTask.fulfilled](state, action) {
       state.isLoading = false;
       state.error = null;
+
+      const updatedColumn = state.lists.find(column =>
+        column.taskOrder.includes(action.payload)
+      );
+      updatedColumn.taskOrder.filter(order => order !== action.payload);
+      const newLists = state.lists.map(column =>
+        column._id === updatedColumn._id ? updatedColumn : column
+      );
+      state.lists = newLists;
+
       const updatedCards = state.cards.filter(
         card => String(card._id) !== String(action.payload)
       );
@@ -277,5 +382,12 @@ const taskSlice = createSlice({
 });
 
 export const taskReducer = taskSlice.reducer;
-export const { changeBg, changeCurrentBoard, setFilterCards, getCards } =
-  taskSlice.actions;
+export const {
+  changeBg,
+  changeCurrentBoard,
+  setFilterCards,
+  getCards,
+  updateColumnOrderState,
+  updateTaskOrderState,
+  moveTaskToColumnState,
+} = taskSlice.actions;

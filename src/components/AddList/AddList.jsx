@@ -1,4 +1,4 @@
-import { ListItem } from 'components/listItem/listItem';
+import { Task } from 'components/task/task';
 import { useSelector } from 'react-redux';
 import { selectVisibleCards } from 'redux/dashboards/selectors';
 
@@ -14,15 +14,15 @@ const AddList = ({ columnId }) => {
   }
 
   return (
-    <Scroll width='calc(100% + 16px)' height='-1%'>
+    <Scroll width="calc(100% + 16px)" height="-1%">
       <ul>
         {filteredList.map(card => (
           <li key={card._id}>
-            <ListItem card={card} />
+            <Task card={card} />
           </li>
         ))}
       </ul>
-    </Scroll >
+    </Scroll>
   );
 };
 
