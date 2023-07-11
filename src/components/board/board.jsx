@@ -53,8 +53,9 @@ export const Board = () => {
     if (
       destination.droppableId === source.droppableId &&
       destination.index === source.index
-    )
+    ) {
       return;
+    }
 
     // if columns moved
     if (type === 'column') {
