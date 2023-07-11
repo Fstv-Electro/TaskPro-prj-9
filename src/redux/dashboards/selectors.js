@@ -29,8 +29,6 @@ export const selectVisibleCards = state => {
   const tasks = selectCard(state);
   const statusFilter = selectFilteredCards(state);
 
-  //   console.log(tasks);
-
   switch (statusFilter) {
     case statusFilters.low:
       return tasks.filter(task => task.priority === 'low');

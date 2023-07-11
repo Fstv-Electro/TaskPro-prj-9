@@ -24,7 +24,7 @@ export const Column = ({ column, tasks, index, handleClick }) => {
   const toggleModal = () => {
     setIsOpen(isOpen => !isOpen);
   };
-  // console.log(column);
+
   return (
     <Draggable draggableId={column._id} index={index}>
       {provided => (

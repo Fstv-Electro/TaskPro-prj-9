@@ -7,7 +7,6 @@ Notiflix.Notify.init({
 });
 
 axios.defaults.baseURL = 'https://task-pro-backend.onrender.com';
-// axios.defaults.baseURL = 'http://localhost:3001';
 
 export const fetchBoards = createAsyncThunk(
   'user/boards',
@@ -144,7 +143,6 @@ export const deleteColumn = createAsyncThunk(
       const response = await axios.delete(`/api/columns/${id}`);
       if (response.status === 204) {
         Notiflix.Notify.success(`Column deleted successfully!`);
-        console.log('Response:', id);
         return id;
       }
     } catch (error) {
@@ -263,12 +261,10 @@ export const moveTaskToColumn = createAsyncThunk(
   'tasks/moveTaskToColumn',
   async ({ taskId, columnSourceOrder, columnDestinationOrder }, thunkAPI) => {
     try {
-      const response = await axios.patch(`/api/tasks/movetask/${taskId}`, {
+      await axios.patch(`/api/tasks/movetask/${taskId}`, {
         columnSourceOrder,
         columnDestinationOrder,
       });
-      // console.log(response.data);
-      return response.data;
     } catch (error) {
       return thunkAPI.rejectWithValue(error.message);
     }
