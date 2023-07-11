@@ -48,7 +48,9 @@ export const Board = () => {
     const { destination, source, draggableId, type } = result;
 
     // if nothing change
-    if (!destination) return;
+    if (!destination) {
+      return;
+    }
 
     if (
       destination.droppableId === source.droppableId &&
