@@ -35,3 +35,6 @@ export const selectVisibleCards = state => {
       return tasks;
   }
 };
+
+export const selectCurrentBoardData = state =>
+  state.task.boards.find(board => board._id === state.task.currentBoard);

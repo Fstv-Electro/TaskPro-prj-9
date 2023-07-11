@@ -5,7 +5,7 @@ export const SubmitBtn = styled.button`
   justify-content: center;
   align-items: center;
   width: 100%;
-  height: ${props => `${props.height}px`};
+  min-height: ${props => `${props.height}px`};
   border: 0;
   border-radius: 8px;
   background: ${props => props.bg};
