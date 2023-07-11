@@ -25,7 +25,7 @@ export const EditBoard = ({ desk, onClose }) => {
     setIcon(icon);
   };
   const getBg = currentBg => {
-    dispatch(changeBackground({ id: desk.desk._id, currentBg: currentBg }));
+    
     setCurrentBg(currentBg);
   };
 
@@ -33,6 +33,7 @@ export const EditBoard = ({ desk, onClose }) => {
     if (!query) {
       Notiflix.Notify.failure('Something got wrong');
     } else {
+      dispatch(changeBackground({ id: desk.desk._id, currentBg: currentBg }));
       dispatch(
         editBoard({
           title: query.name,
