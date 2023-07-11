@@ -115,6 +115,7 @@ export const addColumn = createAsyncThunk(
     try {
       const response = await axios.post('/api/columns', { parentBoard, title });
       Notiflix.Notify.success('Column created!');
+      console.log(response.data);
       return response.data;
     } catch (e) {
       Notiflix.Notify.failure('Something going wrong!');

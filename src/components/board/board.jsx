@@ -85,6 +85,7 @@ export const Board = () => {
     }
 
     // Moving from one list to another
+    console.log('first');
     const startTaskOrder = Array.from(start.taskOrder);
 
     startTaskOrder.splice(source.index, 1);
@@ -149,7 +150,7 @@ export const Board = () => {
     if (lists?.find(n => n.parentBoard !== currentBoard._id)) result = false;
     return result;
   };
-
+  console.log(lists);
   return (
     <>
       {shouldRender() && (

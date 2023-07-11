@@ -1,1 +1,4 @@
-Delete after
+1. Droppable: unsupported nested scroll container detected.
+2. Перемещении в пустую колонку не работает
+// 3. При создании новой колонки, не работает добавление таска. DONE!
+4. Перемезение кнопкой
