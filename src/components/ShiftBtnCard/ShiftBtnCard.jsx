@@ -1,8 +1,8 @@
 import { useState } from 'react';
-
 import { useDispatch, useSelector } from 'react-redux';
 import { selectList, selectCard } from 'redux/dashboards/selectors';
-import { shiftTask } from 'redux/dashboards/operations';
+import { moveTaskToColumn } from 'redux/dashboards/operations';
+import { moveTaskToColumnState } from 'redux/dashboards/slice';
 import sprite from '../../images/symbol-defs.svg';
 import {
   Btn,
@@ -25,12 +25,36 @@ const ShiftBtnCard = ({ id, parentColumn }) => {
 
   const handleColumnChange = e => {
     const nextColumnId = e.target.dataset.id;
-    const currCard = cards.filter(item => item._id === id);
+    const columnSource = lists.filter(column => column._id === parentColumn)[0];
+    const columnDestination = lists.filter(
+      column => column._id === nextColumnId
+    )[0];
+    const task = cards.filter(item => item._id === id)[0];
+    const movedTask = { ...task, parentColumn: columnDestination._id };
+    const startTaskOrder = [...columnSource.taskOrder].filter(n => n !== id);
+    const finishTaskOrder = [...columnDestination.taskOrder, id];
+    const columnSourceOrder = {
+      [parentColumn]: startTaskOrder,
+    };
+    const columnDestinationOrder = {
+      [nextColumnId]: finishTaskOrder,
+    };
+
     dispatch(
-      shiftTask({
-        prevCardId: id,
-        card: currCard[0],
-        newColumnId: nextColumnId,
+      moveTaskToColumn({
+        taskId: id,
+        columnSourceOrder,
+        columnDestinationOrder,
+      })
+    );
+
+    dispatch(
+      moveTaskToColumnState({
+        movedTask,
+        startTaskOrder,
+        finishTaskOrder,
+        columnSource: columnSource._id,
+        columnDestination: columnDestination._id,
       })
     );
     handleDropdownClick();

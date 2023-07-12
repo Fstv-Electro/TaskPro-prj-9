@@ -85,7 +85,7 @@ export const Board = () => {
     }
 
     // Moving from one list to another
-  
+
     const startTaskOrder = Array.from(start.taskOrder);
 
     startTaskOrder.splice(source.index, 1);
@@ -124,6 +124,7 @@ export const Board = () => {
         columnDestinationOrder,
       })
     );
+
     dispatch(
       moveTaskToColumnState({
         movedTask,
@@ -150,7 +151,7 @@ export const Board = () => {
     if (lists?.find(n => n.parentBoard !== currentBoard._id)) result = false;
     return result;
   };
- 
+
   return (
     <>
       {shouldRender() && (
@@ -192,6 +193,7 @@ export const Board = () => {
           </Droppable>
         </DragDropContext>
       )}
+
       <AddColumn
         boardId={currentBoard._id}
         numberOfColumns={Number(lists.length)}
