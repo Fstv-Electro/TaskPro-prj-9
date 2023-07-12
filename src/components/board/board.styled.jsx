@@ -6,7 +6,6 @@ export const Container = styled.div`
   flex-wrap: nowrap;
   gap: 34px;
   height: 100%;
-  /* overflow-x: scroll; */
   padding-right: 24px;
   padding-bottom: 16px;
 `;
