@@ -7,7 +7,7 @@ import * as yup from 'yup';
 import { ButtonClose } from '../../modalBtnClose/ButtonClose';
 import { Background } from '../../background/Background';
 import { useDispatch } from 'react-redux';
-import { editBoard } from '../../../redux/dashboards/operations';
+import { editBoard, changeBackground } from '../../../redux/dashboards/operations';
 import Notiflix from 'notiflix';
 
 const schema = yup.object().shape({
@@ -21,9 +21,11 @@ export const EditBoard = ({ desk, onClose }) => {
   const dispatch = useDispatch();
 
   const getIcon = icon => {
+
     setIcon(icon);
   };
   const getBg = currentBg => {
+    
     setCurrentBg(currentBg);
   };
 
@@ -31,6 +33,7 @@ export const EditBoard = ({ desk, onClose }) => {
     if (!query) {
       Notiflix.Notify.failure('Something got wrong');
     } else {
+      dispatch(changeBackground({ id: desk.desk._id, currentBg: currentBg }));
       dispatch(
         editBoard({
           title: query.name,

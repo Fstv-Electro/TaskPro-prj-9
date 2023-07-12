@@ -41,6 +41,7 @@ export const NavItem = styled(NavLink)`
   &:not(.active):hover {
     border-bottom: 1px solid var(--sidebar-bg-icon-logout-color);
     margin-bottom: -1px;
+    &button:disabled
     div {
       opacity: 1;
     }
