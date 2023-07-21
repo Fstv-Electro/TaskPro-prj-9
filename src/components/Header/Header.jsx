@@ -12,6 +12,7 @@ import {
   ItemBtn,
 } from './Header.styled';
 import { UserInfo } from './UserInfo/UserInfo';
+import { AddUser } from './AddUser/AddUser';
 import sprite from '../../images/symbol-defs.svg';
 
 export const Header = () => {
@@ -40,6 +41,7 @@ export const Header = () => {
   return (
     
     <HeaderStyled>
+      <AddUser />
       <ThemeContainer>
         <ThemeSelect onClick={handleDropdownClick}>
           <P> Theme </P>
